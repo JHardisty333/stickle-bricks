@@ -3,11 +3,12 @@ const axios = require('axios');
 const OAuth =require('oauth');
 const items = require('../../utils/items.json');
 const fs = require('fs');
+const { SSL_OP_DONT_INSERT_EMPTY_FRAGMENTS } = require('constants');
 
 let itemsArray = items;
+const image = [];
 
 router.get('/images', (req, res) => {
-    let itemType;
     const oauth = new OAuth.OAuth(
         '',
         '',
@@ -19,7 +20,8 @@ router.get('/images', (req, res) => {
     );
     let obj;
     for (let i = 0; i < items.length; i++) {
-        console.log(i);
+        console.log(i)
+        let itemType;
         switch (items[i].ITEMTYPE) {
             case 'P':
                 itemType = "PART";
@@ -49,16 +51,16 @@ router.get('/images', (req, res) => {
                 itemType = "ORIGINAL_BOX";
                 break;
         }
-        oauth.get(`https://api.bricklink.com/api/store/v1/items/${itemType}/${items[i].ITEMID}`, 
-        'E027EE7A5E224096881DB12161248CB5', 
-        'ED294BAB69D44A83A3EAB65287D12B73', 
-        (error, data) => {
-            if (error) console.log(error);
-            obj = JSON.parse(data);
-            itemsArray[i].IMAGE = obj.data.image_url;
-        });
+        //aka fetch but with oath
+        oauth.get(`https://api.bricklink.com/api/store/v1/items/${itemType}/${items[i].ITEMID}`,
+            'E027EE7A5E224096881DB12161248CB5',
+            'ED294BAB69D44A83A3EAB65287D12B73',
+            (error, data) => {
+                if (error) console.log(error);
+                obj = JSON.parse(data);
+                image.push(obj.data.image_url);
+            });
     }
-    res.json(itemsArray);
 });
 
 
