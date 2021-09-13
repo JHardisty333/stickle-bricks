@@ -55,7 +55,7 @@ router.get('/images', (req, res) => {
         (error, data) => {
             if (error) console.log(error);
             obj = JSON.parse(data);
-            itemsArray.items[i].IMAGE = obj.data.image_url
+            itemsArray.items[i].DESCRIPTION = obj.data.name
             i++;
             let json = JSON.stringify(itemsArray);
             fs.writeFile('./utils/items.json', json, (err) => {
