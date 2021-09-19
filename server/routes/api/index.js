@@ -1,7 +1,5 @@
 const router = require('express').Router();
-const testRoutes = require('./test');
 
-
-router.use('/test', testRoutes);
+//add route files via router.use('/NAME', nameRoutes);
 
 module.exports = router;
