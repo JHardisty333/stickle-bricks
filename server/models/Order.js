@@ -39,7 +39,12 @@ const orderSchema = new Schema(
             match: [/.+@.+\..+/, 'Must use a valid email address'],
         },
         shipped: {
-            type: Boolean
+            type: Boolean,
+            default: false
+        },
+        complete: {
+            type: Boolean,
+            default: false
         }
     },
     {
