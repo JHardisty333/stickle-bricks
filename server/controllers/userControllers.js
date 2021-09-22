@@ -1,9 +1,12 @@
 const { User, Order } = require('../models');
+const { signToken } = require('../utils/auth');
 
 const userController = {
     // find all users => for future of adding more admin
     getAllUsers(req, res) {
         User.find({})
+        .populate('Orders')
+        .select('-__v, -password')
             .then(dbUserData => res.json(dbUserData))
             .catch(err => {
                 console.log(err);
@@ -11,11 +14,14 @@ const userController = {
             });
     },
 
-    // Find by single user
-    getUserById({ params }, res) {
+    // Find by single user / login
+    userLogin({ params }, res) {
         User.findOne({ _id: params.id })
-            .select('__v')
-            .then(dbUserData => res.json(dbUserData))
+            .select('-__v, -password')
+            .then(dbUserData => {
+                const token = signToken(dbUserData);
+                res.json(dbUserData, token)
+            })
             .catch(err => {
                 console.log(err);
                 res.sendStatus(400);
@@ -25,7 +31,10 @@ const userController = {
     // Create new user
     createUser({ body }, res) {
         User.create(body)
-            .then(dbUserData => res.json(dbUserData))
+            .then(dbUserData => {
+                const token = signToken(dbUserData);
+                res.json(dbUserData, token)
+            })
             .catch(err => res.json(err));
     },
 
@@ -38,12 +47,15 @@ const userController = {
                 password: body.password
             },
             { new: true, runValidators: true })
+            .select('-__v, -password')  
             .then(dbUserData => {
                 if (!dbUserData) {
                     res.status(404).json({ message: 'No user found with this id!' });
                     return;
+
                 }
-                res.json(dbUserData);
+                const token = signToken(dbUserData);
+                res.json(dbUserData, token);
             })
             .catch(err => {
                 console.log(err);
@@ -88,7 +100,6 @@ const userController = {
                     name: userData.name,
                     address: body.address,
                     email: userData.email,
-
                 })
                     .then(orderData => {
                         User.findOneAndUpdate(
@@ -98,11 +109,8 @@ const userController = {
                             .catch(err => res.json(err))
                     })
                     .catch(err => res.json(err))
-
             })
-            .catch(err => res.json(err))
-
-
+            .catch(err => res.json(err));
     }
 
 }

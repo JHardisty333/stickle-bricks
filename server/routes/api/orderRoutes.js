@@ -1,8 +1,20 @@
 const router = require('express').Router();
-const { User, Order, } = require('../../models');
-const {} = require('../../controllers/orderControllers');
+const { verifyTokenAdmin } = require('../../')
 
-router.route('/')
-.get();
+const {
+    guestAddOrder,
+    orderStatusShipped,
+    orderStatus
+
+} = require('../../controllers/orderControllers');
+
+router.route('/guest')
+.post(guestAddOrder);
+
+router.route('/admin/shipping')
+.put(verifyTokenAdmin, orderStatusShipped);
+
+router.route('/admin/orders')
+.get(verifyTokenAdmin, orderStatus);
 
 module.exports = router;
