@@ -21,7 +21,11 @@ const userSchema = new Schema(
             required: true,
         },
         cart: [Item],
-        orders: [Order]
+        orders: [Order],
+        admin: {
+            type: Boolean,
+            default: false
+        }
     },
     // set this to use virtual below
     {

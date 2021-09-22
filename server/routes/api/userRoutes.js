@@ -1,8 +1,9 @@
 const router = require('express').Router();
-const { User, Order } = require('../../models');
+const { verifyTokenAdmin, verifyToken } = require('../../')
+
 const {
     getAllUsers,
-    getUserById,
+    userLogin,
     createUser,
     updateUser,
     deleteUser,
@@ -11,16 +12,18 @@ const {
 } = require('../../controllers/userControllers');
 
 router.route('/')
-.get(getAllUsers)
+.get(verifyTokenAdmin, getAllUsers);
 
 router.route('/login')
-.post(getUserById);
+.post(userLogin);
 
 router.route('/signup')
 .post(createUser)
 
 router.route('/:id')
-.put(updateUser)
-.delete(deleteUser)
+.put(verifyToken, updateUser)
+.delete(verifyToken, deleteUser)
+.put(verifyToken, addToCart)
+.delete(verifyToken, removeFromCart)
 
 module.exports = router;
