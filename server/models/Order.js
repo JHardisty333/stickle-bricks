@@ -41,6 +41,11 @@ const orderSchema = new Schema(
         shipped: {
             type: Boolean
         }
+    },
+    {
+        toJSON: {
+            getters: true
+        }
     }
 );
 

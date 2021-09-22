@@ -12,6 +12,11 @@ const categorySchema = new Schema(
             required: true
         },
         product_name: [Item]
+    },
+    {
+        toJSON: {
+            getters: true
+        }
     }
 );
 

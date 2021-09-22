@@ -26,6 +26,11 @@ const itemSchema = new Schema(
             default: Date.now
         },
         categoryId: [Category]
+    },
+    {
+        toJSON: {
+            getters: true
+        }
     }
 );
 
