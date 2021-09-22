@@ -1,8 +1,14 @@
 const router = require('express').Router();
 const { Item } = require('../../models');
-const {} = require('../../controllers/itemControllers');
+const {
+    getAllItems,
+    getSingleItem
+} = require('../../controllers/itemControllers');
 
 router.route('/')
-.get();
+.get(getAllItems);
+
+router.route('/:id')
+.get(getSingleItem)
 
 module.exports = router;
