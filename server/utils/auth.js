@@ -63,6 +63,7 @@ module.exports = {
         } catch {
             res.status(401);
         }
+        next();
     }
 }
 //jwt is saved to local storage on client side
