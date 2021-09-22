@@ -30,7 +30,7 @@ const userController = {
     },
 
     // Update user by ID
-    updateUser({ params, body }, res) {
+    updateUser(authMiddleware,{ params, body }, res) {
         User.findOneAndUpdate(
             { _id: params.id },
             {
@@ -76,7 +76,7 @@ const userController = {
             .catch(err => res.json(err));
     },
 
-    // add order
+    // add order to logged in user. 
     addOrder({ params, body }, res) {
         User.findOne({ _id: params.id })
             .then(userData => {
@@ -100,6 +100,7 @@ const userController = {
                     .catch(err => res.json(err))
 
             })
+            .catch(err => res.json(err))
 
 
     }
