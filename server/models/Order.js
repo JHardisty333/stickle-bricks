@@ -1,23 +1,13 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
+const Item = require('./Item');
 
 // Figure out how to have a guest as default if not wanting to sign in with user info
 const orderSchema = new Schema(
     {
         userId: [User],
-        items: [{
-            productId: {
-                type: String,
-            },
-            name: String,
-            quantity: {
-                type: Number,
-                required: true,
-                min: [1, 'Quantity can not be less then 1.']
-            },
-            price: Number
-        }],
+        items: [Item],
         bill: {
-            type: Number,
+            type: Types.Decimal128,
             required: true
         },
         date_added: {
