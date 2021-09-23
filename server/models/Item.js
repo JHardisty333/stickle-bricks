@@ -45,6 +45,10 @@ const itemSchema = new Schema(
             type: Date,
             default: Date.now
         },
+        active: {
+            type: Boolean,
+            default: false
+        },
         categoryId: [{
             type: Schema.Types.ObjectId,
             ref: 'Category',

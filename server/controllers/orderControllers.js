@@ -2,13 +2,13 @@ const { User, Order } = require('../models');
 
 const orderController = {
 // add order for guest
-    guestAddOrder({params, body}, res) {
+    guestAddOrder(req, res) {
         Order.create({
-            items: cart,
-            bill: body.bill,
-            name: body.name,
-            address: body.address,
-            email: body.email,
+            items: req.body.cart,
+            bill: req.body.bill,
+            name: req.body.name,
+            address: req.body.address,
+            email: req.body.email,
 
         }).then(orderData => res.status(200).json({message: 'Order created successfully', data: orderData}))
             .catch(err => res.status(500).json(err));

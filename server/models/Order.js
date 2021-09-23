@@ -37,14 +37,15 @@ const orderSchema = new Schema(
             unique: true,
             match: [/.+@.+\..+/, 'Must use a valid email address'],
         },
-        shipped: {
+        userRequestingReturn: {
             type: Boolean,
             default: false
         },
-        complete: {
-            type: Boolean,
-            default: false
-        }
+        status: { //Received, Shipped, Completed, Cancelled, Returned
+            type: String,
+            default: 'Received',
+            required: true
+        } 
     }
 );
 
