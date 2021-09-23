@@ -1,6 +1,6 @@
 const { Schema, model, Types } = require('mongoose');
 const Item = require('./Item');
-const User = require('./User'); 
+const User = require('./User');
 
 // Figure out how to have a guest as default if not wanting to sign in with user info
 const orderSchema = new Schema(
@@ -8,9 +8,13 @@ const orderSchema = new Schema(
         userId: {
             type: Schema.Types.ObjectId,
             ref: 'User',
-            required: false
+            default: undefined
         },
-        items: [Item],
+        items: [{
+            type: Schema.Types.ObjectId,
+            ref: 'Item',
+            default: undefined
+        }],
         bill: {
             type: Types.Decimal128,
             required: true
@@ -41,9 +45,6 @@ const orderSchema = new Schema(
             type: Boolean,
             default: false
         }
-    },
-    {
-        // cd cd
     }
 );
 

@@ -11,19 +11,19 @@ const orderController = {
             email: body.email,
 
         }).then(orderData => res.status(200).json({message: 'Order created successfully', data: orderData}))
-            .catch(err => res.json(err));
+            .catch(err => res.status(500).json(err));
     },
     orderStatusShipped({params}, res) {
         Order.findOneAndUpdate({_id: body.order_id}, {shipped: true})
         .then(orderData => res.status(200).json(orderData))
-            .catch(err => res.json(err));
+            .catch(err => res.status(500).json(err));
     },
     //find all orders that are not complete,
     //find all order that are complete,
     orderStatus({params}, res) {
         Order.findAll({complete: params.complete})
-        .then(orderData => res.json(orderData))
-            .catch(err => res.json(err));
+            .then(orderData => res.status(200).json(orderData))
+            .catch(err => res.status(500).json(err));
     }
 
 }

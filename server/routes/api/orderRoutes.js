@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { verifyTokenAdmin } = require('../../')
+const { verifyTokenAdmin } = require('../../utils/auth')
 
 const {
     guestAddOrder,
