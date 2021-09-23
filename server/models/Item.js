@@ -45,7 +45,11 @@ const itemSchema = new Schema(
             type: Date,
             default: Date.now
         },
-        categoryId: [Category]
+        categoryId: [{
+            type: Schema.Types.ObjectId,
+            ref: 'Category',
+            default: undefined
+        }]
     },
     {
         toJSON: {

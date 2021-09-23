@@ -8,9 +8,13 @@ const orderSchema = new Schema(
         userId: {
             type: Schema.Types.ObjectId,
             ref: 'User',
-            required: false
+            default: undefined
         },
-        items: [Item],
+        items: [{
+            type: Schema.Types.ObjectId,
+            ref: 'Item',
+            default: undefined
+        }],
         bill: {
             type: Types.Decimal128,
             required: true
@@ -41,9 +45,6 @@ const orderSchema = new Schema(
             type: Boolean,
             default: false
         }
-    },
-    {
-        // cd cd
     }
 );
 

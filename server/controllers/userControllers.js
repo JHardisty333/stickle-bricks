@@ -30,7 +30,11 @@ const userController = {
 
     // Create new user
     createUser({ body }, res) {
-        User.create(body)
+        User.create({
+            name: body.name,
+            email: body.email,
+            password: body.password
+        })
             .then(dbUserData => {
                 const token = signToken(dbUserData);
                 res.json(dbUserData, token)

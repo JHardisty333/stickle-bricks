@@ -20,8 +20,16 @@ const userSchema = new Schema(
             type: String,
             required: true,
         },
-        cart: [Item],
-        orders: [Order],
+        cart: [{
+            type: Schema.Types.ObjectId,
+            ref: 'Item',
+            default: undefined
+        }],
+        orders: [{
+            type: Schema.Types.ObjectId,
+            ref: 'Order',
+            default: undefined
+        }],
         admin: {
             type: Boolean,
             default: false

@@ -2,12 +2,15 @@ const express = require('express');
 const path = require('path');
 const db = require('./config/connection');
 const { authMiddleware } = require('./utils/auth');
+const apiFolder = require('./routes')
 
 const PORT = process.env.PORT || 3001;
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(require('./routes'));
+
 
 
 // open react app during production build
