@@ -1,6 +1,6 @@
 const { Schema, model, Types } = require('mongoose');
 const Item = require('./Item');
-const User = require('./User'); 
+const User = require('./User');
 
 // Figure out how to have a guest as default if not wanting to sign in with user info
 const orderSchema = new Schema(

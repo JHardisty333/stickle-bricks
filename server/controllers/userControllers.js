@@ -5,50 +5,60 @@ const userController = {
     // find all users => for future of adding more admin
     getAllUsers(req, res) {
         User.find({})
-        .populate('Orders')
+        // .populate('Orders')
         .select('-__v, -password')
-            .then(dbUserData => res.json(dbUserData))
+            .then(dbUserData => res.status(200).json(dbUserData))
             .catch(err => {
                 console.log(err);
                 res.sendStatus(400);
             });
     },
 
-    // Find by single user / login
-    userLogin({ params }, res) {
-        User.findOne({ _id: params.id })
-            .select('-__v, -password')
-            .then(dbUserData => {
-                const token = signToken(dbUserData);
-                res.json(dbUserData, token)
+    // login with email and password
+    userLogin(req, res) {
+        User.findOne({ 
+            email: req.body.email
+         })
+            .select('-__v')
+            .then(async (dbUserData) => {
+                const passwordValid = await dbUserData.isCorrectPassword(req.body.password, dbUserData.password);
+                if (passwordValid) {
+                    const token = signToken(dbUserData);
+                    res.status(200).json(token);
+                } else {
+                    res.status(400).json({message: 'Incorrect password'})
+                }     
             })
             .catch(err => {
                 console.log(err);
-                res.sendStatus(400);
+                res.status(400);
             })
     },
 
     // Create new user
     createUser({ body }, res) {
-        User.create({
-            name: body.name,
-            email: body.email,
-            password: body.password
-        })
+        User.create(
+            [{
+                name: body.name,
+                email: body.email,
+                password: body.password
+            }], 
+            {new: true, runValidators: true})
             .then(dbUserData => {
                 const token = signToken(dbUserData);
-                res.json(dbUserData, token)
+                res.status(200).json(token);
             })
-            .catch(err => res.json(err));
+            .catch(err =>{console.log(err); res.status(500).json(err)});
     },
 
     // Update user by ID
-    updateUser(authMiddleware,{ params, body }, res) {
+    updateUser(req, res) {
         User.findOneAndUpdate(
-            { _id: params.id },
+            { _id: req.params.id },
             {
-                email: body.email,
-                password: body.password
+                name: req.body.name,
+                email: req.body.email,
+                password: req.body.password
             },
             { new: true, runValidators: true })
             .select('-__v, -password')  
@@ -56,10 +66,11 @@ const userController = {
                 if (!dbUserData) {
                     res.status(404).json({ message: 'No user found with this id!' });
                     return;
-
                 }
-                const token = signToken(dbUserData);
-                res.json(dbUserData, token);
+                if (req.user._id === dbUserData._id) {
+                    const token = signToken(dbUserData);
+                    res.status(200).json([dbUserData, token]);
+                } else res.status(403).json({message: 'You do not have permissions to update another users information!'});
             })
             .catch(err => {
                 console.log(err);
@@ -68,10 +79,14 @@ const userController = {
     },
 
     // delete user **Add an auth to deleting a user
-    deleteUser({ params }, res) {
-        User.findOneAndDelete({ _id: params.id })
-            .then(dbUserData => res.json({ message: 'This user was deleted!' }))
-            .catch(err => res.json(err));
+    deleteUser(req, res) {
+        if (req.user._id === req.params.id || req.user.admin === true) {
+            User.findOneAndDelete({ _id: req.params.id })
+                .then(dbUserData => res.status(200).json({ message: 'This user was deleted!' }))
+                .catch(err => res.status(500).json(err));
+            return;
+        } else res.status(403).json("You do not have permissions to delete other users!");
+        
     },
 
     // Update cart
@@ -79,8 +94,8 @@ const userController = {
         User.findOneAndUpdate(
             { _id: req.params.id },
             { $push: { cart: req.body.item_id } })
-            .then(dbCartData => res.json({ message: 'Cart updated!' }))
-            .catch(err => res.json(err));
+            .then(dbCartData => res.status(200).json({ message: 'Cart updated!' }))
+            .catch(err => res.status(500).json(err));
     },
 
     // delete from cart
@@ -88,8 +103,8 @@ const userController = {
         User.findOneAndUpdate(
             { _id: req.params.id },
             { $pull: { cart: req.body.item_id } })
-            .then(dbCartData => res.json({ message: 'Cart updated!' }))
-            .catch(err => res.json(err));
+            .then(dbCartData => res.status(200).json({ message: 'Cart updated!' }))
+            .catch(err => res.status(500).json(err));
     },
 
     // add order to logged in user. 
@@ -109,12 +124,12 @@ const userController = {
                         User.findOneAndUpdate(
                             { _id: params.id },
                             { cart: [], $push: { order: orderData._id } })
-                            .then(orderData => res.json({ message: 'Order Completed' }))
-                            .catch(err => res.json(err))
+                            .then(orderData => res.status(200).json({ message: 'Order Completed' }))
+                            .catch(err => res.status(500).json(err))
                     })
-                    .catch(err => res.json(err))
+                    .catch(err => res.status(500).json(err))
             })
-            .catch(err => res.json(err));
+            .catch(err => res.status(500).json(err));
     }
 
 }

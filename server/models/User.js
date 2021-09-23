@@ -54,8 +54,8 @@ userSchema.pre('save', async function (next) {
 });
 
 // custom method to compare and validate password for logging in
-userSchema.methods.isCorrectPassword = async function (password) {
-    return bcrypt.compare(password, this.password);
+userSchema.methods.isCorrectPassword = async function (password, passwordHash) {
+    return bcrypt.compare(password, passwordHash);
 };
 
 

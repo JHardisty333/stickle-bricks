@@ -22,3 +22,5 @@ const itemController = {
         .catch(err => res.status(400).json(err))
     },
 }
+
+module.exports = itemController;
