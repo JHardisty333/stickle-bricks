@@ -16,7 +16,7 @@ router.route('/guest')
 .post(guestAddOrder);
 
 router.route('/user/:id')
-.get(verifyToken, getUserOrders)
+.get(verifyToken, getUserOrders) //get user order history
 .put(verifyToken, cancelOrder) //will only update if it has not been shipped
 
 router.route('/admin')

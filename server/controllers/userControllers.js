@@ -21,6 +21,10 @@ const userController = {
          })
             .select('-__v')
             .then(async (dbUserData) => {
+                if (!dbUserData) {
+                    res.status(404).json({ message: 'No user found with this email!' });
+                    return;
+                }
                 const passwordValid = await dbUserData.isCorrectPassword(req.body.password, dbUserData.password);
                 if (passwordValid) {
                     const token = signToken(dbUserData);
@@ -108,12 +112,16 @@ const userController = {
     },
 
     // add order to logged in user. 
-    addOrder({ params, body }, res) {
-        User.findOne({ _id: params.id })
+    addOrder(req, res) {
+        User.findOne({ _id: req.user._id })
             .then(userData => {
+                if (!userData) {
+                    res.status(404).json({ message: 'User Not Found!' });
+                    return;
+                }
                 let cart = userData.cart
                 Order.create({
-                    userId: params.id,
+                    userId: req.user._id,
                     items: cart,
                     bill: body.bill,
                     name: userData.name,
@@ -122,7 +130,7 @@ const userController = {
                 })
                     .then(orderData => {
                         User.findOneAndUpdate(
-                            { _id: params.id },
+                            { _id: req.user._id },
                             { cart: [], $push: { order: orderData._id } })
                             .then(orderData => res.status(200).json({ message: 'Order Completed' }))
                             .catch(err => res.status(500).json(err))

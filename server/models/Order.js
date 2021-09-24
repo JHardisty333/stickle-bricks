@@ -41,7 +41,7 @@ const orderSchema = new Schema(
             type: Boolean,
             default: false
         },
-        status: { //Received, Shipped, Completed, Cancelled, Returned
+        status: { //Received, Shipped, Completed, Cancelled, Refunded
             type: String,
             default: 'Received',
             required: true
