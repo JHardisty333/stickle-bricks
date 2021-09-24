@@ -12,11 +12,15 @@ const itemSchema = new Schema(
             type: String,
             required: true
         },
-        description: {
-            type: String,
-            required: true,
+        colorId: {
+            type: Number,
+            required: true
         },
-        color: {
+        colorName: {
+            type: String,
+            required: true
+        },
+        colorCode: {
             type: String,
             required: true
         },
@@ -34,13 +38,11 @@ const itemSchema = new Schema(
             default: [],
             required: true
         },
-        // conditions: [
-        //     {
-        //         new: Number,
-        //         used: Number,
-        //         damaged: Number
-        //     }
-        // ],
+        condition: {
+            type: String,
+            default: 'Used',
+            required: true
+        },
         date_added: {
             type: Date,
             default: Date.now
@@ -49,11 +51,10 @@ const itemSchema = new Schema(
             type: Boolean,
             default: false
         },
-        categoryId: [{
-            type: Schema.Types.ObjectId,
-            ref: 'Category',
-            default: undefined
-        }]
+        categoryId: {
+            type: Number,
+            required: true
+        }
     },
     {
         toJSON: {
