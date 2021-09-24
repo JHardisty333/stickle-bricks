@@ -1,6 +1,6 @@
 const db = require('./connection');
 const { Item } = require('../models');
-const itemInfo = require('../utils/items.json');
+const itemInfo = require('../utils/itemSeed.json');
 
 db.once('open', async() => {
 
