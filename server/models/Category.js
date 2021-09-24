@@ -8,7 +8,11 @@ const categorySchema = new Schema(
             required: true,
             unique: true
         },
-        category_name: {
+        categoryName: {
+            type: String,
+            required: true
+        },
+        itemType: {
             type: String,
             required: true
         }

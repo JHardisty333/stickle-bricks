@@ -4,7 +4,6 @@ const COLORS = require('../../utils/colors.json');
 const CATEGORIES = require('../../utils/categories.json');
 const { writeFile } = require('fs');
 
-console.log(parseInt(ITEMS[5].COLOR))
 // const { 
 //     contactAdmin
 // } = require('../../controllers/adminControllers');
@@ -13,12 +12,67 @@ console.log(parseInt(ITEMS[5].COLOR))
 // router.route('/contact')
 // .post(verifyToken, contactAdmin)
 
+router.get('/category', (req, res) => {
+    let categoriesList = [];
+    let tempIdList = [];
+    for (let i = 0; i < ITEMS.length; i++) {
+        console.log(i, ITEMS[i].LOTID);
+        let categoryObj = CATEGORIES.find(({ category_id }) => category_id === parseInt(ITEMS[i].CATEGORY));
+        let itemType;
+        switch (ITEMS[i].ITEMTYPE) {
+            case 'P':
+                itemType = "PART";
+                break;
+            case 'M':
+                itemType = "MINIFIG";
+                break;
+            case 'S':
+                itemType = "SET";
+                break;
+            case 'B':
+                itemType = "BOOK";
+                break;
+            case 'G':
+                itemType = 'GEAR';
+                break;
+            case 'C':
+                itemType = "CATALOG";
+                break;
+            case 'I':
+                itemType = "INSTRUCTION";
+                break;
+            case 'U':
+                itemType = "UNSORTED_LOT";
+                break;
+            case 'O':
+                itemType = "ORIGINAL_BOX";
+                break;
+        }
+        if (!tempIdList.includes(parseInt(ITEMS[i].CATEGORY))) {
+            let obj = {
+                categoryId: categoryObj.category_id,
+                categoryName: categoryObj.category_name,
+                itemType: itemType
+            }
+            categoriesList.push(obj);
+        }
+    }
+    
+
+    const jsonData = JSON.stringify(categoriesList);
+    writeFile('utils/itemSeed.json', jsonData, (err) => {
+        if (err) throw err;
+        console.log('File Created Successfully');
+        res.sendStatus(200);
+    });
+});
+
 router.get('/test', async (req, res) => {
     let itemsList = [];
     for (let i = 0; i < ITEMS.length; i++) {
         console.log(i, ITEMS[i].LOTID)
         let colorObj = COLORS.find( ({ color_id }) => color_id === parseInt(ITEMS[i].COLOR));
-        let categoryObj = CATEGORIES.find( ({ category_id }) => category_id === parseInt(ITEMS[i].CATEGORY));
+        
         let itemType;
         switch (ITEMS[i].ITEMTYPE) {
             case 'P':

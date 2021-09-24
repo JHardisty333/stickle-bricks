@@ -2,7 +2,7 @@ const { User, Order } = require('../models');
 
 const orderController = {
 // add order for guest
-    guestAddOrder(req, res) { //with how this is set up anyone can create an order even if they have not been paid...
+    guestAddOrder(req, res) { //need to add changing the item counts on the site
         Order.create({
             items: req.body.cart,
             bill: req.body.bill,
@@ -74,7 +74,17 @@ const orderController = {
     },
 
     updateOrderStatus(req, res) {
-        Order.find({})
+        Order.findOneAndUpdate(
+            {_id: req.body.id}, 
+            {status: req.body.status})
+            .then(orderData => {
+                if(!orderData) {
+                    res.status(204).json({message: 'No order found with this ID!'})
+                    return;
+                }
+                res.json(orderData)
+            })
+            .catch(err => res.status(500).json(err))
     },
 
 }

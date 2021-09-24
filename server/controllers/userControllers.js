@@ -112,7 +112,7 @@ const userController = {
     },
 
     // add order to logged in user. 
-    addOrder(req, res) {
+    addOrder(req, res) { // need to reduce stock quantity of all items in the cart at the time of creating the order
         User.findOne({ _id: req.user._id })
             .then(userData => {
                 if (!userData) {
