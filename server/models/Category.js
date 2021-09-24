@@ -1,20 +1,16 @@
-const { Schema, model, Types } = require('mongoose');
-const Item = require('./Item');
+const { Schema, model } = require('mongoose');
+
 
 const categorySchema = new Schema(
     {
         categoryId: {
-            type: Schema.Types.ObjectId,
-            default: () => new Types.ObjectId()
+            type: Number,
+            required: true,
+            unique: true
         },
         category_name: {
             type: String,
             required: true
-        }
-    },
-    {
-        toJSON: {
-            getters: true
         }
     }
 );
