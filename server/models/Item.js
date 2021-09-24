@@ -14,13 +14,18 @@ const itemSchema = new Schema(
         },
         colorId: {
             type: Number,
-            required: true
+            default: 0,
+            required: false
         },
         colorName: {
             type: String,
-            required: true
+            required: false
         },
         colorCode: {
+            type: String,
+            required: false
+        },
+        itemType: {
             type: String,
             required: true
         },
@@ -40,12 +45,17 @@ const itemSchema = new Schema(
         },
         condition: {
             type: String,
-            default: 'Used',
+            default: 'Used', //used, new if set though it can have used, new, with a sub category of complete / incomplete and or sealed
             required: true
         },
         date_added: {
             type: Date,
             default: Date.now
+        },
+        itemWeight: {
+            type: Types.Decimal128,
+            default: 0.00,
+            required: false
         },
         active: {
             type: Boolean,
@@ -53,6 +63,10 @@ const itemSchema = new Schema(
         },
         categoryId: {
             type: Number,
+            required: true
+        },
+        categoryName: {
+            type: String,
             required: true
         }
     },
