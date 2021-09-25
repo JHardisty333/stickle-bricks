@@ -139,7 +139,7 @@
   width: auto;
 }
 
-.shop .icons8-customer-100-1-Gd4xtk {
+.shop .customerIcon {
   background-color: transparent;
   cursor: pointer;
   height: 63px;
@@ -150,7 +150,7 @@
   width: 63px;
 }
 
-.shop .icons8-shopping-cart-96-Gd4xtk {
+.shop .shoppingCartIcon {
   background-color: transparent;
   cursor: pointer;
   height: 73px;

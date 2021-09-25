@@ -158,7 +158,7 @@
   width: auto;
 }
 
-.about .icons8-customer-100-1-vRTBB9 {
+.about .customerIcon {
   background-color: transparent;
   cursor: pointer;
   height: 63px;
@@ -169,7 +169,7 @@
   width: 63px;
 }
 
-.about .icons8-shopping-cart-96-vRTBB9 {
+.about .shoppingCartIcon {
   background-color: transparent;
   cursor: pointer;
   height: 73px;

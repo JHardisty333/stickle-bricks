@@ -178,7 +178,7 @@
   width: 22.86%;
 }
 
-.landing-page-2 .icons8-customer-100-1-MTgzJY {
+.landing-page-2 .customerIcon {
   background-color: transparent;
   cursor: pointer;
   height: 3.38%;
@@ -189,7 +189,7 @@
   width: 3.28%;
 }
 
-.landing-page-2 .icons8-shopping-cart-96-MTgzJY {
+.landing-page-2 .shoppingCartIcon {
   background-color: transparent;
   cursor: pointer;
   height: 3.91%;
@@ -216,8 +216,8 @@
   width: 894px;
 }
 
-.landing-page-2 .span0-i7y891 {
-}
+/* .landing-page-2 .span0-i7y891 {
+} */
 
 .landing-page-2 .span1-i7y891 {
   font-family: var(--font-family-helveticaneue-condensedbold);
@@ -225,5 +225,5 @@
   font-style: normal;
 }
 
-.landing-page-2 .span2-i7y891 {
-}
+/* .landing-page-2 .span2-i7y891 {
+} */
