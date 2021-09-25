@@ -1,0 +1,153 @@
+/* screen - contact-us */
+
+.contact-us {
+  background-color: var(--white);
+  height: 1080px;
+  overflow: hidden;
+  overflow-x: hidden;
+  position: relative;
+  width: 1920px;
+}
+
+.contact-us .neonbrand-cx-dw-oy-yw-unsplash-q2xQ3x {
+  background-color: transparent;
+  height: 943px;
+  left: -251px;
+  object-fit: cover;
+  position: absolute;
+  top: 137px;
+  width: 1415px;
+}
+
+.contact-us .rectangle-2-q2xQ3x {
+  background-color: #17694e;
+  height: 943px;
+  left: 1153px;
+  position: absolute;
+  top: 137px;
+  width: 767px;
+}
+
+.contact-us .rectangle-3-q2xQ3x {
+  background-color: var(--white);
+  border-radius: 15px;
+  box-shadow: 0px 3px 6px #00000029;
+  height: 943px;
+  left: 870px;
+  position: absolute;
+  top: 137px;
+  width: 914px;
+}
+
+.contact-us .contact-us-q2xQ3x {
+  background-color: transparent;
+  height: auto;
+  left: 1147px;
+  letter-spacing: 0.00px;
+  line-height: 80px;
+  position: absolute;
+  text-align: left;
+  top: 188px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.contact-us .search-q2xQ3x {
+  background-color: transparent;
+  height: auto;
+  left: 349px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 68px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.contact-us .about-q2xQ3x {
+  background-color: transparent;
+  height: auto;
+  left: 184px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 68px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.contact-us .sale-q2xQ3x {
+  background-color: transparent;
+  height: auto;
+  left: 1522px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 68px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.contact-us .shop-q2xQ3x {
+  background-color: transparent;
+  height: auto;
+  left: 46px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 68px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.contact-us .stickle-bricks-q2xQ3x {
+  background-color: transparent;
+  height: auto;
+  left: 740px;
+  letter-spacing: 0.00px;
+  line-height: 80px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 36px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.contact-us .icons8-customer-100-1-q2xQ3x {
+  background-color: transparent;
+  height: 63px;
+  left: 1693px;
+  object-fit: cover;
+  position: absolute;
+  top: 54px;
+  width: 63px;
+}
+
+.contact-us .icons8-shopping-cart-96-q2xQ3x {
+  background-color: transparent;
+  height: 73px;
+  left: 1821px;
+  object-fit: cover;
+  position: absolute;
+  top: 49px;
+  width: 73px;
+}
+
+.contact-us .line-1-q2xQ3x {
+  background-color: transparent;
+  height: 23px;
+  left: -8px;
+  object-fit: cover;
+  position: absolute;
+  top: 125px;
+  width: 1938px;
+}

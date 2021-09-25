@@ -1,0 +1,267 @@
+/* screen - admin */
+
+.admin {
+  background-color: var(--white);
+  height: 1080px;
+  overflow: hidden;
+  overflow-x: hidden;
+  position: relative;
+  width: 1920px;
+}
+
+.admin .shop-ZoQkoF {
+  background-color: transparent;
+  height: auto;
+  left: 46px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  top: 68px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.admin .xavi-cabrera-kn-q-dj-m-unsplash-ZoQkoF {
+  background-color: transparent;
+  height: 992px;
+  left: 0px;
+  object-fit: cover;
+  position: absolute;
+  top: 134px;
+  width: 1488px;
+}
+
+.admin .rectangle-2-ZoQkoF {
+  background-color: #2a87c3;
+  height: 943px;
+  left: 1153px;
+  position: absolute;
+  top: 137px;
+  width: 767px;
+}
+
+.admin .rectangle-2-n2rtrg {
+  background-color: #e7d451;
+  height: 967px;
+  left: 922px;
+  position: absolute;
+  top: 113px;
+  width: 615px;
+}
+
+.admin .rectangle-3-ZoQkoF {
+  background-color: var(--white);
+  border-radius: 15px;
+  box-shadow: 0px 3px 6px #00000029;
+  height: 749px;
+  left: 474px;
+  position: absolute;
+  top: 234px;
+  width: 973px;
+}
+
+.admin .rectangle-1-ZoQkoF {
+  background-color: var(--alabaster);
+  height: 137px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1920px;
+}
+
+.admin .rectangle-4-ZoQkoF {
+  background-color: #e62834;
+  border-radius: 35px;
+  height: 132px;
+  left: 740px;
+  position: absolute;
+  top: 702px;
+  width: 411px;
+}
+
+.admin .login-ZoQkoF {
+  background-color: transparent;
+  height: auto;
+  left: 891px;
+  letter-spacing: 0.00px;
+  line-height: 50px;
+  position: absolute;
+  text-align: left;
+  top: 744px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.admin .search-ZoQkoF {
+  background-color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 349px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 68px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.admin .about-ZoQkoF {
+  background-color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 184px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 68px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.admin .sale-ZoQkoF {
+  background-color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 1522px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 68px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.admin .shop-n2rtrg {
+  background-color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 46px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 68px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.admin .stickle-bricks-ZoQkoF {
+  background-color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 740px;
+  letter-spacing: 0.00px;
+  line-height: 80px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 36px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.admin .icons8-customer-100-1-ZoQkoF {
+  background-color: transparent;
+  cursor: pointer;
+  height: 63px;
+  left: 1693px;
+  object-fit: cover;
+  position: absolute;
+  top: 54px;
+  width: 63px;
+}
+
+.admin .icons8-shopping-cart-96-ZoQkoF {
+  background-color: transparent;
+  cursor: pointer;
+  height: 73px;
+  left: 1821px;
+  object-fit: cover;
+  position: absolute;
+  top: 49px;
+  width: 73px;
+}
+
+.admin .line-1-ZoQkoF {
+  background-color: transparent;
+  height: 23px;
+  left: -8px;
+  object-fit: cover;
+  position: absolute;
+  top: 125px;
+  width: 1938px;
+}
+
+.admin .rectangle-5-ZoQkoF {
+  background-color: var(--mystic);
+  border-radius: 35px;
+  height: 78px;
+  left: 740px;
+  position: absolute;
+  top: 438px;
+  width: 411px;
+}
+
+.admin .rectangle-6-ZoQkoF {
+  background-color: var(--mystic);
+  border-radius: 35px;
+  height: 78px;
+  left: 742px;
+  position: absolute;
+  top: 570px;
+  width: 411px;
+}
+
+.admin .admin-login-ZoQkoF {
+  background-color: transparent;
+  color: var(--black);
+  font-family: var(--font-family-helveticaneue-bold);
+  font-size: var(--font-size-l);
+  font-style: normal;
+  font-weight: 700;
+  height: auto;
+  left: 766px;
+  letter-spacing: 0.00px;
+  line-height: 60px;
+  position: absolute;
+  text-align: center;
+  top: 310px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.admin .username-ZoQkoF {
+  background-color: transparent;
+  height: auto;
+  left: 790px;
+  letter-spacing: 0.00px;
+  line-height: 37px;
+  opacity: 0.18;
+  position: absolute;
+  text-align: center;
+  top: 459px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.admin .password-ZoQkoF {
+  background-color: transparent;
+  height: auto;
+  left: 793px;
+  letter-spacing: 0.00px;
+  line-height: 37px;
+  opacity: 0.18;
+  position: absolute;
+  text-align: center;
+  top: 591px;
+  white-space: nowrap;
+  width: auto;
+}

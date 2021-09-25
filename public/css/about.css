@@ -1,0 +1,194 @@
+/* screen - about */
+
+.about {
+  background-color: var(--white);
+  height: 1080px;
+  overflow: hidden;
+  overflow-x: hidden;
+  position: relative;
+  width: 1920px;
+}
+
+.about .shop-vRTBB9 {
+  background-color: transparent;
+  height: auto;
+  left: 46px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  top: 68px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.about .yulia-matvienko-p5-jcu-unsplash-vRTBB9 {
+  background-color: transparent;
+  height: 1009px;
+  left: -460px;
+  object-fit: cover;
+  position: absolute;
+  top: 71px;
+  width: 1514px;
+}
+
+.about .rectangle-2-vRTBB9 {
+  background-color: var(--raw-sienna);
+  height: 943px;
+  left: 1153px;
+  position: absolute;
+  top: 137px;
+  width: 767px;
+}
+
+.about .rectangle-3-vRTBB9 {
+  background-color: var(--white);
+  border-radius: 15px;
+  box-shadow: 0px 3px 6px #00000029;
+  height: 943px;
+  left: 870px;
+  position: absolute;
+  top: 137px;
+  width: 914px;
+}
+
+.about .rectangle-1-vRTBB9 {
+  background-color: var(--alabaster);
+  height: 137px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1920px;
+}
+
+.about .line-1-vRTBB9 {
+  background-color: transparent;
+  height: 23px;
+  left: -8px;
+  object-fit: cover;
+  position: absolute;
+  top: 125px;
+  width: 1938px;
+}
+
+.about .deal-of-the-day-vRTBB9 {
+  background-color: transparent;
+  height: auto;
+  left: 960px;
+  letter-spacing: 0.00px;
+  line-height: 50px;
+  position: absolute;
+  text-align: left;
+  top: 744px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.about .search-vRTBB9 {
+  background-color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 349px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 68px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.about .about-vRTBB9 {
+  background-color: transparent;
+  height: auto;
+  left: 184px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 68px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.about .sale-vRTBB9 {
+  background-color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 1522px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 68px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.about .shop-uIp5D3 {
+  background-color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 46px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 68px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.about .stickle-bricks-vRTBB9 {
+  background-color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 740px;
+  letter-spacing: 0.00px;
+  line-height: 80px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 36px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.about .icons8-customer-100-1-vRTBB9 {
+  background-color: transparent;
+  cursor: pointer;
+  height: 63px;
+  left: 1693px;
+  object-fit: cover;
+  position: absolute;
+  top: 54px;
+  width: 63px;
+}
+
+.about .icons8-shopping-cart-96-vRTBB9 {
+  background-color: transparent;
+  cursor: pointer;
+  height: 73px;
+  left: 1821px;
+  object-fit: cover;
+  position: absolute;
+  top: 49px;
+  width: 73px;
+}
+
+.about .about-us-vRTBB9 {
+  background-color: transparent;
+  height: auto;
+  left: 1185px;
+  letter-spacing: 0.00px;
+  line-height: 80px;
+  position: absolute;
+  text-align: left;
+  top: 184px;
+  white-space: nowrap;
+  width: auto;
+}

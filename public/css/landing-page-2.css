@@ -1,0 +1,229 @@
+/* screen - landing-page-2 */
+
+.landing-page-2 {
+  background-color: var(--white);
+  height: 1080px;
+  overflow: hidden;
+  overflow-x: hidden;
+  position: relative;
+  width: 1920px;
+}
+
+.landing-page-2 .group-5-I5z6Sq {
+  background-color: transparent;
+  height: 1866px;
+  left: 0px;
+  position: relative;
+  top: 0px;
+  width: 1920px;
+}
+
+.landing-page-2 .shop-MTgzJY {
+  background-color: transparent;
+  height: 42px;
+  left: 46px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  top: 68px;
+  white-space: nowrap;
+  width: 85px;
+}
+
+.landing-page-2 .markus-spiske-3-9x3-q0-unsplash-MTgzJY {
+  background-color: transparent;
+  height: calc(100.00% - 137px);
+  left: 0px;
+  object-fit: cover;
+  position: absolute;
+  top: 137px;
+  width: 1153px;
+}
+
+.landing-page-2 .rectangle-2-MTgzJY {
+  background-color: var(--raw-sienna);
+  height: 943px;
+  position: absolute;
+  right: 1px;
+  top: 137px;
+  width: 767px;
+}
+
+.landing-page-2 .rectangle-3-MTgzJY {
+  background-color: var(--white);
+  border-radius: 15px;
+  box-shadow: 0px 3px 6px #00000029;
+  height: 749px;
+  position: absolute;
+  right: 78px;
+  top: 137px;
+  width: 973px;
+}
+
+.landing-page-2 .rectangle-1-MTgzJY {
+  background-color: var(--alabaster);
+  height: 137px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}
+
+.landing-page-2 .rectangle-4-MTgzJY {
+  background-color: var(--raw-sienna);
+  border-radius: 35px;
+  cursor: pointer;
+  height: 160px;
+  position: absolute;
+  right: calc(39.98% - 164px);
+  top: calc(40.32% - 65px);
+  width: 411px;
+}
+
+.landing-page-2 .line-1-MTgzJY {
+  background-color: transparent;
+  height: 23px;
+  left: -8px;
+  object-fit: cover;
+  position: absolute;
+  top: 125px;
+  width: calc(100.00% + 18px);
+}
+
+.landing-page-2 .deal-of-the-day-MTgzJY {
+  background-color: transparent;
+  height: 61px;
+  letter-spacing: 0.00px;
+  line-height: 50px;
+  position: absolute;
+  right: calc(40.65% - 123px);
+  text-align: left;
+  top: calc(41.18% - 25px);
+  white-space: nowrap;
+  width: 303px;
+}
+
+.landing-page-2 .search-MTgzJY {
+  background-color: transparent;
+  cursor: pointer;
+  height: 44px;
+  left: calc(19.37% - 23px);
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 68px;
+  white-space: nowrap;
+  width: 119px;
+}
+
+.landing-page-2 .about-MTgzJY {
+  background-color: transparent;
+  cursor: pointer;
+  height: 44px;
+  left: 184px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 68px;
+  white-space: nowrap;
+  width: 102px;
+}
+
+.landing-page-2 .sale-MTgzJY {
+  background-color: transparent;
+  cursor: pointer;
+  height: 44px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  right: calc(17.57% - 13px);
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 68px;
+  white-space: nowrap;
+  width: 74px;
+}
+
+.landing-page-2 .shop-0uaQyu {
+  background-color: transparent;
+  cursor: pointer;
+  height: 2.36%;
+  left: 2.40%;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 3.62%;
+  white-space: nowrap;
+  width: 4.58%;
+}
+
+.landing-page-2 .stickle-bricks-MTgzJY {
+  background-color: transparent;
+  height: 5.20%;
+  left: 38.53%;
+  letter-spacing: 0.00px;
+  line-height: 80px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 1.96%;
+  white-space: nowrap;
+  width: 22.86%;
+}
+
+.landing-page-2 .icons8-customer-100-1-MTgzJY {
+  background-color: transparent;
+  cursor: pointer;
+  height: 3.38%;
+  left: 88.15%;
+  object-fit: cover;
+  position: absolute;
+  top: 2.89%;
+  width: 3.28%;
+}
+
+.landing-page-2 .icons8-shopping-cart-96-MTgzJY {
+  background-color: transparent;
+  cursor: pointer;
+  height: 3.91%;
+  left: 94.82%;
+  object-fit: cover;
+  position: absolute;
+  top: 2.63%;
+  width: 3.80%;
+}
+
+.landing-page-2 .welcome-to-stic-finish-your-moc-MTgzJY {
+  background-color: transparent;
+  color: var(--cod-gray);
+  font-family: var(--font-family-helvetica_neue);
+  font-size: var(--font-size-m);
+  font-weight: 700;
+  height: 373px;
+  letter-spacing: 0.00px;
+  line-height: 52px;
+  position: absolute;
+  right: 102px;
+  text-align: center;
+  top: 255px;
+  width: 894px;
+}
+
+.landing-page-2 .span0-i7y891 {
+}
+
+.landing-page-2 .span1-i7y891 {
+  font-family: var(--font-family-helveticaneue-condensedbold);
+  font-size: var(--font-size-xxxs);
+  font-style: normal;
+}
+
+.landing-page-2 .span2-i7y891 {
+}

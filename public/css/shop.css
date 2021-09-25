@@ -1,0 +1,172 @@
+/* screen - shop */
+
+.shop {
+  background-color: var(--white);
+  height: 1080px;
+  overflow: hidden;
+  overflow-x: hidden;
+  position: relative;
+  width: 1920px;
+}
+
+.shop .omar-flores-l-q-wtys-e-unsplash-Gd4xtk {
+  background-color: transparent;
+  height: 2560px;
+  left: 0px;
+  object-fit: cover;
+  position: absolute;
+  top: 137px;
+  width: 1920px;
+}
+
+.shop .shop-Gd4xtk {
+  background-color: transparent;
+  height: auto;
+  left: 46px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  top: 68px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.shop .rectangle-3-Gd4xtk {
+  background-color: var(--white);
+  border-radius: 15px;
+  box-shadow: 0px 3px 6px #00000029;
+  height: 803px;
+  left: 94px;
+  position: absolute;
+  top: 211px;
+  width: 1732px;
+}
+
+.shop .rectangle-1-Gd4xtk {
+  background-color: var(--alabaster);
+  height: 137px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1920px;
+}
+
+.shop .deal-of-the-day-Gd4xtk {
+  background-color: transparent;
+  height: auto;
+  left: 960px;
+  letter-spacing: 0.00px;
+  line-height: 50px;
+  position: absolute;
+  text-align: left;
+  top: 744px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.shop .search-Gd4xtk {
+  background-color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 349px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 68px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.shop .about-Gd4xtk {
+  background-color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 184px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 68px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.shop .sale-Gd4xtk {
+  background-color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 1522px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 68px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.shop .shop-nxvtCt {
+  background-color: transparent;
+  height: auto;
+  left: 46px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 68px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.shop .stickle-bricks-Gd4xtk {
+  background-color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 740px;
+  letter-spacing: 0.00px;
+  line-height: 80px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 36px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.shop .icons8-customer-100-1-Gd4xtk {
+  background-color: transparent;
+  cursor: pointer;
+  height: 63px;
+  left: 1693px;
+  object-fit: cover;
+  position: absolute;
+  top: 54px;
+  width: 63px;
+}
+
+.shop .icons8-shopping-cart-96-Gd4xtk {
+  background-color: transparent;
+  cursor: pointer;
+  height: 73px;
+  left: 1821px;
+  object-fit: cover;
+  position: absolute;
+  top: 49px;
+  width: 73px;
+}
+
+.shop .line-1-Gd4xtk {
+  background-color: transparent;
+  height: 23px;
+  left: -8px;
+  object-fit: cover;
+  position: absolute;
+  top: 125px;
+  width: 1938px;
+}

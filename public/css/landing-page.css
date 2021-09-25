@@ -1,0 +1,228 @@
+/* screen - landing-page */
+
+.landing-page {
+  background-color: var(--white);
+  height: 1080px;
+  overflow: hidden;
+  overflow-x: hidden;
+  position: relative;
+  width: 1920px;
+}
+
+.landing-page .group1-0MUxxh {
+  background-color: transparent;
+  cursor: pointer;
+  height: 1080px;
+  left: -173px;
+  position: absolute;
+  top: 0px;
+  width: 2094px;
+}
+
+.landing-page .shop-PImTuw {
+  background-color: transparent;
+  height: 42px;
+  left: 219px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  top: 68px;
+  white-space: nowrap;
+  width: 85px;
+}
+
+.landing-page .rectangle-2-PImTuw {
+  background-color: #2da9ce;
+  height: calc(100.00% - 137px);
+  position: absolute;
+  right: 1px;
+  top: 137px;
+  width: 767px;
+}
+
+.landing-page .vlad-hilitanu-1-y-pa-y-unsplash-PImTuw {
+  background-color: transparent;
+  border-radius: 43px;
+  height: calc(100.00% - 137px);
+  left: 0px;
+  object-fit: cover;
+  position: absolute;
+  top: 137px;
+  width: 1415px;
+}
+
+.landing-page .rectangle-3-PImTuw {
+  background-color: var(--white);
+  border-radius: 15px;
+  box-shadow: 0px 3px 6px #00000029;
+  height: 749px;
+  position: absolute;
+  right: 78px;
+  top: 137px;
+  width: 973px;
+}
+
+.landing-page .rectangle-1-PImTuw {
+  background-color: var(--alabaster);
+  height: 137px;
+  left: 173px;
+  position: absolute;
+  top: 0px;
+  width: calc(100.00% - 174px);
+}
+
+.landing-page .rectangle-4-PImTuw {
+  background-color: #2da9ce;
+  border-radius: 35px;
+  bottom: calc(25.22% - 40px);
+  cursor: pointer;
+  height: 160px;
+  position: absolute;
+  right: calc(35.87% - 147px);
+  width: 411px;
+}
+
+.landing-page .deal-of-the-day-PImTuw {
+  background-color: transparent;
+  bottom: calc(27.04% - 16px);
+  height: 61px;
+  letter-spacing: 0.00px;
+  line-height: 50px;
+  position: absolute;
+  right: calc(36.72% - 111px);
+  text-align: left;
+  white-space: nowrap;
+  width: 303px;
+}
+
+.landing-page .about-PImTuw {
+  background-color: transparent;
+  cursor: pointer;
+  height: 44px;
+  left: calc(17.93% - 18px);
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 68px;
+  white-space: nowrap;
+  width: 102px;
+}
+
+.landing-page .sale-PImTuw {
+  background-color: transparent;
+  cursor: pointer;
+  height: 44px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  right: 324px;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 68px;
+  white-space: nowrap;
+  width: 74px;
+}
+
+.landing-page .shop-NFkA2r {
+  background-color: transparent;
+  cursor: pointer;
+  height: 4.07%;
+  left: 10.46%;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 6.25%;
+  white-space: nowrap;
+  width: 4.20%;
+}
+
+.landing-page .stickle-bricks-PImTuw {
+  background-color: transparent;
+  cursor: pointer;
+  height: 8.98%;
+  left: 43.61%;
+  letter-spacing: 0.00px;
+  line-height: 80px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 3.38%;
+  white-space: nowrap;
+  width: 20.97%;
+}
+
+.landing-page .icons8-customer-100-1-PImTuw {
+  background-color: transparent;
+  cursor: pointer;
+  height: 5.83%;
+  left: 89.13%;
+  object-fit: cover;
+  position: absolute;
+  top: 5.00%;
+  width: 3.01%;
+}
+
+.landing-page .icons8-shopping-cart-96-PImTuw {
+  background-color: transparent;
+  cursor: pointer;
+  height: 6.76%;
+  left: 95.25%;
+  object-fit: cover;
+  position: absolute;
+  top: 4.54%;
+  width: 3.49%;
+}
+
+.landing-page .line-1-PImTuw {
+  background-color: transparent;
+  height: 23px;
+  left: 164px;
+  object-fit: cover;
+  position: absolute;
+  top: 125px;
+  width: calc(100.00% - 156px);
+}
+
+.landing-page .welcome-to-stic-finish-your-moc-PImTuw {
+  background-color: transparent;
+  color: var(--cod-gray);
+  font-family: var(--font-family-helvetica_neue);
+  font-size: var(--font-size-m);
+  font-weight: 700;
+  height: 373px;
+  letter-spacing: 0.00px;
+  line-height: 52px;
+  position: absolute;
+  right: 102px;
+  text-align: center;
+  top: calc(36.07% - 135px);
+  width: 894px;
+}
+
+.landing-page .span0-nHXDRS {
+}
+
+.landing-page .span1-nHXDRS {
+  font-family: var(--font-family-helveticaneue-condensedbold);
+  font-size: var(--font-size-xxxs);
+  font-style: normal;
+}
+
+.landing-page .span2-nHXDRS {
+}
+
+.landing-page .icons8-search-100-0MUxxh {
+  background-color: transparent;
+  cursor: pointer;
+  height: 82px;
+  left: 312px;
+  object-fit: cover;
+  position: absolute;
+  top: 51px;
+  width: 82px;
+}

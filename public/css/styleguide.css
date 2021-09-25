@@ -1,0 +1,75 @@
+:root { 
+  --alabaster: #fafafa;
+  --black: #000000;
+  --cod-gray: #0a0a0a;
+  --dove-gray: #707070;
+  --mystic: #e2e7ea;
+  --raw-sienna: #d18a48;
+  --white: #ffffff;
+ 
+  --font-size-l: 60px;
+  --font-size-m: 52px;
+  --font-size-s: 50px;
+  --font-size-xl: 80px;
+  --font-size-xs: 37px;
+  --font-size-xxs: 35px;
+  --font-size-xxxs: 31px;
+ 
+  --font-family-helvetica_neue: "Helvetica Neue", Helvetica;
+  --font-family-helveticaneue-bold: "HelveticaNeue-Bold", Helvetica;
+  --font-family-helveticaneue-bolditalic: "HelveticaNeue-BoldItalic", Helvetica;
+  --font-family-helveticaneue-condensedbold: "HelveticaNeue-CondensedBold", Helvetica;
+  --font-family-helveticaneue-lightitalic: "HelveticaNeue-LightItalic", Helvetica;
+  --font-family-helveticaneue-regular: "HelveticaNeue-Regular", Helvetica;
+}
+.helveticaneue-bold-black-35px {
+  color: var(--black);
+  font-family: var(--font-family-helveticaneue-bold);
+  font-size: var(--font-size-xxs);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.helveticaneue-condensed-bold-black-80px {
+  color: var(--black);
+  font-family: var(--font-family-helveticaneue-condensedbold);
+  font-size: var(--font-size-xl);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.helveticaneue-regular-normal-dove-gray-35px {
+  color: var(--dove-gray);
+  font-family: var(--font-family-helveticaneue-regular);
+  font-size: var(--font-size-xxs);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.helveticaneue-condensed-bold-white-50px {
+  color: var(--white);
+  font-family: var(--font-family-helveticaneue-condensedbold);
+  font-size: var(--font-size-s);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.helveticaneue-condensed-bold-cod-gray-52px {
+  color: var(--cod-gray);
+  font-family: var(--font-family-helveticaneue-condensedbold);
+  font-size: var(--font-size-m);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.helveticaneue-lightitalic-light-black-37px {
+  color: var(--black);
+  font-family: var(--font-family-helveticaneue-lightitalic);
+  font-size: var(--font-size-xs);
+  font-style: italic;
+  font-weight: 300;
+}
+
+.border-1px-dove-gray {
+  border: 1px solid var(--dove-gray);
+}

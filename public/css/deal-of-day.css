@@ -1,0 +1,173 @@
+/* screen - deal-of-day */
+
+.deal-of-day {
+  background-color: var(--white);
+  height: 1080px;
+  overflow: hidden;
+  overflow-x: hidden;
+  position: relative;
+  width: 1920px;
+}
+
+.deal-of-day .omar-flores-l-q-wtys-e-unsplash-6YZ3cx {
+  background-color: transparent;
+  height: 2560px;
+  left: 0px;
+  object-fit: cover;
+  position: absolute;
+  top: 137px;
+  width: 1920px;
+}
+
+.deal-of-day .shop-6YZ3cx {
+  background-color: transparent;
+  height: auto;
+  left: 46px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  top: 68px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.deal-of-day .rectangle-3-6YZ3cx {
+  background-color: var(--white);
+  border-radius: 15px;
+  box-shadow: 0px 3px 6px #00000029;
+  height: 803px;
+  left: 94px;
+  position: absolute;
+  top: 211px;
+  width: 1732px;
+}
+
+.deal-of-day .rectangle-1-6YZ3cx {
+  background-color: var(--alabaster);
+  height: 137px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1920px;
+}
+
+.deal-of-day .deal-of-the-day-6YZ3cx {
+  background-color: transparent;
+  height: auto;
+  left: 960px;
+  letter-spacing: 0.00px;
+  line-height: 50px;
+  position: absolute;
+  text-align: left;
+  top: 744px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.deal-of-day .search-6YZ3cx {
+  background-color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 349px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 68px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.deal-of-day .about-6YZ3cx {
+  background-color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 184px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 68px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.deal-of-day .sale-6YZ3cx {
+  background-color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 1522px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 68px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.deal-of-day .shop-M7Oubv {
+  background-color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 46px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 68px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.deal-of-day .stickle-bricks-6YZ3cx {
+  background-color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 740px;
+  letter-spacing: 0.00px;
+  line-height: 80px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 36px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.deal-of-day .icons8-customer-100-1-6YZ3cx {
+  background-color: transparent;
+  cursor: pointer;
+  height: 63px;
+  left: 1693px;
+  object-fit: cover;
+  position: absolute;
+  top: 54px;
+  width: 63px;
+}
+
+.deal-of-day .icons8-shopping-cart-96-6YZ3cx {
+  background-color: transparent;
+  cursor: pointer;
+  height: 73px;
+  left: 1821px;
+  object-fit: cover;
+  position: absolute;
+  top: 49px;
+  width: 73px;
+}
+
+.deal-of-day .line-1-6YZ3cx {
+  background-color: transparent;
+  height: 23px;
+  left: -8px;
+  object-fit: cover;
+  position: absolute;
+  top: 125px;
+  width: 1938px;
+}

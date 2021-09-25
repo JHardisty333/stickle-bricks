@@ -1,0 +1,168 @@
+/* screen - shopping-cart */
+
+.shopping-cart {
+  background-color: var(--white);
+  height: 1080px;
+  overflow: hidden;
+  overflow-x: hidden;
+  position: relative;
+  width: 1920px;
+}
+
+.shopping-cart .nathan-dumlao-t-6-la9k-unsplash-g2SmrL {
+  background-color: transparent;
+  height: 1349px;
+  left: 0px;
+  object-fit: cover;
+  position: absolute;
+  top: 124px;
+  width: 899px;
+}
+
+.shopping-cart .shop-g2SmrL {
+  background-color: transparent;
+  height: auto;
+  left: 46px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  top: 68px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.shopping-cart .rectangle-2-g2SmrL {
+  background-color: #222a2d;
+  height: 1360px;
+  left: 829px;
+  position: absolute;
+  top: 113px;
+  width: 1091px;
+}
+
+.shopping-cart .rectangle-3-g2SmrL {
+  background-color: var(--white);
+  border-radius: 15px;
+  box-shadow: 0px 3px 6px #00000029;
+  height: 1218px;
+  left: 783px;
+  position: absolute;
+  top: 106px;
+  width: 973px;
+}
+
+.shopping-cart .rectangle-1-g2SmrL {
+  background-color: var(--alabaster);
+  height: 137px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 1920px;
+}
+
+.shopping-cart .search-g2SmrL {
+  background-color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 349px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 68px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.shopping-cart .about-g2SmrL {
+  background-color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 184px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 68px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.shopping-cart .sale-g2SmrL {
+  background-color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 1522px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 68px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.shopping-cart .shop-Oz02Vp {
+  background-color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 46px;
+  letter-spacing: 0.00px;
+  line-height: 35px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 68px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.shopping-cart .stickle-bricks-g2SmrL {
+  background-color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 740px;
+  letter-spacing: 0.00px;
+  line-height: 80px;
+  position: absolute;
+  text-align: left;
+  text-shadow: 0px 3px 6px #00000029;
+  top: 36px;
+  white-space: nowrap;
+  width: auto;
+}
+
+.shopping-cart .icons8-customer-100-1-g2SmrL {
+  background-color: transparent;
+  cursor: pointer;
+  height: 63px;
+  left: 1693px;
+  object-fit: cover;
+  position: absolute;
+  top: 54px;
+  width: 63px;
+}
+
+.shopping-cart .icons8-shopping-cart-96-g2SmrL {
+  background-color: transparent;
+  height: 73px;
+  left: 1821px;
+  object-fit: cover;
+  position: absolute;
+  top: 49px;
+  width: 73px;
+}
+
+.shopping-cart .line-1-g2SmrL {
+  background-color: transparent;
+  height: 23px;
+  left: -8px;
+  object-fit: cover;
+  position: absolute;
+  top: 125px;
+  width: 1938px;
+}
