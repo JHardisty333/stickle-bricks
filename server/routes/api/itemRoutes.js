@@ -1,30 +1,33 @@
 const router = require('express').Router();
-const { verifyToken, VerifyTokenAdmin }
+const { verifyToken, verifyTokenAdmin } = require('../../utils/auth');
 const {
     getAllItems,
-    searchItems
+    searchItems,
+    itemsByType,
+    itemsByCategory,
+    itemsByColor,
+    addItem, 
+    updateItemInfo
 } = require('../../controllers/itemControllers');
-const { verifyTokenAdmin } = require('../../utils/auth');
-const { route } = require('./orderRoutes');
 
 router.route('/')
 .get(getAllItems);
 
 router.route('/search/:name')
-.get(searchItems)
+.get(searchItems);
 
 router.route('/type/:type')
-.get(itemsByType)
+.get(itemsByType);
 
 router.route('/category/:id')
-.get(itemsByCategory)
+.get(itemsByCategory);
 
 router.route('/color/:id')
-.get(itemsByColor)
+.get(itemsByColor);
 
 router.route('/admin')
 .post(verifyTokenAdmin, addItem)
-.put(verifyTokenAdmin, updateItemInfo)
+.put(verifyTokenAdmin, updateItemInfo);
 
 module.exports = router;
 

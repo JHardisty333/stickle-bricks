@@ -49,6 +49,7 @@ router.get('/category', (req, res) => {
                 break;
         }
         if (!tempIdList.includes(parseInt(ITEMS[i].CATEGORY))) {
+            tempIdList.push(parseInt(ITEMS[i].CATEGORY));
             let obj = {
                 categoryId: categoryObj.category_id,
                 categoryName: categoryObj.category_name,
@@ -57,17 +58,16 @@ router.get('/category', (req, res) => {
             categoriesList.push(obj);
         }
     }
-    
-
+    categoriesList = categoriesList.sort((a, b) => (a.categoryId > b.categoryId) ? 1 : ((b.categoryId > a.categoryId) ? -1 : 0))
     const jsonData = JSON.stringify(categoriesList);
-    writeFile('utils/itemSeed.json', jsonData, (err) => {
+    writeFile('utils/categorySeed.json', jsonData, (err) => {
         if (err) throw err;
         console.log('File Created Successfully');
         res.sendStatus(200);
     });
 });
 
-router.get('/test', async (req, res) => {
+router.get('/test', (req, res) => {
     let itemsList = [];
     for (let i = 0; i < ITEMS.length; i++) {
         console.log(i, ITEMS[i].LOTID)
