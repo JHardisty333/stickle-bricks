@@ -13,8 +13,8 @@ const {
 router.route('/')
 .get(getAllItems);
 
-router.route('/search/:name')
-.get(searchItems);
+router.route('/search')
+.post(searchItems);
 
 router.route('/type/:type')
 .get(itemsByType);
@@ -27,6 +27,8 @@ router.route('/color/:id')
 
 router.route('/admin')
 .post(verifyTokenAdmin, addItem)
+
+router.route('/admin/:id')
 .put(verifyTokenAdmin, updateItemInfo);
 
 module.exports = router;
