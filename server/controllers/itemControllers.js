@@ -3,92 +3,87 @@ const { Item, Category } = require('../models');
 const itemController = {
     getAllItems(req, res) {
         Item.find({})
-        .then(dbItemData => {
-            res.json(dbItemData)
-        })
-        .catch(err => res.status(500).json(err));
+            .then(dbItemData => {
+                res.json(dbItemData)
+            })
+            .catch(err => res.status(500).json(err));
     },
-    
+
     searchItems(req, res) {
-        Item.find({ 
-            $search: {
-                "text": {
-                    "query": req.params.name,
-                    "path": "product_name",
-                    "fuzzy": {}
+        Item.find(
+            { $text: { $search: req.body.name } },
+            { score: { $meta: "textScore" } }
+        ).sort({ score: { $meta: "textScore" } })
+            .then(itemData => {
+                if (!itemData) {
+                    res.status(204).json({ message: 'Not able to find any items!' })
+                    return;
                 }
-            }
-        })
-        .then(itemData => {
-            if(!itemData) {
-                res.status(204).json({message: 'Not able to find any items!'})
-                return;
-            }
-            res.json(itemData);
-        })
-        .catch(err => res.status(500).json(err))
+                res.json(itemData);
+            })
+            .catch(err => res.status(500).json(err))
     },
     itemsByType(req, res) {
         Item.find({
             itemType: req.params.type
         })
-        .then(itemData => {
-            if(!itemData) {
-                res.status(204).json({message: 'No items found with this type!'})
-                return;
-            }
-            res.json(itemData);
-        })
-        .catch(err => res.status(500).json(err));
+            .then(itemData => {
+                if (!itemData) {
+                    res.status(204).json({ message: 'No items found with this type!' })
+                    return;
+                }
+                res.json(itemData);
+            })
+            .catch(err => res.status(500).json(err));
     },
     itemsByCategory(req, res) {
         Item.find({
             categoryId: req.params.id
         })
-        .then(itemData => {
-            if(!itemData) {
-                res.status(204).json({message: 'No items found within this category!'})
-                return;
-            }
-            res.json(itemData);
-        })
-        .catch(err => res.status(500).json(err))
+            .then(itemData => {
+                if (!itemData) {
+                    res.status(204).json({ message: 'No items found within this category!' })
+                    return;
+                }
+                res.json(itemData);
+            })
+            .catch(err => res.status(500).json(err))
     },
     itemsByColor(req, res) {
         Item.find({
-            colorId: req.params.id 
+            colorId: req.params.id
         })
-        .then(itemData => {
-            if(!itemData) {
-                res.status(204).json({message: 'No items found with this color!'})
-                return;
-            }
-            res.json(itemData)
-        })
-        .catch(err => res.status(500).json(err));
+            .then(itemData => {
+                if (!itemData) {
+                    res.status(204).json({ message: 'No items found with this color!' })
+                    return;
+                }
+                res.json(itemData)
+            })
+            .catch(err => res.status(500).json(err));
     },
     addItem(req, res) {
         Item.create(
-            {body}, 
+            req.body,
             { new: true, runValidators: true })
-        .then(itemData => {
-           res.status(200).json(itemData)
-        })
-        .catch(err => res.status(500).json(err));
+            .then(itemData => {
+                res.status(200).json(itemData)
+            })
+            .catch(err => res.status(500).json(err));
     },
     updateItemInfo(req, res) {
         Item.findOneAndUpdate(
-            {_id: req.body.id},
-            {body},
+            { _id: req.params.id },
+            req.body ,
             { new: true, runValidators: true })
-        .then(itemData => {
-            if(!itemData) {
-                res.status(204).json({message: 'No item found with this Id!'})
-                return;
-            }
-            res.json(itemData);
-        })
-        .catch(err => res.status(500).json(err))
+            .then(itemData => {
+                if (!itemData) {
+                    res.status(204).json({ message: 'No item found with this Id!' })
+                    return;
+                }
+                res.json(itemData);
+            })
+            .catch(err => res.status(500).json(err))
     }
 }
 

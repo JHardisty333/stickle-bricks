@@ -73,6 +73,7 @@ const itemSchema = new Schema(
     }
 );
 
+itemSchema.index({productName: 'text' })
 const Item = model('Item', itemSchema);
 
 module.exports = Item;
