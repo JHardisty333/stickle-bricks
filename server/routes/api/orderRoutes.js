@@ -28,7 +28,7 @@ router.route('/admin/received')
 router.route('/admin/orders') //all orders
 .get(verifyTokenAdmin, orderStatus); //get orders by status req.body.status = Received, Shipped, Completed, Canceled, Returned
 
-router.route('/admin/order')
+router.route('/admin/order/:id')
 .put(verifyTokenAdmin, updateOrderStatus); // update an orders status
 
 module.exports = router;

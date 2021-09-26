@@ -1,0 +1,10 @@
+/* screen - search-results */
+
+.search-results {
+  background-color: var(--white);
+  height: 1080px;
+  overflow: hidden;
+  overflow-x: hidden;
+  position: relative;
+  width: 1920px;
+}
