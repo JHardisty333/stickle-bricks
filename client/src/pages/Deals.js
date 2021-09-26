@@ -10,7 +10,7 @@ const Deals = () => {
         height: '100vh'
       }}
     >
-      <h1>Annual Report</h1>
+      <h1>Deals</h1>
     </div>
   );
 };
