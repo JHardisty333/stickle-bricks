@@ -21,6 +21,15 @@ const itemController = {
         })
         .catch(err => res.status(400).json(err))
     },
+    itemByName() {
+        Item.findAll()
+    },
+    itemByType() {
+
+    },
+    itemByCategory() {
+
+    }
 }
 
 module.exports = itemController;
