@@ -4,7 +4,7 @@ const Category = require('./Category');
 
 const itemSchema = new Schema(
     {
-        product_name: {
+        productName: {
             type: String,
             required: true,
         },
@@ -63,10 +63,6 @@ const itemSchema = new Schema(
         },
         categoryId: {
             type: Number,
-            required: true
-        },
-        categoryName: {
-            type: String,
             required: true
         }
     },

@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "watch": "nodemon server.js"
+    "watch": "nodemon server.js",
+    "seed": "node config/seeds.js"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +21,7 @@
     "nodemailer-mailgun-transport": "^2.1.3"
   },
   "devDependencies": {
+    "faker": "^5.5.3",
     "nodemon": "^2.0.12"
   }
 }
