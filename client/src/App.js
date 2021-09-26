@@ -1,12 +1,14 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Landing from './pages/Landing';
+import Navbar from './components/Navbar/index';
+
 function App() {
   return (
     <Router as="main">
       <>
-        {/* <Navigator /> */}
+        {/* <Navbar /> */}
         <Switch>
-          <Route exact path='/' component={Landing} />
+          <Route exact path='/' component={Navbar} />
         </Switch>
         {/* <Footer /> */}
       </>

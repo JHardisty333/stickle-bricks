@@ -13,7 +13,7 @@ const itemController = {
         Item.find({ 
             $search: {
                 "text": {
-                    "query": req.params.name,
+                    "query": req.body.name,
                     "path": "product_name",
                     "fuzzy": {}
                 }
