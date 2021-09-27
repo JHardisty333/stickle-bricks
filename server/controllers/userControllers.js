@@ -5,13 +5,8 @@ const userController = {
     // find all users => for future of adding more admin
     getAllUsers(req, res) {
         User.find({})
-<<<<<<< HEAD
-        .populate('')
-        .select('-__v, -password')
-=======
         .populate({path: 'cart', populate: {path: 'itemId'}})
         .select('-__v -password')
->>>>>>> 0c40a931d7c58c5aae173a4bd2c23f9853e5ed86
             .then(dbUserData => res.status(200).json(dbUserData))
             .catch(err => {
                 console.log(err);
