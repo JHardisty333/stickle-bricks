@@ -5,7 +5,7 @@ const userController = {
     // find all users => for future of adding more admin
     getAllUsers(req, res) {
         User.find({})
-        // .populate('')
+        .populate('Item')
         .select('-__v, -password')
             .then(dbUserData => res.status(200).json(dbUserData))
             .catch(err => {
@@ -96,7 +96,7 @@ const userController = {
     addToCart(req, res) {
         User.findOneAndUpdate(
             { _id: req.params.id },
-            { $push: { cart: req.body.item_id } }, {new: true, runValidators: true})
+            { $push: { cart: req.body.item_id } }, {runValidators: true, new: true})
             .then(dbCartData => res.status(200).json({ message: 'Cart updated!' }))
             .catch(err => res.status(500).json(err));
     },
