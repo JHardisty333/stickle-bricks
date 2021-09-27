@@ -23,14 +23,16 @@ const userSchema = new Schema(
         cart: [
             {
                 _id: false,
-                itemId: {type: Types.ObjectId, ref: 'Item'},
-                quantity: {type: Number, min: 1, default: 1}
+                itemId: {type: Types.ObjectId, ref: 'Item', required: true},
+                quantity: {type: Number, min: 1, default: 1},
+                priceTotal: { type: Types.Decimal128, required: true },
+                image: {type: String, required: true},
+                productName: {type: String, required: true}
             }
         ],
         orders: [{
             type: Types.ObjectId,
-            ref: 'Order',
-            default: undefined
+            ref: 'Order'
         }],
         admin: {
             type: Boolean,
