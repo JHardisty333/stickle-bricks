@@ -5,7 +5,7 @@ const userController = {
     // find all users => for future of adding more admin
     getAllUsers(req, res) {
         User.find({})
-        .populate({path: 'cart', populate: {path: 'itemId'}})
+        .populate({path: 'cart.itemId'})
         .select('-__v -password')
             .then(dbUserData => res.status(200).json(dbUserData))
             .catch(err => {
@@ -94,22 +94,36 @@ const userController = {
 
     // Update cart
     addToCart(req, res) {
-        User.findOneAndUpdate(
-            { _id: req.params.id },
-            { $push: { cart: {
-                itemId: req.body.itemId,
-                quantity: req.body.quantity
-            }} }, {runValidators: true, new: true})
-            .then(dbCartData => res.status(200).json({ message: 'Cart updated!' }))
-            .catch(err => res.status(500).json(err));
+        // req.body === itemId, quantity
+        Item.findById(req.body.itemId)
+        .then(itemData => {
+            if (!itemData) return res.status(400).json({message: 'Item not found!'});
+            if (itemData.quantity < req.body.quantity) return res.status(400).json({message: 'You can not add a quantity higher than the current in stock quantity!'});
+            User.findOneAndUpdate(
+                { _id: req.params.id },
+                { $push: {
+                        cart: {
+                            itemId: req.body.itemId,
+                            quantity: req.body.quantity,
+                            priceTotal: (parseFloat(itemData.price) * req.body.quantity),
+                            image: itemData.image[0],
+                            productName: itemData.productName
+                        }
+                    }
+                }, 
+                { runValidators: true, new: true })
+                .then(cartData => res.status(200).json({ message: 'Cart updated!', cart: cartData.cart }))
+                .catch(err => res.status(500).json(err));
+        })
+        .catch(err => res.status(500).json(err));
     },
 
     // delete from cart
-    removeFromCart(req, res) {
+    removeFromCart(req, res) { //needs to be updated to pull correctly from new schema layout
         User.findOneAndUpdate(
             { _id: req.params.id },
-            { $pull: { cart: req.body.item_id } })
-            .then(dbCartData => res.status(200).json({ message: 'Cart updated!' }))
+            { $pull: { cart: req.body.itemId } })
+            .then(cartData => res.status(200).json({ message: 'Cart updated!', cart: cartData.cart }))
             .catch(err => res.status(500).json(err));
     },
 
@@ -121,7 +135,7 @@ const userController = {
                     res.status(404).json({ message: 'User Not Found!' });
                     return;
                 }
-                let cart = userData.cart
+                let cart = userData.cart //need to make sure it will work with new schema
                 if(!cart) {
                     res.status(404).json({message: 'Must add items to your cart'})
                 }
