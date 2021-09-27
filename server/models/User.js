@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
 const bcrypt = require('bcrypt');
 // these should be Item and Order to reference correct
 const Item = require('./Item');
@@ -21,12 +21,12 @@ const userSchema = new Schema(
             required: true,
         },
         cart: [{
-            type: Schema.Types.ObjectId,
-            ref: 'Item',
-            default: undefined
+            type: Types.ObjectId,
+            ref: 'Item'
+
         }],
         orders: [{
-            type: Schema.Types.ObjectId,
+            type: Types.ObjectId,
             ref: 'Order',
             default: undefined
         }],

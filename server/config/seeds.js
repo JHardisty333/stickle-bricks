@@ -6,9 +6,9 @@ const faker = require('faker');
 
 db.once('open', async() => {
     // MUST DELETE WHEN DONE TESTING!
-    // await Item.deleteMany({});
-    // await Category.deleteMany({});
-    // await User.deleteMany({});
+    await Item.deleteMany({});
+    await Category.deleteMany({});
+    await User.deleteMany({});
 
     await Item.insertMany(itemSeed);
     console.log('Items Seeded');

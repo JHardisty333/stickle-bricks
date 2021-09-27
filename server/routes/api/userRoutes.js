@@ -23,6 +23,8 @@ router.route('/signup')
 router.route('/:id')
 .put(verifyToken, updateUser)
 .delete(verifyToken, deleteUser)
+
+router.route('/cart/:id')
 .put(verifyToken, addToCart)
 .delete(verifyToken, removeFromCart)
 
