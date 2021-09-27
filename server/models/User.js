@@ -20,11 +20,13 @@ const userSchema = new Schema(
             type: String,
             required: true,
         },
-        cart: [{
-            type: Types.ObjectId,
-            ref: 'Item'
-
-        }],
+        cart: [
+            {
+                _id: false,
+                itemId: {type: Types.ObjectId, ref: 'Item'},
+                quantity: {type: Number, min: 1, default: 1}
+            }
+        ],
         orders: [{
             type: Types.ObjectId,
             ref: 'Order',

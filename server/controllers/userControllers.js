@@ -1,12 +1,12 @@
-const { User, Order } = require('../models');
+const { User, Order, Item } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const userController = {
     // find all users => for future of adding more admin
     getAllUsers(req, res) {
         User.find({})
-        .populate('Item')
-        .select('-__v, -password')
+        .populate({path: 'cart', populate: {path: 'itemId'}})
+        .select('-__v -password')
             .then(dbUserData => res.status(200).json(dbUserData))
             .catch(err => {
                 console.log(err);
@@ -65,7 +65,7 @@ const userController = {
                 password: req.body.password
             },
             { new: true, runValidators: true })
-            .select('-__v, -password')  
+            .select('-__v -password')  
             .then(dbUserData => {
                 if (!dbUserData) {
                     res.status(404).json({ message: 'No user found with this id!' });
@@ -96,7 +96,10 @@ const userController = {
     addToCart(req, res) {
         User.findOneAndUpdate(
             { _id: req.params.id },
-            { $push: { cart: req.body.item_id } }, {runValidators: true, new: true})
+            { $push: { cart: {
+                itemId: req.body.itemId,
+                quantity: req.body.quantity
+            }} }, {runValidators: true, new: true})
             .then(dbCartData => res.status(200).json({ message: 'Cart updated!' }))
             .catch(err => res.status(500).json(err));
     },
