@@ -120,7 +120,7 @@ const userController = {
                 }
                 let cart = userData.cart
                 if(!cart) {
-                    res.status(404).json({message: 'Must add items to your cart!'})
+                    res.status(404).json({message: 'Must add items to your cart'})
                 }
                 Order.create({
                     userId: req.user._id,
