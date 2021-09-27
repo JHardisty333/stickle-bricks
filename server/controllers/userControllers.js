@@ -88,7 +88,6 @@ const userController = {
             User.findOneAndDelete({ _id: req.params.id })
                 .then(dbUserData => res.status(200).json({ message: 'This user was deleted!' }))
                 .catch(err => res.status(500).json(err));
-            return;
         } else res.status(403).json("You do not have permissions to delete other users!");
         
     },
@@ -121,7 +120,7 @@ const userController = {
                 }
                 let cart = userData.cart
                 if(!cart) {
-                    res.status(404).json({message: 'Must add items to your cart!'})
+                    res.status(404).json({message: 'Must add items to your cart'})
                 }
                 Order.create({
                     userId: req.user._id,

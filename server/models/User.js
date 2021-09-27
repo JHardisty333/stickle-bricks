@@ -20,11 +20,7 @@ const userSchema = new Schema(
             type: String,
             required: true,
         },
-        cart: [{
-            type: Schema.Types.ObjectId,
-            ref: 'Item',
-            default: undefined
-        }],
+        cart: [Item],
         orders: [{
             type: Schema.Types.ObjectId,
             ref: 'Order',
