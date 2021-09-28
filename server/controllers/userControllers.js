@@ -5,8 +5,8 @@ const userController = {
     // find all users => for future of adding more admin
     getAllUsers(req, res) {
         User.find({})
-        .populate({path: 'cart.itemId'})
-        .select('-__v -password')
+            .populate({ path: 'cart.itemId' })
+            .select('-__v -password')
             .then(dbUserData => res.status(200).json(dbUserData))
             .catch(err => {
                 console.log(err);
@@ -16,9 +16,9 @@ const userController = {
 
     // login with email and password
     userLogin(req, res) {
-        User.findOne({ 
+        User.findOne({
             email: req.body.email
-         })
+        })
             .select('-__v')
             .then(async (dbUserData) => {
                 if (!dbUserData) {
@@ -30,8 +30,8 @@ const userController = {
                     const token = signToken(dbUserData);
                     res.status(200).json(token);
                 } else {
-                    res.status(400).json({message: 'Incorrect password'})
-                }     
+                    res.status(400).json({ message: 'Incorrect password' })
+                }
             })
             .catch(err => {
                 console.log(err);
@@ -46,13 +46,13 @@ const userController = {
                 name: body.name,
                 email: body.email,
                 password: body.password
-            }], 
-            {new: true, runValidators: true})
+            }],
+            { new: true, runValidators: true })
             .then(dbUserData => {
                 const token = signToken(dbUserData);
                 res.status(200).json(token);
             })
-            .catch(err =>{console.log(err); res.status(500).json(err)});
+            .catch(err => { console.log(err); res.status(500).json(err) });
     },
 
     // Update user by ID
@@ -65,7 +65,7 @@ const userController = {
                 password: req.body.password
             },
             { new: true, runValidators: true })
-            .select('-__v -password')  
+            .select('-__v -password')
             .then(dbUserData => {
                 if (!dbUserData) {
                     res.status(404).json({ message: 'No user found with this id!' });
@@ -74,7 +74,7 @@ const userController = {
                 if (req.user._id === dbUserData._id) {
                     const token = signToken(dbUserData);
                     res.status(200).json([dbUserData, token]);
-                } else res.status(403).json({message: 'You do not have permissions to update another users information!'});
+                } else res.status(403).json({ message: 'You do not have permissions to update another users information!' });
             })
             .catch(err => {
                 console.log(err);
@@ -89,7 +89,7 @@ const userController = {
                 .then(dbUserData => res.status(200).json({ message: 'This user was deleted!' }))
                 .catch(err => res.status(500).json(err));
         } else res.status(403).json("You do not have permissions to delete other users!");
-        
+
     },
 
     // Update cart
@@ -110,22 +110,48 @@ const userController = {
                             image: itemData.image[0],
                             productName: itemData.productName
                         }
-                    }
-                }, 
-                { runValidators: true, new: true })
-                .then(cartData => res.status(200).json({ message: 'Cart updated!', cart: cartData.cart }))
-                .catch(err => res.status(500).json(err));
-        })
-        .catch(err => res.status(500).json(err));
+                    },
+                    { runValidators: true, new: true })
+                    .then(cartData => res.status(200).json({ message: 'Cart updated!', cart: cartData.cart }))
+                    .catch(err => res.status(500).json(err));
+            })
+            .catch(err => res.status(500).json(err));
     },
 
     // delete from cart
-    removeFromCart(req, res) { //needs to be updated to pull correctly from new schema layout
-        User.findOneAndUpdate(
-            { _id: req.params.id },
-            { $pull: { cart: req.body.itemId } })
-            .then(cartData => res.status(200).json({ message: 'Cart updated!', cart: cartData.cart }))
-            .catch(err => res.status(500).json(err));
+    removeFromCart(req, res) {
+        Item.findById(req.body.itemId)
+            .then(itemData => {
+                if (!itemData) return res.status(400).json({ message: 'Item not found!' });
+                //needs to be updated to pull correctly from new schema layout
+                User.findOneAndUpdate(
+                    { _id: req.params.id },
+                    {
+                        $pull: {
+                            cart: {
+                                itemId: req.body.itemId,
+                            }
+                        }
+                    },
+                    {new: true}
+                    )
+                    .then(cartData => res.status(200).json({ message: 'Cart updated!', cart: cartData.cart }))
+                    .catch(err => res.status(500).json(err));
+            })
+    },
+    changeQuantity(req,res) {
+        Item.findById(req.body.itemId)
+            .then(itemData => {
+                if(!itemData) return res.status(400).json({message: 'Item not found!'})
+               
+                User.findOneAndUpdate(
+                    {_id: req.params.id},
+                    { $inc: {cart: {quantity: req.body.quantity}}},
+                    // {new: true}
+                )
+                .then(itemData => res.status(200).json({message:'Quantity Updated!' }))
+                .catch(err => res.status(500).json(err));
+            })
     },
 
     // add order to logged in user. 
@@ -137,8 +163,8 @@ const userController = {
                     return;
                 }
                 let cart = userData.cart //need to make sure it will work with new schema
-                if(!cart) {
-                    res.status(404).json({message: 'Must add items to your cart'})
+                if (!cart) {
+                    res.status(404).json({ message: 'Must add items to your cart' })
                 }
                 Order.create({
                     userId: req.user._id,
