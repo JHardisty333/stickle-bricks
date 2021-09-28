@@ -99,23 +99,61 @@ const userController = {
         .then(itemData => {
             if (!itemData) return res.status(400).json({message: 'Item not found!'});
             if (itemData.quantity < req.body.quantity) return res.status(400).json({message: 'You can not add a quantity higher than the current in stock quantity!'});
-            if (req.user.id != req.params.id) return res.status(503).json({message: 'You can not add items to another users cart!'});
-            User.findOneAndUpdate(
-                { _id: req.params.id },
-                { $push: {
-                        cart: {
-                            itemId: req.body.itemId,
-                            quantity: req.body.quantity,
-                            priceTotal: (parseFloat(itemData.price) * req.body.quantity),
-                            image: itemData.image[0],
-                            productName: itemData.productName
-                        }
-                    },
-                    { runValidators: true, new: true })
-                    .then(cartData => res.status(200).json({ message: 'Cart updated!', cart: cartData.cart }))
-                    .catch(err => res.status(500).json(err));
+            if (req.user._id != req.params.id) return res.status(403).json({message: 'You can not add items to another users cart!'});
+            User.findById(req.params.id)
+            .then(userData => {      
+                if (userData.cart.find( ({productName}) => productName === itemData.productName)) {
+                    // const index = userData.cart.findIndex(cart.itemId === req.body.itemId);
+                    User.findOneAndUpdate({ _id: req.params.id },
+                        {
+                            $pull: {
+                                cart: {
+                                    itemId: req.body.itemId,
+                                }
+                            }
+                        },
+                        { runValidators: true, new: true })
+                        .then(cartData => {
+                            User.findOneAndUpdate(
+                                { _id: req.params.id },
+                                {
+                                    $push: {
+                                        cart: {
+                                            itemId: req.body.itemId,
+                                            quantity: req.body.quantity,
+                                            priceTotal: (parseFloat(itemData.price) * req.body.quantity),
+                                            image: itemData.image[0],
+                                            productName: itemData.productName
+                                        }
+                                    }
+                                },
+                                { runValidators: true, new: true })
+                                .then(cartData => res.status(200).json({ message: 'Cart updated!', cart: cartData.cart }))
+                                .catch(err => res.status(500).json(err));
+                        })
+                        .catch(err => res.status(500).json(err));
+
+                } else {
+                    User.findOneAndUpdate(
+                        { _id: req.params.id },
+                        {
+                            $push: {
+                                cart: {
+                                    itemId: req.body.itemId,
+                                    quantity: req.body.quantity,
+                                    priceTotal: (parseFloat(itemData.price) * req.body.quantity),
+                                    image: itemData.image[0],
+                                    productName: itemData.productName
+                                }
+                            }
+                        },
+                        { runValidators: true, new: true })
+                        .then(cartData => res.status(200).json({ message: 'Cart updated!', cart: cartData.cart }))
+                        .catch(err => res.status(500).json(err)); 
+                }   
             })
             .catch(err => res.status(500).json(err));
+        })
     },
 
     // delete from cart
@@ -137,20 +175,6 @@ const userController = {
                     )
                     .then(cartData => res.status(200).json({ message: 'Cart updated!', cart: cartData.cart }))
                     .catch(err => res.status(500).json(err));
-            })
-    },
-    changeQuantity(req,res) {
-        Item.findById(req.body.itemId)
-            .then(itemData => {
-                if(!itemData) return res.status(400).json({message: 'Item not found!'})
-               
-                User.findOneAndUpdate(
-                    {_id: req.params.id},
-                    { $inc: {cart: {quantity: req.body.quantity}}},
-                    // {new: true}
-                )
-                .then(itemData => res.status(200).json({message:'Quantity Updated!' }))
-                .catch(err => res.status(500).json(err));
             })
     },
 

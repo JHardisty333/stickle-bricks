@@ -28,6 +28,5 @@ router.route('/:id')
 router.route('/cart/:id')
 .put(verifyToken, addToCart)
 .delete(verifyToken, removeFromCart)
-.put(verifyToken, changeQuantity)
 
 module.exports = router;
