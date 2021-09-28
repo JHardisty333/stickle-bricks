@@ -99,6 +99,7 @@ const userController = {
         .then(itemData => {
             if (!itemData) return res.status(400).json({message: 'Item not found!'});
             if (itemData.quantity < req.body.quantity) return res.status(400).json({message: 'You can not add a quantity higher than the current in stock quantity!'});
+            if (req.user.id != req.params.id) return res.status(503).json({message: 'You can not add items to another users cart!'});
             User.findOneAndUpdate(
                 { _id: req.params.id },
                 { $push: {
