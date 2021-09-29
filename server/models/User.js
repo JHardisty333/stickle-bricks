@@ -1,8 +1,7 @@
 const { Schema, model, Types } = require('mongoose');
 const bcrypt = require('bcrypt');
 // these should be Item and Order to reference correct
-const Item = require('./Item');
-const Order = require('./Order');
+
 
 const userSchema = new Schema(
     {

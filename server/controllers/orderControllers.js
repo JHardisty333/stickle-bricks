@@ -3,6 +3,7 @@ const { User, Order } = require('../models');
 const orderController = {
 // add order for guest
     guestAddOrder(req, res) { //need to add changing the item counts on the site
+        //need to do extra error handling because their is no add to cart functions for guests
         Order.create({
             items: req.body.cart,
             bill: req.body.bill,

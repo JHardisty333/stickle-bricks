@@ -8,7 +8,6 @@ const expiration = '2h';
 module.exports = {
     signToken({ email, _id, admin }) {
         const payload = { email, _id, admin };
-
         return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
     },
     verifyToken(req, res, next) {
