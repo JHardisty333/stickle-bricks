@@ -1,5 +1,5 @@
 /* -----------------------------------------
-  Have focus outline only for keyboard users 
+            Back to top arrow js 
  ---------------------------------------- */
 
  const handleFirstTab = (e) => {
@@ -41,3 +41,12 @@
       alterStyles(isBackToTopRendered);
     }
   });
+
+  // function classToggle() {
+  //   const navs = document.querySelectorAll('.nav__items')
+    
+  //   navs.forEach(nav => nav.classList.toggle('nav__toggleshow'));
+  // }
+  
+  // document.querySelector('.nav__link-toggle')
+  //   .addEventListener('click', classToggle);
