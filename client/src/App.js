@@ -18,6 +18,11 @@
 
 // export default App;
 
+// @font-face {
+//     font-family: HelveticaNeue-Bold;
+//     local('HelveticaNeue-Bold'), url(./fonts/HelveticaNeue-Bold.ttf);
+// }
+
 import React from 'react';
 import './index.css';
 import Navbar from './components/Navbar';

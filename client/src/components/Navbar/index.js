@@ -18,19 +18,21 @@ const Navbar = () => {
                     <NavLink to='/Shop' activeStyle>
                         Shop
                     </NavLink>
+
                     <NavLink to='/About' activeStyle>
                         About
                     </NavLink>
 
+                    <NavBtn className= 'land'>
+                        <NavBtnLink to='/Landing' activeStyle>
+                            StickleBricks</NavBtnLink>
+                    </NavBtn>
+
                     {/* search button will go here? */}
-                    
-                    <NavLink to='/Landing' activeStyle>
-                        StickleBricks
-                    </NavLink>
+
                     <NavLink to='/Deals' activeStyle>
                         Deals
                     </NavLink>
-                   
 
                     {/* Second Nav */}
                     {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}

@@ -10,22 +10,8 @@ export const Nav = styled.nav`
   padding: 0.2rem calc((100vw - 1000px) / 2);
   z-index: 12;
   /* Third Nav */
-  justify-content: flex-start;
+  // justify-content: flex-start;
   border-bottom: 5px solid #707070;
-  // @font-face: HelveticaNeue-Bold;
-`;
-
-export const NavLink = styled(Link)`
-  color: #000000;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  padding: 0 1rem;
-  height: 100%;
-  cursor: pointer;
-  &.active {
-    color: #000000;
-  }
 `;
 
 export const Bars = styled(FaBars)`
@@ -39,6 +25,7 @@ export const Bars = styled(FaBars)`
     transform: translate(-100%, 75%);
     font-size: 1.8rem;
     cursor: pointer;
+    // @font-face: HelveticaNeue-Bold;
   }
 `;
 
@@ -49,8 +36,34 @@ export const NavMenu = styled.div`
   /* Second Nav */
   margin-right: 24px;
   /* Third Nav */
-     width: 100vw;
+    //  width: 100vw;
   white-space: nowrap;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const NavLink = styled(Link)`
+  color: #000000;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 1rem;
+  height: 100%;
+  cursor: pointer;
+  &.active {
+    color: #000000;
+  }
+`;
+
+export const NavBtn = styled.nav`
+  display: flex;
+  align-items: center;
+  margin-right: 24px;
+  /* Third Nav */
+  justify-content: flex-end;
+  // width: 100vw;
   @media screen and (max-width: 768px) {
     display: none;
   }
@@ -62,7 +75,7 @@ export const NavBtn = styled.nav`
   margin-right: 24px;
   /* Third Nav */
   justify-content: flex-end;
-  width: 100vw;
+  // width: 100vw;
   @media screen and (max-width: 768px) {
     display: none;
   }
@@ -79,10 +92,12 @@ export const NavBtnLink = styled(Link)`
   transition: all 0.2s ease-in-out;
   text-decoration: none;
   /* Second Nav */
-  margin-left: 24px;
+  margin-left: 10px;
   &:hover {
     transition: all 0.2s ease-in-out;
     background: #fff;
+    border-style: solid;
+    border-color: #a45fe8;
     color: #808080;
   }
 `;
