@@ -52,9 +52,8 @@ const userController = {// ✓
 
     // Update user by ID
     updateUser(req, res) {
-        
         User.findOneAndUpdate(
-            { _id: req.user_id },
+            { _id: req.user._id },
             {
                 name: req.body.name,
                 email: req.body.email,
@@ -75,7 +74,7 @@ const userController = {// ✓
 
     // delete user 
     deleteUser(req, res) {
-            User.findOneAndDelete({ _id: req.user_id })
+            User.findOneAndDelete({ _id: req.user._id })
                 .then(userData => {
                     if (!userData) return res.status(400).json({ message: 'This user does not exist!' })
                     res.status(200).json({ message: 'This user was deleted!' })
@@ -91,11 +90,11 @@ const userController = {// ✓
         .then(itemData => {
             if (!itemData) return res.status(400).json({message: 'Item not found!'});
             if (itemData.quantity < req.body.quantity) return res.status(400).json({message: 'You can not add a quantity higher than the current in stock quantity!'});
-            User.findById(req.user_id)
+            User.findById(req.user._id)
             .then(userData => {      
                 if (userData.cart.find( ({productName}) => productName === itemData.productName)) {
                     if (!userData) return res.status(400).json({ message: 'User not found!' });
-                    User.findOneAndUpdate({ _id: req.user_id },
+                    User.findOneAndUpdate({ _id: req.user._id },
                         {
                             $pull: {
                                 cart: {
@@ -105,7 +104,7 @@ const userController = {// ✓
                         },
                         { runValidators: true, new: true })
                         .then(cartData => {
-                            User.findOneAndUpdate({ _id: req.user_id },
+                            User.findOneAndUpdate({ _id: req.user._id },
                                 {
                                     $push: {
                                         cart: {
@@ -124,7 +123,7 @@ const userController = {// ✓
                         .catch(err => res.status(500).json({error: err})); ;
                 } else {
                     User.findOneAndUpdate(
-                        { _id: req.user_id },
+                        { _id: req.user._id },
                         {
                             $push: {
                                 cart: {
@@ -150,9 +149,8 @@ const userController = {// ✓
         Item.findById(req.body.itemId)
             .then(itemData => {
                 if (!itemData) return res.status(400).json({ message: 'Item not found!' });
-                
                 User.findOneAndUpdate(
-                    { _id: req.user_id },
+                    { _id: req.user._id },
                     {
                         $pull: {
                             cart: {

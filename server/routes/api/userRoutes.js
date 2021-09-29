@@ -13,7 +13,9 @@ const {
 } = require('../../controllers/userControllers');
 
 router.route('/')
-.get(verifyTokenAdmin, getAllUsers); // ✓
+.get(verifyTokenAdmin, getAllUsers) // ✓
+.put(verifyToken, updateUser)
+.delete(verifyToken, deleteUser); // ✓
 
 // check method GET
 router.route('/login')
@@ -22,15 +24,11 @@ router.route('/login')
 router.route('/signup')
 .post(createUser); // ✓
 
-router.route('/:id')
-.put(verifyToken, updateUser)
-.delete(verifyToken, deleteUser); // ✓
-
-router.route('/cart/:id')
+router.route('/cart')
 .put(verifyToken, addToCart) // ✓
 .delete(verifyToken, removeFromCart); // ✓
 
 router.route('/order')
-    .post(verifyToken, addOrder); // ✓
+.post(verifyToken, addOrder); // ✓
 
 module.exports = router;
