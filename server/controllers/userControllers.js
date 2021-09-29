@@ -52,9 +52,9 @@ const userController = {// ✓
 
     // Update user by ID
     updateUser(req, res) {
-        if (req.user._id === req.params.id) {
+        
         User.findOneAndUpdate(
-            { _id: req.params.id },
+            { _id: req.user_id },
             {
                 name: req.body.name,
                 email: req.body.email,
@@ -71,19 +71,16 @@ const userController = {// ✓
                 res.status(200).json([dbUserData, token]);
             })
             .catch(err => res.status(500).json({error: err}))
-        } else res.status(403).json({ message: 'You do not have permissions to update another users information!' });
     },
 
     // delete user 
     deleteUser(req, res) {
-        if (req.user._id === req.params.id || req.user.admin === true) {
-            User.findOneAndDelete({ _id: req.params.id })
+            User.findOneAndDelete({ _id: req.user_id })
                 .then(userData => {
                     if (!userData) return res.status(400).json({ message: 'This user does not exist!' })
                     res.status(200).json({ message: 'This user was deleted!' })
                 })
                 .catch(err => res.status(500).json({error: err})); ;
-        } else res.status(403).json("You do not have permissions to delete other users!");
 
     },
 
@@ -94,12 +91,11 @@ const userController = {// ✓
         .then(itemData => {
             if (!itemData) return res.status(400).json({message: 'Item not found!'});
             if (itemData.quantity < req.body.quantity) return res.status(400).json({message: 'You can not add a quantity higher than the current in stock quantity!'});
-            if (req.user._id != req.params.id) return res.status(403).json({message: 'You can not add items to another users cart!'});
-            User.findById(req.params.id)
+            User.findById(req.user_id)
             .then(userData => {      
                 if (userData.cart.find( ({productName}) => productName === itemData.productName)) {
                     if (!userData) return res.status(400).json({ message: 'User not found!' });
-                    User.findOneAndUpdate({ _id: req.params.id },
+                    User.findOneAndUpdate({ _id: req.user_id },
                         {
                             $pull: {
                                 cart: {
@@ -109,7 +105,7 @@ const userController = {// ✓
                         },
                         { runValidators: true, new: true })
                         .then(cartData => {
-                            User.findOneAndUpdate({ _id: req.params.id },
+                            User.findOneAndUpdate({ _id: req.user_id },
                                 {
                                     $push: {
                                         cart: {
@@ -128,7 +124,7 @@ const userController = {// ✓
                         .catch(err => res.status(500).json({error: err})); ;
                 } else {
                     User.findOneAndUpdate(
-                        { _id: req.params.id },
+                        { _id: req.user_id },
                         {
                             $push: {
                                 cart: {
@@ -154,9 +150,9 @@ const userController = {// ✓
         Item.findById(req.body.itemId)
             .then(itemData => {
                 if (!itemData) return res.status(400).json({ message: 'Item not found!' });
-                if (req.user._id != req.params.id) return res.status(403).json({ message: 'You can edit an another users cart!' });
+                
                 User.findOneAndUpdate(
-                    { _id: req.params.id },
+                    { _id: req.user_id },
                     {
                         $pull: {
                             cart: {
@@ -192,7 +188,7 @@ const userController = {// ✓
                     userId: req.user._id,
                     items: cart,
                     subtotal: subtotal, //includes shipping?
-                    total: req.body.total, //includes taxes and shipping, not currently required
+                    // total: req.body.total, //includes taxes and shipping, not currently required
                     name: userData.name,
                     address: req.body.address,
                     email: userData.email,
