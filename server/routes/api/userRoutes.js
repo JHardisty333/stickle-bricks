@@ -9,24 +9,27 @@ const {
     deleteUser,
     addToCart,
     removeFromCart,
-    changeQuantity
+    addOrder 
 } = require('../../controllers/userControllers');
 
 router.route('/')
-.get(verifyTokenAdmin, getAllUsers);
+.get(verifyTokenAdmin, getAllUsers); // ✓
 
 router.route('/login')
-.post(userLogin);
+.post(userLogin); // ✓
 
 router.route('/signup')
-.post(createUser)
+.post(createUser); // ✓
 
 router.route('/:id')
 .put(verifyToken, updateUser)
-.delete(verifyToken, deleteUser)
+.delete(verifyToken, deleteUser); // ✓
 
 router.route('/cart/:id')
-.put(verifyToken, addToCart)
-.delete(verifyToken, removeFromCart)
+.put(verifyToken, addToCart) // ✓
+.delete(verifyToken, removeFromCart); // ✓
+
+router.route('/order')
+    .post(verifyToken, addOrder); // ✓
 
 module.exports = router;
