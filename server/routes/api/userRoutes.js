@@ -9,12 +9,12 @@ const {
     deleteUser,
     addToCart,
     removeFromCart,
-    changeQuantity
 } = require('../../controllers/userControllers');
 
 router.route('/')
 .get(verifyTokenAdmin, getAllUsers);
 
+// check method GET
 router.route('/login')
 .post(userLogin);
 
