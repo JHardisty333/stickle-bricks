@@ -38,6 +38,7 @@
     --raw-sienna: #d18a48;
     --white: #ffffff;
     --amethyst: #AA51B8;
+    --scooter: #2da9ce;
 
     --font-size-xxs: 1.8rem;
     --font-size-xs: 2.2rem;
@@ -193,6 +194,66 @@ footer {
 
 
 /* ----- End Footer ----- */
+
+/* --------------------------------------- */
+/* ----- Landing/ Main Page ----- */
+/* --------------------------------------- */
+
+body {
+    background-color: var(--scooter);
+    background-image: url("../img/legoHands.png");
+    background-size: 80%;
+    background-position:left;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.landing{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+}
+
+.greeting {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    background-color: var(--white);
+    padding: 40px 30px 60px;
+    color: var(--black);
+    font-family: 'HelveticaNCB';
+    font-size: var(--font-size-m);
+    width: 40%;
+    margin: 12rem 8rem 40rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}
+
+.greeting__text {
+    text-align: center;
+}
+
+button {
+    background-color: var(--scooter);
+    border: solid 1.5px var(--dove-gray);
+    padding: 30px;
+    color: var(--alabaster);
+    font-family: 'HelveticaNCB';
+    font-size: var(--font-size-s);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+button:hover {
+    background-color: var(--raw-sienna);
+    transform: scale(1.3);
+}
+
+/* ----- End Landing Page ----- */
 
 
 /* --------------------------------------- */
