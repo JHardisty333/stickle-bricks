@@ -6,21 +6,21 @@
     font-family: 'HelveticaBold';
     font-style: normal;
     font-weight: 400;
-    src: url('../../assets/fonts/HelveticaNeue-Bold.ttf') format('truetype');
+    src: url('../../fonts/HelveticaNeue-Bold.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'HelveticaNCB';
     font-style: normal;
     font-weight: 400;
-    src: url('../../assets/fonts/HelveticaNeue-CondensedBold.otf') format('opentype');
+    src: url('../../fonts/HelveticaNeue-CondensedBold.otf') format('opentype');
 }
 
 @font-face {
     font-family: 'AdobeReg';
     font-style: normal;
     font-weight: 400;
-    src: url('../../assets/fonts/AdobeHeitiStd-Regular.otf') format('opentype');
+    src: url('../../fonts/AdobeHeitiStd-Regular.otf') format('opentype');
 }
 
 * {
@@ -66,7 +66,6 @@ html {
 /* --------------------------------------- */
 
 .row {
-    background-color: var(--alabaster);
     border-bottom: solid 5px #000000;
     position: -webkit-sticky;
     position: sticky;
@@ -202,7 +201,7 @@ footer {
 
 body {
     background-color: var(--scooter);
-    background-image: url('../../assets/img/legoHands.png');
+    background-image: url("../../img/legoHands.png");
     background-size: 80%;
     background-position:left;
     background-attachment: fixed;
@@ -221,14 +220,14 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 40px;
-    background-color: var(--white);
+    width: 45%;
+    margin: 60px 40px;
     padding: 40px 30px 60px;
+    gap: 40px;
     color: var(--black);
     font-family: 'HelveticaNCB';
     font-size: var(--font-size-m);
-    width: 40%;
-    margin: 12rem 8rem 40rem;
+    background-color: var(--white);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     border-radius: 15px;
 }

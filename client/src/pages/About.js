@@ -1,9 +1,17 @@
 import React from 'react';
-  
+
 const About = () => {
   return (
     <div>
-      <h1>Replace this with the html tha has been converted inside the div</h1>
+      <section className="about"> About Us
+        <div className="aboutus">
+          <div className="about_us">
+            <span className>
+              LEGO© is our family passion<br />
+              </span>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
