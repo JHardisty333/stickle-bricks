@@ -1,6 +1,4 @@
 const express = require('express');
-// middleware for connecting back to front
-const bodyParser = require('body-parser')
 const path = require('path');
 const db = require('./config/connection');
 const routes = require('./routes');
@@ -9,9 +7,6 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 
 // middleware for connecting back to front
-
-app.use(bodyParser.urlencoded({ extended: false}))
-app.use(bodyParser.json());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

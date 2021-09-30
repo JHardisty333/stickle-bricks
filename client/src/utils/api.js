@@ -86,11 +86,7 @@ export const deleteUserApi = (jwt) => {
       }) 
 }
 
-<<<<<<< HEAD
-export const addCartApi = (itemId, quantity, jwt) => {
-=======
 export const addCartApi = (jwt, itemId, quantity) => {
->>>>>>> 540d286f9c63e213995aaece4a13f3861b7efa4c
     return fetch('/api/user/cart', {
         method: 'PUT',
         headers: {
@@ -110,11 +106,7 @@ export const addCartApi = (jwt, itemId, quantity) => {
       }) 
 }
 
-<<<<<<< HEAD
-export const deleteCartApi = (itemId, quantity, jwt) => {
-=======
 export const deleteCartApi = (jwt, itemId, quantity) => {
->>>>>>> 540d286f9c63e213995aaece4a13f3861b7efa4c
     return fetch('/api/user/cart', {
         method: 'DELETE',
         headers: {
@@ -134,11 +126,7 @@ export const deleteCartApi = (jwt, itemId, quantity) => {
       }) 
 }
 
-<<<<<<< HEAD
-export const addOrderApi = (address, total, jwt) => {
-=======
 export const addOrderApi = (jwt, address, total) => {
->>>>>>> 540d286f9c63e213995aaece4a13f3861b7efa4c
     return fetch('/api/user/order', {
         method: 'POST',
         headers: {

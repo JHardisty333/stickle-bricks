@@ -25,8 +25,8 @@ const NavBar = (props) => {
                             
                             <li className="nav__item"><Link to="/about" className="nav__link">About</Link></li>
                             
-                            <li className="nav__item"><Link to="/search">
-                                <img src={searchIcon} title="Search" className="nav__icon" alt="Search" /></Link>
+                            <li className="nav__item"><a href="/search">
+                                <img src={searchIcon} title="Search" className="nav__icon" alt="Search" /></a>
                             </li>
                         </ul>
                         
@@ -35,8 +35,8 @@ const NavBar = (props) => {
                         <ul className="nav__items">
                             <li className="nav__item"><Link to="/deal" className="nav__link">Deals</Link></li>
                             
-                            <li className="nav__item"><Link to="/login">
-                                <img src={customerIcon} title="Account" className="nav__icon" alt="Customer Account" /></Link>
+                            <li className="nav__item"><a href="/login">
+                                <img src={customerIcon} title="Account" className="nav__icon" alt="Customer Account" /></a>
                             </li>
 
                             <li className="nav__item"><Link to="/cart">
