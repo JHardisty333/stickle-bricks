@@ -49,7 +49,11 @@ export const signUpUserApi = (name, email, password) => {
       }) 
 }
 
+<<<<<<< HEAD
+export const updateUserApi = (jwt, name, email, password) => {
+=======
 export const updateUserApi = (name, email, password, jwt) => {
+>>>>>>> 540d286f9c63e213995aaece4a13f3861b7efa4c
     return fetch('/api/user/', {
         method: 'PUT',
         header: {
@@ -86,6 +90,41 @@ export const deleteUserApi = (jwt) => {
       }) 
 }
 
+export const guestCheckCart = (cart) => {
+    return fetch('/api/order/guest', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            cart: cart
+        })
+    })
+    .then((response) => response.json()).then((data) => {
+        if (data.message) {
+          alert(data.message);
+          return;
+        }
+      }) 
+}
+
+export const checkCartApi = (jwt) => {
+    return fetch('/api/user/cart', {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + jwt ,
+            'Content-Type': 'application/json'
+
+        }
+    })
+    .then((response) => response.json()).then((data) => {
+        if (data.message) {
+          alert(data.message);
+          return;
+        }
+      }) 
+}
+
 export const addCartApi = (jwt, itemId, quantity) => {
     return fetch('/api/user/cart', {
         method: 'PUT',
@@ -106,7 +145,7 @@ export const addCartApi = (jwt, itemId, quantity) => {
       }) 
 }
 
-export const deleteCartApi = (jwt, itemId, quantity) => {
+export const deleteCartApi = (jwt, itemId) => {
     return fetch('/api/user/cart', {
         method: 'DELETE',
         headers: {
@@ -115,7 +154,6 @@ export const deleteCartApi = (jwt, itemId, quantity) => {
         },
         body: JSON.stringify({
             itemId: itemId,
-            quantity: quantity
         })
     })
     .then((response) => response.json()).then((data) => {
@@ -126,7 +164,7 @@ export const deleteCartApi = (jwt, itemId, quantity) => {
       }) 
 }
 
-export const addOrderApi = (jwt, address, total) => {
+export const addOrderApi = (jwt, address) => {
     return fetch('/api/user/order', {
         method: 'POST',
         headers: {
@@ -135,7 +173,7 @@ export const addOrderApi = (jwt, address, total) => {
         },
         body: JSON.stringify({
             address: address,
-            total: total ? total : null
+            // total: total ? total : null
         })
     })
     .then((response) => response.json()).then((data) => {
@@ -165,6 +203,7 @@ export const itemApi = () => {
 
 }
 
+// /item/search -- search by name
 export const searchItemsApi = (itemName) => {
     return fetch('/api/item/search', {
         method: 'POST',
@@ -172,7 +211,7 @@ export const searchItemsApi = (itemName) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            name: itemName
+            search: itemName
         })
     })
     .then((response) => response.json()).then((data) => {
@@ -183,6 +222,7 @@ export const searchItemsApi = (itemName) => {
       }) 
 }
 
+// /items/type/:type -- search by specific item
 export const itemTypeApi = (itemType) => {
     return fetch('/api/item/type/' + itemType, {
         method: 'GET',
@@ -198,6 +238,23 @@ export const itemTypeApi = (itemType) => {
       }) 
 }
 
+// /item/type -- all item types available
+export const allItemTypesApi = () => {
+    return fetch('/api/item/type', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then((response) => response.json()).then((data) => {
+        if (data.message) {
+          alert(data.message);
+          return;
+        }
+      }) 
+}
+
+// /item/category/:id -- 
 export const itemCategoryApi = (categoryId) => {
     return fetch('/api/item/category/' + categoryId, {
         method: 'GET',
@@ -213,6 +270,23 @@ export const itemCategoryApi = (categoryId) => {
       }) 
 }
 
+// /item/color -- all colors
+export const itemAllColorsApi = () => {
+    return fetch('/api/item/color', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then((response) => response.json()).then((data) => {
+        if (data.message) {
+          alert(data.message);
+          return;
+        }
+      }) 
+}
+
+// /item/color/:id -- specific color
 export const itemColorApi = (colorId) => {
     return fetch('/api/item/color/' + colorId, {
         method: 'GET',
@@ -228,14 +302,38 @@ export const itemColorApi = (colorId) => {
       }) 
 }
 
-export const addItemApi = (jwt, addItem) => {
+// /item/featured
+export const itemFeaturedApi = () => {
+    return fetch('/api/item/featured', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then((response) => response.json()).then((data) => {
+        if (data.message) {
+          alert(data.message);
+          return;
+        }
+      }) 
+}
+
+export const addItemApi = (jwt, itemObject ) => {
     return fetch('/api/admin', {
         method: 'POST',
         headers: {
             'Authorization': 'Bearer ' + jwt ,
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(addItem)
+        body: JSON.stringify({
+            type: itemObject.type,
+            productId: itemObject.productId,
+            colorId: itemObject.colorId,
+            price: itemObject.price,
+            quantity: itemObject.quantity,
+            active: itemObject.active
+    
+        })
     })
     .then((response) => response.json()).then((data) => {
         if (data.message) {
@@ -245,10 +343,11 @@ export const addItemApi = (jwt, addItem) => {
       })
 }
 
-export const updateItemApi = (itemObject) => {
+export const updateItemApi = (itemObject, jwt) => {
     return fetch('/api/item/color/admin/', {
         method: 'PUT',
         headers: {
+            'Authorization': 'Bearer ' + jwt ,
             'Content-Type': 'application/json'
         },
         body: JSON.stringfify(itemObject)
@@ -261,7 +360,7 @@ export const updateItemApi = (itemObject) => {
       }) 
 }
 
-
+// Calls all Categories
 export const categoryApiCall = () => {
     return fetch('api/category', {
         method: 'GET',
@@ -269,13 +368,141 @@ export const categoryApiCall = () => {
             'Content-Type': 'application/json'
         }
     })
+    .then((response) => response.json()).then((data) => {
+        if (data.message) {
+          alert(data.message);
+          return;
+        }
+      }) 
 }
 
-export const orderApiCall = () => {
-    return fetch('api/order', {
+//  ORDER ROUTES
+export const orderApiCall = (cart, total, name, address, email) => {
+    return fetch('api/order/guest', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            cart: cart,
+            total: total,
+            name: name,
+            address: address,
+            email: email
+        })
+    })
+    .then((response) => response.json()).then((data) => {
+        if (data.message) {
+          alert(data.message);
+          return;
+        }
+      }) 
+}
+
+export const userOrderApi = (jwt) => {
+    return fetch('/api/order/user', {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + jwt ,
+            'Content-Type': 'application/json'
         }
     })
+    .then((response) => response.json()).then((data) => {
+        if (data.message) {
+          alert(data.message);
+          return;
+        }
+      }) 
+}
+
+export const cancelOrderApi = (jwt, id) => {
+    return fetch('/api/order/user', {
+        method: 'PUT',
+        headers: {
+            'Authorization': 'Bearer ' + jwt ,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            id: id
+        })
+    })
+    .then((response) => response.json()).then((data) => {
+        if (data.message) {
+          alert(data.message);
+          return;
+        }
+      }) 
+}
+
+export const allOrdersApi = (jwt) => {
+    return fetch('/api/order/admin', {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + jwt ,
+            'Content-Type': 'application/json'
+        }
+    })
+    .then((response) => response.json()).then((data) => {
+        if (data.message) {
+          alert(data.message);
+          return;
+        }
+      }) 
+}
+
+
+export const receivedOrdersApi = (jwt) => {
+    return fetch('/api/order/admin/received', {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + jwt ,
+            'Content-Type': 'application/json'
+        }
+    })
+    .then((response) => response.json()).then((data) => {
+        if (data.message) {
+          alert(data.message);
+          return;
+        }
+      }) 
+}
+
+
+export const orderStatusApi = (jwt, status) => {
+    return fetch('/api/order/orders', {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + jwt ,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            status: status
+        })
+    })
+    .then((response) => response.json()).then((data) => {
+        if (data.message) {
+          alert(data.message);
+          return;
+        }
+      }) 
+}
+
+
+export const updateOrderApi = (jwt, status) => {
+    return fetch('/api/order/', {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + jwt ,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            status: status
+        })
+    })
+    .then((response) => response.json()).then((data) => {
+        if (data.message) {
+          alert(data.message);
+          return;
+        }
+      }) 
 }
