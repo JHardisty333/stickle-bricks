@@ -62,24 +62,24 @@ html {
 }
 
 /* --------------------------------------- */
-/* ----- Navigation ----- */
+/* ----- navigatorigation ----- */
 /* --------------------------------------- */
 
-.row {
+.navigator__row {
     background-color: var(--alabaster);
     border-bottom: solid 5px #000000;
     position: -webkit-sticky;
     position: sticky;
 }
 
-.nav {
+.navigator {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     padding: var(--gutter-m);
 }
 
-/* .nav__link-toggle{
+/* .navigator__link-toggle{
     display: none;
 } */
 
@@ -96,17 +96,17 @@ h1 a {
     text-decoration: none;
 }
 
-.nav__items {
+.navigator__items {
     display: flex;
     align-items: flex-end;
     list-style: none;
 }
 
-.nav__item:not(:last-child) {
+.navigator__item:not(:last-child) {
     margin-right: var(--gutter-l);
 }
 
-.nav__link {
+.navigator__link {
     position: relative;
     display: inline-block;
     padding: 1rem 0;
@@ -119,7 +119,7 @@ h1 a {
     color: var(--black);
 }
 
-.nav__link::after {
+.navigator__link::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -131,18 +131,18 @@ h1 a {
     transition: all 0.25s cubic-bezier(1, 0.68, 0.16, 0.9);
 }
 
-.nav__link:hover {
+.navigator__link:hover {
     transform: scale(1.3);
     color: var(--amethyst);
 }
 
-.nav__link:hover::after {
+.navigator__link:hover::after {
     right: 0;
     height: 2px;
     background: var(--amethyst);
 }
 
-.nav__icon {
+.navigator__icon {
     height: 5.5rem;
     position: relative;
     display: inline-block;
@@ -154,7 +154,7 @@ img:hover {
     transform: scale(1.5);
 }
 
-/* ----- End Navigation ----- */
+/* ----- End navigatorigation ----- */
 
 
 /* ----- Login / Signup Styles ----- */
@@ -204,6 +204,18 @@ footer {
 .foot__link:hover {
     color: var(--raw-sienna);
     transform: scale(1.5);
+}
+
+.foot__logo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.logo {
+    color: var(--black);
+    font-family: 'AdobeReg';
+    font-size: var(--font-size-xs);
 }
 
 
@@ -322,7 +334,7 @@ button:hover {
         font-size: 52%;
     }
 
-    .nav__item:not(:last-child) {
+    .navigator__item:not(:last-child) {
         margin-right: var(--gutter-m);
     }
 }
@@ -332,26 +344,26 @@ button:hover {
         font-size: 40%;
     }
 
-    .row {
+    .navigator__row {
         text-align: center;
     }
 
-    .nav {
+    .navigator {
         padding: var(--gutter-s);
     }
 
-    /* .nav__link-toggle {
+    /* .navigator__link-toggle {
         align-self: flex-end;
         display: initial;
         position: absolute;
         cursor: pointer;
     }
 
-    .nav__toggleshow {
+    .navigator__toggleshow {
         display: flex;
     }
 
-    .nav__items {
+    .navigator__items {
         flex-direction: column;
         display: none;
     } */
@@ -366,7 +378,7 @@ button:hover {
         font-size: 30%;
     }
 
-    .nav {
+    .navigator {
         padding: 3%;
         font-size: var(--font-size-xxs);
     }

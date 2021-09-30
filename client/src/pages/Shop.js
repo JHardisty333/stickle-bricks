@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Collapse, Button, CardBody, Card } from 'reactstrap';
+import { Collapse, Button, CardBody, Card, Container, Row, Col } from 'reactstrap';
 
 const Shop = (props) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -9,15 +9,15 @@ const Shop = (props) => {
     return (
 
       <>
-        <div class="container-fluid">
-        <div className="row">
-            <div className='col-3'>
+        <Container>
+        <Row>
+            <Col sm={3}>
                 {/* search bar goes hear */}
-            </div>
+            </Col>
     
-        </div>
-        <div className="row">
-            <div className="col-4">
+        </Row>
+        <Row>
+            <Col sm={4}>
                 <Button color="primary" onClick={toggle} style={{ marginBottom: '1rem' }}>Toggle</Button>
                 <Collapse isOpen={isOpen}>
                     <Card>
@@ -29,10 +29,10 @@ const Shop = (props) => {
                         </CardBody>
                     </Card>
                 </Collapse>
-            </div>
-        </div>
+            </Col>
+        </Row>
     
-    </div>
+    </Container>
 
     </>
     );

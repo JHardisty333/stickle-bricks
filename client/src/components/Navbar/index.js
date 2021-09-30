@@ -15,32 +15,32 @@ const NavBar = (props) => {
         <div>
             {/* ***** Navigation Bar ***** */}
             <header>
-                <div className="row">
-                    <nav className="nav" role="navigation">
-                        {/* <div class="nav__link nav__link-toggle">
+                <div className="navigator__row">
+                    <nav className="navigator" role="navigation">
+                        {/* <div class="navigator__link navigator__link-toggle">
                             <i class="fas fa-bars"></i>
                             </div> */}
-                        <ul className="nav__items">
-                            <li className="nav__item"><Link to="/shop" className="nav__link">Shop</Link></li>
+                        <ul className="navigator__items">
+                            <li className="navigator__item"><a href="/shop" className="navigator__link">Shop</a></li>
                             
-                            <li className="nav__item"><Link to="/about" className="nav__link">About</Link></li>
+                            <li className="navigator__item"><a href="/about" className="navigator__link">About</a></li>
                             
-                            <li className="nav__item"><Link to="/search">
-                                <img src={searchIcon} title="Search" className="nav__icon" alt="Search" /></Link>
+                            <li className="navigator__item"><a href="/search">
+                                <img src={searchIcon} title="Search" className="navigator__icon" alt="Search" /></a>
                             </li>
                         </ul>
                         
                         <h1><a href="/">Stickle Brick's</a></h1>
                         
-                        <ul className="nav__items">
-                            <li className="nav__item"><Link to="/deal" className="nav__link">Deals</Link></li>
+                        <ul className="navigator__items">
+                            <li className="navigator__item"><a href="/deal" className="navigator__link">Deals</a></li>
                             
-                            <li className="nav__item"><Link to="/login">
-                                <img src={customerIcon} title="Account" className="nav__icon" alt="Customer Account" /></Link>
+                            <li className="navigator__item"><a href="/login">
+                                <img src={customerIcon} title="Account" className="navigator__icon" alt="Customer Account" /></a>
                             </li>
 
-                            <li className="nav__item"><Link to="/cart">
-                                <img src={shoppingIcon} title="Shopping Cart" className="nav__icon" alt="Shopping Cart" /></Link>
+                            <li className="navigator__item"><a href="/cart">
+                                <img src={shoppingIcon} title="Shopping Cart" className="navigator__icon" alt="Shopping Cart" /></a>
                             </li>
                         </ul>
                     </nav>
