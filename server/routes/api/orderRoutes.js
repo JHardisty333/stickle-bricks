@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { verifyTokenAdmin, verifyToken } = require('../../utils/auth')
 
 const {
+    checkGuestCart,
     guestAddOrder,
     getUserOrders,
     cancelOrder,
@@ -13,7 +14,8 @@ const {
 } = require('../../controllers/orderControllers');
 
 router.route('/guest')
-.post(guestAddOrder);
+.post(guestAddOrder)
+.put(checkGuestCart);
 
 router.route('/user/')
 .get(verifyToken, getUserOrders) //get user order history
