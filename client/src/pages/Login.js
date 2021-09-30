@@ -10,13 +10,15 @@ function Login() {
       return email.length > 0 && password.length > 0;
     }
   
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
       event.preventDefault();
-      loginUserApi();
+      const jwt = await loginUserApi(email, password);
+      if (jwt)
+      localStorage.setItem('jwt', jwt);
+      document.location('/')
     }
   
     return (
-        <>
       <div className="Login">
         <Form onSubmit={handleSubmit}>
           <Form.Group size="lg" controlId="email">
@@ -41,7 +43,6 @@ function Login() {
           </Button>
         </Form>
       </div>
-      </>
     );
 }
 
