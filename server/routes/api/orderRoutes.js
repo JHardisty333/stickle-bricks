@@ -15,7 +15,7 @@ const {
 router.route('/guest')
 .post(guestAddOrder);
 
-router.route('/user/:id')
+router.route('/user/')
 .get(verifyToken, getUserOrders) //get user order history
 .put(verifyToken, cancelOrder) //will only update if it has not been shipped
 

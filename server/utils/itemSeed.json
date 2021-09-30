@@ -16653,6 +16653,7 @@
         ],
         "itemWeight": 0,
         "active": true,
+        "featured": true,
         "categoryId": 65
     },
     {

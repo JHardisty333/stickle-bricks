@@ -8,7 +8,6 @@ const expiration = '2h';
 module.exports = {
     signToken({ email, _id, admin }) {
         const payload = { email, _id, admin };
-
         return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
     },
     verifyToken(req, res, next) {
@@ -27,7 +26,6 @@ module.exports = {
         try {
             // decode and attach user data to request object
             const { data } = jwt.verify(bearerToken, secret, { maxAge: expiration });
-            console.log(data);
             req.user = data;
             next()
         } catch {

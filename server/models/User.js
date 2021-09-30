@@ -1,8 +1,7 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
 const bcrypt = require('bcrypt');
 // these should be Item and Order to reference correct
-const Item = require('./Item');
-const Order = require('./Order');
+
 
 const userSchema = new Schema(
     {
@@ -20,15 +19,19 @@ const userSchema = new Schema(
             type: String,
             required: true,
         },
-        cart: [{
-            type: Schema.Types.ObjectId,
-            ref: 'Item',
-            default: undefined
-        }],
+        cart: [
+            {
+                _id: false,
+                itemId: {type: Types.ObjectId, ref: 'Item', required: true},
+                quantity: {type: Number, min: 1, default: 1},
+                priceTotal: { type: Types.Decimal128, required: true },
+                image: {type: String, required: true},
+                productName: {type: String, required: true}
+            }
+        ],
         orders: [{
-            type: Schema.Types.ObjectId,
-            ref: 'Order',
-            default: undefined
+            type: Types.ObjectId,
+            ref: 'Order'
         }],
         admin: {
             type: Boolean,

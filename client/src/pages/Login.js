@@ -1,11 +1,23 @@
 import React from 'react';
+import {addCartApi, itemApi} from '../utils/api'
 
-const Login = () => {
+
+function Login() {
+    function addToCart() {
+        //get item info from dom,
+        const JWT = localStorage.JWT
+        addCartApi(JWT, ItemId, Quantity)
+    }
+    const items = await itemApi()
     return (
-        <div>
-            <h1>Replace this with the html tha has been converted inside the div</h1>
-        </div>
+        <>
+        <button type="button" onClick={addToCart}>
+        </button>
+        {{items.map(item => (
+            <div id={item._id}></div>
+        ))}}
+        </>
     );
-};
+}
 
 export default Login;
