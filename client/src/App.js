@@ -50,7 +50,7 @@ return (
 		<Route path='/' component={Landing} />
 		<Route path='/login' component={Login} />
     	<Route path='/shop' component={Shop} />
-		<Route path='/sign-up' component={SignUp} />
+		<Route path='/signup' component={SignUp} />
 	</Switch>
 	<Footer />
 	</Router>

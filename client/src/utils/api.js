@@ -49,7 +49,7 @@ export const signUpUserApi = (name, email, password) => {
       }) 
 }
 
-export const updateUserApi = (name, email, password) => {
+export const updateUserApi = (jwt, name, email, password) => {
     return fetch('/api/user/', {
         method: 'PUT',
         header: {
@@ -70,7 +70,7 @@ export const updateUserApi = (name, email, password) => {
       }) 
 }
 
-export const deleteUserApi = () => {
+export const deleteUserApi = (jwt) => {
     return fetch('/api/user/', {
         method: 'DELETE',
         header: {
@@ -86,7 +86,42 @@ export const deleteUserApi = () => {
       }) 
 }
 
-export const addCartApi = (itemId, quantity) => {
+export const guestCheckCart = (cart) => {
+    return fetch('/api/order/guest', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            cart: cart
+        })
+    })
+    .then((response) => response.json()).then((data) => {
+        if (data.message) {
+          alert(data.message);
+          return;
+        }
+      }) 
+}
+
+export const checkCartApi = (jwt) => {
+    return fetch('/api/user/cart', {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + jwt ,
+            'Content-Type': 'application/json'
+
+        }
+    })
+    .then((response) => response.json()).then((data) => {
+        if (data.message) {
+          alert(data.message);
+          return;
+        }
+      }) 
+}
+
+export const addCartApi = (jwt, itemId, quantity) => {
     return fetch('/api/user/cart', {
         method: 'PUT',
         headers: {
@@ -125,7 +160,7 @@ export const deleteCartApi = (itemId, jwt) => {
       }) 
 }
 
-export const addOrderApi = (address) => {
+export const addOrderApi = (jwt, address) => {
     return fetch('/api/user/order', {
         method: 'POST',
         headers: {
