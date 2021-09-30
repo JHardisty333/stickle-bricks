@@ -19,7 +19,25 @@ function Login() {
     }
   
     return (
-      <div className="Login">
+        <div className="Login">
+    <form onSubmit={handleSubmit}>
+        <label>Email</label>
+        <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <label>Password</label>
+        <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input type="submit" value="Submit" />
+    </form>
+</div>
+
+
+      
+    );
+}
+
+export default Login;
+
+
+{/* <div className="Login">
         <Form onSubmit={handleSubmit}>
           <Form.Group size="lg" controlId="email">
             <Form.Label>Email</Form.Label>
@@ -42,8 +60,4 @@ function Login() {
             Login
           </Button>
         </Form>
-      </div>
-    );
-}
-
-export default Login;
+      </div> */}
