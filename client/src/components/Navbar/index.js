@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './style.css';
+import '../../style.css';
 import searchIcon from '../../assets/img/searchIcon.png';
 import customerIcon from '../../assets/img/customerIcon.png';
 import shoppingIcon from '../../assets/img/shoppingCartIcon.png';

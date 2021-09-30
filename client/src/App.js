@@ -24,7 +24,7 @@
 // }
 
 import React from 'react';
-import './index.css';
+import './style.css';
 import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
 import Landing from './pages/Landing';
 import About from './pages/About';

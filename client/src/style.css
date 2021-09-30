@@ -6,21 +6,21 @@
     font-family: 'HelveticaBold';
     font-style: normal;
     font-weight: 400;
-    src: url('../../fonts/HelveticaNeue-Bold.ttf') format('truetype');
+    src: url('./assets/fonts/HelveticaNeue-Bold.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'HelveticaNCB';
     font-style: normal;
     font-weight: 400;
-    src: url('../../fonts/HelveticaNeue-CondensedBold.otf') format('opentype');
+    src: url('./assets/fonts/HelveticaNeue-CondensedBold.otf') format('opentype');
 }
 
 @font-face {
     font-family: 'AdobeReg';
     font-style: normal;
     font-weight: 400;
-    src: url('../../fonts/AdobeHeitiStd-Regular.otf') format('opentype');
+    src: url('./assets/fonts/AdobeHeitiStd-Regular.otf') format('opentype');
 }
 
 * {
@@ -66,6 +66,7 @@ html {
 /* --------------------------------------- */
 
 .row {
+    background-color: var(--alabaster);
     border-bottom: solid 5px #000000;
     position: -webkit-sticky;
     position: sticky;
@@ -76,7 +77,6 @@ html {
     justify-content: space-between;
     align-items: flex-end;
     padding: var(--gutter-m);
-    
 }
 
 /* .nav__link-toggle{
@@ -199,9 +199,9 @@ footer {
 /* ----- Landing/ Main Page ----- */
 /* --------------------------------------- */
 
-.landing-body {
+body {
     background-color: var(--scooter);
-    background-image: url("../../img/legoHands.png");
+    background-image: url("./assets/img/legoHands.png");
     background-size: 80%;
     background-position:left;
     background-attachment: fixed;
@@ -255,13 +255,14 @@ button:hover {
 
 /* ----- End Landing Page ----- */
 
+
 /* --------------------------------------- */
 /* ----- About us ----- */
 /* --------------------------------------- */
 
 .about-body {
     background-color: var(--raw-sienna);
-    background-image: url('../../assets/img/batmanSuperman.png');
+    background-image: url('./assets/img/batmanSuperman.png');
     background-size: 80%;
     background-position:left;
     background-attachment: fixed;
@@ -295,8 +296,6 @@ button:hover {
 .about_us{
     text-align: center;
 }
-
-
 
 
 /* --------------------------------------- */
@@ -362,5 +361,3 @@ button:hover {
         font-size: var(--font-size-xxs);
     }
 }
-
-
