@@ -1,22 +1,43 @@
-const { User, Order } = require('../models');
+const { Order, Item } = require('../models');
+
 
 const orderController = {
 // add order for guest
+
+    checkGuestCart(req, res) {
+        let cart = req.body.cart;
+
+        try {
+            let cartError
+            let data;
+            let cartErrors = [];
+            let updatedCart = []
+            for (let i = 0; i < cart.length; i++) {
+                const itemData = await Item.findById(cart[i].itemId)
+
+                if (itemData.quantity < cart[i].quantity || parseFloat(itemData.price) != cart[i].priceTotal / cart[i].quantity) { //if item quantity is lower that cart quantity change it
+                    if (itemData.quantity === 0) { //if its 0 just get rid of it
+
+
+                    } else { //if not 0 just update it
+
+                    }
+                } else {
+
+                }
+
+            }
+            res.status(200).json(data)
+        } catch {
+            res.sendStatus(500);
+        }
+    },
     guestAddOrder(req, res) { //need to add changing the item counts on the site
-        //need to do extra error handling because their is no add to cart functions for guests
-        Order.create({
-            items: req.body.cart,
-            bill: req.body.bill,
-            name: req.body.name,
-            address: req.body.address,
-            email: req.body.email,
-        })
-        .then(orderData => res.status(200).json({message: 'Order created successfully', data: orderData}))
-        .catch(err => res.status(400).json(err));
+       
     },
 
     getUserOrders(req, res) {
-        Order.find({userId: req.params.id})
+        Order.find({userId: req.user._id})
         .populate('Item')
         .then(orderData => {
             if (!orderData) {

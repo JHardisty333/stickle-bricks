@@ -79,6 +79,6 @@ itemSchema.index({productName: 'text', productId: "text", colorName: "text" })
 const Item = model('Item', itemSchema);
 
 //this is used to update the index's
-// Item.collection.dropIndexes((err, results) => console.log(err, results))
+//Item.collection.dropIndexes((err, results) => console.log(err, results))
 
 module.exports = Item;

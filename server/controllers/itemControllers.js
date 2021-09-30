@@ -103,7 +103,7 @@ const itemController = {
         if(req.body.price) {
             changeObj.price = req.body.price
         }
-        if (req.body.quantity) {
+        if (req.body.quantity || req.body.quantity === 0) {
             changeObj.quantity = req.body.quantity
         }
         if (req.body.image) {
