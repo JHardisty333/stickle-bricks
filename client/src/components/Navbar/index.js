@@ -17,8 +17,8 @@ const NavBar = (props) => {
                 <div className="row">
                     <nav className="nav" role="navigation">
                         {/* <div class="nav__link nav__link-toggle">
-              <i class="fas fa-bars"></i>
-          </div> */}
+                            <i class="fas fa-bars"></i>
+                            </div> */}
                         <ul className="nav__items">
                             <li className="nav__item"><a href="#shop" className="nav__link">Shop</a></li>
                             <li className="nav__item"><Link to="/about" className="nav__link">About</Link></li>
