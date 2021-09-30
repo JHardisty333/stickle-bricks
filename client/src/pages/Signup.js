@@ -1,7 +1,11 @@
 import React from 'react';
-
-function Signup() {
-    
-}
-
-export default Signup;
+  
+const SignUp = () => {
+  return (
+    <div>
+      <h1>Replace this with the html tha has been converted inside the div</h1>
+    </div>
+  );
+};
+  
+export default SignUp;
