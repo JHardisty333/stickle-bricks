@@ -15,7 +15,6 @@ function Login() {
       const jwt = await loginUserApi(email, password);
       console.log(jwt, email, password)
       localStorage.setItem('jwt', jwt);
-      document.location('/')
     }
 
     return (

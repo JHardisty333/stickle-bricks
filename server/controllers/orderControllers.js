@@ -4,7 +4,7 @@ const { Order, Item } = require('../models');
 const orderController = {
 // add order for guest
 
-    checkGuestCart(req, res) {
+    async checkGuestCart(req, res) {
         let cart = req.body.cart;
 
         try {
