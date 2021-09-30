@@ -9,7 +9,6 @@ const orderController = {
 
         try {
             let cartError
-            let data;
             let cartErrors = [];
             let updatedCart = []
             for (let i = 0; i < cart.length; i++) {
