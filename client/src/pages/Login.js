@@ -1,7 +1,6 @@
 // import React from 'react';
 // import {addCartApi, itemApi} from '../utils/api'
 
-
 // function Login() {
 //     function addToCart() {
 //         //get item info from dom,

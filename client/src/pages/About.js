@@ -2,12 +2,13 @@ import React from 'react';
 
 const About = () => {
   return (
-    <div>
-      <section className="about"> About Us
+    <div className="about-body">
+      <section className="about"> 
         <div className="aboutus">
           <div className="about_us">
             <span className>
-              LEGO© is our family passion<br />
+              <h1>About Us</h1>
+              LEGO© is our family passion
               </span>
           </div>
         </div>
@@ -17,3 +18,4 @@ const About = () => {
 };
   
 export default About;
+
