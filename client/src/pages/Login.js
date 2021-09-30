@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import { loginUserApi } from '../utils/api'
 
 function Login() {
