@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './style.css';
+import '../../style.css';
 
 const Footer = (props) => {
     const [isOpen, setIsOpen] = useState(false);

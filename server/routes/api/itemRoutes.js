@@ -52,7 +52,7 @@ router.route('/admin/:id')
 .put(verifyTokenAdmin, updateItemInfo); // ✓ - this will only change what is passed through to the 
 //body and nothing else also this can only edit certain fields which include: price, quantity, 
 //image(url or path), imageAdd(boolean if false will remove the image selected) condition, active (true or false),
-// featured (true or false). you can include any number of these fields but image must have imageAdd 
+// and or featured (true or false). you can include any number of these fields but image must have imageAdd 
 //in the body as well or it will always remove the image selected
 
 module.exports = router;

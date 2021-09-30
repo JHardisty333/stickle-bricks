@@ -1,8 +1,8 @@
 const { User, Order, Item } = require('../models');
 const { signToken } = require('../utils/auth');
 
-const userController = {// ✓
-    // find all users ✓
+const userController = {
+    // find all users 
     getAllUsers(req, res) {
         User.find({})
            // .populate('orders')
@@ -52,13 +52,22 @@ const userController = {// ✓
 
     // Update user by ID
     updateUser(req, res) {
+        let userObj = {};
+        if (req.body.name) {
+            userObj.name = req.body.name;
+        }
+        if (req.body.email) {
+            userObj.email = req.body.email;
+        }
+        if (req.body.password) {
+            userObj.password = req.body.password;
+        }
+        if (!userObj) {
+            return res.status(400).json({message: 'You must enter a value to update!'})
+        }
         User.findOneAndUpdate(
             { _id: req.user._id },
-            {
-                name: req.body.name,
-                email: req.body.email,
-                password: req.body.password
-            },
+            userObj,
             { new: true, runValidators: true })
             .select('-__v -password')
             .then(dbUserData => {
@@ -83,10 +92,96 @@ const userController = {// ✓
 
     },
 
+    //check items in cart for changes at checkout
+    async checkCart(req, res) {  
+        const userData = await User.findById(req.user._id).select('-__v -password')
+        try {
+            let cartError = false
+            let cartErrors = [];
+            let updatedCart = [];
+        for (let i = 0; i < userData.cart.length; i++) {
+            const itemData = await Item.findById(userData.cart[i].itemId)
+            if (itemData.quantity < userData.cart[i].quantity || parseFloat(itemData.price) != parseFloat(userData.cart[i].priceTotal) / userData.cart[i].quantity) { //if item quantity is lower that cart quantity change it
+                if (itemData.quantity === 0) { //if its 0 just get rid of it
+                    const cartData = await User.findOneAndUpdate({ _id: req.user._id },
+                        {
+                            $pull: {
+                                cart: {
+                                    itemId: itemData._id,
+                                }
+                            }
+                        },
+                        { runValidators: true, new: true })
+                    cartError = true
+                    updatedCart = cartData.cart;
+                    cartErrors.push({issue: itemData.productName + ' is out of stock and has been removed from your cart.'});
+                } else { //if not 0 just update it or if the price changed
+                    await User.findOneAndUpdate({ _id: req.user._id },
+                        {
+                            $pull: {
+                                cart: {
+                                    itemId: itemData._id,
+                                }
+                            }
+                        },
+                        { runValidators: true, new: true })
+                    const cartData = await User.findOneAndUpdate({ _id: req.user._id },
+                        {
+                            $push: {
+                                cart: {
+                                    itemId: itemData._id,
+                                    quantity: (itemData.quantity < userData.cart[i].quantity) ? itemData.quantity : userData.cart[i].quantity,
+                                    priceTotal: ((itemData.quantity < userData.cart[i].quantity) ? parseFloat(itemData.price) * itemData.quantity : parseFloat(itemData.price) * userData.cart[i].quantity),
+                                    image: itemData.image[0],
+                                    productName: itemData.productName
+                                }
+                            }
+                        },
+                        { runValidators: true, new: true })
+                    cartError = true
+                    updatedCart = cartData.cart;
+                    (itemData.quantity < userData.cart[i].quantity) ? cartErrors.push({ issue: itemData.productName + ' no longer has the quantity you selected in stock. The quantity in your cart has been reduced to the current in stock quantity.' }) 
+                    : null;
+                    (parseFloat(itemData.price) != parseFloat(userData.cart[i].priceTotal) / userData.cart[i].quantity) ? cartErrors.push({ issue: itemData.productName + ' price has changed.' }) 
+                    : null;
+                }
+            } else {
+                await User.findOneAndUpdate({ _id: req.user._id },
+                    {
+                        $pull: {
+                            cart: {
+                                itemId: itemData._id,
+                            }
+                        }
+                    },
+                    { runValidators: true, new: true })
+                const cartData = await User.findOneAndUpdate({ _id: req.user._id },
+                    {
+                        $push: {
+                            cart: {
+                                itemId: itemData._id,
+                                quantity: userData.cart[i].quantity,
+                                priceTotal: parseFloat(userData.cart[i].priceTotal),
+                                image: itemData.image[0],
+                                productName: itemData.productName
+                            }
+                        }
+                    },
+                    { runValidators: true, new: true })
+                updatedCart = cartData.cart;
+            }
+        }
+        if (cartError) res.status(409).json({cartErrors: cartErrors, cart: updatedCart});
+        else res.status(200).json({cart: updatedCart});
+        } catch {
+            res.sendStatus(500);
+        }
+    },
+
     // Update cart / add to cart
     addToCart(req, res) {
         // req.body === itemId, quantity
-        Item.findById( req.body.itemId)
+        Item.findOne({_id: req.body.itemId})
         .then(itemData => {
             if (!itemData) return res.status(400).json({message: 'Item not found!'});
             if (itemData.quantity < req.body.quantity) return res.status(400).json({message: 'You can not add a quantity higher than the current in stock quantity!'});
@@ -178,15 +273,13 @@ const userController = {// ✓
                 let subtotal = 0.00;
                 let shipping = 4.50;
                 for (let i = 0; i < cart.length; i++ ) {
-                    subtotal = subtotal + parseFloat(cart[i].priceTotal);
+                    subtotal = subtotal + parseFloat(userData.cart[i].priceTotal);
                 }
                 subtotal = subtotal + shipping;
-                console.log(userData.email, subtotal, req.body.address)
                 Order.create({
                     userId: req.user._id,
                     items: cart,
                     subtotal: subtotal, //includes shipping?
-                    // total: req.body.total, //includes taxes and shipping, not currently required
                     name: userData.name,
                     address: req.body.address,
                     email: userData.email,
@@ -201,7 +294,7 @@ const userController = {// ✓
                                 //change inventory quantities
                                 for (let i = 0; i < cart.length; i++) {
                                     Item.findOne({_id: cart[i].itemId}).then(itemData => {
-                                        Item.findOneAndUpdate({}, { quantity: (itemData.quantity - cart[i].quantity) }, { runValidators: true, new: true })
+                                        Item.findOneAndUpdate({}, { quantity: (itemData.quantity - userData.cart[i].quantity) }, { runValidators: true, new: true })
                                         .then(itemData => console.log(itemData))
                                         .catch(err => console.log(err));
                                     })
@@ -214,7 +307,8 @@ const userController = {// ✓
             })
             .catch(err => res.status(500).json({error: err}));
     }
-
 }
+
+
 
 module.exports = userController;

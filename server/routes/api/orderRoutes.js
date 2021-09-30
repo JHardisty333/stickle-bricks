@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { verifyTokenAdmin, verifyToken } = require('../../utils/auth')
 
 const {
+    checkGuestCart,
     guestAddOrder,
     getUserOrders,
     cancelOrder,
@@ -13,7 +14,8 @@ const {
 } = require('../../controllers/orderControllers');
 
 router.route('/guest')
-.post(guestAddOrder);
+.post(guestAddOrder)
+.put(checkGuestCart);
 
 router.route('/user/')
 .get(verifyToken, getUserOrders) //get user order history
@@ -26,7 +28,7 @@ router.route('/admin/received')
 .get(verifyTokenAdmin, orderStatusReceived) //get all orders not yet addressed including return requests
 
 router.route('/admin/orders') //all orders
-.get(verifyTokenAdmin, orderStatus); //get orders by status req.body.status = Received, Shipped, Completed, Canceled, Returned
+.get(verifyTokenAdmin, orderStatus); //get orders by status req.body.status = Received, Shipped, Completed, Canceled, Refunded
 
 router.route('/admin/order/:id')
 .put(verifyTokenAdmin, updateOrderStatus); // update an orders status
