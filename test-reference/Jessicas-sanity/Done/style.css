@@ -6,7 +6,7 @@
     font-family: 'HelveticaBold';
     font-style: normal;
     font-weight: 400;
-    src: url('../fonts/HelveticaNeue-Bold.ttf') format('truetype');
+    src: url('../../') format('truetype');
 }
 
 @font-face {

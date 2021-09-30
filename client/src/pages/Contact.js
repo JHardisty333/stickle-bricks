@@ -2,15 +2,8 @@ import React from 'react';
   
 const Contact = () => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'Right',
-        alignItems: 'Right',
-        height: '100vh'
-      }}
-    >
-      <h1>Contact Us</h1>
+    <div>
+      <h1>Replace this with the html tha has been converted inside the div</h1>
     </div>
   );
 };

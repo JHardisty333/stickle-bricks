@@ -2,17 +2,8 @@ import React from 'react';
   
 const About = () => {
   return (
-
-    
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'Center',
-        alignItems: 'Right',
-        height: '100vh'
-      }}
-    >
-      <h1>About US</h1>
+    <div>
+      <h1>Replace this with the html tha has been converted inside the div</h1>
     </div>
   );
 };

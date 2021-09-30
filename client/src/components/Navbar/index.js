@@ -1,51 +1,46 @@
-import React from 'react';
-import {
-    Nav,
-    NavLink,
-    Bars,
-    NavMenu,
-    NavBtn,
-    NavBtnLink,
-} from './NavbarElements';
+import React, { useState } from 'react';
+import './style.css';
+import searchIcon from '../../assets/img/searchIcon.png';
+import customerIcon from '../../assets/img/customerIcon.png';
+import shoppingIcon from '../../assets/img/shoppingCartIcon.png';
 
-const Navbar = () => {
+const NavBar = (props) => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggle = () => setIsOpen(!isOpen);
+
     return (
-        <>
-            <Nav>
-                <Bars />
+        <div>
+            {/* ***** Navigation Bar ***** */}
+            <header>
+                <div className="row">
+                    <nav className="nav" role="navigation">
+                        {/* <div class="nav__link nav__link-toggle">
+              <i class="fas fa-bars"></i>
+          </div> */}
+                        <ul className="nav__items">
+                            <li className="nav__item"><a href="#shop" className="nav__link">Shop</a></li>
+                            <li className="nav__item"><a href="#about" className="nav__link">About</a></li>
+                            <li className="nav__item"><a href="#search">
+                                <img src= {searchIcon} title="Search" className="nav__icon" alt="Search" /></a>
+                            </li>
+                        </ul>
+                        <h1><a href="#landing-page">Stickle Brick's</a></h1>
+                        <ul className="nav__items">
+                            <li className="nav__item"><a href="#deal" className="nav__link">Deals</a></li>
+                            <li className="nav__item"><a href="#login">
+                                <img src= {customerIcon} title="Account" className="nav__icon" alt="Customer Account" /></a>
+                            </li>
+                            <li className="nav__item"><a href="#cart">
+                                <img src={shoppingIcon} title="Shopping Cart" className="nav__icon" alt="Shopping Cart" /></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
 
-                <NavMenu>
-                    <NavLink to='/Shop' activeStyle>
-                        Shop
-                    </NavLink>
-
-                    <NavLink to='/About' activeStyle>
-                        About
-                    </NavLink>
-
-                    <NavBtn className= 'land'>
-                        <NavBtnLink to='/Landing' activeStyle>
-                            StickleBricks</NavBtnLink>
-                    </NavBtn>
-
-                    {/* search button will go here? */}
-
-                    <NavLink to='/Deals' activeStyle>
-                        Deals
-                    </NavLink>
-
-                    {/* Second Nav */}
-                    {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
-                </NavMenu>
-                <NavBtn>
-                    <NavBtnLink to='/signin'>Sign In</NavBtnLink>
-                </NavBtn>
-                <NavBtn>
-                    <NavBtnLink to='/cart'>Cart</NavBtnLink>
-                </NavBtn>
-            </Nav>
-        </>
+        </div>
     );
-};
+}
 
-export default Navbar;
+export default NavBar;

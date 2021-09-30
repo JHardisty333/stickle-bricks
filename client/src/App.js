@@ -25,7 +25,7 @@
 
 import React from 'react';
 import './index.css';
-import Navbar from './components/Navbar';
+// import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Landing from './pages/Landing';
 import About from './pages/About';
@@ -34,20 +34,23 @@ import Deals from './pages/Deals';
 import Login from './pages/Login';
 import Shop from './pages/Shop';
 import SignUp from './pages/Signup';
+import NavBar from './components/Navbar';
+import Footer from './components/Footer';
 
 function App() {
 return (
 	<Router>
-	<Navbar />
+	<NavBar />
 	<Switch>
 		<Route path='/about' component={About} />
 		<Route path='/contact' component={Contact} />
 		<Route path='/deals' component={Deals} />
-		<Route path='/landing' component={Landing} />
+		<Route path='/' component={Landing} />
 		<Route path='/login' component={Login} />
-    <Route path='/shop' component={Shop} />
+    	<Route path='/shop' component={Shop} />
 		<Route path='/sign-up' component={SignUp} />
 	</Switch>
+	<Footer />
 	</Router>
 );
 }
