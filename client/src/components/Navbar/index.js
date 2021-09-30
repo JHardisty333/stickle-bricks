@@ -11,6 +11,7 @@ const NavBar = (props) => {
     const toggle = () => setIsOpen(!isOpen);
 
     return (
+
         <div>
             {/* ***** Navigation Bar ***** */}
             <header>
@@ -20,20 +21,26 @@ const NavBar = (props) => {
                             <i class="fas fa-bars"></i>
                             </div> */}
                         <ul className="nav__items">
-                            <li className="nav__item"><a href="#shop" className="nav__link">Shop</a></li>
+                            <li className="nav__item"><Link to="/shop" className="nav__link">Shop</Link></li>
+                            
                             <li className="nav__item"><Link to="/about" className="nav__link">About</Link></li>
-                            <li className="nav__item"><a href="#search">
-                                <img src= {searchIcon} title="Search" className="nav__icon" alt="Search" /></a>
+                            
+                            <li className="nav__item"><Link to="/search">
+                                <img src={searchIcon} title="Search" className="nav__icon" alt="Search" /></Link>
                             </li>
                         </ul>
-                        <h1><a href="#landing-page">Stickle Brick's</a></h1>
+                        
+                        <h1><a href="/">Stickle Brick's</a></h1>
+                        
                         <ul className="nav__items">
-                            <li className="nav__item"><a href="#deal" className="nav__link">Deals</a></li>
-                            <li className="nav__item"><a href="/login">
-                                <img src= {customerIcon} title="Account" className="nav__icon" alt="Customer Account" /></a>
+                            <li className="nav__item"><Link to="/deal" className="nav__link">Deals</Link></li>
+                            
+                            <li className="nav__item"><Link to="/login">
+                                <img src={customerIcon} title="Account" className="nav__icon" alt="Customer Account" /></Link>
                             </li>
-                            <li className="nav__item"><a href="#cart">
-                                <img src={shoppingIcon} title="Shopping Cart" className="nav__icon" alt="Shopping Cart" /></a>
+
+                            <li className="nav__item"><Link to="/cart">
+                                <img src={shoppingIcon} title="Shopping Cart" className="nav__icon" alt="Shopping Cart" /></Link>
                             </li>
                         </ul>
                     </nav>
