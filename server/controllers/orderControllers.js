@@ -6,7 +6,7 @@ const orderController = {
         //need to do extra error handling because their is no add to cart functions for guests
         Order.create({
             items: req.body.cart,
-            bill: req.body.bill,
+            total: req.body.total,
             name: req.body.name,
             address: req.body.address,
             email: req.body.email,
@@ -16,7 +16,7 @@ const orderController = {
     },
 
     getUserOrders(req, res) {
-        Order.find({userId: req.params.id})
+        Order.find({userId: req.user._id})
         .populate('Item')
         .then(orderData => {
             if (!orderData) {
