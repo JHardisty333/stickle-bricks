@@ -49,7 +49,7 @@ export const signUpUserApi = (name, email, password) => {
       }) 
 }
 
-export const updateUserApi = (name, email, password) => {
+export const updateUserApi = (name, email, password, jwt) => {
     return fetch('/api/user/', {
         method: 'PUT',
         header: {
@@ -70,7 +70,7 @@ export const updateUserApi = (name, email, password) => {
       }) 
 }
 
-export const deleteUserApi = () => {
+export const deleteUserApi = (jwt) => {
     return fetch('/api/user/', {
         method: 'DELETE',
         header: {
@@ -86,7 +86,7 @@ export const deleteUserApi = () => {
       }) 
 }
 
-export const addCartApi = (itemId, quantity) => {
+export const addCartApi = (itemId, quantity, jwt) => {
     return fetch('/api/user/cart', {
         method: 'PUT',
         headers: {
@@ -106,7 +106,7 @@ export const addCartApi = (itemId, quantity) => {
       }) 
 }
 
-export const deleteCartApi = (itemId, quantity) => {
+export const deleteCartApi = (itemId, quantity, jwt) => {
     return fetch('/api/user/cart', {
         method: 'DELETE',
         headers: {
@@ -126,7 +126,7 @@ export const deleteCartApi = (itemId, quantity) => {
       }) 
 }
 
-export const addOrderApi = (address) => {
+export const addOrderApi = (address, total, jwt) => {
     return fetch('/api/user/order', {
         method: 'POST',
         headers: {
@@ -228,7 +228,7 @@ export const itemColorApi = (colorId) => {
       }) 
 }
 
-export const addItemApi = (addItem) => {
+export const addItemApi = (addItem, jwt) => {
     return fetch('/api/admin', {
         method: 'POST',
         headers: {

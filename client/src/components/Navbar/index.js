@@ -29,7 +29,7 @@ const NavBar = (props) => {
                         <h1><a href="#landing-page">Stickle Brick's</a></h1>
                         <ul className="nav__items">
                             <li className="nav__item"><a href="#deal" className="nav__link">Deals</a></li>
-                            <li className="nav__item"><a href="#login">
+                            <li className="nav__item"><a href="/login">
                                 <img src= {customerIcon} title="Account" className="nav__icon" alt="Customer Account" /></a>
                             </li>
                             <li className="nav__item"><a href="#cart">
