@@ -1,27 +1,4 @@
-// import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-// import Landing from './pages/Landing';
-// import Navbar from './components/Navbar/index';
 
-// // function App() {
-// //   return (
-// //     <Router as="main">
-// //       <>
-// //         {/* <Navbar /> */}
-// //         <Switch>
-// //           <Route exact path='/' component={Navbar} />
-// //         </Switch>
-// //         {/* <Footer /> */}
-// //       </>
-// //     </Router>
-// //   );
-// // }
-
-// export default App;
-
-// @font-face {
-//     font-family: HelveticaNeue-Bold;
-//     local('HelveticaNeue-Bold'), url(./fonts/HelveticaNeue-Bold.ttf);
-// }
 
 import React from 'react';
 import './style.css';
@@ -39,17 +16,19 @@ import Footer from './components/Footer';
 function App() {
 return (
 	<Router as='main'>
-	<NavBar />
-	<Switch>
-		<Route path='/about' component={About} />
-		<Route path='/contact' component={Contact} />
-		<Route path='/deals' component={Deals} />
-		<Route path='/' component={Landing} />
-		<Route path='/login' component={Login} />
-    	<Route path='/shop' component={Shop} />
-		<Route path='/signup' component={SignUp} />
-	</Switch>
-	<Footer />
+		<>
+		<NavBar />
+		<Switch>
+			<Route path='/about' component={About} />
+			<Route path='/contact' component={Contact} />
+			<Route path='/deals' component={Deals} />
+			<Route path='/landing' component={Landing} />
+			<Route path='/Login' component={Login} />
+			<Route path='/sop' component={Shop} />
+			<Route path='/signup' component={SignUp} />
+		</Switch>
+		<Footer />
+	</>
 	</Router>
 );
 }

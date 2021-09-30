@@ -4,12 +4,11 @@ const { Order, Item } = require('../models');
 const orderController = {
 // add order for guest
 
-    checkGuestCart(req, res) {
+    async checkGuestCart(req, res) {
         let cart = req.body.cart;
 
         try {
             let cartError
-            let data;
             let cartErrors = [];
             let updatedCart = []
             for (let i = 0; i < cart.length; i++) {
