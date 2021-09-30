@@ -19,7 +19,7 @@ const Footer = (props) => {
                         </ul>
                     </nav>
                     <div className="foot__logo">
-                        <h1 className="logo">Logo</h1>
+                        <h1 className="logo">Created by WTF</h1>
                     </div>
                 </div>
             </footer>

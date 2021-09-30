@@ -1,15 +1,14 @@
-import React, {useState} from 'react';
-import {Button, Form } from "reactstrap";
+import React, { useState } from 'react'
 import { loginUserApi } from '../utils/api'
 
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-  
+
     function validateForm() {
-      return email.length > 0 && password.length > 0;
+        return email.length > 0 && password.length > 0;
     }
-  
+
     async function handleSubmit(event) {
       event.preventDefault();
       console.log(email, password)
@@ -18,7 +17,7 @@ function Login() {
       localStorage.setItem('jwt', jwt);
       document.location('/')
     }
-  
+
     return (
         <div className="Login">
             <form onSubmit={handleSubmit}>

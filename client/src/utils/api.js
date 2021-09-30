@@ -49,11 +49,7 @@ export const signUpUserApi = (name, email, password) => {
       }) 
 }
 
-<<<<<<< HEAD
 export const updateUserApi = (jwt, name, email, password) => {
-=======
-export const updateUserApi = (name, email, password, jwt) => {
->>>>>>> 540d286f9c63e213995aaece4a13f3861b7efa4c
     return fetch('/api/user/', {
         method: 'PUT',
         header: {
