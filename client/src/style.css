@@ -158,10 +158,17 @@ img:hover {
 
 
 /* ----- Login / Signup Styles ----- */
+
+.Login {
+    background-color: #ffffff;
+    padding: 60px 0;
+    
+}
+
 @media all and (min-width: 480px) {
-    .Login, .Signup {
+    /* .Login, .Signup {
       padding: 60px 0;
-    }
+    } */
   
     .Login, .Signup form {
       margin: 0 auto;
