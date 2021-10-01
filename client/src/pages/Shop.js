@@ -1,41 +1,49 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { itemApi } from "../utils/api";
 
 
-const Shop = () => {
+const Shop = (props) => {
     const {
         className
       } = props;
+    async function fetchData() {
+        const response = await itemApi()
+        if (!response.ok) alert('an error has occurred')
+        const items = await response.json()
+        
+        items.map((item, index) => (
+
+            <div key={item.productId} data-index={index} id={item.productId} onClick={productClick}>
+                <img src={item.image[0]} />
+                <p>{item.productName}</p>
+                <p>{item.condition}</p>
+                <p>{item.price}</p>
+            </div>
+        ))
+    }
     
       const [modal, setModal] = useState(false);
     
       const toggle = () => setModal(!modal);
-    const [items, setItems] = useState([]);
+    const [Items, setItems] = useState((<div>Loading</div>));
     const [modalItem, setModalItem] = useState({});
 
-    useEffect(async () => {
-        const response = await fetch('/api/items')
-        const dbItems = response.json()
-        setItems(dbItems)
-    }, [])
+    useEffect(() => {
+        fetchData();
+    }, // eslint-disable-next-line react-hooks/exhaustive-deps
+    [])
 
     const productClick = (event) => {
         console.log(event.target)
-        // setModalItem(items[event.target])
+        setModalItem(Items[event.target])
         toggle()
     }
 
     return (
         <div>
-            {items.length > 0 && items.map((item, index) => (
-
-                <div key={item.productId} data-index={index} id={item.produstId} onClick={productClick}>
-                    <img src={item.image[0]} />
-                    <p>{item.productName}</p>
-                    <p>{item.condition}</p>
-                    <p>{item.price}</p>
-                </div>
-            ))}
+            <p>Loaded</p>
+            {Items}
 
             <div>
                 <Modal isOpen={modal} toggle={toggle} className={className}>
@@ -50,6 +58,6 @@ const Shop = () => {
             </div>
         </div>
     )
-},
+}
 
 export default Shop;
