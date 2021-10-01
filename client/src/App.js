@@ -27,6 +27,7 @@ return (
 			<Route exact path='/Login' component={Login} />
 			<Route exact path='/shop' component={Shop} />
 			<Route exact path='/signup' component={SignUp} />
+			<Route exact path='/Cart' component={Cart} />
 		</Switch>
 		<Footer />
 		</>
