@@ -16,7 +16,7 @@ import Footer from './components/Footer';
 function App() {
 return (
 	<Router as='main'>
-		<>
+		
 		<NavBar />
 		<Switch>
 			<Route path='/about' component={About} />
@@ -28,7 +28,7 @@ return (
 			<Route path='/signup' component={SignUp} />
 		</Switch>
 		<Footer />
-	</>
+	
 	</Router>
 );
 }
