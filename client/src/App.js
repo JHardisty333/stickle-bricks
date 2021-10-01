@@ -25,7 +25,7 @@ return (
 			<Route path='/deals' component={Deals} />
 			<Route path='/landing' component={Landing} />
 			<Route path='/Login' component={Login} />
-			<Route path='/sop' component={Shop} />
+			<Route path='/Shop' component={Shop} />
 			<Route path='/signup' component={SignUp} />
 			<Route path='/cart' component={Cart} />
 		</Switch>
