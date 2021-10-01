@@ -17,20 +17,19 @@ import Cart from './pages/Cart';
 function App() {
 return (
 	<Router as='main'>
-		
+		<>
 		<NavBar />
 		<Switch>
-			<Route path='/about' component={About} />
-			<Route path='/contact' component={Contact} />
-			<Route path='/deals' component={Deals} />
-			<Route path='/landing' component={Landing} />
-			<Route path='/Login' component={Login} />
-			<Route path='/sop' component={Shop} />
-			<Route path='/signup' component={SignUp} />
-			<Route path='/cart' component={Cart} />
+			<Route exact path='/about' component={About} />
+			<Route exact path='/contact' component={Contact} />
+			<Route exact path='/deals' component={Deals} />
+			<Route exact path='/landing' component={Landing} />
+			<Route exact path='/Login' component={Login} />
+			<Route exact path='/shop' component={Shop} />
+			<Route exact path='/signup' component={SignUp} />
 		</Switch>
 		<Footer />
-	
+		</>
 	</Router>
 );
 }

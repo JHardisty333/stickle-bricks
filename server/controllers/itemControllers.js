@@ -7,6 +7,7 @@ const Oauth1Helper = require('../utils/oauth');
 
 const itemController = {
     getAllItems(req, res) {
+        console.log('worked')
         Item.find({})
             .select('-__v')
             .then(dbItemData => {
