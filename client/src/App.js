@@ -12,6 +12,7 @@ import Shop from './pages/Shop';
 import SignUp from './pages/Signup';
 import NavBar from './components/Navbar';
 import Footer from './components/Footer';
+import Cart from './pages/Cart';
 
 function App() {
 return (
