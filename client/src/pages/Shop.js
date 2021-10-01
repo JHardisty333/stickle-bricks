@@ -1,41 +1,55 @@
-import React, { useState } from 'react';
-import { Collapse, Button, CardBody, Card, Container, Row, Col } from 'reactstrap';
+import React, { useState, useEffect } from 'react';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-const Shop = (props) => {
-    const [isOpen, setIsOpen] = useState(false);
 
-    const toggle = () => setIsOpen(!isOpen);
+const Shop = () => {
+    const {
+        className
+      } = props;
+    
+      const [modal, setModal] = useState(false);
+    
+      const toggle = () => setModal(!modal);
+    const [items, setItems] = useState([]);
+    const [modalItem, setModalItem] = useState({});
+
+    useEffect(async () => {
+        const response = await fetch('/api/items')
+        const dbItems = response.json()
+        setItems(dbItems)
+    }, [])
+
+    const productClick = (event) => {
+        console.log(event.target)
+        // setModalItem(items[event.target])
+        toggle()
+    }
 
     return (
+        <div>
+            {items.length > 0 && items.map((item, index) => (
 
-      <>
-        <Container>
-        <Row>
-            <Col sm={3}>
-                {/* search bar goes hear */}
-            </Col>
-    
-        </Row>
-        <Row>
-            <Col sm={4}>
-                <Button color="primary" onClick={toggle} style={{ marginBottom: '1rem' }}>Toggle</Button>
-                <Collapse isOpen={isOpen}>
-                    <Card>
-                        <CardBody>
-                            Anim pariatur cliche reprehenderit,
-                            enim eiusmod high life accusamus terry richardson ad squid. Nihil
-                            anim keffiyeh helvetica, craft beer labore wes anderson cred
-                            nesciunt sapiente ea proident.
-                        </CardBody>
-                    </Card>
-                </Collapse>
-            </Col>
-        </Row>
-    
-    </Container>
+                <div key={item.productId} data-index={index} id={item.produstId} onClick={productClick}>
+                    <img src={item.image[0]} />
+                    <p>{item.productName}</p>
+                    <p>{item.condition}</p>
+                    <p>{item.price}</p>
+                </div>
+            ))}
 
-    </>
-    );
-}
+            <div>
+                <Modal isOpen={modal} toggle={toggle} className={className}>
+                    <ModalHeader toggle={toggle}>{modalItem.productName}</ModalHeader>
+                    <ModalBody>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button color="primary" onClick={toggle}>Add to Cart</Button>{' '}
+                    </ModalFooter>
+                </Modal>
+            </div>
+        </div>
+    )
+},
 
 export default Shop;
