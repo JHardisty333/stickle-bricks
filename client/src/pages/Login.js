@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { loginUserApi } from '../utils/api'
 import {Redirect} from 'react-router-dom'
 
-function Login() {
+const Login = () => {
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -46,12 +47,4 @@ export default Login;
 
 
 
-{/* <div classNameName="Login">
-    <form onSubmit={handleSubmit}>
-        <label>Email</label>
-        <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
-        <label>Password</label>
-        <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} />
-        <input type="submit" value="Submit" disabled={!validateForm()} />
-    </form>
-</div> */}
+

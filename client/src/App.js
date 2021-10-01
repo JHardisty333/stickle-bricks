@@ -12,6 +12,7 @@ import Shop from './pages/Shop';
 import SignUp from './pages/Signup';
 import NavBar from './components/Navbar';
 import Footer from './components/Footer';
+import Cart from './pages/Cart';
 
 function App() {
 return (
@@ -26,6 +27,7 @@ return (
 			<Route path='/Login' component={Login} />
 			<Route path='/sop' component={Shop} />
 			<Route path='/signup' component={SignUp} />
+			<Route path='/cart' component={Cart} />
 		</Switch>
 		<Footer />
 	
