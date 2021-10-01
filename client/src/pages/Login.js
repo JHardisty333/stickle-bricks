@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { loginUserApi } from '../utils/api'
+import {Redirect} from 'react-router-dom'
 
 function Login() {
     const [email, setEmail] = useState("");
@@ -16,6 +17,7 @@ function Login() {
         const data = await response.json()
         console.log(data, email, password)
         localStorage.setItem('jwt', data);
+        <Redirect to="/"/>
     }
 
     return (
