@@ -17,7 +17,7 @@ import Cart from './pages/Cart';
 function App() {
 return (
 	<Router as='main'>
-		<>
+		
 		<NavBar />
 		<Switch>
 			<Route path='/about' component={About} />
@@ -30,7 +30,7 @@ return (
 			<Route path='/cart' component={Cart} />
 		</Switch>
 		<Footer />
-	</>
+	
 	</Router>
 );
 }

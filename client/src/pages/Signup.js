@@ -1,56 +1,44 @@
-// // import React, {useState} from 'react';
-// import {Button, Form } from "reactstrap";
-// import { signUpUserApi } from '../utils/api'
+import React, {useState} from 'react';
+import { signUpUserApi } from '../utils/api'
 
-// function SignUp() {
-//     const [name, setName] = useState("");
-//     const [email, setEmail] = useState("");
-//     const [password, setPassword] = useState("");
+function SignUp() {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
   
-//     function validateForm() {
-//       return name.length > 0 && email.length > 0 && password.length > 0;
-//     }
+    function validateForm() {
+      return name.length > 0 && email.length > 0 && password.length > 0;
+    }
   
-//     function handleSubmit(event) {
-//       event.preventDefault();
-//       signUpUserApi();
-//     }
+    async function handleSubmit(event) {
+      event.preventDefault();
+      const response = await signUpUserApi(name, email, password);
+      const data = await response.json();
+      console.log(data)
+      console.log(name, email, password)
+    }
   
-//     return (
-//       <div className="Signup">
-//         <Form onSubmit={handleSubmit}>
-//           <Form.Group size="lg" controlId="name">
-//             <Form.Label>Name</Form.Label>
-//             <Form.Control
-//               autoFocus
-//               type="name"
-//               value={name}
-//               onChange={(e) => setName(e.target.value)}
-//             />
-//           </Form.Group>
-//           <Form.Group size="lg" controlId="email">
-//             <Form.Label>Email</Form.Label>
-//             <Form.Control
-//               autoFocus
-//               type="email"
-//               value={email}
-//               onChange={(e) => setEmail(e.target.value)}
-//             />
-//           </Form.Group>
-//           <Form.Group size="lg" controlId="password">
-//             <Form.Label>Password</Form.Label>
-//             <Form.Control
-//               type="password"
-//               value={password}
-//               onChange={(e) => setPassword(e.target.value)}
-//             />
-//           </Form.Group>
-//           <Button block size="lg" type="submit" disabled={!validateForm()}>
-//             Sign Up!
-//           </Button>
-//         </Form>
-//       </div>
-//     );
-// }
+    return (
+        <div className="row">
+        <div className="col-sm-4"></div>
+        <form className="col-sm-4 my-5 py-3" style={{"backgroundColor": "white", "borderRadius": "10px"}} onSubmit={e => handleSubmit(e)}>
+            <div className="mb-3">
+                <label htmlFor="name" className="form-label">Name</label>
+                <input type="name" className="form-control" value={name} onChange={(e) => setName(e.target.value)} />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="email" className="form-label">Email </label>
+                <input type="email" className="form-control" value={email} onChange={(e) => setEmail(e.target.value)} />
+            </div>
+            <div className="mb-3">
+                <label for="password" className="form-label" >Password</label>
+                <input type="password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} />
+            </div>
+            <button type="submit" className="btn btn-primary" disabled={!validateForm()}>SignUp!</button>
+        </form>
+        <div className="col-sm-4"></div>
+        </div>
+    );
+}
 
-// export default SignUp;
+export default SignUp;

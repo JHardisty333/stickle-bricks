@@ -194,48 +194,16 @@ img:hover {
 
 /* ----- Login / Signup Styles ----- */
 
-.login-body {
-    background-color: var(--raw-sienna);
-    background-image: url('./assets/img/legoRed.png');
-    background-size: 70%;
-    background-position:left;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
+.Login {
+    background-color: #ffffff;
+    padding: 60px 0;
+    
 }
-.login{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    align-items: center;
-    height: 100%;
-}
-
-.login1{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 40px;
-    background-color: var(--white);
-    padding: 40px 30px 60px;
-    color: var(--black);
-    font-family: 'HelveticaNCB';
-    font-size: var(--font-size-s);
-    width: 50%;
-    margin: 12rem 8rem 40rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    border-radius: 15px;
-}
-
-.login2{
-    text-align: center;
-}
-
-
 
 @media all and (min-width: 480px) {
-    .Login, .Signup {
+    /* .Login, .Signup {
       padding: 60px 0;
-    }
+    } */
   
     .Login, .Signup form {
       margin: 0 auto;
