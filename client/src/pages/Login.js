@@ -20,7 +20,7 @@ const Login = () => {
     }
 
     return (
-        <div className="row">
+        <div className="row" style={{"minHeight": "80vh"}}>
         <div className="col-sm-4"></div>
         <form className="col-sm-4 my-5 py-3" style={{"backgroundColor": "white", "borderRadius": "10px"}} onSubmit={handleSubmit}>
             <div className="mb-3">
