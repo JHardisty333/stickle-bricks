@@ -156,12 +156,54 @@ img:hover {
 
 /* ----- End navigatorigation ----- */
 
+/* ----- Cart ----- */
+
+.cart-body {
+    background-color: var(--black);
+    background-image: url('./assets/img/legoBlackwhite.png');
+    background-size: 70%;
+    background-position:left;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+.cart{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+}
+
+.shop_cart{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    background-color: var(--white);
+    padding: 40px 30px 60px;
+    color: var(--black);
+    font-family: 'HelveticaNCB';
+    font-size: var(--font-size-s);
+    width: 50%;
+    margin: 12rem 8rem 40rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}
+
+
 
 /* ----- Login / Signup Styles ----- */
+
+.Login {
+    background-color: #ffffff;
+    padding: 60px 0;
+    
+}
+
 @media all and (min-width: 480px) {
-    .Login, .Signup {
+    /* .Login, .Signup {
       padding: 60px 0;
-    }
+    } */
   
     .Login, .Signup form {
       margin: 0 auto;

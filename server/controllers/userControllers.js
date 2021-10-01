@@ -16,6 +16,7 @@ const userController = {
 
     // login with email and password
     userLogin(req, res) {
+        console.log(req.body)
         User.findOne({
             email: req.body.email
         })
