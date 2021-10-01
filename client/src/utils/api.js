@@ -3,7 +3,7 @@
 export const allUsersApi = (jwt) => {
     return fetch('/api/user', {
         method: 'GET',
-        header: {
+        headers: {
             'Authorization': 'Bearer ' + jwt ,
             'Content-Type': 'application/json'
         }
@@ -13,7 +13,7 @@ export const allUsersApi = (jwt) => {
 export const loginUserApi = (email, password) => {
     return fetch('/api/user/login', {
         method: 'POST',
-        header: {
+        headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -21,18 +21,12 @@ export const loginUserApi = (email, password) => {
             password: password
           })
     })
-    .then((response) => response.json()).then((data) => {
-        if (data.message) {
-          alert(data.message);
-          return;
-        }
-      }) 
 }
 
 export const signUpUserApi = (name, email, password) => {
     return fetch('/api/user/signup', {
         method: 'POST',
-        header: {
+        headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -52,7 +46,7 @@ export const signUpUserApi = (name, email, password) => {
 export const updateUserApi = (jwt, name, email, password) => {
     return fetch('/api/user/', {
         method: 'PUT',
-        header: {
+        headers: {
             'Authorization': 'Bearer ' + jwt ,
             'Content-Type': 'application/json'
         },
@@ -73,7 +67,7 @@ export const updateUserApi = (jwt, name, email, password) => {
 export const deleteUserApi = (jwt) => {
     return fetch('/api/user/', {
         method: 'DELETE',
-        header: {
+        headers: {
             'Authorization': 'Bearer ' + jwt ,
             'Content-Type': 'application/json'
         }
@@ -96,12 +90,6 @@ export const guestCheckCart = (cart) => {
             cart: cart
         })
     })
-    .then((response) => response.json()).then((data) => {
-        if (data.message) {
-          alert(data.message);
-          return;
-        }
-      }) 
 }
 
 export const checkCartApi = (jwt) => {

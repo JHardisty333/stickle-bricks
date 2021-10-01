@@ -11,10 +11,12 @@ function Login() {
 
     async function handleSubmit(event) {
       event.preventDefault();
-      console.log(email, password)
-      const jwt = await loginUserApi(email, password);
-      console.log(jwt, email, password)
-      localStorage.setItem('jwt', jwt);
+      const response = await loginUserApi(email, password);
+
+      if (!response.ok) console.log('not ok')
+      const data = await response.json();
+      console.log(data, email, password)
+    //   localStorage.setItem('jwt', response);
     }
 
     return (
