@@ -17,7 +17,6 @@ const Shop = () => {
     //modal controls
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
-    // const timer = setInterval(() => console.log(pageIndex), 10000)
 
     const [totalItems, setTotalItems] = useState([]) //current array of items 
     const [Items, setItems] = useState((<Spinner color="dark" className="my-5 p-4 mx-auto" />)); // current items displayed on page
@@ -88,7 +87,7 @@ const Shop = () => {
             setPageIndex(index);
             setCurrentIndex(maxIndex);
         }
-        console.log(pageIndex)
+        // console.log(pageIndex)
         const pageItems = totalItems.slice(pageIndex[0], pageIndex[1]);
         setItems(pageItems.map((item) => (
             <Col sm={4} key={item._id} className='itemStyle'>
