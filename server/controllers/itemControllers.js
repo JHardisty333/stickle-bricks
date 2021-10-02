@@ -1,6 +1,7 @@
-const { Item } = require('../models');
+const { Item, Category } = require('../models');
 const colors = require('../utils/colors.json');
 const types = require('../utils/types.json');
+const categories = require('../utils/categories.json');
 const axios = require('axios');
 const Oauth1Helper = require('../utils/oauth');
 
@@ -13,6 +14,14 @@ const itemController = {
                 res.json(dbItemData)
             })
             .catch(err => res.status(500).json({error: err}));
+    },
+    getOneItem(req, res) {
+        Item.findOne({_id: req.params.id})
+            .select('-__v')
+            .then(dbItemData => {
+                res.status(200).json(dbItemData)
+            })
+            .catch(err => res.status(500).json({ error: err }));
     },
     searchItems(req, res) {
         Item.find(
@@ -69,7 +78,6 @@ const itemController = {
         const authHeader = Oauth1Helper.getAuthHeaderForRequest(request);
         
         const response = await axios.get(request.url, {headers: authHeader})
-        console.log(response)
         if (!response.status === 200 || !response.data.data.name) return res.status(400).json(response.statusText === 'OK' ? {message: "This Lego Product ID was not found in bricklinks database!"} : [response.statusText, response.data.data] );
         const checkItemData = await Item.findOne({productName: response.data.data.name, colorId: req.body.colorId})
         if (checkItemData) return res.status(400).json({message: 'Item Already exists! Use item Update instead!', data: checkItemData})
@@ -91,12 +99,20 @@ const itemController = {
 
             }],
             { new: true, runValidators: true })
-            .then(itemData => {
+            .then(async itemData => { // if the category of the item does not exist add it
+                const categoryData = await Category.findOne({categoryId: itemData.categoryId})
+                if (!categoryData) {
+                    const category = categories.find(category => category.category_id === response.data.data.category_id);
+                    Category.create({
+                        categoryId: category.category_id,
+                        categoryName: category.category_name
+                    })
+                }
                 res.status(200).json(itemData)
             })
             .catch(err => res.status(500).json({error: err}));
     },
-    
+
     updateItemInfo(req, res) {
         let changeObj = {}
         if(req.body.price) {

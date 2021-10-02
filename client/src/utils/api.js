@@ -145,7 +145,7 @@ export const addOrderApi = (jwt, address) => {
 }
 
 // ITEM ROUTES
-export const itemApi = () => {
+export const itemsApi = () => { //getAllItems
     return fetch('/api/item/', {
         method: 'GET',
         headerss: {
@@ -153,6 +153,17 @@ export const itemApi = () => {
         }
     })
   
+
+}
+
+export const itemApi = (itemId) => { //get one item
+    return fetch('/api/item/' + itemId, {
+        method: 'GET',
+        headerss: {
+            'Content-Type': 'application/json'
+        }
+    })
+
 
 }
 

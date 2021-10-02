@@ -1,2597 +1,2078 @@
 [
     {
         "category_id": 1,
-        "category_name": "Antenna",
-        "parent_id": 0
+        "category_name": "Antenna"
     },
     {
         "category_id": 2,
-        "category_name": "Baseplate",
-        "parent_id": 0
+        "category_name": "Baseplate"
     },
     {
         "category_id": 3,
-        "category_name": "Boat",
-        "parent_id": 0
+        "category_name": "Boat"
     },
     {
         "category_id": 4,
-        "category_name": "Bracket",
-        "parent_id": 0
+        "category_name": "Bracket"
     },
     {
         "category_id": 5,
-        "category_name": "Brick",
-        "parent_id": 0
+        "category_name": "Brick"
     },
     {
         "category_id": 6,
-        "category_name": "Arch",
-        "parent_id": 0
+        "category_name": "Arch"
     },
     {
         "category_id": 7,
-        "category_name": "Brick, Modified",
-        "parent_id": 0
+        "category_name": "Brick, Modified"
     },
     {
         "category_id": 8,
-        "category_name": "Brick, Round",
-        "parent_id": 0
+        "category_name": "Brick, Round"
     },
     {
         "category_id": 9,
-        "category_name": "Castle",
-        "parent_id": 0
+        "category_name": "Castle"
     },
     {
         "category_id": 10,
-        "category_name": "Container",
-        "parent_id": 0
+        "category_name": "Container"
     },
     {
         "category_id": 11,
-        "category_name": "Cylinder",
-        "parent_id": 0
+        "category_name": "Cylinder"
     },
     {
         "category_id": 12,
-        "category_name": "Door",
-        "parent_id": 0
+        "category_name": "Door"
     },
     {
         "category_id": 13,
-        "category_name": "Fence",
-        "parent_id": 0
+        "category_name": "Fence"
     },
     {
         "category_id": 14,
-        "category_name": "Magnet",
-        "parent_id": 0
+        "category_name": "Magnet"
     },
     {
         "category_id": 16,
-        "category_name": "Minifigure, Headgear",
-        "parent_id": 0
+        "category_name": "Minifigure, Headgear"
     },
     {
         "category_id": 18,
-        "category_name": "Minifigure, Utensil",
-        "parent_id": 0
+        "category_name": "Minifigure, Utensil"
     },
     {
         "category_id": 19,
-        "category_name": "Minifigure, Weapon",
-        "parent_id": 0
+        "category_name": "Minifigure, Weapon"
     },
     {
         "category_id": 20,
-        "category_name": "Minifigure, Body Part",
-        "parent_id": 0
+        "category_name": "Minifigure, Body Part"
     },
     {
         "category_id": 21,
-        "category_name": "Cone",
-        "parent_id": 0
+        "category_name": "Cone"
     },
     {
         "category_id": 22,
-        "category_name": "Hinge",
-        "parent_id": 0
+        "category_name": "Hinge"
     },
     {
         "category_id": 25,
-        "category_name": "Plant",
-        "parent_id": 0
+        "category_name": "Plant"
     },
     {
         "category_id": 26,
-        "category_name": "Plate",
-        "parent_id": 0
+        "category_name": "Plate"
     },
     {
         "category_id": 27,
-        "category_name": "Plate, Modified",
-        "parent_id": 0
+        "category_name": "Plate, Modified"
     },
     {
         "category_id": 28,
-        "category_name": "Plate, Round",
-        "parent_id": 0
+        "category_name": "Plate, Round"
     },
     {
         "category_id": 30,
-        "category_name": "Propeller",
-        "parent_id": 0
+        "category_name": "Propeller"
     },
     {
         "category_id": 31,
-        "category_name": "Slope",
-        "parent_id": 0
+        "category_name": "Slope"
     },
     {
         "category_id": 32,
-        "category_name": "Slope, Inverted",
-        "parent_id": 0
+        "category_name": "Slope, Inverted"
     },
     {
         "category_id": 33,
-        "category_name": "Slope, Decorated",
-        "parent_id": 0
+        "category_name": "Slope, Decorated"
     },
     {
         "category_id": 34,
-        "category_name": "Space",
-        "parent_id": 0
+        "category_name": "Space"
     },
     {
         "category_id": 36,
-        "category_name": "Technic",
-        "parent_id": 0
+        "category_name": "Technic"
     },
     {
         "category_id": 37,
-        "category_name": "Tile",
-        "parent_id": 0
+        "category_name": "Tile"
     },
     {
         "category_id": 38,
-        "category_name": "Tile, Modified",
-        "parent_id": 0
+        "category_name": "Tile, Modified"
     },
     {
         "category_id": 39,
-        "category_name": "Tile, Decorated",
-        "parent_id": 0
+        "category_name": "Tile, Decorated"
     },
     {
         "category_id": 40,
-        "category_name": "Turntable",
-        "parent_id": 0
+        "category_name": "Turntable"
     },
     {
         "category_id": 42,
-        "category_name": "Wedge",
-        "parent_id": 0
+        "category_name": "Wedge"
     },
     {
         "category_id": 43,
-        "category_name": "Wheel",
-        "parent_id": 0
+        "category_name": "Wheel"
     },
     {
         "category_id": 45,
-        "category_name": "Arm",
-        "parent_id": 0
+        "category_name": "Arm"
     },
     {
         "category_id": 46,
-        "category_name": "Bar",
-        "parent_id": 0
+        "category_name": "Bar"
     },
     {
         "category_id": 48,
-        "category_name": "Belville",
-        "parent_id": 0
+        "category_name": "Belville"
     },
     {
         "category_id": 53,
-        "category_name": "Adventurers",
-        "parent_id": 0
+        "category_name": "Adventurers"
     },
     {
         "category_id": 54,
-        "category_name": "Aquazone",
-        "parent_id": 0
+        "category_name": "Aquazone"
     },
     {
         "category_id": 59,
-        "category_name": "Mindstorms",
-        "parent_id": 0
+        "category_name": "Mindstorms"
     },
     {
         "category_id": 60,
-        "category_name": "Model Team",
-        "parent_id": 0
+        "category_name": "Model Team"
     },
     {
         "category_id": 61,
-        "category_name": "Pirates",
-        "parent_id": 0
+        "category_name": "Pirates"
     },
     {
         "category_id": 62,
-        "category_name": "Rock Raiders",
-        "parent_id": 0
+        "category_name": "Rock Raiders"
     },
     {
         "category_id": 63,
-        "category_name": "Service Packs",
-        "parent_id": 0
+        "category_name": "Service Packs"
     },
     {
         "category_id": 65,
-        "category_name": "Star Wars",
-        "parent_id": 0
+        "category_name": "Star Wars"
     },
     {
         "category_id": 67,
-        "category_name": "Town",
-        "parent_id": 0
+        "category_name": "Town"
     },
     {
         "category_id": 69,
-        "category_name": "Western",
-        "parent_id": 0
+        "category_name": "Western"
     },
     {
         "category_id": 72,
-        "category_name": "Vehicle",
-        "parent_id": 0
+        "category_name": "Vehicle"
     },
     {
         "category_id": 73,
-        "category_name": "Conveyor",
-        "parent_id": 0
+        "category_name": "Conveyor"
     },
     {
         "category_id": 74,
-        "category_name": "Crane",
-        "parent_id": 0
+        "category_name": "Crane"
     },
     {
         "category_id": 76,
-        "category_name": "Flag",
-        "parent_id": 0
+        "category_name": "Flag"
     },
     {
         "category_id": 77,
-        "category_name": "Vehicle, Mudguard",
-        "parent_id": 0
+        "category_name": "Vehicle, Mudguard"
     },
     {
         "category_id": 78,
-        "category_name": "FreeStyle",
-        "parent_id": 0
+        "category_name": "FreeStyle"
     },
     {
         "category_id": 79,
-        "category_name": "Garage",
-        "parent_id": 0
+        "category_name": "Garage"
     },
     {
         "category_id": 81,
-        "category_name": "Window, Glass & Shutter",
-        "parent_id": 0
+        "category_name": "Window, Glass & Shutter"
     },
     {
         "category_id": 83,
-        "category_name": "Hinge, Decorated",
-        "parent_id": 0
+        "category_name": "Hinge, Decorated"
     },
     {
         "category_id": 84,
-        "category_name": "Window, Decorated",
-        "parent_id": 0
+        "category_name": "Window, Decorated"
     },
     {
         "category_id": 85,
-        "category_name": "Homemaker",
-        "parent_id": 0
+        "category_name": "Homemaker"
     },
     {
         "category_id": 86,
-        "category_name": "Animal, Accessory",
-        "parent_id": 0
+        "category_name": "Animal, Accessory"
     },
     {
         "category_id": 87,
-        "category_name": "Hose",
-        "parent_id": 0
+        "category_name": "Hose"
     },
     {
         "category_id": 88,
-        "category_name": "String Reel / Winch",
-        "parent_id": 0
+        "category_name": "String Reel / Winch"
     },
     {
         "category_id": 90,
-        "category_name": "Ladder",
-        "parent_id": 0
+        "category_name": "Ladder"
     },
     {
         "category_id": 91,
-        "category_name": "Panel",
-        "parent_id": 0
+        "category_name": "Panel"
     },
     {
         "category_id": 93,
-        "category_name": "Aircraft",
-        "parent_id": 0
+        "category_name": "Aircraft"
     },
     {
         "category_id": 95,
-        "category_name": "Plant, Tree",
-        "parent_id": 0
+        "category_name": "Plant, Tree"
     },
     {
         "category_id": 98,
-        "category_name": "Road Sign",
-        "parent_id": 0
+        "category_name": "Road Sign"
     },
     {
         "category_id": 99,
-        "category_name": "Rock",
-        "parent_id": 0
+        "category_name": "Rock"
     },
     {
         "category_id": 102,
-        "category_name": "Scala",
-        "parent_id": 0
+        "category_name": "Scala"
     },
     {
         "category_id": 103,
-        "category_name": "Stairs",
-        "parent_id": 0
+        "category_name": "Stairs"
     },
     {
         "category_id": 105,
-        "category_name": "Support",
-        "parent_id": 0
+        "category_name": "Support"
     },
     {
         "category_id": 106,
-        "category_name": "Tail",
-        "parent_id": 0
+        "category_name": "Tail"
     },
     {
         "category_id": 107,
-        "category_name": "Tap",
-        "parent_id": 0
+        "category_name": "Tap"
     },
     {
         "category_id": 111,
-        "category_name": "Tire & Tread",
-        "parent_id": 0
+        "category_name": "Tire & Tread"
     },
     {
         "category_id": 112,
-        "category_name": "Hook",
-        "parent_id": 0
+        "category_name": "Hook"
     },
     {
         "category_id": 113,
-        "category_name": "Window",
-        "parent_id": 0
+        "category_name": "Window"
     },
     {
         "category_id": 114,
-        "category_name": "Wing",
-        "parent_id": 0
+        "category_name": "Wing"
     },
     {
         "category_id": 115,
-        "category_name": "Windscreen",
-        "parent_id": 0
+        "category_name": "Windscreen"
     },
     {
         "category_id": 116,
-        "category_name": "Dish",
-        "parent_id": 0
+        "category_name": "Dish"
     },
     {
         "category_id": 117,
-        "category_name": "Tile, Round",
-        "parent_id": 0
+        "category_name": "Tile, Round"
     },
     {
         "category_id": 118,
-        "category_name": "Brick, Decorated",
-        "parent_id": 0
+        "category_name": "Brick, Decorated"
     },
     {
         "category_id": 119,
-        "category_name": "Electric",
-        "parent_id": 0
+        "category_name": "Electric"
     },
     {
         "category_id": 121,
-        "category_name": "Electric, Motor",
-        "parent_id": 0
+        "category_name": "Electric, Motor"
     },
     {
         "category_id": 122,
-        "category_name": "Electric, Train",
-        "parent_id": 0
+        "category_name": "Electric, Train"
     },
     {
         "category_id": 123,
-        "category_name": "Electric, Light & Sound",
-        "parent_id": 0
+        "category_name": "Electric, Light & Sound"
     },
     {
         "category_id": 124,
-        "category_name": "Train",
-        "parent_id": 0
+        "category_name": "Train"
     },
     {
         "category_id": 128,
-        "category_name": "Train, Track",
-        "parent_id": 0
+        "category_name": "Train, Track"
     },
     {
         "category_id": 130,
-        "category_name": "Baseplate, Road",
-        "parent_id": 0
+        "category_name": "Baseplate, Road"
     },
     {
         "category_id": 131,
-        "category_name": "Vehicle, Base",
-        "parent_id": 0
+        "category_name": "Vehicle, Base"
     },
     {
         "category_id": 132,
-        "category_name": "Window, Glass & Shutter, Decorated",
-        "parent_id": 0
+        "category_name": "Window, Glass & Shutter, Decorated"
     },
     {
         "category_id": 133,
-        "category_name": "Technic, Connector",
-        "parent_id": 0
+        "category_name": "Technic, Connector"
     },
     {
         "category_id": 134,
-        "category_name": "Technic, Axle",
-        "parent_id": 0
+        "category_name": "Technic, Axle"
     },
     {
         "category_id": 135,
-        "category_name": "Technic, Brick",
-        "parent_id": 0
+        "category_name": "Technic, Brick"
     },
     {
         "category_id": 136,
-        "category_name": "Technic, Gear",
-        "parent_id": 0
+        "category_name": "Technic, Gear"
     },
     {
         "category_id": 137,
-        "category_name": "Technic, Liftarm",
-        "parent_id": 0
+        "category_name": "Technic, Liftarm"
     },
     {
         "category_id": 138,
-        "category_name": "Technic, Link",
-        "parent_id": 0
+        "category_name": "Technic, Link"
     },
     {
         "category_id": 139,
-        "category_name": "Technic, Pin",
-        "parent_id": 0
+        "category_name": "Technic, Pin"
     },
     {
         "category_id": 140,
-        "category_name": "Technic, Plate",
-        "parent_id": 0
+        "category_name": "Technic, Plate"
     },
     {
         "category_id": 141,
-        "category_name": "Technic, Steering",
-        "parent_id": 0
+        "category_name": "Technic, Steering"
     },
     {
         "category_id": 142,
-        "category_name": "Minifigure, Body Wear",
-        "parent_id": 0
+        "category_name": "Minifigure, Body Wear"
     },
     {
         "category_id": 143,
-        "category_name": "(Other)",
-        "parent_id": 0
+        "category_name": "(Other)"
     },
     {
         "category_id": 145,
-        "category_name": "Animal, Water",
-        "parent_id": 0
+        "category_name": "Animal, Water"
     },
     {
         "category_id": 146,
-        "category_name": "Animal, Air",
-        "parent_id": 0
+        "category_name": "Animal, Air"
     },
     {
         "category_id": 147,
-        "category_name": "Animal, Land",
-        "parent_id": 0
+        "category_name": "Animal, Land"
     },
     {
         "category_id": 148,
-        "category_name": "Animal, Body Part",
-        "parent_id": 0
+        "category_name": "Animal, Body Part"
     },
     {
         "category_id": 149,
-        "category_name": "Disney's Mickey Mouse",
-        "parent_id": 878
+        "category_name": "Disney's Mickey Mouse"
     },
     {
         "category_id": 150,
-        "category_name": "Minifigure, Torso",
-        "parent_id": 0
+        "category_name": "Minifigure, Torso"
     },
     {
         "category_id": 152,
-        "category_name": "Znap",
-        "parent_id": 0
+        "category_name": "Znap"
     },
     {
         "category_id": 153,
-        "category_name": "Fabuland",
-        "parent_id": 0
+        "category_name": "Fabuland"
     },
     {
         "category_id": 154,
-        "category_name": "Technic, Panel",
-        "parent_id": 0
+        "category_name": "Technic, Panel"
     },
     {
         "category_id": 155,
-        "category_name": "Basic",
-        "parent_id": 422
+        "category_name": "Basic"
     },
     {
         "category_id": 157,
-        "category_name": "Time Cruisers",
-        "parent_id": 0
+        "category_name": "Time Cruisers"
     },
     {
         "category_id": 159,
-        "category_name": "Pneumatic",
-        "parent_id": 0
+        "category_name": "Pneumatic"
     },
     {
         "category_id": 160,
-        "category_name": "Sticker Sheet",
-        "parent_id": 0
+        "category_name": "Sticker Sheet"
     },
     {
         "category_id": 161,
-        "category_name": "Plastic",
-        "parent_id": 0
+        "category_name": "Plastic"
     },
     {
         "category_id": 162,
-        "category_name": "Cloth",
-        "parent_id": 0
+        "category_name": "Cloth"
     },
     {
         "category_id": 166,
-        "category_name": "Educational & Dacta",
-        "parent_id": 0
+        "category_name": "Educational & Dacta"
     },
     {
         "category_id": 167,
-        "category_name": "Duplo",
-        "parent_id": 0
+        "category_name": "Duplo"
     },
     {
         "category_id": 169,
-        "category_name": "Sculptures",
-        "parent_id": 0
+        "category_name": "Sculptures"
     },
     {
         "category_id": 170,
-        "category_name": "Alpha Team",
-        "parent_id": 0
+        "category_name": "Alpha Team"
     },
     {
         "category_id": 171,
-        "category_name": "Creator",
-        "parent_id": 0
+        "category_name": "Creator"
     },
     {
         "category_id": 174,
-        "category_name": "Studios",
-        "parent_id": 0
+        "category_name": "Studios"
     },
     {
         "category_id": 175,
-        "category_name": "Food & Drink",
-        "parent_id": 0
+        "category_name": "Food & Drink"
     },
     {
         "category_id": 179,
-        "category_name": "Racers",
-        "parent_id": 0
+        "category_name": "Racers"
     },
     {
         "category_id": 180,
-        "category_name": "Software",
-        "parent_id": 0
+        "category_name": "Software"
     },
     {
         "category_id": 183,
-        "category_name": "Dinosaurs",
-        "parent_id": 0
+        "category_name": "Dinosaurs"
     },
     {
         "category_id": 184,
-        "category_name": "Animal, Dinosaur",
-        "parent_id": 0
+        "category_name": "Animal, Dinosaur"
     },
     {
         "category_id": 225,
-        "category_name": "Riding Cycle",
-        "parent_id": 0
+        "category_name": "Riding Cycle"
     },
     {
         "category_id": 226,
-        "category_name": "Hobby Sets",
-        "parent_id": 0
+        "category_name": "Hobby Sets"
     },
     {
         "category_id": 227,
-        "category_name": "Harry Potter",
-        "parent_id": 0
+        "category_name": "Harry Potter"
     },
     {
         "category_id": 229,
-        "category_name": "Rubber Band & Belt",
-        "parent_id": 0
+        "category_name": "Rubber Band & Belt"
     },
     {
         "category_id": 231,
-        "category_name": "String & Net",
-        "parent_id": 0
+        "category_name": "String & Net"
     },
     {
         "category_id": 234,
-        "category_name": "Foam",
-        "parent_id": 0
+        "category_name": "Foam"
     },
     {
         "category_id": 235,
-        "category_name": "Bionicle, Kanohi Mask",
-        "parent_id": 0
+        "category_name": "Bionicle, Kanohi Mask"
     },
     {
         "category_id": 237,
-        "category_name": "Monorail",
-        "parent_id": 0
+        "category_name": "Monorail"
     },
     {
         "category_id": 238,
-        "category_name": "Minifigure, Head",
-        "parent_id": 0
+        "category_name": "Minifigure, Head"
     },
     {
         "category_id": 241,
-        "category_name": "Pen",
-        "parent_id": 0
+        "category_name": "Pen"
     },
     {
         "category_id": 242,
-        "category_name": "Technic, Figure Accessory",
-        "parent_id": 0
+        "category_name": "Technic, Figure Accessory"
     },
     {
         "category_id": 243,
-        "category_name": "Baseplate, Raised",
-        "parent_id": 0
+        "category_name": "Baseplate, Raised"
     },
     {
         "category_id": 246,
-        "category_name": "Paper",
-        "parent_id": 0
+        "category_name": "Paper"
     },
     {
         "category_id": 252,
-        "category_name": "Game",
-        "parent_id": 0
+        "category_name": "Game"
     },
     {
         "category_id": 254,
-        "category_name": "Learning Book",
-        "parent_id": 0
+        "category_name": "Learning Book"
     },
     {
         "category_id": 273,
-        "category_name": "Bionicle",
-        "parent_id": 0
+        "category_name": "Bionicle"
     },
     {
         "category_id": 277,
-        "category_name": "Legoland",
-        "parent_id": 0
+        "category_name": "Legoland"
     },
     {
         "category_id": 284,
-        "category_name": "Ninja",
-        "parent_id": 0
+        "category_name": "Ninja"
     },
     {
         "category_id": 290,
-        "category_name": "Value Packs",
-        "parent_id": 0
+        "category_name": "Value Packs"
     },
     {
         "category_id": 293,
-        "category_name": "Baby",
-        "parent_id": 0
+        "category_name": "Baby"
     },
     {
         "category_id": 294,
-        "category_name": "Primo",
-        "parent_id": 0
+        "category_name": "Primo"
     },
     {
         "category_id": 317,
-        "category_name": "Idea Book",
-        "parent_id": 0
+        "category_name": "Idea Book"
     },
     {
         "category_id": 331,
-        "category_name": "Comic Book",
-        "parent_id": 0
+        "category_name": "Comic Book"
     },
     {
         "category_id": 332,
-        "category_name": "Informational Book",
-        "parent_id": 0
+        "category_name": "Informational Book"
     },
     {
         "category_id": 333,
-        "category_name": "Card, Game Card",
-        "parent_id": 0
+        "category_name": "Card, Game Card"
     },
     {
         "category_id": 334,
-        "category_name": "Key Chain",
-        "parent_id": 0
+        "category_name": "Key Chain"
     },
     {
         "category_id": 336,
-        "category_name": "Clock",
-        "parent_id": 0
+        "category_name": "Clock"
     },
     {
         "category_id": 340,
-        "category_name": "1965",
-        "parent_id": 0
+        "category_name": "1965"
     },
     {
         "category_id": 341,
-        "category_name": "1966",
-        "parent_id": 0
+        "category_name": "1966"
     },
     {
         "category_id": 342,
-        "category_name": "1967",
-        "parent_id": 0
+        "category_name": "1967"
     },
     {
         "category_id": 343,
-        "category_name": "1968",
-        "parent_id": 0
+        "category_name": "1968"
     },
     {
         "category_id": 344,
-        "category_name": "1969",
-        "parent_id": 0
+        "category_name": "1969"
     },
     {
         "category_id": 345,
-        "category_name": "1970",
-        "parent_id": 0
+        "category_name": "1970"
     },
     {
         "category_id": 346,
-        "category_name": "1971",
-        "parent_id": 0
+        "category_name": "1971"
     },
     {
         "category_id": 347,
-        "category_name": "1972",
-        "parent_id": 0
+        "category_name": "1972"
     },
     {
         "category_id": 348,
-        "category_name": "1973",
-        "parent_id": 0
+        "category_name": "1973"
     },
     {
         "category_id": 349,
-        "category_name": "1974",
-        "parent_id": 0
+        "category_name": "1974"
     },
     {
         "category_id": 350,
-        "category_name": "1975",
-        "parent_id": 0
+        "category_name": "1975"
     },
     {
         "category_id": 351,
-        "category_name": "1976",
-        "parent_id": 0
+        "category_name": "1976"
     },
     {
         "category_id": 352,
-        "category_name": "1977",
-        "parent_id": 0
+        "category_name": "1977"
     },
     {
         "category_id": 353,
-        "category_name": "1978",
-        "parent_id": 0
+        "category_name": "1978"
     },
     {
         "category_id": 354,
-        "category_name": "1979",
-        "parent_id": 0
+        "category_name": "1979"
     },
     {
         "category_id": 355,
-        "category_name": "1980",
-        "parent_id": 0
+        "category_name": "1980"
     },
     {
         "category_id": 356,
-        "category_name": "1981",
-        "parent_id": 0
+        "category_name": "1981"
     },
     {
         "category_id": 357,
-        "category_name": "1982",
-        "parent_id": 0
+        "category_name": "1982"
     },
     {
         "category_id": 358,
-        "category_name": "1983",
-        "parent_id": 0
+        "category_name": "1983"
     },
     {
         "category_id": 359,
-        "category_name": "1984",
-        "parent_id": 0
+        "category_name": "1984"
     },
     {
         "category_id": 360,
-        "category_name": "1985",
-        "parent_id": 0
+        "category_name": "1985"
     },
     {
         "category_id": 361,
-        "category_name": "1986",
-        "parent_id": 0
+        "category_name": "1986"
     },
     {
         "category_id": 362,
-        "category_name": "1987",
-        "parent_id": 0
+        "category_name": "1987"
     },
     {
         "category_id": 363,
-        "category_name": "1988",
-        "parent_id": 0
+        "category_name": "1988"
     },
     {
         "category_id": 364,
-        "category_name": "1989",
-        "parent_id": 0
+        "category_name": "1989"
     },
     {
         "category_id": 365,
-        "category_name": "1990",
-        "parent_id": 0
+        "category_name": "1990"
     },
     {
         "category_id": 366,
-        "category_name": "1991",
-        "parent_id": 0
+        "category_name": "1991"
     },
     {
         "category_id": 367,
-        "category_name": "1992",
-        "parent_id": 0
+        "category_name": "1992"
     },
     {
         "category_id": 368,
-        "category_name": "1993",
-        "parent_id": 0
+        "category_name": "1993"
     },
     {
         "category_id": 369,
-        "category_name": "1994",
-        "parent_id": 0
+        "category_name": "1994"
     },
     {
         "category_id": 370,
-        "category_name": "1995",
-        "parent_id": 0
+        "category_name": "1995"
     },
     {
         "category_id": 371,
-        "category_name": "1996",
-        "parent_id": 0
+        "category_name": "1996"
     },
     {
         "category_id": 372,
-        "category_name": "1997",
-        "parent_id": 0
+        "category_name": "1997"
     },
     {
         "category_id": 373,
-        "category_name": "1998",
-        "parent_id": 0
+        "category_name": "1998"
     },
     {
         "category_id": 374,
-        "category_name": "1999",
-        "parent_id": 0
+        "category_name": "1999"
     },
     {
         "category_id": 375,
-        "category_name": "2000",
-        "parent_id": 0
+        "category_name": "2000"
     },
     {
         "category_id": 377,
-        "category_name": "2001",
-        "parent_id": 0
+        "category_name": "2001"
     },
     {
         "category_id": 378,
-        "category_name": "2002",
-        "parent_id": 0
+        "category_name": "2002"
     },
     {
         "category_id": 379,
-        "category_name": "Roof",
-        "parent_id": 0
+        "category_name": "Roof"
     },
     {
         "category_id": 380,
-        "category_name": "Card, Trading Card",
-        "parent_id": 0
+        "category_name": "Card, Trading Card"
     },
     {
         "category_id": 388,
-        "category_name": "Building Set with People",
-        "parent_id": 0
+        "category_name": "Building Set with People"
     },
     {
         "category_id": 390,
-        "category_name": "Holiday & Event",
-        "parent_id": 0
+        "category_name": "Holiday & Event"
     },
     {
         "category_id": 394,
-        "category_name": "Minitalia",
-        "parent_id": 0
+        "category_name": "Minitalia"
     },
     {
         "category_id": 395,
-        "category_name": "Samsonite",
-        "parent_id": 0
+        "category_name": "Samsonite"
     },
     {
         "category_id": 398,
-        "category_name": "Human Furniture",
-        "parent_id": 0
+        "category_name": "Human Furniture"
     },
     {
         "category_id": 399,
-        "category_name": "Storage",
-        "parent_id": 0
+        "category_name": "Storage"
     },
     {
         "category_id": 411,
-        "category_name": "Electric, Battery Box",
-        "parent_id": 0
+        "category_name": "Electric, Battery Box"
     },
     {
         "category_id": 412,
-        "category_name": "Belville, Figure Accessory",
-        "parent_id": 0
+        "category_name": "Belville, Figure Accessory"
     },
     {
         "category_id": 413,
-        "category_name": "Scala, Figure Accessory",
-        "parent_id": 0
+        "category_name": "Scala, Figure Accessory"
     },
     {
         "category_id": 417,
-        "category_name": "Duplo, Brick",
-        "parent_id": 0
+        "category_name": "Duplo, Brick"
     },
     {
         "category_id": 418,
-        "category_name": "Minifigure, Shield",
-        "parent_id": 0
+        "category_name": "Minifigure, Shield"
     },
     {
         "category_id": 420,
-        "category_name": "Duplo, Animal",
-        "parent_id": 0
+        "category_name": "Duplo, Animal"
     },
     {
         "category_id": 422,
-        "category_name": "Universal Building Set",
-        "parent_id": 0
+        "category_name": "Universal Building Set"
     },
     {
         "category_id": 423,
-        "category_name": "Classic",
-        "parent_id": 0
+        "category_name": "Classic"
     },
     {
         "category_id": 424,
-        "category_name": "HO 1:87 Vehicles",
-        "parent_id": 423
+        "category_name": "HO 1:87 Vehicles"
     },
     {
         "category_id": 429,
-        "category_name": "Jumbo Bricks",
-        "parent_id": 0
+        "category_name": "Jumbo Bricks"
     },
     {
         "category_id": 436,
-        "category_name": "Spybotics",
-        "parent_id": 0
+        "category_name": "Spybotics"
     },
     {
         "category_id": 437,
-        "category_name": "Explore",
-        "parent_id": 0
+        "category_name": "Explore"
     },
     {
         "category_id": 438,
-        "category_name": "Slope, Curved",
-        "parent_id": 0
+        "category_name": "Slope, Curved"
     },
     {
         "category_id": 439,
-        "category_name": "Soft Bricks",
-        "parent_id": 0
+        "category_name": "Soft Bricks"
     },
     {
         "category_id": 440,
-        "category_name": "Duplo, Brick, Decorated",
-        "parent_id": 0
+        "category_name": "Duplo, Brick, Decorated"
     },
     {
         "category_id": 441,
-        "category_name": "Duplo, Train",
-        "parent_id": 0
+        "category_name": "Duplo, Train"
     },
     {
         "category_id": 443,
-        "category_name": "Puzzle",
-        "parent_id": 0
+        "category_name": "Puzzle"
     },
     {
         "category_id": 444,
-        "category_name": "Galidor",
-        "parent_id": 0
+        "category_name": "Galidor"
     },
     {
         "category_id": 445,
-        "category_name": "Patch & Pin",
-        "parent_id": 0
+        "category_name": "Patch & Pin"
     },
     {
         "category_id": 447,
-        "category_name": "School Supplies",
-        "parent_id": 0
+        "category_name": "School Supplies"
     },
     {
         "category_id": 449,
-        "category_name": "Island Xtreme Stunts",
-        "parent_id": 0
+        "category_name": "Island Xtreme Stunts"
     },
     {
         "category_id": 450,
-        "category_name": "Track System",
-        "parent_id": 179
+        "category_name": "Track System"
     },
     {
         "category_id": 461,
-        "category_name": "Panel, Decorated",
-        "parent_id": 0
+        "category_name": "Panel, Decorated"
     },
     {
         "category_id": 462,
-        "category_name": "Magazine",
-        "parent_id": 0
+        "category_name": "Magazine"
     },
     {
         "category_id": 463,
-        "category_name": "Electric, Programmable",
-        "parent_id": 0
+        "category_name": "Electric, Programmable"
     },
     {
         "category_id": 464,
-        "category_name": "Bead",
-        "parent_id": 0
+        "category_name": "Bead"
     },
     {
         "category_id": 469,
-        "category_name": "Spider-Man",
-        "parent_id": 0
+        "category_name": "Spider-Man"
     },
     {
         "category_id": 472,
-        "category_name": "Card, Postcard",
-        "parent_id": 0
+        "category_name": "Card, Postcard"
     },
     {
         "category_id": 473,
-        "category_name": "Sports",
-        "parent_id": 0
+        "category_name": "Sports"
     },
     {
         "category_id": 478,
-        "category_name": "Bulk Bricks",
-        "parent_id": 0
+        "category_name": "Bulk Bricks"
     },
     {
         "category_id": 479,
-        "category_name": "Cockpit",
-        "parent_id": 0
+        "category_name": "Cockpit"
     },
     {
         "category_id": 482,
-        "category_name": "Discovery",
-        "parent_id": 0
+        "category_name": "Discovery"
     },
     {
         "category_id": 483,
-        "category_name": "Technic, Flex Cable",
-        "parent_id": 0
+        "category_name": "Technic, Flex Cable"
     },
     {
         "category_id": 484,
-        "category_name": "Minifigure, Legs",
-        "parent_id": 0
+        "category_name": "Minifigure, Legs"
     },
     {
         "category_id": 485,
-        "category_name": "Minifigure, Torso Assembly",
-        "parent_id": 0
+        "category_name": "Minifigure, Torso Assembly"
     },
     {
         "category_id": 486,
-        "category_name": "Designer Sets",
-        "parent_id": 0
+        "category_name": "Designer Sets"
     },
     {
         "category_id": 487,
-        "category_name": "Duplo, Plate",
-        "parent_id": 0
+        "category_name": "Duplo, Plate"
     },
     {
         "category_id": 488,
-        "category_name": "Duplo, Vehicle",
-        "parent_id": 0
+        "category_name": "Duplo, Vehicle"
     },
     {
         "category_id": 490,
-        "category_name": "Clikits",
-        "parent_id": 0
+        "category_name": "Clikits"
     },
     {
         "category_id": 491,
-        "category_name": "2003",
-        "parent_id": 0
+        "category_name": "2003"
     },
     {
         "category_id": 497,
-        "category_name": "Inventor",
-        "parent_id": 0
+        "category_name": "Inventor"
     },
     {
         "category_id": 498,
-        "category_name": "Backpacks & Lunchboxes",
-        "parent_id": 0
+        "category_name": "Backpacks & Lunchboxes"
     },
     {
         "category_id": 503,
-        "category_name": "Poster",
-        "parent_id": 0
+        "category_name": "Poster"
     },
     {
         "category_id": 504,
-        "category_name": "Motor, Non-Electric",
-        "parent_id": 0
+        "category_name": "Motor, Non-Electric"
     },
     {
         "category_id": 505,
-        "category_name": "Story Book",
-        "parent_id": 0
+        "category_name": "Story Book"
     },
     {
         "category_id": 506,
-        "category_name": "Duplo, Brick, Promotional",
-        "parent_id": 0
+        "category_name": "Duplo, Brick, Promotional"
     },
     {
         "category_id": 512,
-        "category_name": "Toy, Plush",
-        "parent_id": 0
+        "category_name": "Toy, Plush"
     },
     {
         "category_id": 513,
-        "category_name": "Media Audio & Video",
-        "parent_id": 0
+        "category_name": "Media Audio & Video"
     },
     {
         "category_id": 514,
-        "category_name": "Throwing Disc",
-        "parent_id": 0
+        "category_name": "Throwing Disc"
     },
     {
         "category_id": 515,
-        "category_name": "2004",
-        "parent_id": 0
+        "category_name": "2004"
     },
     {
         "category_id": 516,
-        "category_name": "4 Juniors",
-        "parent_id": 0
+        "category_name": "4 Juniors"
     },
     {
         "category_id": 517,
-        "category_name": "Watch",
-        "parent_id": 0
+        "category_name": "Watch"
     },
     {
         "category_id": 521,
-        "category_name": "Photo Frame & Holder",
-        "parent_id": 0
+        "category_name": "Photo Frame & Holder"
     },
     {
         "category_id": 522,
-        "category_name": "Hose, Ribbed 7mm D.",
-        "parent_id": 0
+        "category_name": "Hose, Ribbed 7mm D."
     },
     {
         "category_id": 524,
-        "category_name": "Duplo, Toolo",
-        "parent_id": 0
+        "category_name": "Duplo, Toolo"
     },
     {
         "category_id": 525,
-        "category_name": "Human Toiletries",
-        "parent_id": 0
+        "category_name": "Human Toiletries"
     },
     {
         "category_id": 526,
-        "category_name": "Retail Display Flag",
-        "parent_id": 0
+        "category_name": "Retail Display Flag"
     },
     {
         "category_id": 527,
-        "category_name": "Hose, Soft Axle",
-        "parent_id": 0
+        "category_name": "Hose, Soft Axle"
     },
     {
         "category_id": 528,
-        "category_name": "Hose, Rigid 3mm D.",
-        "parent_id": 0
+        "category_name": "Hose, Rigid 3mm D."
     },
     {
         "category_id": 529,
-        "category_name": "Hose, Soft 3mm D.",
-        "parent_id": 0
+        "category_name": "Hose, Soft 3mm D."
     },
     {
         "category_id": 530,
-        "category_name": "Hose, Pneumatic 4mm D.",
-        "parent_id": 0
+        "category_name": "Hose, Pneumatic 4mm D."
     },
     {
         "category_id": 532,
-        "category_name": "Wheel & Tire Assembly",
-        "parent_id": 0
+        "category_name": "Wheel & Tire Assembly"
     },
     {
         "category_id": 534,
-        "category_name": "Brick, Promotional",
-        "parent_id": 0
+        "category_name": "Brick, Promotional"
     },
     {
         "category_id": 535,
-        "category_name": "Brick, Modified, Decorated",
-        "parent_id": 0
+        "category_name": "Brick, Modified, Decorated"
     },
     {
         "category_id": 537,
-        "category_name": "Quatro",
-        "parent_id": 0
+        "category_name": "Quatro"
     },
     {
         "category_id": 538,
-        "category_name": "Duplo, Tile, Decorated",
-        "parent_id": 0
+        "category_name": "Duplo, Tile, Decorated"
     },
     {
         "category_id": 539,
-        "category_name": "Retail Display",
-        "parent_id": 0
+        "category_name": "Retail Display"
     },
     {
         "category_id": 540,
-        "category_name": "Door, Frame",
-        "parent_id": 0
+        "category_name": "Door, Frame"
     },
     {
         "category_id": 542,
-        "category_name": "Technic, Shock Absorber",
-        "parent_id": 0
+        "category_name": "Technic, Shock Absorber"
     },
     {
         "category_id": 543,
-        "category_name": "Clothing, Adult",
-        "parent_id": 0
+        "category_name": "Clothing, Adult"
     },
     {
         "category_id": 544,
-        "category_name": "2005",
-        "parent_id": 0
+        "category_name": "2005"
     },
     {
         "category_id": 545,
-        "category_name": "FIRST LEGO League",
-        "parent_id": 0
+        "category_name": "FIRST LEGO League"
     },
     {
         "category_id": 548,
-        "category_name": "Vikings",
-        "parent_id": 0
+        "category_name": "Vikings"
     },
     {
         "category_id": 551,
-        "category_name": "1964",
-        "parent_id": 0
+        "category_name": "1964"
     },
     {
         "category_id": 552,
-        "category_name": "Coloring Book",
-        "parent_id": 0
+        "category_name": "Coloring Book"
     },
     {
         "category_id": 553,
-        "category_name": "1963",
-        "parent_id": 0
+        "category_name": "1963"
     },
     {
         "category_id": 554,
-        "category_name": "1962",
-        "parent_id": 0
+        "category_name": "1962"
     },
     {
         "category_id": 555,
-        "category_name": "1961",
-        "parent_id": 0
+        "category_name": "1961"
     },
     {
         "category_id": 556,
-        "category_name": "1960",
-        "parent_id": 0
+        "category_name": "1960"
     },
     {
         "category_id": 557,
-        "category_name": "1959",
-        "parent_id": 0
+        "category_name": "1959"
     },
     {
         "category_id": 558,
-        "category_name": "1958",
-        "parent_id": 0
+        "category_name": "1958"
     },
     {
         "category_id": 559,
-        "category_name": "1957",
-        "parent_id": 0
+        "category_name": "1957"
     },
     {
         "category_id": 560,
-        "category_name": "1956",
-        "parent_id": 0
+        "category_name": "1956"
     },
     {
         "category_id": 561,
-        "category_name": "1955",
-        "parent_id": 0
+        "category_name": "1955"
     },
     {
         "category_id": 563,
-        "category_name": "Dino Attack",
-        "parent_id": 0
+        "category_name": "Dino Attack"
     },
     {
         "category_id": 564,
-        "category_name": "Card, Collector Card",
-        "parent_id": 0
+        "category_name": "Card, Collector Card"
     },
     {
         "category_id": 565,
-        "category_name": "2006",
-        "parent_id": 0
+        "category_name": "2006"
     },
     {
         "category_id": 566,
-        "category_name": "Factory",
-        "parent_id": 0
+        "category_name": "Factory"
     },
     {
         "category_id": 567,
-        "category_name": "Dino 2010",
-        "parent_id": 0
+        "category_name": "Dino 2010"
     },
     {
         "category_id": 568,
-        "category_name": "Exo-Force",
-        "parent_id": 0
+        "category_name": "Exo-Force"
     },
     {
         "category_id": 569,
-        "category_name": "Large Figure Part",
-        "parent_id": 0
+        "category_name": "Large Figure Part"
     },
     {
         "category_id": 570,
-        "category_name": "Batman I",
-        "parent_id": 0
+        "category_name": "Batman I"
     },
     {
         "category_id": 572,
-        "category_name": "Legoland Parks",
-        "parent_id": 0
+        "category_name": "Legoland Parks"
     },
     {
         "category_id": 573,
-        "category_name": "SpongeBob SquarePants",
-        "parent_id": 0
+        "category_name": "SpongeBob SquarePants"
     },
     {
         "category_id": 574,
-        "category_name": "Avatar",
-        "parent_id": 0
+        "category_name": "Avatar"
     },
     {
         "category_id": 575,
-        "category_name": "Clikits, Icon",
-        "parent_id": 0
+        "category_name": "Clikits, Icon"
     },
     {
         "category_id": 576,
-        "category_name": "Curriculum Activity Book",
-        "parent_id": 0
+        "category_name": "Curriculum Activity Book"
     },
     {
         "category_id": 578,
-        "category_name": "Wedge, Decorated",
-        "parent_id": 0
+        "category_name": "Wedge, Decorated"
     },
     {
         "category_id": 579,
-        "category_name": "Windscreen, Decorated",
-        "parent_id": 0
+        "category_name": "Windscreen, Decorated"
     },
     {
         "category_id": 581,
-        "category_name": "2007",
-        "parent_id": 0
+        "category_name": "2007"
     },
     {
         "category_id": 582,
-        "category_name": "Stickered Assembly",
-        "parent_id": 0
+        "category_name": "Stickered Assembly"
     },
     {
         "category_id": 583,
-        "category_name": "Wedge, Plate",
-        "parent_id": 0
+        "category_name": "Wedge, Plate"
     },
     {
         "category_id": 585,
-        "category_name": "Duplo, Figure Wear & Utensil",
-        "parent_id": 0
+        "category_name": "Duplo, Figure Wear & Utensil"
     },
     {
         "category_id": 586,
-        "category_name": "Play Wear & Weaponry",
-        "parent_id": 0
+        "category_name": "Play Wear & Weaponry"
     },
     {
         "category_id": 594,
-        "category_name": "Puzzle Book",
-        "parent_id": 0
+        "category_name": "Puzzle Book"
     },
     {
         "category_id": 600,
-        "category_name": "Town Plan",
-        "parent_id": 0
+        "category_name": "Town Plan"
     },
     {
         "category_id": 601,
-        "category_name": "2008",
-        "parent_id": 0
+        "category_name": "2008"
     },
     {
         "category_id": 604,
-        "category_name": "Money and Coin Bank",
-        "parent_id": 0
+        "category_name": "Money and Coin Bank"
     },
     {
         "category_id": 605,
-        "category_name": "Indiana Jones",
-        "parent_id": 0
+        "category_name": "Indiana Jones"
     },
     {
         "category_id": 606,
-        "category_name": "Minifigure, Head, Modified",
-        "parent_id": 0
+        "category_name": "Minifigure, Head, Modified"
     },
     {
         "category_id": 608,
-        "category_name": "Speed Racer",
-        "parent_id": 0
+        "category_name": "Speed Racer"
     },
     {
         "category_id": 609,
-        "category_name": "Agents",
-        "parent_id": 0
+        "category_name": "Agents"
     },
     {
         "category_id": 617,
-        "category_name": "Dino",
-        "parent_id": 167
+        "category_name": "Dino"
     },
     {
         "category_id": 623,
-        "category_name": "X-Pod",
-        "parent_id": 0
+        "category_name": "X-Pod"
     },
     {
         "category_id": 625,
-        "category_name": "LEGO Brand Store",
-        "parent_id": 0
+        "category_name": "LEGO Brand Store"
     },
     {
         "category_id": 628,
-        "category_name": "1950",
-        "parent_id": 0
+        "category_name": "1950"
     },
     {
         "category_id": 629,
-        "category_name": "Architecture",
-        "parent_id": 0
+        "category_name": "Architecture"
     },
     {
         "category_id": 636,
-        "category_name": "Minifigure, Headgear Accessory",
-        "parent_id": 0
+        "category_name": "Minifigure, Headgear Accessory"
     },
     {
         "category_id": 638,
-        "category_name": "Technic, Disk",
-        "parent_id": 0
+        "category_name": "Technic, Disk"
     },
     {
         "category_id": 639,
-        "category_name": "Duplo, Boat",
-        "parent_id": 0
+        "category_name": "Duplo, Boat"
     },
     {
         "category_id": 640,
-        "category_name": "Duplo, Aircraft",
-        "parent_id": 0
+        "category_name": "Duplo, Aircraft"
     },
     {
         "category_id": 641,
-        "category_name": "Duplo, Furniture",
-        "parent_id": 0
+        "category_name": "Duplo, Furniture"
     },
     {
         "category_id": 642,
-        "category_name": "Door, Decorated",
-        "parent_id": 0
+        "category_name": "Door, Decorated"
     },
     {
         "category_id": 643,
-        "category_name": "Container, Decorated",
-        "parent_id": 0
+        "category_name": "Container, Decorated"
     },
     {
         "category_id": 645,
-        "category_name": "Toy, Early",
-        "parent_id": 0
+        "category_name": "Toy, Early"
     },
     {
         "category_id": 646,
-        "category_name": "Electronics",
-        "parent_id": 0
+        "category_name": "Electronics"
     },
     {
         "category_id": 647,
-        "category_name": "2009",
-        "parent_id": 0
+        "category_name": "2009"
     },
     {
         "category_id": 648,
-        "category_name": "Bedding",
-        "parent_id": 0
+        "category_name": "Bedding"
     },
     {
         "category_id": 679,
-        "category_name": "Toy, Fast Food",
-        "parent_id": 0
+        "category_name": "Toy, Fast Food"
     },
     {
         "category_id": 683,
-        "category_name": "Glued Model",
-        "parent_id": 0
+        "category_name": "Glued Model"
     },
     {
         "category_id": 689,
-        "category_name": "Power Miners",
-        "parent_id": 0
+        "category_name": "Power Miners"
     },
     {
         "category_id": 707,
-        "category_name": "Duplo, Doll",
-        "parent_id": 0
+        "category_name": "Duplo, Doll"
     },
     {
         "category_id": 710,
-        "category_name": "Modular Buildings",
-        "parent_id": 0
+        "category_name": "Modular Buildings"
     },
     {
         "category_id": 712,
-        "category_name": "Video Game",
-        "parent_id": 0
+        "category_name": "Video Game"
     },
     {
         "category_id": 721,
-        "category_name": "Power Functions",
-        "parent_id": 0
+        "category_name": "Power Functions"
     },
     {
         "category_id": 727,
-        "category_name": "Modulex",
-        "parent_id": 0
+        "category_name": "Modulex"
     },
     {
         "category_id": 728,
-        "category_name": "Modulex, Tile, Decorated",
-        "parent_id": 0
+        "category_name": "Modulex, Tile, Decorated"
     },
     {
         "category_id": 729,
-        "category_name": "Modulex, Brick",
-        "parent_id": 0
+        "category_name": "Modulex, Brick"
     },
     {
         "category_id": 730,
-        "category_name": "Modulex, Window",
-        "parent_id": 0
+        "category_name": "Modulex, Window"
     },
     {
         "category_id": 731,
-        "category_name": "Ben 10",
-        "parent_id": 0
+        "category_name": "Ben 10"
     },
     {
         "category_id": 732,
-        "category_name": "Toy Story",
-        "parent_id": 0
+        "category_name": "Toy Story"
     },
     {
         "category_id": 733,
-        "category_name": "Atlantis",
-        "parent_id": 0
+        "category_name": "Atlantis"
     },
     {
         "category_id": 734,
-        "category_name": "Prince of Persia",
-        "parent_id": 0
+        "category_name": "Prince of Persia"
     },
     {
         "category_id": 735,
-        "category_name": "Electric, Wire & Connector",
-        "parent_id": 0
+        "category_name": "Electric, Wire & Connector"
     },
     {
         "category_id": 736,
-        "category_name": "Brick, Round, Decorated",
-        "parent_id": 0
+        "category_name": "Brick, Round, Decorated"
     },
     {
         "category_id": 738,
-        "category_name": "Flag, Decorated",
-        "parent_id": 0
+        "category_name": "Flag, Decorated"
     },
     {
         "category_id": 740,
-        "category_name": "Technic, Panel, Decorated",
-        "parent_id": 0
+        "category_name": "Technic, Panel, Decorated"
     },
     {
         "category_id": 741,
-        "category_name": "Tail, Decorated",
-        "parent_id": 0
+        "category_name": "Tail, Decorated"
     },
     {
         "category_id": 743,
-        "category_name": "2010",
-        "parent_id": 0
+        "category_name": "2010"
     },
     {
         "category_id": 745,
-        "category_name": "Building Event Instructions",
-        "parent_id": 0
+        "category_name": "Building Event Instructions"
     },
     {
         "category_id": 746,
-        "category_name": "Collectible Minifigures",
-        "parent_id": 0
+        "category_name": "Collectible Minifigures"
     },
     {
         "category_id": 747,
-        "category_name": "World Racers",
-        "parent_id": 0
+        "category_name": "World Racers"
     },
     {
         "category_id": 748,
-        "category_name": "Cars",
-        "parent_id": 0
+        "category_name": "Cars"
     },
     {
         "category_id": 749,
-        "category_name": "Hero Factory",
-        "parent_id": 0
+        "category_name": "Hero Factory"
     },
     {
         "category_id": 755,
-        "category_name": "Universe",
-        "parent_id": 0
+        "category_name": "Universe"
     },
     {
         "category_id": 756,
-        "category_name": "2011",
-        "parent_id": 0
+        "category_name": "2011"
     },
     {
         "category_id": 757,
-        "category_name": "Pharaoh's Quest",
-        "parent_id": 0
+        "category_name": "Pharaoh's Quest"
     },
     {
         "category_id": 759,
-        "category_name": "Ninjago",
-        "parent_id": 0
+        "category_name": "Ninjago"
     },
     {
         "category_id": 761,
-        "category_name": "Pirates of the Caribbean",
-        "parent_id": 0
+        "category_name": "Pirates of the Caribbean"
     },
     {
         "category_id": 764,
-        "category_name": "Master Builder Academy",
-        "parent_id": 0
+        "category_name": "Master Builder Academy"
     },
     {
         "category_id": 766,
-        "category_name": "Activity Book",
-        "parent_id": 0
+        "category_name": "Activity Book"
     },
     {
         "category_id": 767,
-        "category_name": "2012",
-        "parent_id": 0
+        "category_name": "2012"
     },
     {
         "category_id": 768,
-        "category_name": "Super Heroes",
-        "parent_id": 0
+        "category_name": "Super Heroes"
     },
     {
         "category_id": 771,
-        "category_name": "Friends",
-        "parent_id": 0
+        "category_name": "Friends"
     },
     {
         "category_id": 773,
-        "category_name": "Disney Princess",
-        "parent_id": 878
+        "category_name": "Disney Princess"
     },
     {
         "category_id": 775,
-        "category_name": "Slope, Curved, Decorated",
-        "parent_id": 0
+        "category_name": "Slope, Curved, Decorated"
     },
     {
         "category_id": 776,
-        "category_name": "Slope, Inverted, Decorated",
-        "parent_id": 0
+        "category_name": "Slope, Inverted, Decorated"
     },
     {
         "category_id": 777,
-        "category_name": "Technic, Liftarm, Decorated",
-        "parent_id": 0
+        "category_name": "Technic, Liftarm, Decorated"
     },
     {
         "category_id": 778,
-        "category_name": "Tile, Modified, Decorated",
-        "parent_id": 0
+        "category_name": "Tile, Modified, Decorated"
     },
     {
         "category_id": 779,
-        "category_name": "Dish, Decorated",
-        "parent_id": 0
+        "category_name": "Dish, Decorated"
     },
     {
         "category_id": 780,
-        "category_name": "Vehicle, Mudguard, Decorated",
-        "parent_id": 0
+        "category_name": "Vehicle, Mudguard, Decorated"
     },
     {
         "category_id": 781,
-        "category_name": "Monster Fighters",
-        "parent_id": 0
+        "category_name": "Monster Fighters"
     },
     {
         "category_id": 786,
-        "category_name": "2013",
-        "parent_id": 0
+        "category_name": "2013"
     },
     {
         "category_id": 787,
-        "category_name": "Legends of Chima",
-        "parent_id": 0
+        "category_name": "Legends of Chima"
     },
     {
         "category_id": 789,
-        "category_name": "The Hobbit and the Lord of the Rings",
-        "parent_id": 0
+        "category_name": "The Hobbit and the Lord of the Rings"
     },
     {
         "category_id": 790,
-        "category_name": "Teenage Mutant Ninja Turtles",
-        "parent_id": 0
+        "category_name": "Teenage Mutant Ninja Turtles"
     },
     {
         "category_id": 795,
-        "category_name": "The Lone Ranger",
-        "parent_id": 0
+        "category_name": "The Lone Ranger"
     },
     {
         "category_id": 797,
-        "category_name": "1954",
-        "parent_id": 0
+        "category_name": "1954"
     },
     {
         "category_id": 801,
-        "category_name": "Minecraft",
-        "parent_id": 0
+        "category_name": "Minecraft"
     },
     {
         "category_id": 802,
-        "category_name": "Muji",
-        "parent_id": 0
+        "category_name": "Muji"
     },
     {
         "category_id": 804,
-        "category_name": "The LEGO Movie",
-        "parent_id": 0
+        "category_name": "The LEGO Movie"
     },
     {
         "category_id": 805,
-        "category_name": "2014",
-        "parent_id": 0
+        "category_name": "2014"
     },
     {
         "category_id": 807,
-        "category_name": "The Simpsons",
-        "parent_id": 0
+        "category_name": "The Simpsons"
     },
     {
         "category_id": 808,
-        "category_name": "Mixels",
-        "parent_id": 0
+        "category_name": "Mixels"
     },
     {
         "category_id": 809,
-        "category_name": "Juniors",
-        "parent_id": 0
+        "category_name": "Juniors"
     },
     {
         "category_id": 812,
-        "category_name": "Tile, Round, Decorated",
-        "parent_id": 0
+        "category_name": "Tile, Round, Decorated"
     },
     {
         "category_id": 815,
-        "category_name": "Ultra Agents",
-        "parent_id": 0
+        "category_name": "Ultra Agents"
     },
     {
         "category_id": 817,
-        "category_name": "LEGO Ideas &#40;CUUSOO&#41;",
-        "parent_id": 0
+        "category_name": "LEGO Ideas &#40;CUUSOO&#41;"
     },
     {
         "category_id": 822,
-        "category_name": "Fusion",
-        "parent_id": 0
+        "category_name": "Fusion"
     },
     {
         "category_id": 826,
-        "category_name": "2015",
-        "parent_id": 0
+        "category_name": "2015"
     },
     {
         "category_id": 842,
-        "category_name": "Speed Champions",
-        "parent_id": 0
+        "category_name": "Speed Champions"
     },
     {
         "category_id": 843,
-        "category_name": "Elves",
-        "parent_id": 0
+        "category_name": "Elves"
     },
     {
         "category_id": 845,
-        "category_name": "Duplo, Cloth",
-        "parent_id": 0
+        "category_name": "Duplo, Cloth"
     },
     {
         "category_id": 846,
-        "category_name": "Duplo, Baseplate",
-        "parent_id": 0
+        "category_name": "Duplo, Baseplate"
     },
     {
         "category_id": 847,
-        "category_name": "Minifigure, Hair",
-        "parent_id": 0
+        "category_name": "Minifigure, Hair"
     },
     {
         "category_id": 848,
-        "category_name": "Retail Display Case",
-        "parent_id": 0
+        "category_name": "Retail Display Case"
     },
     {
         "category_id": 850,
-        "category_name": "Jurassic World",
-        "parent_id": 0
+        "category_name": "Jurassic World"
     },
     {
         "category_id": 856,
-        "category_name": "Scooby-Doo",
-        "parent_id": 0
+        "category_name": "Scooby-Doo"
     },
     {
         "category_id": 860,
-        "category_name": "Dimensions",
-        "parent_id": 0
+        "category_name": "Dimensions"
     },
     {
         "category_id": 868,
-        "category_name": "Nexo Knights",
-        "parent_id": 0
+        "category_name": "Nexo Knights"
     },
     {
         "category_id": 869,
-        "category_name": "2016",
-        "parent_id": 0
+        "category_name": "2016"
     },
     {
         "category_id": 870,
-        "category_name": "Ghostbusters",
-        "parent_id": 0
+        "category_name": "Ghostbusters"
     },
     {
         "category_id": 876,
-        "category_name": "The Angry Birds Movie",
-        "parent_id": 0
+        "category_name": "The Angry Birds Movie"
     },
     {
         "category_id": 878,
-        "category_name": "Disney",
-        "parent_id": 0
+        "category_name": "Disney"
     },
     {
         "category_id": 885,
-        "category_name": "Plate, Decorated",
-        "parent_id": 0
+        "category_name": "Plate, Decorated"
     },
     {
         "category_id": 890,
-        "category_name": "Plate, Modified, Decorated",
-        "parent_id": 0
+        "category_name": "Plate, Modified, Decorated"
     },
     {
         "category_id": 893,
-        "category_name": "DC Super Hero Girls",
-        "parent_id": 0
+        "category_name": "DC Super Hero Girls"
     },
     {
         "category_id": 901,
-        "category_name": "2017",
-        "parent_id": 0
+        "category_name": "2017"
     },
     {
         "category_id": 903,
-        "category_name": "BrickHeadz",
-        "parent_id": 0
+        "category_name": "BrickHeadz"
     },
     {
         "category_id": 911,
-        "category_name": "Mini Doll, Body Part",
-        "parent_id": 0
+        "category_name": "Mini Doll, Body Part"
     },
     {
         "category_id": 912,
-        "category_name": "Mini Doll, Body Wear",
-        "parent_id": 0
+        "category_name": "Mini Doll, Body Wear"
     },
     {
         "category_id": 913,
-        "category_name": "Mini Doll, Hair",
-        "parent_id": 0
+        "category_name": "Mini Doll, Hair"
     },
     {
         "category_id": 914,
-        "category_name": "Mini Doll, Head",
-        "parent_id": 0
+        "category_name": "Mini Doll, Head"
     },
     {
         "category_id": 915,
-        "category_name": "Mini Doll, Headgear",
-        "parent_id": 0
+        "category_name": "Mini Doll, Headgear"
     },
     {
         "category_id": 916,
-        "category_name": "Mini Doll, Legs",
-        "parent_id": 0
+        "category_name": "Mini Doll, Legs"
     },
     {
         "category_id": 917,
-        "category_name": "Mini Doll, Torso",
-        "parent_id": 0
+        "category_name": "Mini Doll, Torso"
     },
     {
         "category_id": 919,
-        "category_name": "Cities of Wonders",
-        "parent_id": 0
+        "category_name": "Cities of Wonders"
     },
     {
         "category_id": 920,
-        "category_name": "The LEGO Ninjago Movie",
-        "parent_id": 0
+        "category_name": "The LEGO Ninjago Movie"
     },
     {
         "category_id": 921,
-        "category_name": "BOOST",
-        "parent_id": 0
+        "category_name": "BOOST"
     },
     {
         "category_id": 925,
-        "category_name": "Powerpuff Girls",
-        "parent_id": 0
+        "category_name": "Powerpuff Girls"
     },
     {
         "category_id": 926,
-        "category_name": "Cylinder, Decorated",
-        "parent_id": 0
+        "category_name": "Cylinder, Decorated"
     },
     {
         "category_id": 927,
-        "category_name": "Building Bigger Thinking",
-        "parent_id": 0
+        "category_name": "Building Bigger Thinking"
     },
     {
         "category_id": 930,
-        "category_name": "2018",
-        "parent_id": 0
+        "category_name": "2018"
     },
     {
         "category_id": 943,
-        "category_name": "Minifigure, Utensil, Decorated",
-        "parent_id": 0
+        "category_name": "Minifigure, Utensil, Decorated"
     },
     {
         "category_id": 957,
-        "category_name": "The Incredibles",
-        "parent_id": 0
+        "category_name": "The Incredibles"
     },
     {
         "category_id": 961,
-        "category_name": "Special Assembly",
-        "parent_id": 0
+        "category_name": "Special Assembly"
     },
     {
         "category_id": 965,
-        "category_name": "Unikitty!",
-        "parent_id": 0
+        "category_name": "Unikitty!"
     },
     {
         "category_id": 966,
-        "category_name": "Arch, Decorated",
-        "parent_id": 0
+        "category_name": "Arch, Decorated"
     },
     {
         "category_id": 971,
-        "category_name": "The LEGO Movie 2",
-        "parent_id": 0
+        "category_name": "The LEGO Movie 2"
     },
     {
         "category_id": 974,
-        "category_name": "Cone, Decorated",
-        "parent_id": 0
+        "category_name": "Cone, Decorated"
     },
     {
         "category_id": 975,
-        "category_name": "Overwatch",
-        "parent_id": 0
+        "category_name": "Overwatch"
     },
     {
         "category_id": 976,
-        "category_name": "LEGO Brand",
-        "parent_id": 0
+        "category_name": "LEGO Brand"
     },
     {
         "category_id": 978,
-        "category_name": "Ball",
-        "parent_id": 0
+        "category_name": "Ball"
     },
     {
         "category_id": 983,
-        "category_name": "Promotional",
-        "parent_id": 976
+        "category_name": "Promotional"
     },
     {
         "category_id": 988,
-        "category_name": "Building Event",
-        "parent_id": 0
+        "category_name": "Building Event"
     },
     {
         "category_id": 989,
-        "category_name": "Ring",
-        "parent_id": 0
+        "category_name": "Ring"
     },
     {
         "category_id": 990,
-        "category_name": "Accessory, Human Tool",
-        "parent_id": 0
+        "category_name": "Accessory, Human Tool"
     },
     {
         "category_id": 991,
-        "category_name": "Chain",
-        "parent_id": 0
+        "category_name": "Chain"
     },
     {
         "category_id": 992,
-        "category_name": "Projectile Launcher",
-        "parent_id": 0
+        "category_name": "Projectile Launcher"
     },
     {
         "category_id": 993,
-        "category_name": "Spring",
-        "parent_id": 0
+        "category_name": "Spring"
     },
     {
         "category_id": 994,
-        "category_name": "Energy Effect",
-        "parent_id": 0
+        "category_name": "Energy Effect"
     },
     {
         "category_id": 995,
-        "category_name": "Party Supplies",
-        "parent_id": 0
+        "category_name": "Party Supplies"
     },
     {
         "category_id": 996,
-        "category_name": "Card, Greeting Card",
-        "parent_id": 0
+        "category_name": "Card, Greeting Card"
     },
     {
         "category_id": 997,
-        "category_name": "Card",
-        "parent_id": 0
+        "category_name": "Card"
     },
     {
         "category_id": 998,
-        "category_name": "Playmat",
-        "parent_id": 0
+        "category_name": "Playmat"
     },
     {
         "category_id": 999,
-        "category_name": "Slide",
-        "parent_id": 0
+        "category_name": "Slide"
     },
     {
         "category_id": 1003,
-        "category_name": "Paper, Forms & Surveys",
-        "parent_id": 0
+        "category_name": "Paper, Forms & Surveys"
     },
     {
         "category_id": 1004,
-        "category_name": "Guide Book",
-        "parent_id": 0
+        "category_name": "Guide Book"
     },
     {
         "category_id": 1005,
-        "category_name": "Smoking Supplies",
-        "parent_id": 0
+        "category_name": "Smoking Supplies"
     },
     {
         "category_id": 1006,
-        "category_name": "Envelope & Letter",
-        "parent_id": 0
+        "category_name": "Envelope & Letter"
     },
     {
         "category_id": 1007,
-        "category_name": "Accessory Pack",
-        "parent_id": 0
+        "category_name": "Accessory Pack"
     },
     {
         "category_id": 1008,
-        "category_name": "Decoration",
-        "parent_id": 0
+        "category_name": "Decoration"
     },
     {
         "category_id": 1012,
-        "category_name": "Aircraft, Decorated",
-        "parent_id": 0
+        "category_name": "Aircraft, Decorated"
     },
     {
         "category_id": 1017,
-        "category_name": "Sticker, Collectible Sticker",
-        "parent_id": 0
+        "category_name": "Sticker, Collectible Sticker"
     },
     {
         "category_id": 1018,
-        "category_name": "Paper, Certificate",
-        "parent_id": 0
+        "category_name": "Paper, Certificate"
     },
     {
         "category_id": 1021,
-        "category_name": "Magazine, City",
-        "parent_id": 0
+        "category_name": "Magazine, City"
     },
     {
         "category_id": 1022,
-        "category_name": "Magazine, Friends",
-        "parent_id": 0
+        "category_name": "Magazine, Friends"
     },
     {
         "category_id": 1023,
-        "category_name": "Magazine, Nexo Knights",
-        "parent_id": 0
+        "category_name": "Magazine, Nexo Knights"
     },
     {
         "category_id": 1024,
-        "category_name": "Magazine, Ninjago",
-        "parent_id": 0
+        "category_name": "Magazine, Ninjago"
     },
     {
         "category_id": 1025,
-        "category_name": "Magazine, Star Wars",
-        "parent_id": 0
+        "category_name": "Magazine, Star Wars"
     },
     {
         "category_id": 1026,
-        "category_name": "Magazine, Legends of Chima",
-        "parent_id": 0
+        "category_name": "Magazine, Legends of Chima"
     },
     {
         "category_id": 1027,
-        "category_name": "Wheel, Accessory",
-        "parent_id": 0
+        "category_name": "Wheel, Accessory"
     },
     {
         "category_id": 1028,
-        "category_name": "2019",
-        "parent_id": 0
+        "category_name": "2019"
     },
     {
         "category_id": 1030,
-        "category_name": "Trading Card Album",
-        "parent_id": 0
+        "category_name": "Trading Card Album"
     },
     {
         "category_id": 1037,
-        "category_name": "Duplo, Plant",
-        "parent_id": 0
+        "category_name": "Duplo, Plant"
     },
     {
         "category_id": 1038,
-        "category_name": "Duplo, Food",
-        "parent_id": 0
+        "category_name": "Duplo, Food"
     },
     {
         "category_id": 1039,
-        "category_name": "Tile, Promotional",
-        "parent_id": 0
+        "category_name": "Tile, Promotional"
     },
     {
         "category_id": 1040,
-        "category_name": "Mix",
-        "parent_id": 0
+        "category_name": "Mix"
     },
     {
         "category_id": 1041,
-        "category_name": "FORMA",
-        "parent_id": 0
+        "category_name": "FORMA"
     },
     {
         "category_id": 1042,
-        "category_name": "Hidden Side",
-        "parent_id": 0
+        "category_name": "Hidden Side"
     },
     {
         "category_id": 1043,
-        "category_name": "Stranger Things",
-        "parent_id": 0
+        "category_name": "Stranger Things"
     },
     {
         "category_id": 1044,
-        "category_name": "xtra",
-        "parent_id": 0
+        "category_name": "xtra"
     },
     {
         "category_id": 1048,
-        "category_name": "Road Sign, Decorated",
-        "parent_id": 0
+        "category_name": "Road Sign, Decorated"
     },
     {
         "category_id": 1056,
-        "category_name": "AFOL Designer Program",
-        "parent_id": 0
+        "category_name": "AFOL Designer Program"
     },
     {
         "category_id": 1059,
-        "category_name": "Clikits, Icon Accent",
-        "parent_id": 0
+        "category_name": "Clikits, Icon Accent"
     },
     {
         "category_id": 1060,
-        "category_name": "Cardboard Sleeve",
-        "parent_id": 0
+        "category_name": "Cardboard Sleeve"
     },
     {
         "category_id": 1063,
-        "category_name": "Magazine, Super Heroes",
-        "parent_id": 0
+        "category_name": "Magazine, Super Heroes"
     },
     {
         "category_id": 1064,
-        "category_name": "Toy, Wooden",
-        "parent_id": 0
+        "category_name": "Toy, Wooden"
     },
     {
         "category_id": 1065,
-        "category_name": "LEGO Originals",
-        "parent_id": 0
+        "category_name": "LEGO Originals"
     },
     {
         "category_id": 1066,
-        "category_name": "2020",
-        "parent_id": 0
+        "category_name": "2020"
     },
     {
         "category_id": 1069,
-        "category_name": "Trolls World Tour",
-        "parent_id": 0
+        "category_name": "Trolls World Tour"
     },
     {
         "category_id": 1070,
-        "category_name": "Minions The Rise Of Gru",
-        "parent_id": 0
+        "category_name": "Minions The Rise Of Gru"
     },
     {
         "category_id": 1076,
-        "category_name": "Dots",
-        "parent_id": 0
+        "category_name": "Dots"
     },
     {
         "category_id": 1078,
-        "category_name": "Felt",
-        "parent_id": 0
+        "category_name": "Felt"
     },
     {
         "category_id": 1082,
-        "category_name": "Micro Doll, Body Part",
-        "parent_id": 0
+        "category_name": "Micro Doll, Body Part"
     },
     {
         "category_id": 1083,
-        "category_name": "Magazine, Hidden Side",
-        "parent_id": 0
+        "category_name": "Magazine, Hidden Side"
     },
     {
         "category_id": 1084,
-        "category_name": "Magazine, Jurassic World",
-        "parent_id": 0
+        "category_name": "Magazine, Jurassic World"
     },
     {
         "category_id": 1085,
-        "category_name": "Magazine, Elves",
-        "parent_id": 0
+        "category_name": "Magazine, Elves"
     },
     {
         "category_id": 1086,
-        "category_name": "Magazine, Bionicle",
-        "parent_id": 0
+        "category_name": "Magazine, Bionicle"
     },
     {
         "category_id": 1087,
-        "category_name": "Magazine, Disney Princess",
-        "parent_id": 0
+        "category_name": "Magazine, Disney Princess"
     },
     {
         "category_id": 1088,
-        "category_name": "Magazine, The LEGO Movie 2",
-        "parent_id": 0
+        "category_name": "Magazine, The LEGO Movie 2"
     },
     {
         "category_id": 1090,
-        "category_name": "Plate, Round, Decorated",
-        "parent_id": 0
+        "category_name": "Plate, Round, Decorated"
     },
     {
         "category_id": 1092,
-        "category_name": "Storage, Sorting Tray",
-        "parent_id": 0
+        "category_name": "Storage, Sorting Tray"
     },
     {
         "category_id": 1093,
-        "category_name": "Wedge, Plate, Decorated",
-        "parent_id": 0
+        "category_name": "Wedge, Plate, Decorated"
     },
     {
         "category_id": 1095,
-        "category_name": "Super Mario",
-        "parent_id": 0
+        "category_name": "Super Mario"
     },
     {
         "category_id": 1097,
-        "category_name": "Minifigure, Torso Assembly, Decor.",
-        "parent_id": 0
+        "category_name": "Minifigure, Torso Assembly, Decor."
     },
     {
         "category_id": 1098,
-        "category_name": "Minifigure, Legs, Decorated",
-        "parent_id": 0
+        "category_name": "Minifigure, Legs, Decorated"
     },
     {
         "category_id": 1100,
-        "category_name": "Monkie Kid",
-        "parent_id": 0
+        "category_name": "Monkie Kid"
     },
     {
         "category_id": 1102,
-        "category_name": "Sticker Book",
-        "parent_id": 0
+        "category_name": "Sticker Book"
     },
     {
         "category_id": 1103,
-        "category_name": "Brick Sketches",
-        "parent_id": 0
+        "category_name": "Brick Sketches"
     },
     {
         "category_id": 1104,
-        "category_name": "Paper, Flyer",
-        "parent_id": 0
+        "category_name": "Paper, Flyer"
     },
     {
         "category_id": 1108,
-        "category_name": "Explorer",
-        "parent_id": 0
+        "category_name": "Explorer"
     },
     {
         "category_id": 1109,
-        "category_name": "Magazine, Explorer",
-        "parent_id": 0
+        "category_name": "Magazine, Explorer"
     },
     {
         "category_id": 1110,
-        "category_name": "Miscellaneous Licensed",
-        "parent_id": 0
+        "category_name": "Miscellaneous Licensed"
     },
     {
         "category_id": 1111,
-        "category_name": "Clothing Accessories",
-        "parent_id": 0
+        "category_name": "Clothing Accessories"
     },
     {
         "category_id": 1112,
-        "category_name": "Luggage & Luggage Accessories",
-        "parent_id": 0
+        "category_name": "Luggage & Luggage Accessories"
     },
     {
         "category_id": 1113,
-        "category_name": "Office Supplies",
-        "parent_id": 0
+        "category_name": "Office Supplies"
     },
     {
         "category_id": 1116,
-        "category_name": "Minifigure, Legs, Modified",
-        "parent_id": 0
+        "category_name": "Minifigure, Legs, Modified"
     },
     {
         "category_id": 1118,
-        "category_name": "Minifigure, Legs, Modified, Decorated",
-        "parent_id": 0
+        "category_name": "Minifigure, Legs, Modified, Decorated"
     },
     {
         "category_id": 1119,
-        "category_name": "2021",
-        "parent_id": 0
+        "category_name": "2021"
     },
     {
         "category_id": 1121,
-        "category_name": "Duplo, Building",
-        "parent_id": 0
+        "category_name": "Duplo, Building"
     },
     {
         "category_id": 1122,
-        "category_name": "Botanical Collection",
-        "parent_id": 0
+        "category_name": "Botanical Collection"
     },
     {
         "category_id": 1125,
-        "category_name": "Vidiyo",
-        "parent_id": 0
+        "category_name": "Vidiyo"
     },
     {
         "category_id": 1128,
-        "category_name": "Animal, Body Part, Decorated",
-        "parent_id": 0
+        "category_name": "Animal, Body Part, Decorated"
     },
     {
         "category_id": 1145,
-        "category_name": "Stamp",
-        "parent_id": 0
+        "category_name": "Stamp"
     },
     {
         "category_id": 1146,
-        "category_name": "Clothing, Children&#39;s",
-        "parent_id": 0
+        "category_name": "Clothing, Children&#39;s"
     },
     {
         "category_id": 1147,
-        "category_name": "Coin",
-        "parent_id": 0
+        "category_name": "Coin"
     },
     {
         "category_id": 1154,
-        "category_name": "Friends TV Series",
-        "parent_id": 0
+        "category_name": "Friends TV Series"
     }
 ]

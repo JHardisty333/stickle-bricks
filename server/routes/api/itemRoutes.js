@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { verifyTokenAdmin } = require('../../utils/auth');
 const {
     getAllItems,
+    getOneItem,
     searchItems,
     itemTypes,
     itemsByType,
@@ -10,11 +11,14 @@ const {
     itemsByColor,
     featuredItems,
     addItem, 
-    updateItemInfo  
+    updateItemInfo
 } = require('../../controllers/itemControllers');
 
 router.route('/')
 .get(getAllItems); // ✓
+
+router.route('/:id')
+.get(getOneItem)
 
 router.route('/search')
 .post(searchItems); // ✓ - searches by productName and or colorName, and or lego product id. Body: {search: '<terms>'}
