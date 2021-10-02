@@ -30,7 +30,7 @@ const Login = () => {
     return (
         <div className="login-body">
             <section className="login">
-                <div className="row" style={{ "minHeight": "80vh" }}>
+                <div className="row" style={{ }}>
                 <div className="login1">
                     {/* <form className="login1" style={{ "backgroundColor": "white", "borderRadius": "10px" }} onSubmit={handleSubmit}> */}
                         <div className="login2">
