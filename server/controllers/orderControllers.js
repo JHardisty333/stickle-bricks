@@ -48,24 +48,18 @@ const orderController = {
             res.sendStatus(500);
         }
     },
-    
-    guestAddOrder(req, res) { //need to add changing the item counts on the site
+
+    guestAddOrder(req, res) { 
        
     },
 
-    getUserOrders(req, res) {
-        Order.find({userId: req.user._id})
-        .populate('Item')
-        .then(orderData => {
+    async getUserOrders(req, res) {
+        const orderData = await Order.find({userId: req.user._id}).populate('Item')
             if (!orderData) {
-                res.status(404).json({message: 'User Not Found!'});
+                res.status(404).json({message: 'User Not Found or User has no orders!'});
                 return;
             }
-            if (req.user._id === orderData.userId) {
-                res.status(200).json(orderData);
-            } else res.status(403).json({message: 'You do not have permission to access this data!'})
-        })
-        .catch(err => res.sendStatus(500))
+            res.status(200).json(orderData);
     },
 
     cancelOrder(req, res) {  //will only update if it has not been shipped
@@ -88,44 +82,35 @@ const orderController = {
         .catch(err => res.status(500).json(err));
     },
 
-    orderStatusReceived(req, res) {
-        Order.find({status: 'Received'})
-        .then(orderData => {
-            if (!orderData) {
-                res.status(404).json({ message: "No orders found with that status" });
-                return;
-            }
-                res.status(200).json(orderData);
-            })
-        .catch(err => res.status(500).json(err));
-    },
-
     orderStatus(req, res) {
         Order.findAll({status: req.body.status})
             .then(orderData => {
                 if(!orderData) {
                     res.status(404).json({message: "No orders found with that status"});
-                    return;
+                } else {
+                    res.status(200).json(orderData)
                 }
-                res.status(200).json(orderData)
             })
             .catch(err => res.status(500).json(err));
     },
 
     updateOrderStatus(req, res) {
-        Order.findOneAndUpdate(
-            {_id: req.body.id}, 
-            {status: req.body.status})
-            .then(orderData => {
-                if(!orderData) {
-                    res.status(204).json({message: 'No order found with this ID!'})
-                    return;
-                }
-                res.json(orderData)
-            })
-            .catch(err => res.status(500).json(err))
+        const status = req.body.status;
+        if (status === 'Received' || status === 'Shipped' || status === 'Completed' || status === 'Cancelled' || status === 'Refunded') {
+            Order.findOneAndUpdate(
+                { _id: req.body.id },
+                { status: status })
+                .then(orderData => {
+                    if (!orderData) {
+                        res.status(204).json({ message: 'No order found with this ID!' });
+                    }  else {
+                        res.json(orderData)
+                    }  
+                })
+                .catch(err => res.status(500).json(err))
+        } else req.status(400).json({ message: status + ' is not a valid status type! Status must = Received, Shipped, Completed, Cancelled, or Refunded.'})
+        
     },
-
 }
 
 module.exports = orderController;

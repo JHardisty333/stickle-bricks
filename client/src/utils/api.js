@@ -357,18 +357,6 @@ export const allOrdersApi = (jwt) => {
 }
 
 
-export const receivedOrdersApi = (jwt) => {
-    return fetch('/api/order/admin/received', {
-        method: 'GET',
-        headerss: {
-            'Authorization': 'Bearer ' + jwt ,
-            'Content-Type': 'application/json'
-        }
-    })
-    
-}
-
-
 export const orderStatusApi = (jwt, status) => {
     return fetch('/api/order/orders', {
         method: 'GET',
