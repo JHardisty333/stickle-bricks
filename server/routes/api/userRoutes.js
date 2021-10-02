@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { verifyTokenAdmin, verifyToken } = require('../../utils/auth')
 const {
     getAllUsers,
+    getOneUser,
     userLogin,
     createUser,
     updateUser,
@@ -13,7 +14,7 @@ const {
 } = require('../../controllers/userControllers');
 
 router.route('/')
-.get(verifyTokenAdmin, getAllUsers) // ✓
+.get(verifyToken, getOneUser)
 .put(verifyToken, updateUser) // ✓ - body: {name: <users name>, <email>, password: <password> } can include any of these fields
 .delete(verifyToken, deleteUser); // ✓ - will delete the user who is logged in, users past orders will still be visible by admin
 
@@ -32,5 +33,9 @@ router.route('/cart') // only adds or removes from cart of user that is logged i
 router.route('/order')
 .post(verifyToken, addOrder); // ✓ 
 // body: {"total": 7.03,"address": "this is my address"}
+
+router.route('/admin')
+.get(verifyTokenAdmin, getAllUsers) // ✓
+
 
 module.exports = router;

@@ -7,7 +7,6 @@ const Oauth1Helper = require('../utils/oauth');
 
 const itemController = {
     getAllItems(req, res) {
-        console.log('worked')
         Item.find({})
             .select('-__v')
             .then(dbItemData => {
@@ -62,43 +61,42 @@ const itemController = {
         .then(itemData => res.json(itemData))
         .catch(err => res.status(500).json({error: err}));
     },
-    addItem(req, res) {
+    async addItem(req, res) {
         const request = {
             url: 'https://api.bricklink.com/api/store/v1/items/' + req.body.type + '/' + req.body.productId,
             method: 'GET'
         };
         const authHeader = Oauth1Helper.getAuthHeaderForRequest(request);
         
-        axios.get(request.url, {headers: authHeader})
-        .then(response => {
-            const index = colors.findIndex(color => color.color_id === req.body.colorId)
-            Item.create(
-                [{
-                    productName: response.data.data.name,
-                    productId: req.body.productId,
-                    colorId: req.body.colorId,
-                    colorName: colors[index].color_name,
-                    colorCode: colors[index].color_code,
-                    itemType: response.data.data.type,
-                    price: req.body.price,
-                    quantity: req.body.quantity,
-                    image: [response.data.data.image_url],
-                    itemWeight: parseFloat(response.data.data.weight),
-                    active: req.body.active,
-                    categoryId: response.data.data.category_id
+        const response = await axios.get(request.url, {headers: authHeader})
+        console.log(response)
+        if (!response.status === 200 || !response.data.data.name) return res.status(400).json(response.statusText === 'OK' ? {message: "This Lego Product ID was not found in bricklinks database!"} : [response.statusText, response.data.data] );
+        const checkItemData = await Item.findOne({productName: response.data.data.name, colorId: req.body.colorId})
+        if (checkItemData) return res.status(400).json({message: 'Item Already exists! Use item Update instead!', data: checkItemData})
+        const index = colors.findIndex(color => color.color_id === req.body.colorId)
+        Item.create(
+            [{
+                productName: response.data.data.name,
+                productId: req.body.productId,
+                colorId: req.body.colorId,
+                colorName: colors[index].color_name,
+                colorCode: colors[index].color_code,
+                itemType: response.data.data.type,
+                price: req.body.price,
+                quantity: req.body.quantity,
+                image: [response.data.data.image_url],
+                itemWeight: parseFloat(response.data.data.weight),
+                active: req.body.active,
+                categoryId: response.data.data.category_id
 
-                }],
-                { new: true, runValidators: true })
-                .select('-__v')
-                .then(itemData => {
-                    res.status(200).json(itemData)
-                })
-                .catch(err => res.status(500).json({error: err}));
-        }) 
-        .catch(err => res.status(400).json({error: err}));
-
-       
+            }],
+            { new: true, runValidators: true })
+            .then(itemData => {
+                res.status(200).json(itemData)
+            })
+            .catch(err => res.status(500).json({error: err}));
     },
+    
     updateItemInfo(req, res) {
         let changeObj = {}
         if(req.body.price) {

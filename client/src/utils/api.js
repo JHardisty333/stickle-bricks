@@ -1,7 +1,7 @@
 
 // USER ROUTES
 export const allUsersApi = (jwt) => {
-    return fetch('/api/user', {
+    return fetch('/api/user/admin', {
         method: 'GET',
         headers: {
             'Authorization': 'Bearer ' + jwt ,
@@ -9,6 +9,16 @@ export const allUsersApi = (jwt) => {
         }
     })
 }
+
+export const oneUserApi = (jwt) => { //includes cart and order data
+    return fetch('/api/user', {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + jwt,
+            'Content-Type': 'application/json'
+        }
+    })
+} 
 
 export const loginUserApi = (email, password) => {
     return fetch('/api/user/login/', {
@@ -133,8 +143,6 @@ export const addOrderApi = (jwt, address) => {
     })
    
 }
-
-
 
 // ITEM ROUTES
 export const itemApi = () => {
