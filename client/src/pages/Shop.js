@@ -28,7 +28,7 @@ const Shop = () => {
 
     function pagination(e) {
         const indexType = e.target.value;
-        console.log(e.target.value);
+        console.log(e.target);
         if (indexType === 'start') {
             setCurrentIndex(1);
             setPageIndex([0, 49]);
@@ -71,7 +71,7 @@ const Shop = () => {
                 <img src={item.image[0]} alt={item.productName} data-index={index} id={item._id} onClick={(e) => productClick(e)} style={{}} />
                 <p>{item.productName}</p>
                 <p>{item.condition}</p>
-                <p>{parseFloat(item.price)}</p>
+                <p>{parseFloat(item.price.$numberDecimal)}</p>
             </div>
         )))
 
@@ -94,14 +94,14 @@ const Shop = () => {
 
         setTotalItems(items)
         setMaxIndex((Math.ceil(totalItems.length / 50)))
-        const pageItems = totalItems.slice(pageIndex[0], pageIndex[1]);
-
+        const pageItems = items.slice(pageIndex[0], pageIndex[1]);
+        console.log(totalItems)
         setItems(pageItems.map((item, index) => (
             <div key={item._id} className='itemStyle'>
                 <img src={item.image[0]} alt={item.productName} data-index={index} id={item._id} onClick={productClick} style={{}} />
                 <p>{item.productName}</p>
                 <p>{item.condition}</p>
-                <p>{parseFloat(item.price)}</p>
+                <p>{parseFloat(item.price.$numberDecimal)}</p>
             </div>
         )))
     }
