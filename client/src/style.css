@@ -40,6 +40,7 @@
     --amethyst: #AA51B8;
     --scooter: #2da9ce;
     --red: #e62834;
+    --green: #17694e;
 
     --font-size-xxs: 1.8rem;
     --font-size-xs: 2.2rem;
@@ -214,7 +215,6 @@ img:hover {
   .login-body {
     background-color: var(--red);
     background-image: url('./assets/img/legoPastel.png');
-    background-size: 90%;
     background-position:left;
     background-attachment: fixed;
     background-repeat: no-repeat;

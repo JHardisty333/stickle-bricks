@@ -35,7 +35,7 @@ const Login = () => {
                             <input type="password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} />
                         </div>
                         <button color="" size="sm" type="submit" disabled={!validateForm()}>Submit</button>
-                        <a href="/signup"><button type="button" size="lg">Signup</button>
+                        <a href="/signup"><button type="button" size="sm">Signup</button>
                         </a>
                     {/* </form> */}
                 </div>

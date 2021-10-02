@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { 
-    Button, 
+import {
+    Button,
     Modal,
-    ModalHeader, 
-    ModalBody, 
-    ModalFooter, 
-    Container, 
-    Pagination, 
-    PaginationItem, 
-    PaginationLink 
+    ModalHeader,
+    ModalBody,
+    ModalFooter,
+    Container,
+    Pagination,
+    PaginationItem,
+    PaginationLink
 } from 'reactstrap';
 import { itemsApi } from "../utils/api";
 
@@ -25,43 +25,52 @@ const Shop = () => {
     const [currentIndex, setCurrentIndex] = useState(1)
     const [modalItem, setModalItem] = useState({});
 
-    function page() {
-        
-    };
-
 
     function pagination(e) {
         const indexType = e.target.value;
-        
+        console.log(indexType);
         if (indexType === 'start') {
             setCurrentIndex = 1;
             setPageIndex = [0, 49];
-        } 
-        
+        }
+
         if (indexType === 'plus') {
-            if (currentIndex != maxIndex){
-                for(i=0; i<pageIndex.length; i++) {
+            if (currentIndex != maxIndex) {
+                for (let i = 0; i < pageIndex.length; i++) {
                     pageIndex[i] = pageIndex[i] + 50;
                 }
                 setCurrentIndex = currentIndex + 1
             }
-        } 
-        
+        }
+
         if (indexType === 'minus') {
-            if(!pageIndex[0] === 0) {
-                for (i = 0; i < pageIndex.length; i++) {
+            if (!pageIndex[0] === 0) {
+                for (let i = 0; i < pageIndex.length; i++) {
                     pageIndex[i] = pageIndex[i] - 50;
                 }
                 setCurrentIndex = currentIndex - 1
             }
-        } 
-        
-        if (indexType === 'end') {
-            for (i = 0; i < pageIndex.length; i++) {
-                pageIndex[i] = pageIndex[i] - 50;
-            }
-            setCurrentIndex(maxIndex)
         }
+
+        if (indexType === 'end') {
+            setPageIndex = [0, 49];
+            pageIndex[0] = pageIndex[0] + (50 * maxIndex);
+            pageIndex[1] = totalItems.length - 1;
+
+
+            setCurrentIndex(maxIndex);
+        }
+
+        const pageItems = totalItems.slice(pageIndex[0], pageIndex[1]);
+        setItems(pageItems.map((item, index) => (
+            <div key={item.productId} data-index={index} id={item.productId} onClick={productClick} className='itemStyle'>
+                <img src={item.image[0]} style={{}} />
+                <p>{item.productName}</p>
+                <p>{item.condition}</p>
+                <p>{parseFloat(item.price)}</p>
+            </div>
+        )))
+
     }
 
 
@@ -73,7 +82,7 @@ const Shop = () => {
     }
 
 
-    
+
     async function fetchData() {
         const response = await itemsApi()
         if (!response.ok) alert('an error has occurred')
@@ -83,8 +92,8 @@ const Shop = () => {
         setMaxIndex((Math.ceil(totalItems.length / 50)))
         const pageItems = totalItems.slice(pageIndex[0], pageIndex[1]);
 
-        setItems(items.map((item, index) => (
-            <div key={item.productId} data-index={index} id={item.productId} onClick={productClick} className='itemStyle'>
+        setItems(pageItems.map((item, index) => (
+            <div key={item.id} data-index={index} id={item.productId} onClick={productClick} className='itemStyle'>
                 <img src={item.image[0]} style={{}} />
                 <p>{item.productName}</p>
                 <p>{item.condition}</p>
@@ -95,7 +104,7 @@ const Shop = () => {
     useEffect(() => {
         fetchData();
     }, // eslint-disable-next-line react-hooks/exhaustive-deps
-    [])
+        [])
 
     return (
         <Container>
@@ -112,19 +121,19 @@ const Shop = () => {
                     </ModalFooter>
                 </Modal>
             </div>
-        <Pagination aria-label="Page navigation example">
-            <PaginationItem>
-                <PaginationLink first value='start' onClick={(e) => page(e)} />
-            </PaginationItem>
-            <PaginationItem>
-                <PaginationLink previous value='plus' onClick={(e) => page(e)} />
-            </PaginationItem>
-            <PaginationItem>
-                <PaginationLink next value='minus' onClick={(e) => page(e)} />
-            </PaginationItem>
-            <PaginationItem>
-                <PaginationLink last value='end' onClick={(e) => page(e)} />
-            </PaginationItem>
+            <Pagination aria-label="Page navigation example">
+                <PaginationItem>
+                    <PaginationLink first value='start' onClick={(e) => pagination(e)} />
+                </PaginationItem>
+                <PaginationItem>
+                    <PaginationLink previous value='plus' onClick={(e) => pagination(e)} />
+                </PaginationItem>
+                <PaginationItem>
+                    <PaginationLink next value='minus' onClick={(e) => pagination(e)} />
+                </PaginationItem>
+                <PaginationItem>
+                    <PaginationLink last value='end' onClick={(e) => pagination(e)} />
+                </PaginationItem>
             </Pagination>
         </Container>
     )
