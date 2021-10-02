@@ -216,15 +216,16 @@ h1 a {
   .login-body {
       background: linear-gradient(
         to right,
-        #e7d451 0%,
-        #e7d451 80%,
-        #e62834 80%, 
-        #e62834 100%
+        var(--yellow) 0%,
+        var(--yellow) 80%,
+        var(--red) 80%, 
+        var(--red) 100%
     );
   }
 
 .login-body-pic {
     background-image: url('./assets/img/legoPastel.png');
+    height: max-content;
     background-position:left;
     background-attachment: fixed;
     background-repeat: no-repeat;
