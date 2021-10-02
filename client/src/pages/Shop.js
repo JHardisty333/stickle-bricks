@@ -9,7 +9,9 @@ import {
     Pagination,
     PaginationItem,
     PaginationLink,
-    Spinner
+    Spinner,
+    Col,
+    Row
 } from 'reactstrap';
 import { itemsApi } from "../utils/api";
 
@@ -19,12 +21,36 @@ const Shop = () => {
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
 
-    const [totalItems, setTotalItems] = useState([]) //current array of items 
-    const [Items, setItems] = useState((<Spinner color="dark" className="py-5 mx-auto" />)); // current items displayed on page
+    let totalItems = []; //current array of items 
+    const [Items, setItems] = useState((<Spinner color="dark" className="my-5 p-4 mx-auto" />)); // current items displayed on page
     const [pageIndex, setPageIndex] = useState([0, 49]);
     const [maxIndex, setMaxIndex] = useState(1);
     const [currentIndex, setCurrentIndex] = useState(1)
-    const [modalItem, setModalItem] = useState({});
+    const [modalItem, setModalItem] = useState({
+        "_id": "6157aeb54ed011c14c2ca42e",
+        "productName": "Vehicle Tipper Bed Small",
+        "productId": "2512",
+        "colorId": 9,
+        "colorName": "Light Gray",
+        "colorCode": "9c9c9c",
+        "itemType": "PART",
+        "price": {
+            "$numberDecimal": "0.16"
+        },
+        "quantity": 2,
+        "image": [
+            "//img.bricklink.com/PL/2512.jpg"
+        ],
+        "condition": "Used",
+        "itemWeight": {
+            "$numberDecimal": "3"
+        },
+        "active": true,
+        "featured": false,
+        "categoryId": 72,
+        "date_added": "2021-10-02T00:58:29.119Z",
+        "id": "6157aeb54ed011c14c2ca42e"
+    });
 
 
     function pagination(e) {
@@ -82,7 +108,7 @@ const Shop = () => {
 
     const productClick = (event) => { // to open modal
         console.log(event.target)
-        setModalItem(totalItems[event.target.id])// this should refrence the item index
+        setModalItem(totalItems[event.target.id])// this should reference the item index
         console.log(event.target.id)
         console.log(totalItems)
         toggle()
@@ -95,17 +121,17 @@ const Shop = () => {
         if (!response.ok) alert('an error has occurred')
         const items = await response.json()
 
-        setTotalItems(items)
-        setMaxIndex((Math.ceil(totalItems.length / 50)))
+        totalItems = items;
+        setMaxIndex((Math.ceil(items.length / 50)))
         const pageItems = items.slice(pageIndex[0], pageIndex[1]);
-
+        console.log(items)
         setItems(pageItems.map((item, index) => (
-            <div key={item._id} className='itemStyle'>
-                <img src={item.image[0]} alt={item.productName} id={index} onClick={productClick} style={{}} />
+            <Col sm={4} key={item._id} className='itemStyle'>
+                <img src={item.image[0]} alt={item.productName} id={index} onClick={productClick} style={{"maxWidth":"100%", "height": "50%"}} />
                 <p>{item.productName}</p>
                 <p>{item.condition}</p>
                 <p>{parseFloat(item.price.$numberDecimal)}</p>
-            </div>
+            </Col>
         )))
     }
     useEffect(() => {
@@ -115,13 +141,26 @@ const Shop = () => {
 
     return (
         <Container>
-            {Items}
+            <Row>
+                <input type="text"></input>
+                {/* searchbar and sort options */}
+            </Row>
+            <Row>
+                <Col sm={3}>
+                    {/* categories and types search options */}
+                </Col>
+                <Col sm={9}>
+                    <Row className="d-flex">
+                        {Items}
+                    </Row>
+                </Col>
+            </Row>
 
             <div>
                 <Modal isOpen={modal} toggle={toggle} className='modalStyle'>
                     <ModalHeader toggle={toggle}>{modalItem.productName}</ModalHeader>
                     <ModalBody>
-                        <img src={modalItem.image} alt={modalItem.productName} style={{}} />
+                        <img src={modalItem.image} alt={modalItem.productName} style={{"width": "100%"}} />
                         <p>{modalItem.productName}</p>
                         <p>{modalItem.condition}</p>
                         <p>{parseFloat(modalItem.price.$numberDecimal)}</p>
@@ -132,7 +171,14 @@ const Shop = () => {
                     </ModalFooter>
                 </Modal>
             </div>
-            <Pagination aria-label="Page navigation example">
+
+            <Row>
+
+            </Row>
+            <button>
+            
+            </button>
+            {/* <Pagination aria-label="Page navigation example">
                 <PaginationItem>
                     <PaginationLink first value='start' onClick={(e) => pagination(e)} />
                 </PaginationItem>
@@ -145,7 +191,7 @@ const Shop = () => {
                 <PaginationItem>
                     <PaginationLink last value='end' onClick={(e) => pagination(e)} />
                 </PaginationItem>
-            </Pagination>
+            </Pagination> */}
         </Container>
     )
 }

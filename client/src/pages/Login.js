@@ -22,7 +22,7 @@ const Login = () => {
             setEmail('');
             setPassword('');
             localStorage.setItem('jwt', data);
-            window.location('/store');
+            window.location('/shop');
         }
         
     }
