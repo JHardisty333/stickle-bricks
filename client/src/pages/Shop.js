@@ -120,7 +120,7 @@ const Shop = () => {
                 <Modal isOpen={modal} toggle={toggle} className='modalStyle'>
                     <ModalHeader toggle={toggle}>{modalItem.productName}</ModalHeader>
                     <ModalBody>
-                        <img src={modalItem.image[0]} alt={modalItem.productName} id={index} style={{}} />
+                        <img src={modalItem.image} alt={modalItem.productName} style={{}} />
                         <p>{modalItem.productName}</p>
                         <p>{modalItem.condition}</p>
                         <p>{parseFloat(modalItem.price.$numberDecimal)}</p>
