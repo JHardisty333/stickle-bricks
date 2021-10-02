@@ -30,32 +30,37 @@ const Shop = () => {
         const indexType = e.target.value;
         console.log(indexType);
         if (indexType === 'start') {
-            setCurrentIndex = 1;
-            setPageIndex = [0, 49];
+            setCurrentIndex(1);
+            setPageIndex ([0, 49]);
         }
 
         if (indexType === 'plus') {
-            if (currentIndex != maxIndex) {
+            if (currentIndex !== maxIndex) {
+                let index = [];
                 for (let i = 0; i < pageIndex.length; i++) {
-                    pageIndex[i] = pageIndex[i] + 50;
+                    index.push(pageIndex[i] + 50);
                 }
-                setCurrentIndex = currentIndex + 1
+                setPageIndex(index);
+                setCurrentIndex(currentIndex + 1)
             }
         }
 
         if (indexType === 'minus') {
             if (!pageIndex[0] === 0) {
+                let index = [];
                 for (let i = 0; i < pageIndex.length; i++) {
-                    pageIndex[i] = pageIndex[i] - 50;
+                    index.push(pageIndex[i] - 50);
                 }
-                setCurrentIndex = currentIndex - 1
+                setPageIndex(index);
+                setCurrentIndex(currentIndex - 1)
             }
         }
 
         if (indexType === 'end') {
-            setPageIndex = [0, 49];
-            pageIndex[0] = pageIndex[0] + (50 * maxIndex);
-            pageIndex[1] = totalItems.length - 1;
+            setPageIndex([0, 49]);
+            let index = [];
+            index.push(pageIndex[0] + (50 * maxIndex));
+            setPageIndex(index)
 
 
             setCurrentIndex(maxIndex);
@@ -63,8 +68,8 @@ const Shop = () => {
 
         const pageItems = totalItems.slice(pageIndex[0], pageIndex[1]);
         setItems(pageItems.map((item, index) => (
-            <div key={item.productId} data-index={index} id={item.productId} onClick={productClick} className='itemStyle'>
-                <img src={item.image[0]} style={{}} />
+            <div key={item._id}  className='itemStyle'>
+                <img src={item.image[0]} style={{}} onClick={productClick} data-index={index} id={item._id} alt={item.productName} />
                 <p>{item.productName}</p>
                 <p>{item.condition}</p>
                 <p>{parseFloat(item.price)}</p>
@@ -76,7 +81,7 @@ const Shop = () => {
 
 
     const productClick = (event) => { // to open modal
-        console.log(event.target)
+        console.log(event.currentTarget)
         // setModalItem(Items[event.target])// this should refrence the item index
         // toggle()
     }
@@ -93,7 +98,7 @@ const Shop = () => {
         const pageItems = totalItems.slice(pageIndex[0], pageIndex[1]);
 
         setItems(pageItems.map((item, index) => (
-            <div key={item.id} data-index={index} id={item.productId} onClick={productClick} className='itemStyle'>
+            <div key={item.id} data-index={index} id={item._id} onClick={productClick} className='itemStyle'>
                 <img src={item.image[0]} style={{}} />
                 <p>{item.productName}</p>
                 <p>{item.condition}</p>

@@ -18,7 +18,7 @@ const Login = () => {
         const data = await response.json()
         console.log(data, email, password)
         localStorage.setItem('jwt', data);
-        <Redirect to="/"/>
+        window.location('/store')
     }
 
     return (
