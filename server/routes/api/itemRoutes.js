@@ -17,8 +17,8 @@ const {
 router.route('/')
 .get(getAllItems); // ✓
 
-router.route('/:id')
-.get(getOneItem)
+router.route('/:id') 
+.get(getOneItem) // ✓
 
 router.route('/search')
 .post(searchItems); // ✓ - searches by productName and or colorName, and or lego product id. Body: {search: '<terms>'}

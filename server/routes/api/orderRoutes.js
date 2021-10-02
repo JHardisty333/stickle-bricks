@@ -14,7 +14,7 @@ const {
 } = require('../../controllers/orderControllers');
 
 router.route('/guest')
-.post(guestAddOrder)
+.post(guestAddOrder) // ✓
 .put(checkGuestCart);
 
 router.route('/user/')

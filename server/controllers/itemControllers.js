@@ -112,7 +112,6 @@ const itemController = {
             })
             .catch(err => res.status(500).json({error: err}));
     },
-
     updateItemInfo(req, res) {
         let changeObj = {}
         if(req.body.price) {

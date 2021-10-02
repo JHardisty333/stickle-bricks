@@ -5,32 +5,50 @@ const orderController = {
 // add order for guest
 
     async checkGuestCart(req, res) {
-        let cart = req.body.cart;
-
         try {
-            let cartError
+            const cart = req.body.cart;
+            let cartError = false;
             let cartErrors = [];
-            let updatedCart = []
+            let updatedCart = req.body.cart;
             for (let i = 0; i < cart.length; i++) {
-                const itemData = await Item.findById(cart[i].itemId)
-
+                const itemData = await Item.findById(cart[i].itemId);
+                if (!itemData) return res.status(400).json({message: 'Item ' + cart[i].productName + ' not found!'})
                 if (itemData.quantity < cart[i].quantity || parseFloat(itemData.price) != cart[i].priceTotal / cart[i].quantity) { //if item quantity is lower that cart quantity change it
                     if (itemData.quantity === 0) { //if its 0 just get rid of it
+                        cartError = true
+                        const index = updatedCart.findIndex(item => item.itemId === cart[i].itemId)
+                        updatedCart = updatedCart.splice(index, 1);
+                        cartErrors.push({ issue: itemData.productName + ' is out of stock and has been removed from your cart.' });
+                    } else { //if not 0 just update it 
+                        cartError = true
+                        if (itemData.quantity < cart[i].quantity) {
 
+                            cartErrors.push({ issue: itemData.productName + ' no longer has the quantity you selected in stock. The quantity in your cart has been reduced to the current in stock quantity.' })
+                        }
+                        if (parseFloat(itemData.price) != parseFloat(cart[i].priceTotal) / cart[i].quantity) {
 
-                    } else { //if not 0 just update it
-
+                            cartErrors.push({ issue: itemData.productName + ' price has changed.' })
+                        }
+                        const index = updatedCart.findIndex(item => item.itemId === cart[i].itemId);
+                        let tempCartItem = {
+                            itemId: itemData._id,
+                            quantity: (itemData.quantity < cart[i].quantity) ? itemData.quantity : cart[i].quantity,
+                            priceTotal: ((itemData.quantity < cart[i].quantity) ? parseFloat(itemData.price) * itemData.quantity : parseFloat(itemData.price) * cart[i].quantity),
+                            image: itemData.image[0],
+                            productName: itemData.productName
+                        }
+                        updatedCart.splice(index, 1);
+                        updatedCart.push(tempCartItem);
                     }
-                } else {
-
-                }
-
+                } 
             }
-            res.status(200).json(data)
+            if (cartError) res.status(409).json({ cartErrors: cartErrors, cart: updatedCart });
+            else res.status(200).json({ cart: updatedCart });
         } catch {
             res.sendStatus(500);
         }
     },
+    
     guestAddOrder(req, res) { //need to add changing the item counts on the site
        
     },

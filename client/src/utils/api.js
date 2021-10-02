@@ -145,7 +145,7 @@ export const addOrderApi = (jwt, address) => {
 }
 
 // ITEM ROUTES
-export const itemsApi = () => { //getAllItems
+export const itemsApi = () => { //Get All Items
     return fetch('/api/item/', {
         method: 'GET',
         headerss: {
@@ -156,7 +156,7 @@ export const itemsApi = () => { //getAllItems
 
 }
 
-export const itemApi = (itemId) => { //get one item
+export const itemApi = (itemId) => { //Get One Item
     return fetch('/api/item/' + itemId, {
         method: 'GET',
         headerss: {
@@ -291,7 +291,20 @@ export const categoryApiCall = () => {
 }
 
 //  ORDER ROUTES
-export const orderApiCall = (cart, total, name, address, email) => {
+
+export const checkGuestCartApiCall = (cart) => {
+    return fetch('api/order/guest', {
+        method: 'GET',
+        headerss: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            cart: cart
+        })
+    })
+
+} 
+export const guestOrderApiCall = (cart, total, name, address, email) => {
     return fetch('api/order/guest', {
         method: 'GET',
         headerss: {
