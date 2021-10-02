@@ -39,6 +39,7 @@
     --white: #ffffff;
     --amethyst: #AA51B8;
     --scooter: #2da9ce;
+    --red: #e62834;
 
     --font-size-xxs: 1.8rem;
     --font-size-xs: 2.2rem;
@@ -210,6 +211,42 @@ img:hover {
       max-width: 320px;
     }
   }
+  .login-body {
+    background-color: var(--red);
+    background-image: url('./assets/img/legoPastel.png');
+    background-size: 90%;
+    background-position:left;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+.login{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+}
+
+.login1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    background-color: var(--white);
+    padding: 40px 30px 60px;
+    color: var(--black);
+    font-family: 'HelveticaNCB';
+    font-size: var(--font-size-s);
+    width: 50%;
+    margin: 12rem 8rem 40rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}
+
+.login2{
+    text-align: center;
+}
+
 
 
 /* --------------------------------------- */
@@ -276,7 +313,7 @@ body {
     background-repeat: no-repeat;
 }
 
-.landing{
+.landing-body{
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
