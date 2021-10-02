@@ -36,11 +36,11 @@ const Login = () => {
                     {/* <form className="login1" style={{ "backgroundColor": "white", "borderRadius": "10px" }} onSubmit={handleSubmit}> */}
                         <div className="login2">
                             <label htmlFor="email" className="form-label">Email </label>
-                            <input type="email" className="form-control" value={email} onChange={(e) => setEmail(e.target.value)} />
+                            <input type="email" placeHolder="Email Address" className="form-control" value={email} onChange={(e) => setEmail(e.target.value)} />
                         </div>
                         <div className="login2">
                             <label htmlFor="password" className="form-label" >Password</label>
-                            <input type="password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} />
+                            <input type="password" placeHolder="Password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} />
                         </div>
                         <button className="loginButton" type="submit" disabled={!validateForm()}>Submit</button>
                         <a href="/signup">
