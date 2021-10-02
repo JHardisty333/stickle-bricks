@@ -375,7 +375,7 @@ footer {
     text-align: center;
 }
 
-button {
+.landingButton {
     background-color: var(--scooter);
     border: solid 1.5px var(--dove-gray);
     padding: 30px;
@@ -387,7 +387,7 @@ button {
     transition: all .2s;
 }
 
-button:hover {
+.landingButton:hover {
     background-color: var(--raw-sienna);
     transform: scale(1.3);
 }
