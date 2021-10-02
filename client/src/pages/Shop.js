@@ -68,7 +68,7 @@ const Shop = () => {
         const pageItems = totalItems.slice(pageIndex[0], pageIndex[1]);
         setItems(pageItems.map((item, index) => (
             <div key={item._id}  className='itemStyle'>
-                <img src={item.image[0]} alt={item.productName} dataIndex={index} id={item._id} onClick={(e) => productClick(e)} style={{}} />
+                <img src={item.image[0]} alt={item.productName} id={index} onClick={(e) => productClick(e)} style={{}} />
                 <p>{item.productName}</p>
                 <p>{item.condition}</p>
                 <p>{parseFloat(item.price)}</p>
@@ -81,8 +81,8 @@ const Shop = () => {
 
     const productClick = (event) => { // to open modal
         console.log(event.target)
-        setModalItem(totalItems[parseInt(event.target.dataindex)])// this should refrence the item index
-        console.log(parseInt((event.target.dataindex)))
+        setModalItem(totalItems[event.target.id])// this should refrence the item index
+        console.log(event.target.id)
         console.log(totalItems)
         toggle()
     }
@@ -100,7 +100,7 @@ const Shop = () => {
 
         setItems(pageItems.map((item, index) => (
             <div key={item._id} className='itemStyle'>
-                <img src={item.image[0]} alt={item.productName} dataIndex={index} id={item._id} onClick={productClick} style={{}} />
+                <img src={item.image[0]} alt={item.productName} id={index}  onClick={productClick} style={{}} />
                 <p>{item.productName}</p>
                 <p>{item.condition}</p>
                 <p>{parseFloat(item.price)}</p>
