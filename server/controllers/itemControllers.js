@@ -10,8 +10,11 @@ const itemController = {
     getAllItems(req, res) {
         Item.find({})
             .select('-__v')
-            .then(dbItemData => {
-                res.json(dbItemData)
+            .then(itemData => {
+                for (let i = 0; i < itemData.length; i++) {
+                    itemData[i].price == parseFloat(itemData[i].price);
+                }
+                res.json(itemData)
             })
             .catch(err => res.status(500).json({error: err}));
     },
