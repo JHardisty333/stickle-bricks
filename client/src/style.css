@@ -213,16 +213,16 @@ img:hover {
     }
   }
   .login-body {
-    background-color: var(--red);
+    /* background-color: var(--red); */
     background-image: url('./assets/img/legoPastel.png');
-    background-position:left;
+    /* background-position:left; */
     background-attachment: fixed;
     background-repeat: no-repeat;
 }
 .login{
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
     align-items: center;
     height: 100%;
 }
@@ -304,16 +304,13 @@ footer {
 /* ----- Landing/ Main Page ----- */
 /* --------------------------------------- */
 
-body {
+.landing-body{
     background-color: var(--scooter);
     background-image: url("./assets/img/legoHands.png");
     background-size: 80%;
-    background-position:left;
+    background-position: left;
     background-attachment: fixed;
     background-repeat: no-repeat;
-}
-
-.landing-body{
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
