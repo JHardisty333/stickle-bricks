@@ -1,7 +1,7 @@
 
 // USER ROUTES
 export const allUsersApi = (jwt) => {
-    return fetch('/api/user', {
+    return fetch('/api/user/admin', {
         method: 'GET',
         headers: {
             'Authorization': 'Bearer ' + jwt ,
@@ -9,6 +9,16 @@ export const allUsersApi = (jwt) => {
         }
     })
 }
+
+export const oneUserApi = (jwt) => { //includes cart and order data
+    return fetch('/api/user', {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + jwt,
+            'Content-Type': 'application/json'
+        }
+    })
+} 
 
 export const loginUserApi = (email, password) => {
     return fetch('/api/user/login/', {
@@ -68,7 +78,7 @@ export const deleteUserApi = (jwt) => {
 export const guestCheckCart = (cart) => {
     return fetch('/api/order/guest', {
         method: 'PUT',
-        headerss: {
+        headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -81,7 +91,7 @@ export const guestCheckCart = (cart) => {
 export const checkCartApi = (jwt) => {
     return fetch('/api/user/cart', {
         method: 'GET',
-        headerss: {
+        headers: {
             'Authorization': 'Bearer ' + jwt ,
             'Content-Type': 'application/json'
 
@@ -93,7 +103,7 @@ export const checkCartApi = (jwt) => {
 export const addCartApi = (jwt, itemId, quantity) => {
     return fetch('/api/user/cart', {
         method: 'PUT',
-        headerss: {
+        headers: {
             'Authorization': 'Bearer ' + jwt ,
             'Content-Type': 'application/json'
         },
@@ -108,7 +118,7 @@ export const addCartApi = (jwt, itemId, quantity) => {
 export const deleteCartApi = (jwt, itemId) => {
     return fetch('/api/user/cart', {
         method: 'DELETE',
-        headerss: {
+        headers: {
             'Authorization': 'Bearer ' + jwt ,
             'Content-Type': 'application/json'
         },
@@ -122,7 +132,7 @@ export const deleteCartApi = (jwt, itemId) => {
 export const addOrderApi = (jwt, address) => {
     return fetch('/api/user/order', {
         method: 'POST',
-        headerss: {
+        headers: {
             'Authorization': 'Bearer ' + jwt ,
             'Content-Type': 'application/json'
         },
@@ -134,13 +144,11 @@ export const addOrderApi = (jwt, address) => {
    
 }
 
-
-
 // ITEM ROUTES
-export const itemApi = () => {
-    return fetch('/api/item/', {
+export const itemsApi = () => { //Get All Items
+    return fetch('/api/item', {
         method: 'GET',
-        headerss: {
+        headers: {
             'Content-Type': 'application/json'
         }
     })
@@ -148,11 +156,22 @@ export const itemApi = () => {
 
 }
 
+export const itemApi = (itemId) => { //Get One Item
+    return fetch('/api/item/' + itemId, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+
+
+}
+
 // /item/search -- search by name
 export const searchItemsApi = (itemName) => {
     return fetch('/api/item/search', {
         method: 'POST',
-        headerss: {
+        headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -166,7 +185,7 @@ export const searchItemsApi = (itemName) => {
 export const itemTypeApi = (itemType) => {
     return fetch('/api/item/type/' + itemType, {
         method: 'GET',
-        headerss: {
+        headers: {
             'Content-Type': 'application/json'
         }
     })
@@ -177,7 +196,7 @@ export const itemTypeApi = (itemType) => {
 export const allItemTypesApi = () => {
     return fetch('/api/item/type', {
         method: 'GET',
-        headerss: {
+        headers: {
             'Content-Type': 'application/json'
         }
     })
@@ -188,7 +207,7 @@ export const allItemTypesApi = () => {
 export const itemCategoryApi = (categoryId) => {
     return fetch('/api/item/category/' + categoryId, {
         method: 'GET',
-        headerss: {
+        headers: {
             'Content-Type': 'application/json'
         }
     })
@@ -199,7 +218,7 @@ export const itemCategoryApi = (categoryId) => {
 export const itemAllColorsApi = () => {
     return fetch('/api/item/color', {
         method: 'GET',
-        headerss: {
+        headers: {
             'Content-Type': 'application/json'
         }
     })
@@ -210,7 +229,7 @@ export const itemAllColorsApi = () => {
 export const itemColorApi = (colorId) => {
     return fetch('/api/item/color/' + colorId, {
         method: 'GET',
-        headerss: {
+        headers: {
             'Content-Type': 'application/json'
         }
     })
@@ -221,7 +240,7 @@ export const itemColorApi = (colorId) => {
 export const itemFeaturedApi = () => {
     return fetch('/api/item/featured', {
         method: 'GET',
-        headerss: {
+        headers: {
             'Content-Type': 'application/json'
         }
     })
@@ -231,7 +250,7 @@ export const itemFeaturedApi = () => {
 export const addItemApi = (jwt, itemObject ) => {
     return fetch('/api/admin', {
         method: 'POST',
-        headerss: {
+        header: {
             'Authorization': 'Bearer ' + jwt ,
             'Content-Type': 'application/json'
         },
@@ -251,7 +270,7 @@ export const addItemApi = (jwt, itemObject ) => {
 export const updateItemApi = (itemObject, jwt) => {
     return fetch('/api/item/color/admin/', {
         method: 'PUT',
-        headerss: {
+        headers: {
             'Authorization': 'Bearer ' + jwt ,
             'Content-Type': 'application/json'
         },
@@ -264,7 +283,7 @@ export const updateItemApi = (itemObject, jwt) => {
 export const categoryApiCall = () => {
     return fetch('api/category', {
         method: 'GET',
-        headerss: {
+        headers: {
             'Content-Type': 'application/json'
         }
     })
@@ -272,10 +291,23 @@ export const categoryApiCall = () => {
 }
 
 //  ORDER ROUTES
-export const orderApiCall = (cart, total, name, address, email) => {
+
+export const checkGuestCartApiCall = (cart) => {
     return fetch('api/order/guest', {
         method: 'GET',
-        headerss: {
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            cart: cart
+        })
+    })
+
+} 
+export const guestOrderApiCall = (cart, total, name, address, email) => {
+    return fetch('api/order/guest', {
+        method: 'GET',
+        headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -292,7 +324,7 @@ export const orderApiCall = (cart, total, name, address, email) => {
 export const userOrderApi = (jwt) => {
     return fetch('/api/order/user', {
         method: 'GET',
-        headerss: {
+        headers: {
             'Authorization': 'Bearer ' + jwt ,
             'Content-Type': 'application/json'
         }
@@ -303,7 +335,7 @@ export const userOrderApi = (jwt) => {
 export const cancelOrderApi = (jwt, id) => {
     return fetch('/api/order/user', {
         method: 'PUT',
-        headerss: {
+        headers: {
             'Authorization': 'Bearer ' + jwt ,
             'Content-Type': 'application/json'
         },
@@ -316,7 +348,7 @@ export const cancelOrderApi = (jwt, id) => {
 export const allOrdersApi = (jwt) => {
     return fetch('/api/order/admin', {
         method: 'GET',
-        headerss: {
+        headers: {
             'Authorization': 'Bearer ' + jwt ,
             'Content-Type': 'application/json'
         }
@@ -325,22 +357,10 @@ export const allOrdersApi = (jwt) => {
 }
 
 
-export const receivedOrdersApi = (jwt) => {
-    return fetch('/api/order/admin/received', {
-        method: 'GET',
-        headerss: {
-            'Authorization': 'Bearer ' + jwt ,
-            'Content-Type': 'application/json'
-        }
-    })
-    
-}
-
-
 export const orderStatusApi = (jwt, status) => {
     return fetch('/api/order/orders', {
         method: 'GET',
-        headerss: {
+        headers: {
             'Authorization': 'Bearer ' + jwt ,
             'Content-Type': 'application/json'
         },
@@ -355,7 +375,7 @@ export const orderStatusApi = (jwt, status) => {
 export const updateOrderApi = (jwt, status) => {
     return fetch('/api/order/', {
         method: 'GET',
-        headerss: {
+        headers: {
             'Authorization': 'Bearer ' + jwt ,
             'Content-Type': 'application/json'
         },

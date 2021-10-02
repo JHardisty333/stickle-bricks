@@ -14,9 +14,16 @@ const userController = {
             });
     },
 
+    getOneUser(req, res) {
+        User.findById(req.user._id)
+        .select('-__v -password')
+        .populate('orders')
+        .then(userData => res.status(200).json(userData))
+        .catch(err => res.status(500).json(err))
+    },
+
     // login with email and password
     userLogin(req, res) {
-        console.log(req.body)
         User.findOne({
             email: req.body.email
         })
@@ -286,19 +293,17 @@ const userController = {
                     email: userData.email,
                 }, { new: true, runValidators: false})
                     .then(orderData => {
-                        console.log(orderData)
                         User.findOneAndUpdate(
                             { _id: req.user._id },
                             { cart: [], $push: { orders: orderData[0]._id }},{new:true})
-                            .then(orderData => {
+                            .then(async (orderData) => {
                                 //send receipt email
                                 //change inventory quantities
                                 for (let i = 0; i < cart.length; i++) {
-                                    Item.findOne({_id: cart[i].itemId}).then(itemData => {
-                                        Item.findOneAndUpdate({}, { quantity: (itemData.quantity - userData.cart[i].quantity) }, { runValidators: true, new: true })
-                                        .then(itemData => console.log(itemData))
-                                        .catch(err => console.log(err));
-                                    })
+                                    const itemData = await Item.findOne({_id: cart[i].itemId})
+                                    Item.findOneAndUpdate({_id: cart[i].itemId}, 
+                                    { quantity: (itemData.quantity - userData.cart[i].quantity) },
+                                    { runValidators: true, new: true })
                                 }
                                 res.status(200).json({ message: 'Order Completed' });
                             })

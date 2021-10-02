@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import './style.css';
 import { BrowserRouter as Router, Switch, Route, } from 'react-router-dom';
@@ -17,7 +15,7 @@ import Cart from './pages/Cart';
 function App() {
 return (
 	<Router as='main'>
-		<>
+		{/* <> */}
 		<NavBar />
 		<Switch>
 			<Route exact path='/about' component={About} />
@@ -27,10 +25,10 @@ return (
 			<Route exact path='/Login' component={Login} />
 			<Route exact path='/shop' component={Shop} />
 			<Route exact path='/signup' component={SignUp} />
-			<Route exact path='/cart' component={Cart} />
+			<Route exact path='/Cart' component={Cart} />
 		</Switch>
 		<Footer />
-		</>
+		{/* </> */}
 	</Router>
 );
 }
