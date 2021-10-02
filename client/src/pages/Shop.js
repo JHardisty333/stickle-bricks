@@ -68,8 +68,8 @@ const Shop = () => {
 
         const pageItems = totalItems.slice(pageIndex[0], pageIndex[1]);
         setItems(pageItems.map((item, index) => (
-            <div key={item._id}  className='itemStyle'>
-                <img src={item.image[0]} alt={item.productName} data-index={index} id={item._id} onClick={(e) => productClick(e)} style={{}} />
+            <div key={item._id} className='itemStyle'>
+                <img src={item.image[0]} alt={item.productName} id={index} onClick={(e) => productClick(e)} style={{}} />
                 <p>{item.productName}</p>
                 <p>{item.condition}</p>
                 <p>{parseFloat(item.price.$numberDecimal)}</p>
@@ -82,8 +82,10 @@ const Shop = () => {
 
     const productClick = (event) => { // to open modal
         console.log(event.target)
-        // setModalItem(Items[event.target])// this should refrence the item index
-        // toggle()
+        setModalItem(totalItems[event.target.id])// this should refrence the item index
+        console.log(event.target.id)
+        console.log(totalItems)
+        toggle()
     }
 
 
@@ -99,7 +101,7 @@ const Shop = () => {
 
         setItems(pageItems.map((item, index) => (
             <div key={item._id} className='itemStyle'>
-                <img src={item.image[0]} alt={item.productName} data-index={index} id={item._id} onClick={productClick} style={{}} />
+                <img src={item.image[0]} alt={item.productName} id={index} onClick={productClick} style={{}} />
                 <p>{item.productName}</p>
                 <p>{item.condition}</p>
                 <p>{parseFloat(item.price.$numberDecimal)}</p>
@@ -119,10 +121,14 @@ const Shop = () => {
                 <Modal isOpen={modal} toggle={toggle} className='modalStyle'>
                     <ModalHeader toggle={toggle}>{modalItem.productName}</ModalHeader>
                     <ModalBody>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        <img src={modalItem.image} alt={modalItem.productName} style={{}} />
+                        <p>{modalItem.productName}</p>
+                        <p>{modalItem.condition}</p>
+                        <p>{parseFloat(modalItem.price.$numberDecimal)}</p>
                     </ModalBody>
                     <ModalFooter>
-                        <Button color="primary" onClick={toggle}>Add to Cart</Button>{' '}
+                        <Button color="primary" value={modalItem._id} onClick={toggle}>Add to Cart</Button>{' '}
+                        {/* Change onclick to new function that will add to cart */}
                     </ModalFooter>
                 </Modal>
             </div>

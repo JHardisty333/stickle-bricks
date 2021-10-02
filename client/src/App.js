@@ -22,7 +22,7 @@ return (
 			<Route exact path='/contact' component={Contact} />
 			<Route exact path='/deals' component={Deals} />
 			<Route exact path='/' component={Landing} />
-			<Route exact path='/Login' component={Login} />
+			<Route exact path='/login' component={Login} />
 			<Route exact path='/shop' component={Shop} />
 			<Route exact path='/signup' component={SignUp} />
 			<Route exact path='/Cart' component={Cart} />
