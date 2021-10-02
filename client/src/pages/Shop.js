@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import { itemApi } from "../utils/api";
+import { itemsApi } from "../utils/api";
 
 
 const Shop = (props) => {
@@ -8,24 +8,25 @@ const Shop = (props) => {
         className
       } = props;
     async function fetchData() {
-        const response = await itemApi()
+        const response = await itemsApi()
         if (!response.ok) alert('an error has occurred')
         const items = await response.json()
-        
-        items.map((item, index) => (
-
+        setTotalItems(items)
+        const page = items.slice(0, 50);
+        setItems(page.map((item, index) => (
             <div key={item.productId} data-index={index} id={item.productId} onClick={productClick}>
-                <img src={item.image[0]} />
+                <img src={item.image[0]}  style={{}}/>
                 <p>{item.productName}</p>
                 <p>{item.condition}</p>
-                <p>{item.price}</p>
+                <p>{parseFloat(item.price)}</p>
             </div>
-        ))
+        )))
     }
     
       const [modal, setModal] = useState(false);
     
       const toggle = () => setModal(!modal);
+      const [totalItems, setTotalItems] = useState([])
     const [Items, setItems] = useState((<div>Loading</div>));
     const [modalItem, setModalItem] = useState({});
 
