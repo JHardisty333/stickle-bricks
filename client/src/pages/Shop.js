@@ -8,7 +8,8 @@ import {
     Container,
     Pagination,
     PaginationItem,
-    PaginationLink
+    PaginationLink,
+    Spinner
 } from 'reactstrap';
 import { itemsApi } from "../utils/api";
 
@@ -19,7 +20,7 @@ const Shop = () => {
     const toggle = () => setModal(!modal);
 
     const [totalItems, setTotalItems] = useState([]) //current array of items 
-    const [Items, setItems] = useState((<div>Loading</div>)); // current items displayed on page
+    const [Items, setItems] = useState((<Spinner color="dark" className="py-5 mx-auto" />)); // current items displayed on page
     const [pageIndex, setPageIndex] = useState([0, 49]);
     const [maxIndex, setMaxIndex] = useState(1);
     const [currentIndex, setCurrentIndex] = useState(1)
@@ -95,7 +96,7 @@ const Shop = () => {
         setTotalItems(items)
         setMaxIndex((Math.ceil(totalItems.length / 50)))
         const pageItems = items.slice(pageIndex[0], pageIndex[1]);
-        console.log(totalItems)
+
         setItems(pageItems.map((item, index) => (
             <div key={item._id} className='itemStyle'>
                 <img src={item.image[0]} alt={item.productName} data-index={index} id={item._id} onClick={productClick} style={{}} />
