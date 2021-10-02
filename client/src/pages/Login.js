@@ -16,8 +16,15 @@ const Login = () => {
         console.log(email, password)
         const response = await loginUserApi(email, password);
         const data = await response.json()
-        console.log(data, email, password)
-        localStorage.setItem('jwt', data);
+        if(data.message) {
+            alert(data.message)
+        } else {
+            setEmail('');
+            setPassword('');
+            localStorage.setItem('jwt', data);
+            window.location('/store');
+        }
+        
     }
 
     return (
