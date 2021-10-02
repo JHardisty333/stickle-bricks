@@ -28,19 +28,19 @@ const Shop = () => {
 
     function pagination(e) {
         const indexType = e.target.value;
-        console.log(indexType);
+        console.log(e.target.value);
         if (indexType === 'start') {
             setCurrentIndex(1);
-            setPageIndex ([0, 49]);
+            setPageIndex([0, 49]);
         }
 
         if (indexType === 'plus') {
             if (currentIndex !== maxIndex) {
-                let index = [];
+                let index = []
                 for (let i = 0; i < pageIndex.length; i++) {
                     index.push(pageIndex[i] + 50);
                 }
-                setPageIndex(index);
+                setPageIndex(index)
                 setCurrentIndex(currentIndex + 1)
             }
         }
@@ -60,16 +60,15 @@ const Shop = () => {
             setPageIndex([0, 49]);
             let index = [];
             index.push(pageIndex[0] + (50 * maxIndex));
-            setPageIndex(index)
-
-
+            index.push(totalItems.length - 1);
+            setPageIndex(index);
             setCurrentIndex(maxIndex);
         }
 
         const pageItems = totalItems.slice(pageIndex[0], pageIndex[1]);
         setItems(pageItems.map((item, index) => (
             <div key={item._id}  className='itemStyle'>
-                <img src={item.image[0]} style={{}} onClick={productClick} data-index={index} id={item._id} alt={item.productName} />
+                <img src={item.image[0]} alt={item.productName} data-index={index} id={item._id} onClick={(e) => productClick(e)} style={{}} />
                 <p>{item.productName}</p>
                 <p>{item.condition}</p>
                 <p>{parseFloat(item.price)}</p>
@@ -81,7 +80,7 @@ const Shop = () => {
 
 
     const productClick = (event) => { // to open modal
-        console.log(event.currentTarget)
+        console.log(event.target)
         // setModalItem(Items[event.target])// this should refrence the item index
         // toggle()
     }
@@ -98,8 +97,8 @@ const Shop = () => {
         const pageItems = totalItems.slice(pageIndex[0], pageIndex[1]);
 
         setItems(pageItems.map((item, index) => (
-            <div key={item.id} data-index={index} id={item._id} onClick={productClick} className='itemStyle'>
-                <img src={item.image[0]} style={{}} />
+            <div key={item._id} className='itemStyle'>
+                <img src={item.image[0]} alt={item.productName} data-index={index} id={item._id} onClick={productClick} style={{}} />
                 <p>{item.productName}</p>
                 <p>{item.condition}</p>
                 <p>{parseFloat(item.price)}</p>
