@@ -9,7 +9,7 @@ const Landing = () => {
       <div className="greeting">
         <div className="greeting__text">
           <span className>Welcome to StickleBrick’s!
-            <br />We strive to offer all fans of LEGO© <br />both young and old
+            <br />We strive to offer all fans of <br />LEGO© both young and old
             <br />a quality place to find all the greatest sets, <br />minifigs, and
             even the last piece<br />needed to finish your MOC!</span>
         </div>
