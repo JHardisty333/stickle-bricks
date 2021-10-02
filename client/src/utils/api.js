@@ -1,7 +1,7 @@
 
 // USER ROUTES
 export const allUsersApi = (jwt) => {
-    return fetch('/api/user', {
+    return fetch('/api/user/admin', {
         method: 'GET',
         headers: {
             'Authorization': 'Bearer ' + jwt ,
@@ -9,6 +9,16 @@ export const allUsersApi = (jwt) => {
         }
     })
 }
+
+export const oneUserApi = (jwt) => { //includes cart and order data
+    return fetch('/api/user', {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + jwt,
+            'Content-Type': 'application/json'
+        }
+    })
+} 
 
 export const loginUserApi = (email, password) => {
     return fetch('/api/user/login/', {
@@ -134,10 +144,8 @@ export const addOrderApi = (jwt, address) => {
    
 }
 
-
-
 // ITEM ROUTES
-export const itemApi = () => {
+export const itemsApi = () => { //Get All Items
     return fetch('/api/item/', {
         method: 'GET',
         headerss: {
@@ -145,6 +153,17 @@ export const itemApi = () => {
         }
     })
   
+
+}
+
+export const itemApi = (itemId) => { //Get One Item
+    return fetch('/api/item/' + itemId, {
+        method: 'GET',
+        headerss: {
+            'Content-Type': 'application/json'
+        }
+    })
+
 
 }
 
@@ -272,7 +291,20 @@ export const categoryApiCall = () => {
 }
 
 //  ORDER ROUTES
-export const orderApiCall = (cart, total, name, address, email) => {
+
+export const checkGuestCartApiCall = (cart) => {
+    return fetch('api/order/guest', {
+        method: 'GET',
+        headerss: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            cart: cart
+        })
+    })
+
+} 
+export const guestOrderApiCall = (cart, total, name, address, email) => {
     return fetch('api/order/guest', {
         method: 'GET',
         headerss: {
@@ -322,18 +354,6 @@ export const allOrdersApi = (jwt) => {
         }
     })
    
-}
-
-
-export const receivedOrdersApi = (jwt) => {
-    return fetch('/api/order/admin/received', {
-        method: 'GET',
-        headerss: {
-            'Authorization': 'Bearer ' + jwt ,
-            'Content-Type': 'application/json'
-        }
-    })
-    
 }
 
 

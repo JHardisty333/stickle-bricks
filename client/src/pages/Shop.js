@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import { itemApi } from "../utils/api";
+import { itemsApi } from "../utils/api";
 
 
 const Shop = (props) => {
@@ -8,7 +8,7 @@ const Shop = (props) => {
         className
       } = props;
     async function fetchData() {
-        const response = await itemApi()
+        const response = await itemsApi()
         if (!response.ok) alert('an error has occurred')
         const items = await response.json()
         setTotalItems(items)
