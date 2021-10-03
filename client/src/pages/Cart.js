@@ -1,7 +1,36 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import {Alert} from 'reactstrap';
+import {checkCartApi} from '../utils/api'
 // import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 const Cart = () => {
+
+    const [checkCart, setCheckCart] = useState()
+    const [visible, setVisible] = useState(true)
+
+    const onDismiss = () => setVisible(false)
+
+    async function fetchData(props) {
+        const jwt = localStorage.getItem('stickelbricks-jwt');
+        const response = await checkCartApi(jwt);
+        if (response.status(409)) {
+            setCheckCart((
+                <div>
+                    <Alert color="info" isOpen={visible} toggle={onDismiss}>
+                        Something in your cart has changed and been removed!
+                    </Alert>
+                </div>
+            ))
+        } 
+        
+    }
+    
+    useEffect(() => {
+        fetchData();
+    }, 
+        [])
+
+
     return (
         <div className="cart-body" style={{"minHeight": "80vh"}}>
             <section className="cart">

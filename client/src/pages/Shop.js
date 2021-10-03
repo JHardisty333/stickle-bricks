@@ -84,7 +84,7 @@ const Shop = () => {
             const response = await addCartApi(jwt, event.target.id, quantity);
             if (!response.ok) {
                 if (response.status === 401) {
-                    
+
                 } else return alert('an error has occurred');
             }
             localStorage.removeItem('jwt');
@@ -117,14 +117,26 @@ const Shop = () => {
             search.type = typeFilter.toUpperCase();
         }
         console.log(search)
-        if (search === {}) {
-            fetchData();
-        } else {
+        
             const response = await searchItemsApi(search);
             if (!response.ok) return alert('An error has occurred attempting to search!')
             const items = await response.json();
-            loadItems(items);
-        }
+            console.log(items === [])
+            if (items.length === 0) {
+                setItems((
+                    <div><h1>
+                        Uh Oh! <br />
+                        Nothing Found!
+                    </h1></div>
+                ))
+                setTotalItems([])
+                setCurrentIndex(0)
+                setMaxIndex(0)
+            } else {
+
+                loadItems(items);
+            }
+        
     }
 
     function loadItems(items) {
@@ -204,7 +216,7 @@ const Shop = () => {
 
     return ( //STYLE ME
         <Container fluid className="shop-body" style={{ "minHeight": "80vh" }}>
-            <div style={{"minHeight": "3vh"}}></div>
+            <div style={{ "minHeight": "3vh" }}></div>
             <Container className="shop-contain">
                 <Row id="top" className="searchbar">
                     <input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
@@ -218,7 +230,7 @@ const Shop = () => {
                     <Col sm={3} style={{ 'color': 'black' }}>
                         {/* categories and types search options */}
                         <div>
-                            <select value={categoryFilter} onChange={(e) => (e) => e.target.value === 'All Categories' ? setCategoryFilter(null) : setCategoryFilter(e.target.value)}>
+                            <select value={categoryFilter} onChange={(e) => e.target.value === 'All Categories' ? setCategoryFilter(null) : setCategoryFilter(e.target.value)}>
                                 <option key={'All Categories'} value={'All Categories'}>All Categories</option>
                                 {category}
                             </select>
@@ -238,7 +250,7 @@ const Shop = () => {
                             </select>
                         </div>
                     </Col>
-                
+
                     <Col sm={9}>
                         <Row className="d-flex">
                             {Items}
