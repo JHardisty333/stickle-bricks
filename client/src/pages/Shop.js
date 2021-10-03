@@ -226,21 +226,6 @@ const Shop = () => {
                     </button>
                 </a>
             </Row>
-
-            {/* <Pagination aria-label="Page navigation example">
-                <PaginationItem>
-                    <PaginationLink first value='start' onClick={(e) => pagination(e)} />
-                </PaginationItem>
-                <PaginationItem>
-                    <PaginationLink previous value='plus' onClick={(e) => pagination(e)} />
-                </PaginationItem>
-                <PaginationItem>
-                    <PaginationLink next value='minus' onClick={(e) => pagination(e)} />
-                </PaginationItem>
-                <PaginationItem>
-                    <PaginationLink last value='end' onClick={(e) => pagination(e)} />
-                </PaginationItem>
-            </Pagination> */}
         </Container>
     )
 }
