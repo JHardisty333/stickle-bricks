@@ -3,7 +3,7 @@ import React from 'react';
 
 const Cart = () => {
     return (
-        <div className="cart-body">
+        <div className="cart-body" style={{"minHeight": "80vh"}}>
             <section className="cart">
                 <div className="shop_cart">
                     <div className="cart">

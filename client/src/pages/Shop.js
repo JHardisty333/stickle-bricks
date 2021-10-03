@@ -82,7 +82,11 @@ const Shop = () => {
         const jwt = localStorage.getItem('jwt');
         if (jwt) {
             const response = await addCartApi(jwt, event.target.id, quantity);
-            if (!response.ok) return alert('an error has occurred');
+            if (!response.ok) {
+                if (response.status === 401) {
+                    
+                } else return alert('an error has occurred');
+            }
             localStorage.removeItem('jwt');
         } else {
             history.push('/login');
@@ -200,7 +204,8 @@ const Shop = () => {
         [])
 
     return ( //STYLE ME
-        <Container fluid className="shop-body">
+        <Container fluid className="shop-body" style={{ "minHeight": "80vh" }}>
+            <div style={{"minHeight": "3vh"}}></div>
             <Container className="shop-contain">
                 <Row id="top" className="searchbar">
                     <input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
@@ -292,6 +297,7 @@ const Shop = () => {
                     </a>
                 </Row>
             </Container>
+            <div style={{ "minHeight": "3vh" }}></div>
         </Container>
     )
 }
