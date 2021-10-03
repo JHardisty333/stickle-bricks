@@ -86,8 +86,8 @@ const Shop = () => {
         console.log(jwt, event.target.id, quantity)
         if (jwt) {
             const response = await addCartApi(jwt, event.target.id, quantity)
-            if (!response.ok) return alert('an error has occurred')
-
+            if (!response.ok) return alert('an error has occurred') 
+            localStorage.removeItem('jwt')
         } else {
             history.push('/login')
         }
