@@ -22,7 +22,7 @@ function SignUp() {
     }
 
     return (
-        <div className="signup-body">
+        <div className="signup-body" style={{"minHeight": "80vh"}}>
             <div className="signup-body-pic">
                 <section className="signup">
                     <div className="signup1">
@@ -37,7 +37,7 @@ function SignUp() {
                             <input type="password" placeHolder="Password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} />
                         </div>
                         <div className="signup-buttons">
-                            <button type="submit" className="signupButton" onClick={handleSubmit} disabled={!validateForm()}>Sign Up!</button>
+                            <button type="submit" className="signupButton" onClick={handleSubmit} disabled={!validateForm()}>Submit</button>
                         </div>
                     </div>
                 </section>

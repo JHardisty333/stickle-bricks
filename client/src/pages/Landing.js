@@ -4,7 +4,7 @@ import React from 'react';
 const Landing = () => {
   
   return (
-  <div className="landing-body" style={{}}>
+  <div className="landing-body" style={{"minHeight": "80vh"}}>
     <section className="landing">
       <div className="greeting">
         <div className="greeting-text">

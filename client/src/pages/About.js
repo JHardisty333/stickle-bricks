@@ -2,7 +2,7 @@ import React from 'react';
 
 const About = () => {
   return (
-    <div className="about-body">
+    <div className="about-body" style={{"minHeight": "80vh"}}>
       <div className="about-body-pic">
       <section className="about">
         <div className="about-us">
