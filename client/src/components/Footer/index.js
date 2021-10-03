@@ -14,7 +14,7 @@ const Footer = (props) => {
                     <nav className="footer" role="navigation">
                         <ul className="foot-items">
                             <li className="foot-item"><a href="./Contact" className="foot-link">Contact Us</a></li>
-                            <li className="foot-item"><a href="#FAQ" className="foot-link">FAQ</a></li>
+                            <li className="foot-item"><a href="./Terms" className="foot-link">Terms and Conditions</a></li>
                             <li className="foot-item"><a href="#shipping" className="foot-link">Terms and Conditions</a></li>
                         </ul>
                     </nav>

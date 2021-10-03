@@ -11,6 +11,7 @@ import SignUp from './pages/Signup';
 import NavBar from './components/Navbar';
 import Footer from './components/Footer';
 import Cart from './pages/Cart';
+import Terms from './pages/Terms';
 
 function App() {
 return (
@@ -26,6 +27,7 @@ return (
 			<Route exact path='/shop' component={Shop} />
 			<Route exact path='/signup' component={SignUp} />
 			<Route exact path='/Cart' component={Cart} />
+			<Route exact path='/Terms' component={Terms} />
 		</Switch>
 		<Footer />
 		{/* </> */}
