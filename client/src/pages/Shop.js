@@ -12,9 +12,7 @@ import {
     Col,
     Row
 } from 'reactstrap';
-import { itemsApi, itemApi, addCartApi } from "../utils/api";
-
-
+import { itemsApi, itemApi, addCartApi, searchItemsApi } from "../utils/api";
 
 const Shop = () => {
     //modal controls
@@ -25,6 +23,7 @@ const Shop = () => {
     const [Items, setItems] = useState((<Spinner color="dark" className="my-5 p-4 mx-auto" />)); // current items displayed on page
     const [maxIndex, setMaxIndex] = useState(1);
     const [currentIndex, setCurrentIndex] = useState(0)
+    const [searchTerm, setSearchTerm] = useState();
     const [modalItem, setModalItem] = useState({
         "_id": "",
         "productName": "",
@@ -50,23 +49,18 @@ const Shop = () => {
         "date_added": "0",
         "id": ""
     });
-
-
     
     async function pagination(e) { 
         const indexType = e.target.id;
         setItems((<Spinner color="dark" className="my-5 p-4 mx-auto" />))
-
     }
 
     useEffect(() => {
-        console.log('After: ' + currentIndex)
         let pageItems;
         if (currentIndex === maxIndex) {
            pageItems = totalItems.slice(0 + (50 * currentIndex), maxIndex);
         }
         pageItems = totalItems.slice(0 + (50 * currentIndex), 49 + (50 * currentIndex));
-        console.log(pageItems[14])
         setItems(pageItems.map((item) => (
             <Col sm={4} key={item._id} className='itemStyle'>
                 <img src={item.image[0]} alt={item.productName} id={item._id} onClick={productClick} onError={(e) => { e.target.onerror = null; e.target.src=noImage }} style={{ "maxWidth": "100%", "height": "50%" }} />
@@ -100,6 +94,17 @@ const Shop = () => {
         toggle()
     }
 
+    async function runSearch(id) {
+        let items;
+        if (id === "search") {
+            const data = searchItemsApi(searchTerm)
+        } else if (id === 'categories') {
+
+        } else if (id === 'types') {
+
+        }
+    }
+
     async function fetchData() {
         const response = await itemsApi()
         if (!response.ok) alert('an error has occurred')
@@ -125,7 +130,8 @@ const Shop = () => {
     return (
         <Container>
             <Row id="top">
-                <input type="text"></input>
+                <input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
+                <button type='button' id="search" onClick={(e) => runSearch(e.target.id)}>Search</button>
                 {/* searchbar and sort options */}
             </Row>
             <Row>
