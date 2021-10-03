@@ -151,6 +151,7 @@ const Shop = () => {
     }, // eslint-disable-next-line react-hooks/exhaustive-deps
         [])
 
+
     return ( //STYLE ME
         <Container fluid className="shop-body">
             <Container className="shop-contain">
