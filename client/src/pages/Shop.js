@@ -71,7 +71,6 @@ const Shop = () => {
         if (currentIndex === maxIndex) {
             pageItems = totalItems.slice(0 + (60 * currentIndex), maxIndex);
         }
-
         pageItems = totalItems.slice(0 + (60 * currentIndex), 60 + (60 * currentIndex));
         setItems(pageItems.map((item) => ( //STYLE ME
             <Col sm={4} key={item._id} className='itemStyle'>
@@ -90,15 +89,13 @@ const Shop = () => {
     const [quantity, setQuantity] = useState(1)
 
     const handleAddCart = async (event) => {
-        const jwt = localStorage.getItem('jwt')
-
-        console.log(jwt, event.target.id, quantity)
+        const jwt = localStorage.getItem('jwt');
         if (jwt) {
-            const response = await addCartApi(jwt, event.target.id, quantity)
-            if (!response.ok) return alert('an error has occurred')
-            localStorage.removeItem('jwt')
+            const response = await addCartApi(jwt, event.target.id, quantity);
+            if (!response.ok) return alert('an error has occurred');
+            localStorage.removeItem('jwt');
         } else {
-            history.push('/login')
+            history.push('/login');
         }
     }
 
@@ -125,7 +122,10 @@ const Shop = () => {
         } if (typeFilter) {
             search.type = typeFilter.toUpperCase();
         }
-        console.log(search)
+        const response = await searchItemsApi(search);
+        if(!response.ok) return alert('An error has occurred attempting to search!')
+        const items = await response.json();
+        loadItems(items);
     }
 
     function loadItems(items) {
@@ -162,7 +162,7 @@ const Shop = () => {
         const categories = await response.json();
         console.log(categories)
         setCategory(categories.map((category) => (
-            <DropdownItem key={category.categoryId} id={category.categoryId} value={category.categoryName}>{category.categoryName}</DropdownItem>
+            <option key={category.categoryId} value={category.categoryId}>{category.categoryName}</option>
         )))
 
         catSetDropdown(categories);
@@ -224,23 +224,11 @@ const Shop = () => {
                         {/* categories search options */}
                 <Row>
                     <Col sm={3} style={{ 'color': 'black' }}>
-                        <div>
-                        <Dropdown isOpen={catDropdown} toggle={catToggle}>
-                            <DropdownToggle caret>
-                                Categories
-                            </DropdownToggle>
-                            <DropdownMenu>
-                                {category}
-                            </DropdownMenu>
-                        </Dropdown>
-                        </div>
-
-                        <select name="category" value={category}
-
-                        {/* types search options */}
-                        {/* Color search options */}
-
-                    
+                        {/* categories and types search options */}
+                        <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}>
+                            <option value={null}>All Categories</option>
+                            {category}
+                        </select>
                     </Col>
                     </Row>
                     
@@ -290,7 +278,7 @@ const Shop = () => {
                         </button>
                     </a>
                     <a href="#top">
-                        <button id='plus' onClick={(e) =>  setCurrentIndex(currentIndex + 1)} disabled={currentIndex === maxIndex}>
+                        <button id='plus' onClick={(e) => setCurrentIndex(currentIndex + 1)} disabled={currentIndex === maxIndex}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3em" fill="currentColor" id='plus' className="" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
                             </svg>
