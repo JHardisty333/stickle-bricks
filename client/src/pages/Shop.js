@@ -1,61 +1,61 @@
-// import React, { useState, useEffect } from 'react';
-// import noImage from '../utils/noImageFound.jpg'
-// import { useHistory } from 'react-router-dom';
-// import {
-//     Button,
-//     Modal,
-//     ModalHeader,
-//     ModalBody,
-//     ModalFooter,
-//     Container,
-//     Spinner,
-//     Col,
-//     Row,
-//     Dropdown,
-//     DropdownItem,
-//     DropdownMenu,
-//     DropdownToggle
-// } from 'reactstrap';
-// import { itemsApi, itemApi, addCartApi, searchItemsApi } from "../utils/api";
+import React, { useState, useEffect } from 'react';
+import noImage from '../utils/noImageFound.jpg'
+import { useHistory } from 'react-router-dom';
+import {
+    Button,
+    Modal,
+    ModalHeader,
+    ModalBody,
+    ModalFooter,
+    Container,
+    Spinner,
+    Col,
+    Row,
+    Dropdown,
+    DropdownItem,
+    DropdownMenu,
+    DropdownToggle
+} from 'reactstrap';
+import { itemsApi, itemApi, addCartApi, searchItemsApi, categoryApiCall } from "../utils/api";
 
-// const Shop = () => {
-//     //modal controls
-//     const [modal, setModal] = useState(false);
-//     const toggle = () => setModal(!modal);
+const Shop = () => {
+    //modal controls
+    const [modal, setModal] = useState(false);
+    const toggle = () => setModal(!modal);
 
-//     const [catDropdown, catSetDropdown] = useState(false);
-//     const catToggle = () => catSetDropdown(!catDropdown)
+    const [catDropdown, catSetDropdown] = useState(false);
+    const catToggle = () => catSetDropdown(!catDropdown)
 
-//     const [totalItems, setTotalItems] = useState([]) //current array of items 
-//     const [Items, setItems] = useState((<Spinner color="dark" className="my-5 p-4 mx-auto" />)); // current items displayed on page
-//     const [maxIndex, setMaxIndex] = useState(1);
-//     const [currentIndex, setCurrentIndex] = useState(0)
-//     const [searchTerm, setSearchTerm] = useState();
-//     const [modalItem, setModalItem] = useState({
-//         "_id": "",
-//         "productName": "",
-//         "productId": "",
-//         "colorId": 0,
-//         "colorName": "",
-//         "colorCode": "",
-//         "itemType": "",
-//         "price": {
-//             "$numberDecimal": "0.00"
-//         },
-//         "quantity": 0,
-//         "image": [
-//             ""
-//         ],
-//         "condition": "Used",
-//         "itemWeight": {
-//             "$numberDecimal": "0.00"
-//         },
-//         "active": true,
-//         "featured": false,
-//         "categoryId": 0,
-//         "date_added": "0",
-//         "id": ""
-//     });
+    const [totalItems, setTotalItems] = useState([]) //current array of items 
+    const [Items, setItems] = useState((<Spinner color="dark" className="my-5 p-4 mx-auto" />)); // current items displayed on page
+    const [maxIndex, setMaxIndex] = useState(1);
+    const [currentIndex, setCurrentIndex] = useState(0)
+    const [searchTerm, setSearchTerm] = useState();
+    const [modalItem, setModalItem] = useState({
+        "_id": "",
+        "productName": "",
+        "productId": "",
+        "colorId": 0,
+        "colorName": "",
+        "colorCode": "",
+        "itemType": "",
+        "price": {
+            "$numberDecimal": "0.00"
+        },
+        "quantity": 0,
+        "image": [
+            ""
+        ],
+        "condition": "Used",
+        "itemWeight": {
+            "$numberDecimal": "0.00"
+        },
+        "active": true,
+        "featured": false,
+        "categoryId": 0,
+        "date_added": "0",
+        "id": ""
+    });
     
     async function pagination(e) { 
         const indexType = e.target.id;
@@ -68,7 +68,7 @@
             pageItems = totalItems.slice(0 + (50 * currentIndex), maxIndex);
         }
         pageItems = totalItems.slice(0 + (50 * currentIndex), 49 + (50 * currentIndex));
-        setItems(pageItems.map((item) => (
+        setItems(pageItems.map((item) => ( //STYLE ME
             <Col sm={4} key={item._id} className='itemStyle'>
                 <img src={item.image[0]} alt={item.productName} id={item._id} onClick={productClick} onError={(e) => { e.target.onerror = null; e.target.src = noImage }} style={{ "maxWidth": "100%", "height": "50%" }} />
                 <p>{item.productName}</p>
@@ -120,8 +120,8 @@
         setTotalItems(items);
         setMaxIndex((Math.ceil(items.length / 50) - 1))
         const pageItems = items.slice(0, items.length < 49 ? items.length : 49);
-        setItems(pageItems.map((item) => (
-            <Col sm={4} key={item._id} className='itemStyle'>
+        setItems(pageItems.map((item) => (  //STYLE ME
+            <Col sm={4} key={item._id} className='itemStyle'> 
                 <img src={item.image[0]} alt={item.productName} id={item._id} onClick={productClick} onError={(e) => { e.target.onerror = null; e.target.src = noImage }} style={{ "maxWidth": "100%", "height": "50%" }} />
                 <p>{item.productName}</p>
                 <p>{item.condition}</p>
@@ -151,8 +151,8 @@
     }, // eslint-disable-next-line react-hooks/exhaustive-deps
         [])
 
-    return (
-        <Container>
+    return ( //STYLE ME
+        <Container> 
             <Row id="top">
                 <input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
                 <button type='button' id="search" onClick={(e) => runSearch(e.target.id)}>Search</button>
@@ -218,7 +218,7 @@
                     </button>
                 </a>
                 <a href="#top">
-                    <button id='end' onClick={(e) => { setCurrentIndex(maxIndex); pagination(e) }}>
+                    <button id='end' onClick={(e) => { setCurrentIndex(maxIndex); pagination(e) }} disabled={currentIndex === maxIndex}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3em" id='end' fill="currentColor" className="" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z" />
                             <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
