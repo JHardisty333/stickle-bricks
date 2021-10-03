@@ -93,8 +93,6 @@ const Shop = () => {
         }
     }
 
-
-
     const productClick = async (event) => { // to open modal
         const response = await itemApi(event.target.id)
         if (!response.ok) return alert('an error has occurred')
@@ -112,7 +110,7 @@ const Shop = () => {
         const pageItems = items.slice(0, items.length < 49 ? items.length : 49);
         setItems(pageItems.map((item) => (
             <Col sm={4} key={item._id} className='itemStyle'>
-                <img src={item.image[0]} alt={item.productName} id={item._id} onClick={productClick} style={{"maxWidth":"100%", "height": "50%"}} />
+                <img src={item.image[0]} alt={item.productName} id={item._id} onClick={productClick} onError={(e) => { e.target.onerror = null; e.target.src = noImage }} style={{"maxWidth":"100%", "height": "50%"}} />
                 <p>{item.productName}</p>
                 <p>{item.condition}</p>
                 <p>{parseFloat(item.price.$numberDecimal)}</p>
@@ -146,13 +144,13 @@ const Shop = () => {
                 <Modal isOpen={modal} toggle={toggle} className='modalStyle'>
                     <ModalHeader toggle={toggle}>{modalItem.productName}</ModalHeader>
                     <ModalBody>
-                        <img src={modalItem.image[0] === 'string' ? modalItem.image[0] : noImage} alt={modalItem.productName} style={{"width": "100%"}} />
+                        <img src={modalItem.image[0]} alt={modalItem.productName} onError={(e) => { e.target.onerror = null; e.target.src = noImage }} style={{"width": "100%"}} />
                         <p>{modalItem.productName}</p>
                         <p>{modalItem.condition}</p>
                         <p>{parseFloat(modalItem.price.$numberDecimal)}</p>
                     </ModalBody>
                     <ModalFooter>
-                        <input type="number" defaultValue={1} min={1} max={modalItem.quantity} value={quantity} onChange={(e) => console.log(e.target.value)} />
+                        <input type="number" defaultValue={1} min={1} max={modalItem.quantity} value={quantity} onChange={(e) => setQuantity(e.target.value)} />
                         <Button color="primary" id={modalItem._id} onClick={(e) => handleAddCart(e)}>Add to Cart</Button>{' '} 
                         {/* Change onclick to new function that will add to cart */}
                     </ModalFooter>
