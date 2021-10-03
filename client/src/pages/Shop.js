@@ -203,8 +203,6 @@ const Shop = () => {
         colorSetDropdown(colors)
     }
 
-
-
     useEffect(() => {
         fetchData();
         fetchCategories();
@@ -321,4 +319,4 @@ const Shop = () => {
     )
 }
 
-// export default Shop;
+export default Shop;
