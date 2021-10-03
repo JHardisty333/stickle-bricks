@@ -109,10 +109,15 @@ const Shop = () => {
         } if (typeFilter) {
             search.type = typeFilter.toUpperCase();
         }
-        const response = await searchItemsApi(search);
-        if(!response.ok) return alert('An error has occurred attempting to search!')
-        const items = await response.json();
-        loadItems(items);
+        console.log(search)
+        if (search === {}) {
+            fetchData();
+        } else {
+            const response = await searchItemsApi(search);
+            if (!response.ok) return alert('An error has occurred attempting to search!')
+            const items = await response.json();
+            loadItems(items);
+        }
     }
 
     function loadItems(items) {
@@ -169,8 +174,8 @@ const Shop = () => {
                 <Row>
                     <Col sm={3} style={{ 'color': 'black' }}>
                         {/* categories and types search options */}
-                        <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}>
-                            <option value={null}>All Categories</option>
+                        <select value={categoryFilter} onChange={(e) => e.target.value === 'All Categories' ? setCategoryFilter(null) : setCategoryFilter(e.target.value)}>
+                            <option value={'All Categories'}>All Categories</option>
                             {category}
                         </select>
                     </Col>
