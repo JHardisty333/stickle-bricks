@@ -161,82 +161,84 @@ const Shop = () => {
     }, // eslint-disable-next-line react-hooks/exhaustive-deps
         [])
 
+
     return ( //STYLE ME
-        <Container> 
-            <Row id="top">
-                <input type="text" value={searchTerm} onChange={(e) => {console.log(e.target.value); e.target.value ? setSearchTerm(e.target.value) : setSearchTerm(null)}}></input>
-                <button type='button' onClick={runSearch()}>Search</button>
-                {/* searchbar and sort options */}
-            </Row>
-            <Row>
-                <Col sm={3} style={{'color': 'black'}}>
-                    {/* categories and types search options */}
-                    <Dropdown isOpen={catDropdown} toggle={catToggle}>
-                        <DropdownToggle caret>
-                            Categories
-                        </DropdownToggle>
-                        <DropdownMenu>
-                            <DropdownItem selected value={null}>All Categories</DropdownItem>
-                            {category}
-                        </DropdownMenu>
-                    </Dropdown>
-                </Col>
-                <Col sm={9}>
-                    <Row className="d-flex">
-                        {Items}
-                    </Row>
-                </Col>
-            </Row>
+        <Container fluid className="shop-body">
+            <Container className="shop-contain">
+                <Row id="top">
+                    <input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
+                    <button type='button' id="search" onClick={(e) => runSearch(e.target.id)}>Search</button>
+                    {/* searchbar and sort options */}
+                </Row>
+                <Row>
+                    <Col sm={3} style={{ 'color': 'black' }}>
+                        {/* categories and types search options */}
+                        <Dropdown isOpen={catDropdown} toggle={catToggle}>
+                            <DropdownToggle caret>
+                                Categories
+                            </DropdownToggle>
+                            <DropdownMenu>
+                                {category}
+                            </DropdownMenu>
+                        </Dropdown>
+                    </Col>
+                    <Col sm={9}>
+                        <Row className="d-flex">
+                            {Items}
+                        </Row>
+                    </Col>
+                </Row>
 
-            <div>
-                <Modal isOpen={modal} toggle={toggle} className='modalStyle'>
-                    <ModalHeader toggle={toggle}>{modalItem.productName}</ModalHeader>
-                    <ModalBody>
-                        <img src={modalItem.image[0]} alt={modalItem.productName} onError={(e) => { e.target.onerror = null; e.target.src = noImage }} style={{ "width": "100%" }} />
-                        <p>{modalItem.productName}</p>
-                        <p>{modalItem.condition}</p>
-                        <p>{parseFloat(modalItem.price.$numberDecimal)}</p>
-                    </ModalBody>
-                    <ModalFooter>
-                        <input type="number" defaultValue={1} min={1} max={modalItem.quantity} value={quantity} onChange={(e) => setQuantity(e.target.value)} />
-                        <Button color="primary" id={modalItem._id} onClick={(e) => handleAddCart(e)}>Add to Cart</Button>{' '}
-                        {/* Change onclick to new function that will add to cart */}
-                    </ModalFooter>
-                </Modal>
-            </div>
+                <div>
+                    <Modal isOpen={modal} toggle={toggle} className='modalStyle'>
+                        <ModalHeader toggle={toggle}>{modalItem.productName}</ModalHeader>
+                        <ModalBody>
+                            <img src={modalItem.image[0]} alt={modalItem.productName} onError={(e) => { e.target.onerror = null; e.target.src = noImage }} style={{ "width": "100%" }} />
+                            <p>{modalItem.productName}</p>
+                            <p>{modalItem.condition}</p>
+                            <p>{parseFloat(modalItem.price.$numberDecimal)}</p>
+                        </ModalBody>
+                        <ModalFooter>
+                            <input type="number" defaultValue={1} min={1} max={modalItem.quantity} value={quantity} onChange={(e) => setQuantity(e.target.value)} />
+                            <Button color="primary" id={modalItem._id} onClick={(e) => handleAddCart(e)}>Add to Cart</Button>{' '}
+                            {/* Change onclick to new function that will add to cart */}
+                        </ModalFooter>
+                    </Modal>
+                </div>
 
-            <Row className="d-flex">
-                <a href="#top">
-                    <button id='start' onClick={(e) => setCurrentIndex(0)} disabled={currentIndex === 0}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3em" id='start' fill="currentColor" className="" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
-                            <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
-                        </svg>
-                    </button>
-                </a>
-                <a href="#top">
-                    <button id='minus' onClick={(e) => setCurrentIndex(currentIndex - 1)} disabled={currentIndex === 0}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3em" fill="currentColor" id='minus' className="" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
-                        </svg>
-                    </button>
-                </a>
-                <a href="#top">
-                    <button id='plus' onClick={(e) => setCurrentIndex(currentIndex + 1)} disabled={currentIndex === maxIndex}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3em" fill="currentColor" id='plus' className="" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
-                        </svg>
-                    </button>
-                </a>
-                <a href="#top">
-                    <button id='end' onClick={(e) => setCurrentIndex(maxIndex)} disabled={currentIndex === maxIndex}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3em" id='end' fill="currentColor" className="" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z" />
-                            <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
-                        </svg>
-                    </button>
-                </a>
-            </Row>
+                <Row className="d-flex">
+                    <a href="#top">
+                        <button id='start' onClick={(e) => { setCurrentIndex(0); pagination(e) }} disabled={currentIndex === 0}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3em" id='start' fill="currentColor" className="" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                                <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                            </svg>
+                        </button>
+                    </a>
+                    <a href="#top">
+                        <button id='minus' onClick={(e) => { setCurrentIndex(currentIndex - 1); pagination(e) }} disabled={currentIndex === 0}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3em" fill="currentColor" id='minus' className="" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                            </svg>
+                        </button>
+                    </a>
+                    <a href="#top">
+                        <button id='plus' onClick={(e) => { setCurrentIndex(currentIndex + 1); pagination(e) }} disabled={currentIndex === maxIndex}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3em" fill="currentColor" id='plus' className="" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                            </svg>
+                        </button>
+                    </a>
+                    <a href="#top">
+                        <button id='end' onClick={(e) => { setCurrentIndex(maxIndex); pagination(e) }} disabled={currentIndex === maxIndex}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3em" id='end' fill="currentColor" className="" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z" />
+                                <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
+                            </svg>
+                        </button>
+                    </a>
+                </Row>
+            </Container>
         </Container>
     )
 }
