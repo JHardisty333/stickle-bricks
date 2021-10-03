@@ -22,32 +22,35 @@ const Login = () => {
             setEmail('');
             setPassword('');
             localStorage.setItem('jwt', data);
-            window.location('/store');
+            window.location('/shop');
         }
         
     }
 
     return (
         <div className="login-body">
+            <div className="login-body-pic">
             <section className="login">
-                <div className="row" style={{ }}>
+                {/* <div className="row" style={{ }}> */}
                 <div className="login1">
                     {/* <form className="login1" style={{ "backgroundColor": "white", "borderRadius": "10px" }} onSubmit={handleSubmit}> */}
                         <div className="login2">
                             <label htmlFor="email" className="form-label">Email </label>
-                            <input type="email" className="form-control" value={email} onChange={(e) => setEmail(e.target.value)} />
+                            <input type="email" placeHolder="Email Address" className="form-control" value={email} onChange={(e) => setEmail(e.target.value)} />
                         </div>
-                        <div className="mb-3">
+                        <div className="login2">
                             <label htmlFor="password" className="form-label" >Password</label>
-                            <input type="password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} />
+                            <input type="password" placeHolder="Password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} />
                         </div>
-                        <button color="" size="sm" type="submit" disabled={!validateForm()}>Submit</button>
-                        <a href="/signup"><button type="button" size="sm">Signup</button>
+                        <button className="loginButton" type="submit" disabled={!validateForm()}>Submit</button>
+                        <a href="/signup">
+                            <button className="loginButton" type="button">Signup</button>
                         </a>
                     {/* </form> */}
                 </div>
-                </div>
+                {/* </div> */}
             </section>
+            </div>
         </div>
 
 
