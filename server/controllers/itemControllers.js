@@ -27,45 +27,41 @@ const itemController = {
             .catch(err => res.status(500).json({ error: err }));
     },
     searchItems(req, res) {
-        Item.find(
-            { $text: { $search: req.body.search } },
-            { score: { $meta: "textScore" } }
-        ).sort({ score: { $meta: "textScore" } })
-        .select('-__v -score')
-            .then(itemData => {
-                res.status(200).json(itemData);
-            })
-            .catch(err => res.status(500).json({error: err}));
+        let search = {}
+        if (req.body.search) {
+            search.$text = { $search: req.body.search };
+        } if (req.body.category) {
+            search.categoryId = req.body.category;
+        } if (req.body.color) {
+            search.colorId = req.body.color;
+        } if (req.body.type) {
+            search.itemType = req.body.type.toUpperCase();
+        }
+        if (req.body.search){
+            Item.find(
+                search,
+                { score: { $meta: "textScore" } }
+            ).sort({ score: { $meta: "textScore" } })
+                .select('-__v -score')
+                .then(itemData => {
+                    res.status(200).json(itemData);
+                })
+                .catch(err => res.status(500).json({ error: err }));
+        }
+        else {
+            Item.find(search)
+                .select('-__v')
+                .then(itemData => {
+                    res.status(200).json(itemData);
+                })
+                .catch(err => res.status(500).json({ error: err }));
+        }       
     },
     itemTypes(req, res) {
         res.json(types);
     },
-    itemsByType(req, res) {
-        Item.find({
-            itemType: req.params.type.toUpperCase()
-        })
-            .then(itemData => res.json(itemData))
-            .catch(err => res.status(500).json({error: err}));
-    },
-    itemsByCategory(req, res) {
-        Item.find({
-            categoryId: req.params.id
-        })
-            .select('-__v')
-            .then(itemData => res.json(itemData))
-            .catch(err => res.status(500).json({error: err}));
-    },
     itemColors(req, res) {
         res.json(colors);
-    },
-    itemsByColor(req, res) {
-        Item.find({
-            colorId: req.params.id
-        })
-            .then(itemData => {
-                res.json(itemData)
-            })
-            .catch(err => res.status(500).json({error: err}));
     },
     featuredItems(req, res) {
         Item.find({featured: true})
