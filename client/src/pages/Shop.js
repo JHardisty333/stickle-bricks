@@ -391,10 +391,15 @@ const Shop = () => {
         } if (typeFilter) {
             search.type = typeFilter.toUpperCase();
         }
-        const response = await searchItemsApi(search);
-        if (!response.ok) return alert('An error has occurred attempting to search!')
-        const items = await response.json();
-        loadItems(items);
+        console.log(search)
+        if (search === {}) {
+            fetchData();
+        } else {
+            const response = await searchItemsApi(search);
+            if (!response.ok) return alert('An error has occurred attempting to search!')
+            const items = await response.json();
+            loadItems(items);
+        }
     }
 
     function loadItems(items) {
@@ -493,22 +498,22 @@ const Shop = () => {
                     <Col sm={3} style={{ 'color': 'black' }}>
                         {/* categories and types search options */}
                         <div>
-                            <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}>
-                                <option value={null}>All Categories</option>
+                            <select value={categoryFilter} onChange={(e) => (e) => e.target.value === 'All Categories' ? setCategoryFilter(null) : setCategoryFilter(e.target.value)}>
+                                <option value={'All Categories'}>All Categories</option>
                                 {category}
                             </select>
                         </div>
 
                         <div>
-                            <select value={typeFilter} onChange={(e) => setTypeFilter(e.target.value)}>
-                                <option value={null}>All Types</option>
+                            <select value={typeFilter} onChange={(e) => e.target.value === 'All Types' ? setTypeFilter(null) : setTypeFilter(e.target.value)}>
+                                <option value={'All Types'}>All Types</option>
                                 {type}
                             </select>
                         </div>
 
                         <div>
-                            <select value={colorFilter} onChange={(e) => setColorFilter(e.target.value)}>
-                                <option value={null}>All Colors</option>
+                            <select value={colorFilter} onChange={(e) => e.target.value === 'All Colors' ? setColorFilter(null) : setColorFilter(e.target.value)}>
+                                <option value={'All Colors'}>All Colors</option>
                                 {color}
                             </select>
                         </div>
