@@ -650,7 +650,49 @@ footer {
 
 /* ----- End Contact Us ----- */
 
+/* --------------------------------------- */
+/* -----  Tearms and Conditions ----- */
+/* --------------------------------------- */
 
+.terms-body {
+    background-color: var(--raw-sienna);
+}
+
+.terms-body-pic {
+    background-image:url('./assets/img/stormTropper.jpg');
+    max-height: fit-content;
+    background-position:left;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.terms{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.termsCon{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: var(--white);
+    padding: 40px 30px;
+    color: var(--black);
+    font-family: 'HelveticaNCB';
+    font-size: var(--font-size-s);
+    width: 700px;
+    margin: 12rem 8rem 40rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}
+
+.terms-text{
+    text-align: center;
+}
+
+/* ----- End Terms and Conditions ----- */
 
 /* --------------------------------------- */
 /* ----- Media Queries ----- */

@@ -24,7 +24,7 @@ const Login = () => {
         } else {
             setEmail('');
             setPassword('');
-            localStorage.setItem('jwt', data);
+            localStorage.setItem('stickleBrick-jwt', data);
             history.push('/shop');
         }
 
