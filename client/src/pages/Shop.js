@@ -205,10 +205,10 @@ const Shop = () => {
 
     return ( //STYLE ME
         <Container fluid className="shop-body" style={{ "minHeight": "80vh" }}>
-            <div style={{"minHeight": "3vh"}}></div>
+            <div style={{"minHeight": "5vh"}}></div>
             <Container className="shop-contain">
-                <Row id="top" className="searchbar">
-                    <input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
+                <Row id="top">
+                    <input className="form-control" type="text" id="searchbar" placeholder="Search by color, name, or lego part #" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
                     <button type='button' id="search" onClick={(e) => runSearch(e.target.id)}>Search</button>
                     {/* searchbar and sort options */}
                 </Row>
