@@ -38,7 +38,13 @@ const itemController = {
             .catch(err => res.status(500).json({error: err}));
     },
     itemTypes(req, res) {
-        res.json(types);
+        Item.find({})
+        .select('-__v -_id')
+            .then(typeData => {
+                typeData = typeData.sort((a, b) => (a.typeName > b.typeName) ? 1 : ((b.typeName > a.typeName) ? -1 : 0));
+                res.status(200).json(typeData)
+            })
+            .catch(err => res.status(500).json(err));
     },
     itemsByType(req, res) {
         Item.find({

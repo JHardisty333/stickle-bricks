@@ -16,8 +16,14 @@ import {
     DropdownMenu,
     DropdownToggle
 } from 'reactstrap';
-import { itemsApi, itemApi, addCartApi, categoryApiCall } from "../utils/api";
-// import { getCategories } from '../../../server/controllers/categoryController';
+import { 
+    itemsApi, 
+    itemApi, 
+    addCartApi, 
+    categoryApiCall,
+    allItemTypesApi,
+    itemAllColorsApi
+ } from "../utils/api";
 
 
 
@@ -85,6 +91,9 @@ const Shop = () => {
         )))
     }, [currentIndex])
 
+
+
+    // ADD TO CART FUNCTION
     const history = useHistory()
     const [quantity, setQuantity] = useState(1)
 
@@ -101,12 +110,42 @@ const Shop = () => {
         }
     }
 
+    // MODAL POPOUT FOR ITEMVIEW
     const productClick = async (event) => { // to open modal
         const response = await itemApi(event.target.id)
         if (!response.ok) return alert('an error has occurred')
         const item = await response.json();
         setModalItem(item)// this should reference the item index
         toggle()
+    }
+
+    // CATEGORY DROP DOWN
+    const [category, setCategory] = useState((<DropdownItem disabled>Categories</DropdownItem>))
+
+    async function fetchCategories() {
+        const response = await categoryApiCall();
+        if (!response.ok) alert('error has occurred')
+        const categories = await response.json();
+        console.log(categories)
+        setCategory(categories.map((category) => (
+            <DropdownItem key={category.categoryId} id={category.categoryId} value={category.categoryName}>{category.categoryName}</DropdownItem>
+        )))
+
+        catSetDropdown(categories);
+        catToggle();
+    }
+
+    // TYPES DROP DOWN
+    const [type, setType] = useState((<DropdownItem disabled>Product Types</DropdownItem>))
+    async function fetchTypes() {
+        const response = await itemAllColorsApi();
+        if(!response.ok) alert('error has occurred')
+        const types =  response.json();
+        console.log(types)
+        setType(types.map((type) => (
+            <DropdownItem key={type.categoryId} id={category.categoryId} value={type.itemType}>{item.itemType}</DropdownItem>
+
+        )))
     }
 
     async function fetchData() {
@@ -126,20 +165,7 @@ const Shop = () => {
         )))
     }
 
-    const [category, setCategory] = useState((<DropdownItem disabled>Categories</DropdownItem>))
-
-    async function fetchCategories() {
-        const response = await categoryApiCall();
-        if (!response.ok) alert('error has occurred')
-        const categories = await response.json();
-        console.log(categories)
-        setCategory(categories.map((category) => (
-            <DropdownItem key={category.categoryId} id={category.categoryId} value={category.categoryName}>{category.categoryName}</DropdownItem>
-        )))
-
-        catSetDropdown(categories);
-        catToggle();
-    }
+    
 
     useEffect(() => {
         fetchData();
