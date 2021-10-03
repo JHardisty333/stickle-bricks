@@ -5,10 +5,7 @@ const {
     getOneItem,
     searchItems,
     itemTypes,
-    itemsByType,
-    itemsByCategory,
     itemColors,
-    itemsByColor,
     featuredItems,
     addItem, 
     updateItemInfo
@@ -26,18 +23,9 @@ router.route('/search')
 router.route('/type')
 .get(itemTypes); // ✓
 
-router.route('/type/:type')
-.get(itemsByType); // ✓ - searches by type name aka part, minifig, set, etc
-
-router.route('/category/:id')
-.get(itemsByCategory); // ✓ - searches based off of categoryId
-
 router.route('/color') //secondary 
 .get(itemColors); // ✓ - gets a list of all colors available / that lego makes, including color_id, color_name, color_code (hex code)
  
-router.route('/color/:id') //secondary
-.get(itemsByColor); // ✓ - searches based off of categoryId. Should be used with itemColors
-
 router.route('/featured')
 .get(featuredItems); // ✓
 

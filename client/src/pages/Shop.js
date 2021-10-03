@@ -30,7 +30,10 @@ const Shop = () => {
     const [Items, setItems] = useState((<Spinner color="dark" className="my-5 p-4 mx-auto" />)); // current items displayed on page
     const [maxIndex, setMaxIndex] = useState(1);
     const [currentIndex, setCurrentIndex] = useState(0)
-    const [searchTerm, setSearchTerm] = useState();
+    const [searchTerm, setSearchTerm] = useState(null);
+    const [colorFilter, setColorFilter] = useState(null);
+    const [categoryFilter, setCategoryFilter] = useState(null);
+    const [typeFilter, setTypeFilter] =useState(null);
     const [modalItem, setModalItem] = useState({
         "_id": "",
         "productName": "",
@@ -57,17 +60,13 @@ const Shop = () => {
         "id": ""
     });
 
-    async function pagination(e) {
-        const indexType = e.target.id;
-        setItems((<Spinner color="dark" className="my-5 p-4 mx-auto" />))
-    }
-
     useEffect(() => {
         let pageItems;
         if (currentIndex === maxIndex) {
-            pageItems = totalItems.slice(0 + (50 * currentIndex), maxIndex);
+            pageItems = totalItems.slice(0 + (60 * currentIndex), maxIndex);
         }
-        pageItems = totalItems.slice(0 + (50 * currentIndex), 49 + (50 * currentIndex));
+
+        pageItems = totalItems.slice(0 + (60 * currentIndex), 60 + (60 * currentIndex));
         setItems(pageItems.map((item) => ( //STYLE ME
             <Col sm={4} key={item._id} className='itemStyle'>
                 <img src={item.image[0]} alt={item.productName} id={item._id} onClick={productClick} onError={(e) => { e.target.onerror = null; e.target.src = noImage }} style={{ "maxWidth": "100%", "height": "50%" }} />
@@ -102,24 +101,25 @@ const Shop = () => {
         toggle()
     }
 
-    async function runSearch(id) {
-        let items;
-        if (id === "search") {
-            const data = searchItemsApi(searchTerm)
-        } else if (id === 'categories') {
-
-        } else if (id === 'types') {
-
+    async function runSearch() {
+        let search = {}
+        if (searchTerm) {
+            search.search = searchTerm;
+        } if (categoryFilter) {
+            search.category = categoryFilter;
+        } if (colorFilter) {
+            search.color = colorFilter;
+        } if (typeFilter) {
+            search.type = typeFilter.toUpperCase();
         }
+        console.log(search)
     }
 
-    async function fetchData() {
-        const response = await itemsApi()
-        if (!response.ok) alert('an error has occurred')
-        const items = await response.json();
+    function loadItems(items) {
         setTotalItems(items);
-        setMaxIndex((Math.ceil(items.length / 50) - 1))
-        const pageItems = items.slice(0, items.length < 49 ? items.length : 49);
+        setMaxIndex((Math.ceil(items.length / 60) - 1 ));
+        setCurrentIndex(0);
+        const pageItems = items.slice(0, items.length < 60 ? items.length : 60);
         setItems(pageItems.map((item) => (  //STYLE ME
             <Col sm={4} key={item._id} className='itemStyle'>
                 <img src={item.image[0]} alt={item.productName} id={item._id} onClick={productClick} onError={(e) => { e.target.onerror = null; e.target.src = noImage }} style={{ "maxWidth": "100%", "height": "50%" }} />
@@ -130,7 +130,14 @@ const Shop = () => {
         )))
     }
 
-    const [category, setCategory] = useState((<DropdownItem disabled>Categories</DropdownItem>))
+    async function fetchData() {
+        const response = await itemsApi();
+        if (!response.ok) alert('an error has occurred');
+        const items = await response.json();
+        loadItems(items);
+    }
+
+    const [category, setCategory] = useState()
 
     async function fetchCategories() {
         const response = await categoryApiCall();
@@ -142,7 +149,6 @@ const Shop = () => {
         )))
 
         catSetDropdown(categories);
-        catToggle();
     }
 
     useEffect(() => {
