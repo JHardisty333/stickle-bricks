@@ -42,7 +42,7 @@ const Login = () => {
                             <label htmlFor="password" className="form-label" >Password</label>
                             <input type="password" placeHolder="Password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} />
                         </div>
-                        <button className="loginButton" type="submit" disabled={!validateForm()}>Submit</button>
+                        <button className="loginButton" type="submit" onClick={handleSubmit} disabled={!validateForm()}>Submit</button>
                         <a href="/signup">
                             <button className="loginButton" type="button">Signup</button>
                         </a>
