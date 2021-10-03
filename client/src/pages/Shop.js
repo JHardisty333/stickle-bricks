@@ -67,7 +67,7 @@ const Shop = () => {
 
         const pageItems = totalItems.slice(pageIndex[0], pageIndex[1]);
         setItems(pageItems.map((item, index) => (
-            <div key={item._id} className='itemStyle'>
+            <div key={item._id}  className='itemStyle'>
                 <img src={item.image[0]} alt={item.productName} id={index} onClick={(e) => productClick(e)} style={{}} />
                 <p>{item.productName}</p>
                 <p>{item.condition}</p>
@@ -100,7 +100,7 @@ const Shop = () => {
         console.log(totalItems)
         setItems(pageItems.map((item, index) => (
             <div key={item._id} className='itemStyle'>
-                <img src={item.image[0]} alt={item.productName} id={index} onClick={productClick} style={{}} />
+                <img src={item.image[0]} alt={item.productName} id={index}  onClick={productClick} style={{}} />
                 <p>{item.productName}</p>
                 <p>{item.condition}</p>
                 <p>{parseFloat(item.price.$numberDecimal)}</p>
@@ -120,13 +120,12 @@ const Shop = () => {
                 <Modal isOpen={modal} toggle={toggle} className='modalStyle'>
                     <ModalHeader toggle={toggle}>{modalItem.productName}</ModalHeader>
                     <ModalBody>
-                        <img src={modalItem.image} alt={modalItem.productName} style={{}} />
-                        <p>{modalItem.productName}</p>
-                        <p>{modalItem.condition}</p>
-                        <p>{parseFloat(modalItem.price.$numberDecimal)}</p>
-                    </ModalBody>
+                    {/* <img src={modalItem.image[0]} alt={modalItem.productName} id={index} style={{}} /> */}
+                <p>{modalItem.productName}</p>
+                <p>{modalItem.condition}</p>
+                <p>{parseFloat(modalItem.price.$numberDecimal)}</p>                    </ModalBody>
                     <ModalFooter>
-                        <Button color="primary" value={modalItem._id} onClick={toggle}>Add to Cart</Button>{' '}
+                        <Button color="primary" value={modalItem._id} onClick={toggle}>Add to Cart</Button>{' '} 
                         {/* Change onclick to new function that will add to cart */}
                     </ModalFooter>
                 </Modal>
