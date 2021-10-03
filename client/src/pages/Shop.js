@@ -10,11 +10,7 @@ import {
     Container,
     Spinner,
     Col,
-    Row,
-    Dropdown,
-    DropdownItem,
-    DropdownMenu,
-    DropdownToggle
+    Row
 } from 'reactstrap';
 import {
     itemsApi,
@@ -27,7 +23,6 @@ import {
 } from "../utils/api";
 
 const Shop = () => {
-    //modal controls
     const [totalItems, setTotalItems] = useState([]) //current array of items 
     const [Items, setItems] = useState((<Spinner color="dark" className="my-5 p-4 mx-auto" />)); // current items displayed on page
     const [maxIndex, setMaxIndex] = useState(1);
@@ -77,7 +72,6 @@ const Shop = () => {
             </Col>
         )))
     }, [currentIndex])
-
 
 
     // ADD TO CART FUNCTION
@@ -199,16 +193,13 @@ const Shop = () => {
         colorSetDropdown(colors)
     }
 
-
-
     useEffect(() => {
         fetchData();
         fetchCategories();
+        fetchAllTypes();
+        fetchAllColors();
     }, // eslint-disable-next-line react-hooks/exhaustive-deps
         [])
-    fetchAllTypes();
-    fetchAllColors();
-
 
     return ( //STYLE ME
         <Container fluid className="shop-body">
@@ -245,13 +236,13 @@ const Shop = () => {
                             </select>
                         </div>
                     </Col>
+                
+                    <Col sm={9}>
+                        <Row className="d-flex">
+                            {Items}
+                        </Row>
+                    </Col>
                 </Row>
-
-                <Col sm={9}>
-                    <Row className="d-flex">
-                        {Items}
-                    </Row>
-                </Col>
 
                 <div>
                     <Modal isOpen={modal} toggle={toggle} className='modalStyle'>
