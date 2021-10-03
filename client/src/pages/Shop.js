@@ -16,16 +16,7 @@ import {
     DropdownMenu,
     DropdownToggle
 } from 'reactstrap';
-import { 
-    itemsApi, 
-    itemApi, 
-    addCartApi, 
-    categoryApiCall,
-    allItemTypesApi,
-    itemAllColorsApi
- } from "../utils/api";
-
-
+import { itemsApi, itemApi, addCartApi, searchItemsApi, categoryApiCall } from "../utils/api";
 
 const Shop = () => {
     //modal controls
@@ -39,6 +30,10 @@ const Shop = () => {
     const [Items, setItems] = useState((<Spinner color="dark" className="my-5 p-4 mx-auto" />)); // current items displayed on page
     const [maxIndex, setMaxIndex] = useState(1);
     const [currentIndex, setCurrentIndex] = useState(0)
+    const [searchTerm, setSearchTerm] = useState(null);
+    const [colorFilter, setColorFilter] = useState(null);
+    const [categoryFilter, setCategoryFilter] = useState(null);
+    const [typeFilter, setTypeFilter] =useState(null);
     const [modalItem, setModalItem] = useState({
         "_id": "",
         "productName": "",
@@ -65,23 +60,14 @@ const Shop = () => {
         "id": ""
     });
 
-
-
-    async function pagination(e) {
-        const indexType = e.target.id;
-        setItems((<Spinner color="dark" className="my-5 p-4 mx-auto" />))
-
-    }
-
     useEffect(() => {
-        console.log('After: ' + currentIndex)
         let pageItems;
         if (currentIndex === maxIndex) {
-            pageItems = totalItems.slice(0 + (50 * currentIndex), maxIndex);
+            pageItems = totalItems.slice(0 + (60 * currentIndex), maxIndex);
         }
-        pageItems = totalItems.slice(0 + (50 * currentIndex), 49 + (50 * currentIndex));
-        console.log(pageItems[14])
-        setItems(pageItems.map((item) => (
+
+        pageItems = totalItems.slice(0 + (60 * currentIndex), 60 + (60 * currentIndex));
+        setItems(pageItems.map((item) => ( //STYLE ME
             <Col sm={4} key={item._id} className='itemStyle'>
                 <img src={item.image[0]} alt={item.productName} id={item._id} onClick={productClick} onError={(e) => { e.target.onerror = null; e.target.src = noImage }} style={{ "maxWidth": "100%", "height": "50%" }} />
                 <p>{item.productName}</p>
@@ -119,8 +105,43 @@ const Shop = () => {
         toggle()
     }
 
-    // CATEGORY DROP DOWN
-    const [category, setCategory] = useState((<DropdownItem disabled>Categories</DropdownItem>))
+    async function runSearch() {
+        let search = {}
+        if (searchTerm) {
+            search.search = searchTerm;
+        } if (categoryFilter) {
+            search.category = categoryFilter;
+        } if (colorFilter) {
+            search.color = colorFilter;
+        } if (typeFilter) {
+            search.type = typeFilter.toUpperCase();
+        }
+        console.log(search)
+    }
+
+    function loadItems(items) {
+        setTotalItems(items);
+        setMaxIndex((Math.ceil(items.length / 60) - 1 ));
+        setCurrentIndex(0);
+        const pageItems = items.slice(0, items.length < 60 ? items.length : 60);
+        setItems(pageItems.map((item) => (  //STYLE ME
+            <Col sm={4} key={item._id} className='itemStyle'>
+                <img src={item.image[0]} alt={item.productName} id={item._id} onClick={productClick} onError={(e) => { e.target.onerror = null; e.target.src = noImage }} style={{ "maxWidth": "100%", "height": "50%" }} />
+                <p>{item.productName}</p>
+                <p>{item.condition}</p>
+                <p>{parseFloat(item.price.$numberDecimal)}</p>
+            </Col>
+        )))
+    }
+
+    async function fetchData() {
+        const response = await itemsApi();
+        if (!response.ok) alert('an error has occurred');
+        const items = await response.json();
+        loadItems(items);
+    }
+
+    const [category, setCategory] = useState()
 
     async function fetchCategories() {
         const response = await categoryApiCall();
@@ -132,40 +153,7 @@ const Shop = () => {
         )))
 
         catSetDropdown(categories);
-        catToggle();
     }
-
-    // TYPES DROP DOWN
-    const [type, setType] = useState((<DropdownItem disabled>Product Types</DropdownItem>))
-    async function fetchTypes() {
-        const response = await itemAllColorsApi();
-        if(!response.ok) alert('error has occurred')
-        const types =  response.json();
-        console.log(types)
-        setType(types.map((type) => (
-            <DropdownItem key={type.categoryId} id={category.categoryId} value={type.itemType}>{item.itemType}</DropdownItem>
-
-        )))
-    }
-
-    async function fetchData() {
-        const response = await itemsApi()
-        if (!response.ok) alert('an error has occurred')
-        const items = await response.json();
-        setTotalItems(items);
-        setMaxIndex((Math.ceil(items.length / 50) - 1))
-        const pageItems = items.slice(0, items.length < 49 ? items.length : 49);
-        setItems(pageItems.map((item) => (
-            <Col sm={4} key={item._id} className='itemStyle'>
-                <img src={item.image[0]} alt={item.productName} id={item._id} onClick={productClick} onError={(e) => { e.target.onerror = null; e.target.src = noImage }} style={{ "maxWidth": "100%", "height": "50%" }} />
-                <p>{item.productName}</p>
-                <p>{item.condition}</p>
-                <p>{parseFloat(item.price.$numberDecimal)}</p>
-            </Col>
-        )))
-    }
-
-    
 
     useEffect(() => {
         fetchData();
@@ -173,10 +161,11 @@ const Shop = () => {
     }, // eslint-disable-next-line react-hooks/exhaustive-deps
         [])
 
-    return (
-        <Container>
+    return ( //STYLE ME
+        <Container> 
             <Row id="top">
-                <input type="text"></input>
+                <input type="text" value={searchTerm} onChange={(e) => {console.log(e.target.value); e.target.value ? setSearchTerm(e.target.value) : setSearchTerm(null)}}></input>
+                <button type='button' onClick={runSearch()}>Search</button>
                 {/* searchbar and sort options */}
             </Row>
             <Row>
@@ -187,6 +176,7 @@ const Shop = () => {
                             Categories
                         </DropdownToggle>
                         <DropdownMenu>
+                            <DropdownItem selected value={null}>All Categories</DropdownItem>
                             {category}
                         </DropdownMenu>
                     </Dropdown>
@@ -217,7 +207,7 @@ const Shop = () => {
 
             <Row className="d-flex">
                 <a href="#top">
-                    <button id='start' onClick={(e) => { setCurrentIndex(0); pagination(e) }} disabled={currentIndex === 0}>
+                    <button id='start' onClick={(e) => setCurrentIndex(0)} disabled={currentIndex === 0}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3em" id='start' fill="currentColor" className="" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
                             <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
@@ -225,21 +215,21 @@ const Shop = () => {
                     </button>
                 </a>
                 <a href="#top">
-                    <button id='minus' onClick={(e) => { setCurrentIndex(currentIndex - 1); pagination(e) }} disabled={currentIndex === 0}>
+                    <button id='minus' onClick={(e) => setCurrentIndex(currentIndex - 1)} disabled={currentIndex === 0}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3em" fill="currentColor" id='minus' className="" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
                         </svg>
                     </button>
                 </a>
                 <a href="#top">
-                    <button id='plus' onClick={(e) => { setCurrentIndex(currentIndex + 1); pagination(e) }} disabled={currentIndex === maxIndex}>
+                    <button id='plus' onClick={(e) => setCurrentIndex(currentIndex + 1)} disabled={currentIndex === maxIndex}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3em" fill="currentColor" id='plus' className="" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
                         </svg>
                     </button>
                 </a>
                 <a href="#top">
-                    <button id='end' onClick={(e) => { setCurrentIndex(maxIndex); pagination(e) }}>
+                    <button id='end' onClick={(e) => setCurrentIndex(maxIndex)} disabled={currentIndex === maxIndex}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3em" id='end' fill="currentColor" className="" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z" />
                             <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
@@ -247,21 +237,6 @@ const Shop = () => {
                     </button>
                 </a>
             </Row>
-
-            {/* <Pagination aria-label="Page navigation example">
-                <PaginationItem>
-                    <PaginationLink first value='start' onClick={(e) => pagination(e)} />
-                </PaginationItem>
-                <PaginationItem>
-                    <PaginationLink previous value='plus' onClick={(e) => pagination(e)} />
-                </PaginationItem>
-                <PaginationItem>
-                    <PaginationLink next value='minus' onClick={(e) => pagination(e)} />
-                </PaginationItem>
-                <PaginationItem>
-                    <PaginationLink last value='end' onClick={(e) => pagination(e)} />
-                </PaginationItem>
-            </Pagination> */}
         </Container>
     )
 }

@@ -157,7 +157,7 @@ export const itemsApi = () => { //Get All Items
 }
 
 export const itemApi = (itemId) => { //Get One Item
-    return fetch('/api/item/' + itemId, {
+    return fetch('/api/item/one/' + itemId, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -168,26 +168,13 @@ export const itemApi = (itemId) => { //Get One Item
 }
 
 // /item/search -- search by name
-export const searchItemsApi = (itemName) => {
+export const searchItemsApi = (searchObject) => {
     return fetch('/api/item/search', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-            search: itemName
-        })
-    })
-    
-}
-
-// /items/type/:type -- search by specific item
-export const itemTypeApi = (itemType) => {
-    return fetch('/api/item/type/' + itemType, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
+        body: JSON.stringify(searchObject)
     })
     
 }
@@ -201,18 +188,7 @@ export const allItemTypesApi = () => {
         }
     })
  
-}
-
-// /item/category/:id -- 
-export const itemCategoryApi = (categoryId) => {
-    return fetch('/api/item/category/' + categoryId, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-     
-}
+} 
 
 // /item/color -- all colors
 export const itemAllColorsApi = () => {
@@ -223,17 +199,6 @@ export const itemAllColorsApi = () => {
         }
     })
    
-}
-
-// /item/color/:id -- specific color
-export const itemColorApi = (colorId) => {
-    return fetch('/api/item/color/' + colorId, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-    
 }
 
 // /item/featured
