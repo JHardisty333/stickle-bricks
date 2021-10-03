@@ -1,61 +1,61 @@
-import React, { useState, useEffect } from 'react';
-import noImage from '../utils/noImageFound.jpg'
-import { useHistory } from 'react-router-dom';
-import {
-    Button,
-    Modal,
-    ModalHeader,
-    ModalBody,
-    ModalFooter,
-    Container,
-    Spinner,
-    Col,
-    Row,
-    Dropdown,
-    DropdownItem,
-    DropdownMenu,
-    DropdownToggle
-} from 'reactstrap';
-import { itemsApi, itemApi, addCartApi, searchItemsApi } from "../utils/api";
+// import React, { useState, useEffect } from 'react';
+// import noImage from '../utils/noImageFound.jpg'
+// import { useHistory } from 'react-router-dom';
+// import {
+//     Button,
+//     Modal,
+//     ModalHeader,
+//     ModalBody,
+//     ModalFooter,
+//     Container,
+//     Spinner,
+//     Col,
+//     Row,
+//     Dropdown,
+//     DropdownItem,
+//     DropdownMenu,
+//     DropdownToggle
+// } from 'reactstrap';
+// import { itemsApi, itemApi, addCartApi, searchItemsApi } from "../utils/api";
 
-const Shop = () => {
-    //modal controls
-    const [modal, setModal] = useState(false);
-    const toggle = () => setModal(!modal);
+// const Shop = () => {
+//     //modal controls
+//     const [modal, setModal] = useState(false);
+//     const toggle = () => setModal(!modal);
 
-    const [catDropdown, catSetDropdown] = useState(false);
-    const catToggle = () => catSetDropdown(!catDropdown)
+//     const [catDropdown, catSetDropdown] = useState(false);
+//     const catToggle = () => catSetDropdown(!catDropdown)
 
-    const [totalItems, setTotalItems] = useState([]) //current array of items 
-    const [Items, setItems] = useState((<Spinner color="dark" className="my-5 p-4 mx-auto" />)); // current items displayed on page
-    const [maxIndex, setMaxIndex] = useState(1);
-    const [currentIndex, setCurrentIndex] = useState(0)
-    const [searchTerm, setSearchTerm] = useState();
-    const [modalItem, setModalItem] = useState({
-        "_id": "",
-        "productName": "",
-        "productId": "",
-        "colorId": 0,
-        "colorName": "",
-        "colorCode": "",
-        "itemType": "",
-        "price": {
-            "$numberDecimal": "0.00"
-        },
-        "quantity": 0,
-        "image": [
-            ""
-        ],
-        "condition": "Used",
-        "itemWeight": {
-            "$numberDecimal": "0.00"
-        },
-        "active": true,
-        "featured": false,
-        "categoryId": 0,
-        "date_added": "0",
-        "id": ""
-    });
+//     const [totalItems, setTotalItems] = useState([]) //current array of items 
+//     const [Items, setItems] = useState((<Spinner color="dark" className="my-5 p-4 mx-auto" />)); // current items displayed on page
+//     const [maxIndex, setMaxIndex] = useState(1);
+//     const [currentIndex, setCurrentIndex] = useState(0)
+//     const [searchTerm, setSearchTerm] = useState();
+//     const [modalItem, setModalItem] = useState({
+//         "_id": "",
+//         "productName": "",
+//         "productId": "",
+//         "colorId": 0,
+//         "colorName": "",
+//         "colorCode": "",
+//         "itemType": "",
+//         "price": {
+//             "$numberDecimal": "0.00"
+//         },
+//         "quantity": 0,
+//         "image": [
+//             ""
+//         ],
+//         "condition": "Used",
+//         "itemWeight": {
+//             "$numberDecimal": "0.00"
+//         },
+//         "active": true,
+//         "featured": false,
+//         "categoryId": 0,
+//         "date_added": "0",
+//         "id": ""
+//     });
     
     async function pagination(e) { 
         const indexType = e.target.id;
