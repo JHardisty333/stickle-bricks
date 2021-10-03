@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import noImage from '../utils/noImageFound.jpg'
+import {useHistory} from 'react-router-dom';
 import {
     Button,
     Modal,
@@ -11,7 +12,8 @@ import {
     Col,
     Row
 } from 'reactstrap';
-import { itemsApi, itemApi } from "../utils/api";
+import { itemsApi, itemApi, addCartApi } from "../utils/api";
+
 
 
 const Shop = () => {
@@ -49,6 +51,8 @@ const Shop = () => {
         "id": ""
     });
 
+
+    
     async function pagination(e) { 
         const indexType = e.target.id;
         setItems((<Spinner color="dark" className="my-5 p-4 mx-auto" />))
@@ -72,6 +76,24 @@ const Shop = () => {
             </Col>
         )))
     }, [currentIndex])
+
+    const history = useHistory()
+    const [quantity, setQuantity] = useState(1)
+
+    const handleAddCart = async(event) => {
+        const jwt = localStorage.getItem('jwt')
+
+        console.log(jwt, event.target.id, quantity)
+        if (jwt) {
+            const response = await addCartApi(jwt, event.target.id, quantity)
+            if (!response.ok) return alert('an error has occurred')
+
+        } else {
+            history.push('/login')
+        }
+    }
+
+
 
     const productClick = async (event) => { // to open modal
         const response = await itemApi(event.target.id)
@@ -130,7 +152,8 @@ const Shop = () => {
                         <p>{parseFloat(modalItem.price.$numberDecimal)}</p>
                     </ModalBody>
                     <ModalFooter>
-                        <Button color="primary" value={modalItem._id} onClick={toggle}>Add to Cart</Button>{' '}
+                        <input type="number" defaultValue={1} min={1} max={modalItem.quantity} value={quantity} onChange={(e) => console.log(e.target.value)} />
+                        <Button color="primary" id={modalItem._id} onClick={(e) => handleAddCart(e)}>Add to Cart</Button>{' '} 
                         {/* Change onclick to new function that will add to cart */}
                     </ModalFooter>
                 </Modal>

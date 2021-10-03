@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import {useHistory} from 'react-router-dom'
 import { loginUserApi } from '../utils/api'
 import { Button } from 'reactstrap';
 
@@ -11,6 +12,8 @@ const Login = () => {
         return email.length > 0 && password.length > 0;
     }
 
+    const history = useHistory();
+
     async function handleSubmit(event) {
         event.preventDefault();
         console.log(email, password)
@@ -22,7 +25,7 @@ const Login = () => {
             setEmail('');
             setPassword('');
             localStorage.setItem('jwt', data);
-            window.location('/shop');
+            history.push('/shop');
         }
         
     }
@@ -42,7 +45,7 @@ const Login = () => {
                             <label htmlFor="password" className="form-label" >Password</label>
                             <input type="password" placeHolder="Password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} />
                         </div>
-                        <button className="loginButton" type="submit" disabled={!validateForm()}>Submit</button>
+                        <button className="loginButton" type="submit" onClick={handleSubmit} disabled={!validateForm()}>Submit</button>
                         <a href="/signup">
                             <button className="loginButton" type="button">Signup</button>
                         </a>

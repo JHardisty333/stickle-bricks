@@ -63,6 +63,9 @@ html {
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
+/* ----- End navigation ----- */
+
+
 
 /* --------------------------------------- */
 /* ----- navigation ----- */
@@ -284,6 +287,77 @@ h1 a:hover {
     width: 50%;
     justify-content: center;
 }
+/* --------------------------------------- */
+/* ----- Sign up ----- */
+
+.signup-body {
+    background: linear-gradient(
+      to right,
+      var(--yellow) 0%,
+      var(--yellow) 80%,
+      var(--green) 80%, 
+      var(--green) 100%
+  );
+}
+
+.signup-body-pic {
+  background-image: url('./assets/img/legoFigures.png');
+  height: max-content;
+  background-position:left;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.signup{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.signup1{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  background-color: var(--white);
+  padding: 40px 30px 60px;
+  color: var(--black);
+  font-family: 'HelveticaNCB';
+  font-size: var(--font-size-s);
+  width: 50%;
+  margin: 12rem 8rem 40rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+}
+
+.login2{
+  text-align: center;
+  
+}
+
+.signupButton{
+  background-color: var(--red);
+  border: solid 1.5px var(--dove-gray);
+  padding: 30px;
+  color: var(--alabaster);
+  font-family: 'HelveticaNCB';
+  font-size: var(--font-size-s);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.signupButton:hover {
+  background-color: var(--scooter);
+  transform: scale(1.3);
+}
+
+/* ----- End Footer ----- */
+
+
 
 /* --------------------------------------- */
 /* ----- Footer ----- */
