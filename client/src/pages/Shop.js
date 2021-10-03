@@ -217,7 +217,7 @@ const Shop = () => {
     return ( //STYLE ME
         <Container fluid className="shop-body">
             <Container className="shop-contain">
-                <Row id="top">
+                <Row id="top" className="searchbar">
                     <input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
                     <button type='button' id="search" onClick={(e) => runSearch(e.target.id)}>Search</button>
                     {/* searchbar and sort options */}
