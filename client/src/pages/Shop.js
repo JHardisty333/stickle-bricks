@@ -16,15 +16,21 @@ import {
     DropdownMenu,
     DropdownToggle
 } from 'reactstrap';
-import { itemsApi, itemApi, addCartApi, searchItemsApi, categoryApiCall } from "../utils/api";
+import {
+    itemsApi,
+    itemApi,
+    addCartApi,
+    searchItemsApi,
+    categoryApiCall,
+    allItemTypesApi,
+    itemAllColorsApi
+} from "../utils/api";
 
 const Shop = () => {
     //modal controls
-    const [modal, setModal] = useState(false);
-    const toggle = () => setModal(!modal);
 
-    const [catDropdown, catSetDropdown] = useState(false);
-    const catToggle = () => catSetDropdown(!catDropdown)
+
+
 
     const [totalItems, setTotalItems] = useState([]) //current array of items 
     const [Items, setItems] = useState((<Spinner color="dark" className="my-5 p-4 mx-auto" />)); // current items displayed on page
@@ -33,7 +39,7 @@ const Shop = () => {
     const [searchTerm, setSearchTerm] = useState(null);
     const [colorFilter, setColorFilter] = useState(null);
     const [categoryFilter, setCategoryFilter] = useState(null);
-    const [typeFilter, setTypeFilter] =useState(null);
+    const [typeFilter, setTypeFilter] = useState(null);
     const [modalItem, setModalItem] = useState({
         "_id": "",
         "productName": "",
@@ -76,6 +82,9 @@ const Shop = () => {
         )))
     }, [currentIndex])
 
+
+
+    // ADD TO CART FUNCTION
     const history = useHistory()
     const [quantity, setQuantity] = useState(1)
 
@@ -89,6 +98,10 @@ const Shop = () => {
             history.push('/login');
         }
     }
+
+    // MODAL POPOUT FOR ITEMVIEW
+    const [modal, setModal] = useState(false);
+    const toggle = () => setModal(!modal);
 
     const productClick = async (event) => { // to open modal
         const response = await itemApi(event.target.id)
@@ -122,7 +135,7 @@ const Shop = () => {
 
     function loadItems(items) {
         setTotalItems(items);
-        setMaxIndex((Math.ceil(items.length / 60) - 1 ));
+        setMaxIndex((Math.ceil(items.length / 60) - 1));
         setCurrentIndex(0);
         const pageItems = items.slice(0, items.length < 60 ? items.length : 60);
         setItems(pageItems.map((item) => (  //STYLE ME
@@ -142,6 +155,9 @@ const Shop = () => {
         loadItems(items);
     }
 
+
+    //    CATEGORY DROP DOWN
+    const [catDropdown, catSetDropdown] = useState(false);
     const [category, setCategory] = useState()
 
     async function fetchCategories() {
@@ -156,11 +172,46 @@ const Shop = () => {
         catSetDropdown(categories);
     }
 
+    // TYPES DROP DOWN
+    const [typeDropdown, typeSetDropdown] = useState(false);
+    const [type, setType] = useState()
+
+    async function fetchAllTypes() {
+        const response = await allItemTypesApi();
+        if (!response.ok) alert('An error has occurred!')
+        const types = await response.json();
+        console.log(types)
+        setType(types.map((type) => (
+            <option key={type.itemType} value={type.itemType}>{type.itemType}</option>
+        )))
+        typeSetDropdown(types)
+    }
+
+    const [colorDropdown, colorSetDropdown] = useState(false)
+    const colorToggle = () => colorSetDropdown(!colorDropdown)
+    const [color, setColor] = useState()
+
+    async function fetchAllColors() {
+        const response = await itemAllColorsApi();
+        if (!response.ok) alert('An error has occurred')
+        const colors = await response.json();
+        console.log(colors)
+        setColor(colors.map((color) => (
+            <option key={color.colorId} value={color.colorId}>{color.colorName}</option>
+        )))
+
+        colorSetDropdown(colors)
+    }
+
+
+
     useEffect(() => {
         fetchData();
         fetchCategories();
     }, // eslint-disable-next-line react-hooks/exhaustive-deps
         [])
+    fetchAllTypes();
+    fetchAllColors();
 
 
     return ( //STYLE ME
@@ -171,20 +222,50 @@ const Shop = () => {
                     <button type='button' id="search" onClick={(e) => runSearch(e.target.id)}>Search</button>
                     {/* searchbar and sort options */}
                 </Row>
+
+
+                {/* categories search options */}
                 <Row>
                     <Col sm={3} style={{ 'color': 'black' }}>
                         {/* categories and types search options */}
-                        <select value={categoryFilter} onChange={(e) => e.target.value === 'All Categories' ? setCategoryFilter(null) : setCategoryFilter(e.target.value)}>
-                            <option value={'All Categories'}>All Categories</option>
-                            {category}
-                        </select>
-                    </Col>
-                    <Col sm={9}>
-                        <Row className="d-flex">
-                            {Items}
-                        </Row>
+                        <div>
+                            <select value={categoryFilter} onChange={(e) => (e) => e.target.value === 'All Categories' ? setCategoryFilter(null) : setCategoryFilter(e.target.value)}>
+                                <option value={'All Categories'}>All Categories</option>
+                                {category}
+                            </select>
+                        </div>
+
+                        <div>
+                            <select value={typeFilter} onChange={(e) => e.target.value === 'All Types' ? setTypeFilter(null) : setTypeFilter(e.target.value)}>
+                                <option value={'All Types'}>All Types</option>
+                                {type}
+                            </select>
+                        </div>
+
+                        <div>
+                            <select value={colorFilter} onChange={(e) => e.target.value === 'All Colors' ? setColorFilter(null) : setColorFilter(e.target.value)}>
+                                <option value={'All Colors'}>All Colors</option>
+                                {color}
+                            </select>
+                        </div>
+
+                        
+
+
                     </Col>
                 </Row>
+
+                <Col sm={9}>
+                    <Row className="d-flex">
+                        {Items}
+                    </Row>
+                </Col>
+
+
+
+
+
+
 
                 <div>
                     <Modal isOpen={modal} toggle={toggle} className='modalStyle'>
