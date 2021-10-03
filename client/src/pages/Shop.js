@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {useHistory} from 'react-router-dom';
 import {
     Button,
     Modal,
@@ -102,13 +103,30 @@ const Shop = () => {
             </Col>
         )))
     }
+
     
+    
+    const history = useHistory()
+    const [quantity, setQuantity] = useState(1)
+
+    const handleAddCart = async(event) => {
+        const jwt = localStorage.getItem('jwt')
+
+        console.log(jwt, event.target.id, quantity)
+        if (jwt) {
+            const response = await addCartApi(jwt, event.target.id, quantity)
+            if (!response.ok) return alert('an error has occurred')
+
+        } else {
+            history.push('/login')
+        }
+    }
 
 
 
     const productClick = async (event) => { // to open modal
         const response = await itemApi(event.target.id)
-        if (!response.ok) alert('an error has occurred')
+        if (!response.ok) return alert('an error has occurred')
         const item = await response.json();
         setModalItem(item)// this should reference the item index
         toggle()
@@ -164,7 +182,8 @@ const Shop = () => {
                         <p>{parseFloat(modalItem.price.$numberDecimal)}</p>
                     </ModalBody>
                     <ModalFooter>
-                        <Button color="primary" value={modalItem._id} onClick={addCartApi}>Add to Cart</Button>{' '} 
+                        <input type="number" defaultValue={1} min={1} max={modalItem.quantity} value={quantity} onChange={(e) => console.log(e.target.value)} />
+                        <Button color="primary" id={modalItem._id} onClick={(e) => handleAddCart(e)}>Add to Cart</Button>{' '} 
                         {/* Change onclick to new function that will add to cart */}
                     </ModalFooter>
                 </Modal>
