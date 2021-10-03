@@ -157,7 +157,7 @@ export const itemsApi = () => { //Get All Items
 }
 
 export const itemApi = (itemId) => { //Get One Item
-    return fetch('/api/item/' + itemId, {
+    return fetch('/api/item/one/' + itemId, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'

@@ -16,7 +16,7 @@ import {
     DropdownMenu,
     DropdownToggle
 } from 'reactstrap';
-import { itemsApi, itemApi, addCartApi, searchItemsApi } from "../utils/api";
+import { itemsApi, itemApi, addCartApi, searchItemsApi, categoryApiCall } from "../utils/api";
 
 const Shop = () => {
     //modal controls
@@ -68,7 +68,7 @@ const Shop = () => {
             pageItems = totalItems.slice(0 + (50 * currentIndex), maxIndex);
         }
         pageItems = totalItems.slice(0 + (50 * currentIndex), 49 + (50 * currentIndex));
-        setItems(pageItems.map((item) => (
+        setItems(pageItems.map((item) => ( //STYLE ME
             <Col sm={4} key={item._id} className='itemStyle'>
                 <img src={item.image[0]} alt={item.productName} id={item._id} onClick={productClick} onError={(e) => { e.target.onerror = null; e.target.src = noImage }} style={{ "maxWidth": "100%", "height": "50%" }} />
                 <p>{item.productName}</p>
@@ -120,8 +120,8 @@ const Shop = () => {
         setTotalItems(items);
         setMaxIndex((Math.ceil(items.length / 50) - 1))
         const pageItems = items.slice(0, items.length < 49 ? items.length : 49);
-        setItems(pageItems.map((item) => (
-            <Col sm={4} key={item._id} className='itemStyle'>
+        setItems(pageItems.map((item) => (  //STYLE ME
+            <Col sm={4} key={item._id} className='itemStyle'> 
                 <img src={item.image[0]} alt={item.productName} id={item._id} onClick={productClick} onError={(e) => { e.target.onerror = null; e.target.src = noImage }} style={{ "maxWidth": "100%", "height": "50%" }} />
                 <p>{item.productName}</p>
                 <p>{item.condition}</p>
@@ -151,8 +151,8 @@ const Shop = () => {
     }, // eslint-disable-next-line react-hooks/exhaustive-deps
         [])
 
-    return (
-        <Container>
+    return ( //STYLE ME
+        <Container> 
             <Row id="top">
                 <input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
                 <button type='button' id="search" onClick={(e) => runSearch(e.target.id)}>Search</button>
@@ -218,7 +218,7 @@ const Shop = () => {
                     </button>
                 </a>
                 <a href="#top">
-                    <button id='end' onClick={(e) => { setCurrentIndex(maxIndex); pagination(e) }}>
+                    <button id='end' onClick={(e) => { setCurrentIndex(maxIndex); pagination(e) }} disabled={currentIndex === maxIndex}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3em" id='end' fill="currentColor" className="" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z" />
                             <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
@@ -226,21 +226,6 @@ const Shop = () => {
                     </button>
                 </a>
             </Row>
-
-            {/* <Pagination aria-label="Page navigation example">
-                <PaginationItem>
-                    <PaginationLink first value='start' onClick={(e) => pagination(e)} />
-                </PaginationItem>
-                <PaginationItem>
-                    <PaginationLink previous value='plus' onClick={(e) => pagination(e)} />
-                </PaginationItem>
-                <PaginationItem>
-                    <PaginationLink next value='minus' onClick={(e) => pagination(e)} />
-                </PaginationItem>
-                <PaginationItem>
-                    <PaginationLink last value='end' onClick={(e) => pagination(e)} />
-                </PaginationItem>
-            </Pagination> */}
         </Container>
     )
 }

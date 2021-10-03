@@ -17,7 +17,7 @@ const {
 router.route('/')
 .get(getAllItems); // ✓
 
-router.route('/:id') 
+router.route('/one/:id') 
 .get(getOneItem) // ✓
 
 router.route('/search')
@@ -32,14 +32,14 @@ router.route('/type/:type')
 router.route('/category/:id')
 .get(itemsByCategory); // ✓ - searches based off of categoryId
 
-router.route('/color') //secondary
+router.route('/color') //secondary 
 .get(itemColors); // ✓ - gets a list of all colors available / that lego makes, including color_id, color_name, color_code (hex code)
-
+ 
 router.route('/color/:id') //secondary
 .get(itemsByColor); // ✓ - searches based off of categoryId. Should be used with itemColors
 
 router.route('/featured')
-    .get(featuredItems); // ✓
+.get(featuredItems); // ✓
 
 router.route('/admin')
 .post(verifyTokenAdmin, addItem); // ✓ - body should look like the following:
