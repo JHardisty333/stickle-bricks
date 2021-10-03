@@ -154,7 +154,6 @@ const Shop = () => {
         const response = await categoryApiCall();
         if (!response.ok) alert('error has occurred')
         const categories = await response.json();
-        console.log(categories)
         setCategory(categories.map((category) => (
             <option key={category.categoryId} value={category.categoryId}>{category.categoryName}</option>
         )))
@@ -170,7 +169,6 @@ const Shop = () => {
         const response = await allItemTypesApi();
         if (!response.ok) alert('An error has occurred!')
         const types = await response.json();
-        console.log(types)
         setType(types.map((type) => (
             <option key={type.itemType} value={type.itemType}>{type.itemType}</option>
         )))
@@ -187,7 +185,7 @@ const Shop = () => {
         const colors = await response.json();
         console.log(colors)
         setColor(colors.map((color) => (
-            <option key={color.colorId} value={color.colorId}>{color.colorName}</option>
+            <option key={color.color_id} value={color.color_id}>{color.color_name}</option>
         )))
 
         colorSetDropdown(colors)
@@ -217,21 +215,21 @@ const Shop = () => {
                         {/* categories and types search options */}
                         <div>
                             <select value={categoryFilter} onChange={(e) => (e) => e.target.value === 'All Categories' ? setCategoryFilter(null) : setCategoryFilter(e.target.value)}>
-                                <option value={'All Categories'}>All Categories</option>
+                                <option key={'All Categories'} value={'All Categories'}>All Categories</option>
                                 {category}
                             </select>
                         </div>
 
                         <div>
                             <select value={typeFilter} onChange={(e) => e.target.value === 'All Types' ? setTypeFilter(null) : setTypeFilter(e.target.value)}>
-                                <option value={'All Types'}>All Types</option>
+                                <option key={'All Types'} value={'All Types'}>All Types</option>
                                 {type}
                             </select>
                         </div>
 
                         <div>
                             <select value={colorFilter} onChange={(e) => e.target.value === 'All Colors' ? setColorFilter(null) : setColorFilter(e.target.value)}>
-                                <option value={'All Colors'}>All Colors</option>
+                                <option key={'All Colors'} value={'All Colors'}>All Colors</option>
                                 {color}
                             </select>
                         </div>
