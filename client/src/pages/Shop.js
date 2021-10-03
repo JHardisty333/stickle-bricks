@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import noImage from '../utils/noImageFound.jpg'
+import noImage from '../utils/noImageFound.jpg';
 import { useHistory } from 'react-router-dom';
 import {
     Button,
@@ -86,11 +86,18 @@ const Shop = () => {
     const [quantity, setQuantity] = useState(1)
 
     const handleAddCart = async (event) => {
-        const jwt = localStorage.getItem('jwt');
+        const jwt = localStorage.getItem('stickleBrick-jwt');
         if (jwt) {
             const response = await addCartApi(jwt, event.target.id, quantity);
-            if (!response.ok) return alert('an error has occurred');
-            localStorage.removeItem('jwt');
+            if (!response.ok) {
+                if (response.status === 401) {
+                    localStorage.removeItem('stickleBrick-jwt');
+                    history.push('/login');
+                    return;
+                } else return alert('an error has occurred');
+            }
+            toggle()
+            alert(event.target.value + ' has been added to your cart!')
         } else {
             history.push('/login');
         }
@@ -120,14 +127,26 @@ const Shop = () => {
             search.type = typeFilter.toUpperCase();
         }
         console.log(search)
-        if (search === {}) {
-            fetchData();
-        } else {
+        
             const response = await searchItemsApi(search);
             if (!response.ok) return alert('An error has occurred attempting to search!')
             const items = await response.json();
-            loadItems(items);
-        }
+            console.log(items === [])
+            if (items.length === 0) {
+                setItems((
+                    <div><h1>
+                        Uh Oh! <br />
+                        Nothing Found!
+                    </h1></div>
+                ))
+                setTotalItems([])
+                setCurrentIndex(0)
+                setMaxIndex(0)
+            } else {
+
+                loadItems(items);
+            }
+        
     }
 
     function loadItems(items) {
@@ -161,7 +180,6 @@ const Shop = () => {
         const response = await categoryApiCall();
         if (!response.ok) alert('error has occurred')
         const categories = await response.json();
-        console.log(categories)
         setCategory(categories.map((category) => (
             <option key={category.categoryId} value={category.categoryId}>{category.categoryName}</option>
         )))
@@ -177,7 +195,6 @@ const Shop = () => {
         const response = await allItemTypesApi();
         if (!response.ok) alert('An error has occurred!')
         const types = await response.json();
-        console.log(types)
         setType(types.map((type) => (
             <option key={type.itemType} value={type.itemType}>{type.itemType}</option>
         )))
@@ -192,9 +209,8 @@ const Shop = () => {
         const response = await itemAllColorsApi();
         if (!response.ok) alert('An error has occurred')
         const colors = await response.json();
-        console.log(colors)
         setColor(colors.map((color) => (
-            <option key={color.colorId} value={color.colorId}>{color.colorName}</option>
+            <option key={color.color_id} value={color.color_id}>{color.color_name}</option>
         )))
 
         colorSetDropdown(colors)
@@ -211,7 +227,8 @@ const Shop = () => {
 
 
     return ( //STYLE ME
-        <Container fluid className="shop-body">
+        <Container fluid className="shop-body" style={{ "minHeight": "80vh" }}>
+            <div style={{ "minHeight": "3vh" }}></div>
             <Container className="shop-contain">
                 <Row id="top" className="searchbar">
                     <input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
@@ -219,35 +236,36 @@ const Shop = () => {
                     {/* searchbar and sort options */}
                 </Row>
 
-
                 {/* categories search options */}
                 <Row>
                     <Col sm={3} style={{ 'color': 'black' }}>
                         {/* categories and types search options */}
                         <div>
-                            <select value={categoryFilter} onChange={(e) => (e) => e.target.value === 'All Categories' ? setCategoryFilter(null) : setCategoryFilter(e.target.value)}>
-                                <option value={'All Categories'}>All Categories</option>
+                            <select value={categoryFilter} onChange={(e) => e.target.value === 'All Categories' ? setCategoryFilter(null) : setCategoryFilter(e.target.value)}>
+                                <option key={'All Categories'} value={'All Categories'}>All Categories</option>
                                 {category}
                             </select>
                         </div>
 
                         <div>
                             <select value={typeFilter} onChange={(e) => e.target.value === 'All Types' ? setTypeFilter(null) : setTypeFilter(e.target.value)}>
-                                <option value={'All Types'}>All Types</option>
+                                <option key={'All Types'} value={'All Types'}>All Types</option>
                                 {type}
                             </select>
                         </div>
 
                         <div>
                             <select value={colorFilter} onChange={(e) => e.target.value === 'All Colors' ? setColorFilter(null) : setColorFilter(e.target.value)}>
-                                <option value={'All Colors'}>All Colors</option>
+                                <option key={'All Colors'} value={'All Colors'}>All Colors</option>
                                 {color}
                             </select>
                         </div>
+                    </Col>
 
-                        
-
-
+                    <Col sm={9}>
+                        <Row className="d-flex">
+                            {Items}
+                        </Row>
                     </Col>
                 </Row>
 
@@ -274,7 +292,7 @@ const Shop = () => {
                         </ModalBody>
                         <ModalFooter>
                             <input type="number" defaultValue={1} min={1} max={modalItem.quantity} value={quantity} onChange={(e) => setQuantity(e.target.value)} />
-                            <Button color="primary" id={modalItem._id} onClick={(e) => handleAddCart(e)}>Add to Cart</Button>{' '}
+                            <Button color="primary" id={modalItem._id} value={modalItem.productName} onClick={(e) => handleAddCart(e)}>Add to Cart</Button>{' '}
                             {/* Change onclick to new function that will add to cart */}
                         </ModalFooter>
                     </Modal>
@@ -284,35 +302,36 @@ const Shop = () => {
                     <a href="#top">
                         <button id='start' onClick={(e) => setCurrentIndex(0)} disabled={currentIndex === 0}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3em" id='start' fill="currentColor" className="" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
-                                <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                                <path fillRule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                                <path fillRule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
                             </svg>
                         </button>
                     </a>
                     <a href="#top">
                         <button id='minus' onClick={(e) => setCurrentIndex(currentIndex - 1)} disabled={currentIndex === 0}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3em" fill="currentColor" id='minus' className="" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+                                <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
                             </svg>
                         </button>
                     </a>
                     <a href="#top">
                         <button id='plus' onClick={(e) => setCurrentIndex(currentIndex + 1)} disabled={currentIndex === maxIndex}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3em" fill="currentColor" id='plus' className="" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                                <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
                             </svg>
                         </button>
                     </a>
                     <a href="#top">
                         <button id='end' onClick={(e) => setCurrentIndex(maxIndex)} disabled={currentIndex === maxIndex}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3em" id='end' fill="currentColor" className="" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z" />
-                                <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
+                                <path fillRule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z" />
+                                <path fillRule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
                             </svg>
                         </button>
                     </a>
                 </Row>
             </Container>
+            <div style={{ "minHeight": "3vh" }}></div>
         </Container>
     )
 }

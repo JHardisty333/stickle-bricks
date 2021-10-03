@@ -17,13 +17,12 @@ function SignUp() {
         event.preventDefault();
         const response = await signUpUserApi(name, email, password);
         const data = await response.json();
+        localStorage.setItem('stickleBrick-jwt', data);
         history.push('/shop')
-        console.log(data)
-        console.log(name, email, password)
     }
 
     return (
-        <div className="signup-body">
+        <div className="signup-body" style={{"minHeight": "80vh"}}>
             <div className="signup-body-pic">
                 <section className="signup">
                     <div className="signup1">
@@ -38,7 +37,7 @@ function SignUp() {
                             <input type="password" placeHolder="Password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} />
                         </div>
                         <div className="signup-buttons">
-                            <button type="submit" className="signupButton" onClick={handleSubmit} disabled={!validateForm()}>Sign Up!</button>
+                            <button type="submit" className="signupButton" onClick={handleSubmit} disabled={!validateForm()}>Submit</button>
                         </div>
                     </div>
                 </section>

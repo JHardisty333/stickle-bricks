@@ -24,14 +24,14 @@ const Login = () => {
         } else {
             setEmail('');
             setPassword('');
-            localStorage.setItem('jwt', data);
+            localStorage.setItem('stickleBrick-jwt', data);
             history.push('/shop');
         }
 
     }
 
     return (
-        <div className="login-body">
+        <div className="login-body" style={{"minHeight": "80vh"}}>
             <div className="login-body-pic">
                 <section className="login">
                     <div className="login1">
@@ -44,7 +44,7 @@ const Login = () => {
                         </div>
 
                         <div className="login-buttons">
-                            <button className="loginButton" type="submit" onClick={handleSubmit} disabled={!validateForm()}>Submit</button>
+                            <button className="loginButton" type="submit" onClick={handleSubmit} disabled={!validateForm()}>Sign In</button>
                             <a href="/signup">
                                 <button className="loginButton" type="button">Sign Up</button>
                             </a>

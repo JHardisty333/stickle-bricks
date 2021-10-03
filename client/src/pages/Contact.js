@@ -2,7 +2,7 @@ import React from 'react';
   
 const Contact = () => {
  return (
-    <div className="contact-body">
+    <div className="contact-body" style={{"minHeight": "80vh"}}>
       <div className="contact-body-pic">
       <section className="contact">
         <div className="contact-us">
