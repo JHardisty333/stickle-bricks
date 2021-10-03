@@ -229,7 +229,6 @@ h1 a:hover {
     background-image: url('./assets/img/legoPastel.png');
     height: max-content;
     background-position:left;
-    background-attachment: fixed;
     background-repeat: no-repeat;
 }
 
@@ -470,10 +469,13 @@ footer {
 
 .about-body {
     background-color: var(--raw-sienna);
-    background-image: url('./assets/img/batmanSuperman.png');
-    background-size: 70%;
+}
+
+.about-body-pic {
+    background-image:url('./assets/img/batmanSuperman.png');
+    /* height: max-content; */
     background-position:left;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
     background-repeat: no-repeat;
 }
 
@@ -482,26 +484,24 @@ footer {
     flex-wrap: wrap;
     justify-content: flex-end;
     align-items: center;
-    height: 100%;
 }
 
-.aboutus{
+.about-us{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 40px;
     background-color: var(--white);
-    padding: 40px 30px 60px;
+    padding: 40px 30px;
     color: var(--black);
     font-family: 'HelveticaNCB';
     font-size: var(--font-size-s);
-    width: 50%;
+    width: 700px;
     margin: 12rem 8rem 40rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     border-radius: 15px;
 }
 
-.about_us{
+.about-text{
     text-align: center;
 }
 
