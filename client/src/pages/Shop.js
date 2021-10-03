@@ -11,10 +11,7 @@ import {
     Spinner,
     Col,
     Row,
-    Dropdown,
-    DropdownItem,
-    DropdownMenu,
-    DropdownToggle
+   
 } from 'reactstrap';
 import {
     itemsApi,
@@ -202,6 +199,7 @@ const Shop = () => {
 
         colorSetDropdown(colors)
     }
+
 
     useEffect(() => {
         fetchData();
