@@ -58,7 +58,8 @@ const itemController = {
         }       
     },
     itemTypes(req, res) {
-        res.json(types);
+        res.json(types)
+        
     },
     itemColors(req, res) {
         res.json(colors);

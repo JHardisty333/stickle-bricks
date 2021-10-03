@@ -16,15 +16,21 @@ import {
     DropdownMenu,
     DropdownToggle
 } from 'reactstrap';
-import { itemsApi, itemApi, addCartApi, searchItemsApi, categoryApiCall } from "../utils/api";
+import {
+    itemsApi,
+    itemApi,
+    addCartApi,
+    searchItemsApi,
+    categoryApiCall,
+    allItemTypesApi,
+    itemAllColorsApi
+} from "../utils/api";
 
 const Shop = () => {
     //modal controls
-    const [modal, setModal] = useState(false);
-    const toggle = () => setModal(!modal);
 
-    const [catDropdown, catSetDropdown] = useState(false);
-    const catToggle = () => catSetDropdown(!catDropdown)
+
+
 
     const [totalItems, setTotalItems] = useState([]) //current array of items 
     const [Items, setItems] = useState((<Spinner color="dark" className="my-5 p-4 mx-auto" />)); // current items displayed on page
@@ -33,7 +39,7 @@ const Shop = () => {
     const [searchTerm, setSearchTerm] = useState(null);
     const [colorFilter, setColorFilter] = useState(null);
     const [categoryFilter, setCategoryFilter] = useState(null);
-    const [typeFilter, setTypeFilter] =useState(null);
+    const [typeFilter, setTypeFilter] = useState(null);
     const [modalItem, setModalItem] = useState({
         "_id": "",
         "productName": "",
@@ -65,7 +71,6 @@ const Shop = () => {
         if (currentIndex === maxIndex) {
             pageItems = totalItems.slice(0 + (60 * currentIndex), maxIndex);
         }
-
         pageItems = totalItems.slice(0 + (60 * currentIndex), 60 + (60 * currentIndex));
         setItems(pageItems.map((item) => ( //STYLE ME
             <Col sm={4} key={item._id} className='itemStyle'>
@@ -77,21 +82,26 @@ const Shop = () => {
         )))
     }, [currentIndex])
 
+
+
+    // ADD TO CART FUNCTION
     const history = useHistory()
     const [quantity, setQuantity] = useState(1)
 
     const handleAddCart = async (event) => {
-        const jwt = localStorage.getItem('jwt')
-
-        console.log(jwt, event.target.id, quantity)
+        const jwt = localStorage.getItem('jwt');
         if (jwt) {
-            const response = await addCartApi(jwt, event.target.id, quantity)
-            if (!response.ok) return alert('an error has occurred')
-            localStorage.removeItem('jwt')
+            const response = await addCartApi(jwt, event.target.id, quantity);
+            if (!response.ok) return alert('an error has occurred');
+            localStorage.removeItem('jwt');
         } else {
-            history.push('/login')
+            history.push('/login');
         }
     }
+
+    // MODAL POPOUT FOR ITEMVIEW
+    const [modal, setModal] = useState(false);
+    const toggle = () => setModal(!modal);
 
     const productClick = async (event) => { // to open modal
         const response = await itemApi(event.target.id)
@@ -112,12 +122,15 @@ const Shop = () => {
         } if (typeFilter) {
             search.type = typeFilter.toUpperCase();
         }
-        console.log(search)
+        const response = await searchItemsApi(search);
+        if (!response.ok) return alert('An error has occurred attempting to search!')
+        const items = await response.json();
+        loadItems(items);
     }
 
     function loadItems(items) {
         setTotalItems(items);
-        setMaxIndex((Math.ceil(items.length / 60) - 1 ));
+        setMaxIndex((Math.ceil(items.length / 60) - 1));
         setCurrentIndex(0);
         const pageItems = items.slice(0, items.length < 60 ? items.length : 60);
         setItems(pageItems.map((item) => (  //STYLE ME
@@ -137,6 +150,9 @@ const Shop = () => {
         loadItems(items);
     }
 
+
+    //    CATEGORY DROP DOWN
+    const [catDropdown, catSetDropdown] = useState(false);
     const [category, setCategory] = useState()
 
     async function fetchCategories() {
@@ -145,17 +161,52 @@ const Shop = () => {
         const categories = await response.json();
         console.log(categories)
         setCategory(categories.map((category) => (
-            <DropdownItem key={category.categoryId} id={category.categoryId} value={category.categoryName}>{category.categoryName}</DropdownItem>
+            <option key={category.categoryId} value={category.categoryId}>{category.categoryName}</option>
         )))
 
         catSetDropdown(categories);
     }
+
+    // TYPES DROP DOWN
+    const [typeDropdown, typeSetDropdown] = useState(false);
+    const [type, setType] = useState()
+
+    async function fetchAllTypes() {
+        const response = await allItemTypesApi();
+        if (!response.ok) alert('An error has occurred!')
+        const types = await response.json();
+        console.log(types)
+        setType(types.map((type) => (
+            <option key={type.itemType} value={type.itemType}>{type.itemType}</option>
+        )))
+        typeSetDropdown(types)
+    }
+
+    const [colorDropdown, colorSetDropdown] = useState(false)
+    const colorToggle = () => colorSetDropdown(!colorDropdown)
+    const [color, setColor] = useState()
+
+    async function fetchAllColors() {
+        const response = await itemAllColorsApi();
+        if (!response.ok) alert('An error has occurred')
+        const colors = await response.json();
+        console.log(colors)
+        setColor(colors.map((color) => (
+            <option key={color.colorId} value={color.colorId}>{color.colorName}</option>
+        )))
+
+        colorSetDropdown(colors)
+    }
+
+
 
     useEffect(() => {
         fetchData();
         fetchCategories();
     }, // eslint-disable-next-line react-hooks/exhaustive-deps
         [])
+    fetchAllTypes();
+    fetchAllColors();
 
 
     return ( //STYLE ME
@@ -166,24 +217,50 @@ const Shop = () => {
                     <button type='button' id="search" onClick={(e) => runSearch(e.target.id)}>Search</button>
                     {/* searchbar and sort options */}
                 </Row>
+
+
+                {/* categories search options */}
                 <Row>
                     <Col sm={3} style={{ 'color': 'black' }}>
                         {/* categories and types search options */}
-                        <Dropdown isOpen={catDropdown} toggle={catToggle}>
-                            <DropdownToggle caret>
-                                Categories
-                            </DropdownToggle>
-                            <DropdownMenu>
+                        <div>
+                            <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}>
+                                <option value={null}>All Categories</option>
                                 {category}
-                            </DropdownMenu>
-                        </Dropdown>
-                    </Col>
-                    <Col sm={9}>
-                        <Row className="d-flex">
-                            {Items}
-                        </Row>
+                            </select>
+                        </div>
+
+                        <div>
+                            <select value={typeFilter} onChange={(e) => setTypeFilter(e.target.value)}>
+                                <option value={null}>All Types</option>
+                                {type}
+                            </select>
+                        </div>
+
+                        <div>
+                            <select value={colorFilter} onChange={(e) => setColorFilter(e.target.value)}>
+                                <option value={null}>All Colors</option>
+                                {color}
+                            </select>
+                        </div>
+
+                        
+
+
                     </Col>
                 </Row>
+
+                <Col sm={9}>
+                    <Row className="d-flex">
+                        {Items}
+                    </Row>
+                </Col>
+
+
+
+
+
+
 
                 <div>
                     <Modal isOpen={modal} toggle={toggle} className='modalStyle'>
@@ -204,7 +281,7 @@ const Shop = () => {
 
                 <Row className="d-flex">
                     <a href="#top">
-                        <button id='start' onClick={(e) => { setCurrentIndex(0) }} disabled={currentIndex === 0}>
+                        <button id='start' onClick={(e) => setCurrentIndex(0)} disabled={currentIndex === 0}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3em" id='start' fill="currentColor" className="" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
                                 <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
@@ -212,21 +289,21 @@ const Shop = () => {
                         </button>
                     </a>
                     <a href="#top">
-                        <button id='minus' onClick={(e) => { setCurrentIndex(currentIndex - 1) }} disabled={currentIndex === 0}>
+                        <button id='minus' onClick={(e) => setCurrentIndex(currentIndex - 1)} disabled={currentIndex === 0}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3em" fill="currentColor" id='minus' className="" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
                             </svg>
                         </button>
                     </a>
                     <a href="#top">
-                        <button id='plus' onClick={(e) => { setCurrentIndex(currentIndex + 1) }} disabled={currentIndex === maxIndex}>
+                        <button id='plus' onClick={(e) => setCurrentIndex(currentIndex + 1)} disabled={currentIndex === maxIndex}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3em" fill="currentColor" id='plus' className="" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
                             </svg>
                         </button>
                     </a>
                     <a href="#top">
-                        <button id='end' onClick={(e) => { setCurrentIndex(maxIndex) }} disabled={currentIndex === maxIndex}>
+                        <button id='end' onClick={(e) => setCurrentIndex(maxIndex)} disabled={currentIndex === maxIndex}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3em" id='end' fill="currentColor" className="" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z" />
                                 <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
