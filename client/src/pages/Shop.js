@@ -184,7 +184,7 @@ const Shop = () => {
         if (!response.ok) alert('An error has occurred')
         const colors = await response.json();
         setColor(colors.map((color) => (
-            <option key={color.color_id} value={color.color_name}>{color.color_name}</option>
+            <option key={color.color_id} value={color.color_id}>{color.color_name}</option>
         )))
 
         colorSetDropdown(colors)
@@ -214,14 +214,14 @@ const Shop = () => {
                         {/* categories and types search options */}
                         <div>
                             <select value={categoryFilter} onChange={(e) => (e) => e.target.value === 'All Categories' ? setCategoryFilter(null) : setCategoryFilter(e.target.value)}>
-                                <option value={'All Categories'}>All Categories</option>
+                                <option key={'All Categories'} value={'All Categories'}>All Categories</option>
                                 {category}
                             </select>
                         </div>
 
                         <div>
                             <select value={typeFilter} onChange={(e) => e.target.value === 'All Types' ? setTypeFilter(null) : setTypeFilter(e.target.value)}>
-                                <option value={'All Types'}>All Types</option>
+                                <option key={'All Types'} value={'All Types'}>All Types</option>
                                 {type}
                             </select>
                         </div>
