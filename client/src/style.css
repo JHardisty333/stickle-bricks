@@ -545,7 +545,54 @@ footer {
 
 /* ----- End Footer ----- */
 
+/* --------------------------------------- */
+/* ----- Contact Us ----- */
+/* --------------------------------------- */
 
+.contact-body {
+    background-color: var(--yellow);
+}
+
+.contact-body-pic {
+    background-image:url('./assets/img/batmanSuperman.png');
+    max-height: fit-content;
+    background-position:left;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.contact{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.contact-us{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: var(--white);
+    padding: 40px 30px;
+    color: var(--black);
+    font-family: 'HelveticaNCB';
+    font-size: var(--font-size-s);
+    width: 700px;
+    margin: 12rem 8rem 40rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}
+
+.contactus-text{
+    text-align: center;
+}
+
+
+
+
+
+
+/* ----- End Contact Us ----- */
 
 /* --------------------------------------- */
 /* ----- Media Queries ----- */
