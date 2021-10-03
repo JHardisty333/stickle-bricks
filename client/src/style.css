@@ -64,12 +64,13 @@ html {
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
-/* ----- End navigation ----- */
+
+/* ----- End utilities ----- */
 
 
 
 /* --------------------------------------- */
-/* ----- navigation ----- */
+/* ----- Navigation Bar ----- */
 /* --------------------------------------- */
 
 .navigator-row {
@@ -162,7 +163,9 @@ h1 a:hover {
 
 /* ----- End navigation ----- */
 
-/* --------- Shop ----------- */
+/* --------------------------------------- */
+/* ----- Shopping Page ----- */
+/* --------------------------------------- */
 
 .shop{
 background-image: url('./assets/img/legoWall.png');
@@ -172,51 +175,116 @@ background-image: url('./assets/img/legoWall.png');
 
 
 
+/* ----- End Shopping ----- */
 
-/* ----- Cart ----- */
 
-.cart-body {
-    background-color: var(--black);
-    background-image: url('./assets/img/legoBlackwhite.png');
-    background-size: 70%;
+
+/* --------------------------------------- */
+/* ----- About us ----- */
+/* --------------------------------------- */
+
+.about-body {
+    background-color: var(--softpink);
+}
+
+.about-body-pic {
+    background-image:url('./assets/img/legoRainbow.jpg');
+    max-height: fit-content;
     background-position:left;
     background-attachment: fixed;
     background-repeat: no-repeat;
 }
-.cart{
+
+.about{
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
     align-items: center;
-    height: 100%;
 }
 
-.shop_cart{
+.about-us{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 40px;
     background-color: var(--white);
-    padding: 40px 30px 60px;
+    padding: 40px 30px;
     color: var(--black);
     font-family: 'HelveticaNCB';
     font-size: var(--font-size-s);
-    width: 50%;
+    width: 700px;
     margin: 12rem 8rem 40rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     border-radius: 15px;
 }
 
+.about-text{
+    text-align: center;
+}
+
+/* ----- End Landing Page ----- */
 
 
-/* ----- Login / Signup Styles ----- */
 
-.Login {
-    background-color: #ffffff;
-    padding: 60px 0;
+/* --------------------------------------- */
+/* ----- Landing/ Main Page ----- */
+/* --------------------------------------- */
+
+.landing-body{
+    background-color: var(--scooter);
+    background-image: url("./assets/img/legoHands.png");
+    height: max-content;
+    background-position:left;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.greeting {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--white);
+    margin: 12rem 8rem 20rem;
+    padding: 40px 30px;
+    color: var(--black);
+    font-family: 'HelveticaNCB';
+    font-size: var(--font-size-m);
+    background-color: var(--white);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
     
 }
-  .login-body {
+
+/* .landingButton {
+    background-color: var(--scooter);
+    border: solid 1.5px var(--dove-gray);
+    padding: 30px;
+    color: var(--alabaster);
+    font-family: 'HelveticaNCB';
+    font-size: var(--font-size-s);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.landingButton:hover {
+    background-color: var(--raw-sienna);
+    transform: scale(1.3);
+} */
+
+/* ----- End Landing Page ----- */
+
+
+
+/* --------------------------------------- */
+/* ----- Login Styles ----- */
+/* --------------------------------------- */
+
+.login-body {
       background: linear-gradient(
         to right,
         var(--yellow) 0%,
@@ -224,7 +292,7 @@ background-image: url('./assets/img/legoWall.png');
         var(--red) 80%, 
         var(--red) 100%
     );
-  }
+}
 
 .login-body-pic {
     background-image: url('./assets/img/legoPastel.png');
@@ -257,13 +325,7 @@ background-image: url('./assets/img/legoWall.png');
     margin: 12rem 8rem 40rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     border-radius: 15px;
-    
 }
-
-/* .login2{
-    text-align: center;
-    
-} */
 
 .login-buttons {
     display: flex;
@@ -289,14 +351,14 @@ background-image: url('./assets/img/legoWall.png');
 
 .loginButton:hover {
     background-color: var(--yellow);
-    transform: scale(1.3);
+    transform: scale(1.1);
 }
+
 .form-label {
     border-radius: 25px;
-    align-items: center;
-    
-    
+    align-items: center;  
 }
+
 .form-control {
     justify-content: center;
     border-radius: 25px;
@@ -305,18 +367,23 @@ background-image: url('./assets/img/legoWall.png');
     font-size: 20px;
     background-color: #e2e7ea;
     max-width: fit-content;
-    
 }
+
 .formcontrol{
     display: flex;
-    /* flex-wrap: wrap; */
     flex-direction: column;
     align-items: center;
     gap: 5px;
-    font-size: xx-large;
+    font-size: var(--font-size-m);
 }
+
+/* ----- End Login ----- */
+
+
+
 /* --------------------------------------- */
-/* ----- Sign up ----- */
+/* ----- Signup Styles ----- */
+/* --------------------------------------- */
 
 .signup-body {
     background: linear-gradient(
@@ -342,8 +409,6 @@ background-image: url('./assets/img/legoWall.png');
   justify-content: center;
   align-items: center;
   height: 100%;
-  
-  
 }
 
 .signup1{
@@ -383,17 +448,55 @@ background-image: url('./assets/img/legoWall.png');
   cursor: pointer;
   transition: all .2s;
   width: 200px;
-  
 }
 
 
 .signupButton:hover {
   background-color: var(--softpink);
-  transform: scale(1.3);
-
+  transform: scale(1.1);
 }
 
-/* ----- End Footer ----- */
+/* ----- End Signup ----- */
+
+
+
+/* --------------------------------------- */
+/* ----- Cart ----- */
+/* --------------------------------------- */
+
+.cart-body {
+    background-color: var(--black);
+    background-image: url('./assets/img/legoBlackwhite.png');
+    background-size: 70%;
+    background-position:left;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+.cart{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+}
+
+.shop_cart{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    background-color: var(--white);
+    padding: 40px 30px 60px;
+    color: var(--black);
+    font-family: 'HelveticaNCB';
+    font-size: var(--font-size-s);
+    width: 50%;
+    margin: 12rem 8rem 40rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}
+
+/* ----- End Cart ----- */
 
 
 
@@ -442,107 +545,6 @@ footer {
 
 /* ----- End Footer ----- */
 
-
-
-/* --------------------------------------- */
-/* ----- Landing/ Main Page ----- */
-/* --------------------------------------- */
-
-.landing-body{
-    background-color: var(--scooter);
-    background-image: url("./assets/img/legoHands.png");
-    height: max-content;
-    background-position:left;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    align-items: center;
-    /* height: 100%; */
-}
-
-.greeting {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    background-color: var(--white);
-    margin: 12rem 8rem 20rem;
-    padding: 40px 30px;
-    color: var(--black);
-    font-family: 'HelveticaNCB';
-    font-size: var(--font-size-m);
-    background-color: var(--white);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    border-radius: 15px;
-    
-}
-
-.greeting__text {
-    text-align: center;
-}
-
-/* .landingButton {
-    background-color: var(--scooter);
-    border: solid 1.5px var(--dove-gray);
-    padding: 30px;
-    color: var(--alabaster);
-    font-family: 'HelveticaNCB';
-    font-size: var(--font-size-s);
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all .2s;
-}
-
-.landingButton:hover {
-    background-color: var(--raw-sienna);
-    transform: scale(1.3);
-} */
-
-/* ----- End Landing Page ----- */
-
-
-/* --------------------------------------- */
-/* ----- About us ----- */
-/* --------------------------------------- */
-
-.about-body {
-    background-color: var(--softpink);
-}
-
-.about-body-pic {
-    background-image:url('./assets/img/legoRainbow.jpg');
-    max-height: fit-content;
-    background-position:left;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-}
-
-.about{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.about-us{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    background-color: var(--white);
-    padding: 40px 30px;
-    color: var(--black);
-    font-family: 'HelveticaNCB';
-    font-size: var(--font-size-s);
-    width: 700px;
-    margin: 12rem 8rem 40rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    border-radius: 15px;
-}
-
-.about-text{
-    text-align: center;
-}
 
 
 /* --------------------------------------- */
@@ -606,3 +608,5 @@ footer {
     }
 
 }
+
+/* ----- End Media Queries ----- */
