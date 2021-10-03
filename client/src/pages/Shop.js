@@ -65,6 +65,7 @@ const Shop = () => {
         if (currentIndex === maxIndex) {
             pageItems = totalItems.slice(0 + (60 * currentIndex), maxIndex);
         }
+
         pageItems = totalItems.slice(0 + (60 * currentIndex), 60 + (60 * currentIndex));
         setItems(pageItems.map((item) => ( //STYLE ME
             <Col sm={4} key={item._id} className='itemStyle'>
