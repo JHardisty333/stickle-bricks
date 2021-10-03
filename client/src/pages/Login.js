@@ -31,7 +31,7 @@ const Login = () => {
     }
 
     return (
-        <div className="login-body">
+        <div className="login-body" style={{"minHeight": "80vh"}}>
             <div className="login-body-pic">
                 <section className="login">
                     <div className="login1">

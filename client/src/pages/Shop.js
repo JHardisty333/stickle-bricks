@@ -202,7 +202,7 @@ const Shop = () => {
         [])
 
     return ( //STYLE ME
-        <Container fluid className="shop-body">
+        <Container fluid className="shop-body" style={{"minHeight": "80vh"}}>
             <Container className="shop-contain">
                 <Row id="top" className="searchbar">
                     <input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
