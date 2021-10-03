@@ -17,9 +17,8 @@ function SignUp() {
         event.preventDefault();
         const response = await signUpUserApi(name, email, password);
         const data = await response.json();
+        localStorage.setItem('stickleBrick-jwt', data);
         history.push('/shop')
-        console.log(data)
-        console.log(name, email, password)
     }
 
     return (
