@@ -10,7 +10,8 @@ import {
     Col,
     Row
 } from 'reactstrap';
-import { itemsApi, itemApi } from "../utils/api";
+import { itemsApi, itemApi, addCartApi } from "../utils/api";
+
 
 
 const Shop = () => {
@@ -50,6 +51,8 @@ const Shop = () => {
         "id": ""
     });
 
+
+    
     async function pagination(e) { 
         const indexType = e.target.id;
         setItems((<Spinner color="dark" className="my-5 p-4 mx-auto" />))
@@ -99,6 +102,7 @@ const Shop = () => {
             </Col>
         )))
     }
+    
 
 
 
@@ -160,7 +164,7 @@ const Shop = () => {
                         <p>{parseFloat(modalItem.price.$numberDecimal)}</p>
                     </ModalBody>
                     <ModalFooter>
-                        <Button color="primary" value={modalItem._id} onClick={toggle}>Add to Cart</Button>{' '}
+                        <Button color="primary" value={modalItem._id} onClick={addCartApi}>Add to Cart</Button>{' '} 
                         {/* Change onclick to new function that will add to cart */}
                     </ModalFooter>
                 </Modal>
