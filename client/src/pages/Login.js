@@ -44,7 +44,7 @@ const Login = () => {
                         </div>
 
                         <div className="login-buttons">
-                            <button className="loginButton" type="submit" onClick={handleSubmit} disabled={!validateForm()}>Submit</button>
+                            <button className="loginButton" type="submit" onClick={handleSubmit} disabled={!validateForm()}>Sign In</button>
                             <a href="/signup">
                                 <button className="loginButton" type="button">Sign Up</button>
                             </a>
