@@ -11,7 +11,7 @@ import {
     Spinner,
     Col,
     Row,
-   
+
 } from 'reactstrap';
 import {
     itemsApi,
@@ -25,10 +25,6 @@ import {
 
 const Shop = () => {
     //modal controls
-
-
-
-
     const [totalItems, setTotalItems] = useState([]) //current array of items 
     const [Items, setItems] = useState((<Spinner color="dark" className="my-5 p-4 mx-auto" />)); // current items displayed on page
     const [maxIndex, setMaxIndex] = useState(1);
@@ -70,7 +66,7 @@ const Shop = () => {
         }
         pageItems = totalItems.slice(0 + (60 * currentIndex), 60 + (60 * currentIndex));
         setItems(pageItems.map((item) => ( //STYLE ME
-            <Col md={4} key={item._id} className='itemStyle'>
+            <Col md={4} key={item._id} className=''>
                 <img src={item.image[0]} alt={item.productName} id={item._id} onClick={productClick} onError={(e) => { e.target.onerror = null; e.target.src = noImage }} style={{ "maxWidth": "100%", "height": "50%" }} />
                 <p>{item.productName}</p>
                 <p>{item.condition}</p>
@@ -131,26 +127,25 @@ const Shop = () => {
             search.type = typeFilter.toUpperCase();
         }
         console.log(search)
-        
-            const response = await searchItemsApi(search);
-            if (!response.ok) return alert('An error has occurred attempting to search!')
-            const items = await response.json();
-            console.log(items === [])
-            if (items.length === 0) {
-                setItems((
-                    <div><h1>
-                        Uh Oh! <br />
-                        Nothing Found!
-                    </h1></div>
-                ))
-                setTotalItems([])
-                setCurrentIndex(0)
-                setMaxIndex(0)
-            } else {
 
-                loadItems(items);
-            }
-        
+        const response = await searchItemsApi(search);
+        if (!response.ok) return alert('An error has occurred attempting to search!')
+        const items = await response.json();
+        console.log(items === [])
+        if (items.length === 0) {
+            setItems((
+                <div><h1>
+                    Uh Oh! <br />
+                    Nothing Found!
+                </h1></div>
+            ))
+            setTotalItems([])
+            setCurrentIndex(0)
+            setMaxIndex(0)
+        } else {
+
+            loadItems(items);
+        }
     }
 
     function loadItems(items) {
@@ -159,11 +154,30 @@ const Shop = () => {
         setCurrentIndex(0);
         const pageItems = items.slice(0, items.length < 60 ? items.length : 60);
         setItems(pageItems.map((item) => (  //STYLE ME
-            <Col md={4} key={item._id} className='itemStyle'>
-                <img src={item.image[0]} alt={item.productName} id={item._id} onClick={productClick} onError={(e) => { e.target.onerror = null; e.target.src = noImage }} style={{ "maxWidth": "100%", "height": "50%" }} />
-                <p>{item.productName}</p>
-                <p>{item.condition}</p>
-                <p>{parseFloat(item.price.$numberDecimal)}</p>
+            <Col md={4} key={item._id} className=''>
+                <div className='singleItem' style={{ "minHeight": "55vh" }}>
+                    <img
+                        className="itemcardimg"
+                        src={item.image[0]} alt={item.productName}
+                        id={item._id}
+                        onClick={productClick}
+                        onError={(e) => { e.target.onerror = null; e.target.src = noImage }}
+                        style={{ "maxWidth": "90%", "height": "50%" }}
+                    />
+                    <p className="text-center">{item.productName}</p>
+                    <p>Price: {parseFloat(item.price.$numberDecimal)} </p>
+                    <p>Quantity Available: {item.quantity}</p>
+                    <div className="d-flex">
+                        <div className="pr-3"
+                            style={{
+                                "width": "10px", "height": "10px", "backgroundColor": "#"
+                                + item.colorCode, "border": "1px solid black", "borderRadius": "5px"
+                            }}>
+                        </div>
+                        <p>{item.colorName}</p>
+                    </div>
+
+                </div>
             </Col>
         )))
     }
@@ -231,7 +245,7 @@ const Shop = () => {
 
     return ( //STYLE ME
         <Container fluid className="shop-body" style={{ "minHeight": "80vh" }}>
-            <div style={{"minHeight": "5vh"}}></div>
+            <div style={{ "minHeight": "5vh" }}></div>
             <Container className="shop-contain">
                 <Row id="top">
                     <input className="form-control pb-3" type="text" id="searchbar" placeholder="Search by color, name, or lego part #" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
@@ -244,21 +258,21 @@ const Shop = () => {
                     <Col sm={3} style={{ 'color': 'black' }}>
                         {/* categories and types search options */}
                         <div>
-                            <select value={categoryFilter} onChange={(e) => e.target.value === 'All Categories' ? setCategoryFilter(null) : setCategoryFilter(e.target.value)}>
+                            <select className="filterdropdown" value={categoryFilter} onChange={(e) => e.target.value === 'All Categories' ? setCategoryFilter(null) : setCategoryFilter(e.target.value)}>
                                 <option key={'All Categories'} value={'All Categories'}>All Categories</option>
                                 {category}
                             </select>
                         </div>
 
                         <div>
-                            <select value={typeFilter} onChange={(e) => e.target.value === 'All Types' ? setTypeFilter(null) : setTypeFilter(e.target.value)}>
+                            <select className="filterdropdown" value={typeFilter} onChange={(e) => e.target.value === 'All Types' ? setTypeFilter(null) : setTypeFilter(e.target.value)}>
                                 <option key={'All Types'} value={'All Types'}>All Types</option>
                                 {type}
                             </select>
                         </div>
 
                         <div>
-                            <select value={colorFilter} onChange={(e) => e.target.value === 'All Colors' ? setColorFilter(null) : setColorFilter(e.target.value)}>
+                            <select className="filterdropdown" value={colorFilter} onChange={(e) => e.target.value === 'All Colors' ? setColorFilter(null) : setColorFilter(e.target.value)}>
                                 <option key={'All Colors'} value={'All Colors'}>All Colors</option>
                                 {color}
                             </select>
@@ -291,7 +305,7 @@ const Shop = () => {
 
                 <Row className="d-flex">
                     <a href="#top">
-                        <button id='start' onClick={(e) => setCurrentIndex(0)} className="" disabled={currentIndex === 0}>
+                        <button className="pagenavbtn" id='start' onClick={(e) => setCurrentIndex(0)} className="" disabled={currentIndex === 0}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3em" id='start' fill="currentColor" viewBox="0 0 16 16">
                                 <path fillRule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
                                 <path fillRule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
@@ -299,21 +313,21 @@ const Shop = () => {
                         </button>
                     </a>
                     <a href="#top">
-                        <button id='minus' onClick={(e) => setCurrentIndex(currentIndex - 1)} className="" disabled={currentIndex === 0}>
+                        <button className="pagenavbtn" id='minus' onClick={(e) => setCurrentIndex(currentIndex - 1)} className="" disabled={currentIndex === 0}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3em" fill="currentColor" id='minus' viewBox="0 0 16 16">
                                 <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
                             </svg>
                         </button>
                     </a>
                     <a href="#top">
-                        <button id='plus' onClick={(e) => setCurrentIndex(currentIndex + 1)} className="" disabled={currentIndex === maxIndex}>
+                        <button className="pagenavbtn" id='plus' onClick={(e) => setCurrentIndex(currentIndex + 1)} className="" disabled={currentIndex === maxIndex}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3em" fill="currentColor" id='plus' viewBox="0 0 16 16">
                                 <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
                             </svg>
                         </button>
                     </a>
                     <a href="#top">
-                        <button id='end' onClick={(e) => setCurrentIndex(maxIndex)} className="" disabled={currentIndex === maxIndex}>
+                        <button className="pagenavbtn" id='end' onClick={(e) => setCurrentIndex(maxIndex)} className="" disabled={currentIndex === maxIndex}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3em" id='end' fill="currentColor" viewBox="0 0 16 16">
                                 <path fillRule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z" />
                                 <path fillRule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
@@ -322,7 +336,7 @@ const Shop = () => {
                     </a>
                 </Row>
             </Container>
-            <div style={{ "minHeight": "3vh" }}></div>
+            <div style={{ "minHeight": "5vh" }}></div>
         </Container>
     )
 }

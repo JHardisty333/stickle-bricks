@@ -12,6 +12,7 @@ import NavBar from './components/Navbar';
 import Footer from './components/Footer';
 import Cart from './pages/Cart';
 import Terms from './pages/Terms';
+import Shipping from './pages/Shipping';
 
 function App() {
 return (
@@ -28,6 +29,7 @@ return (
 			<Route exact path='/signup' component={SignUp} />
 			<Route exact path='/Cart' component={Cart} />
 			<Route exact path='/Terms' component={Terms} />
+			<Route exact path='/Shipping' component={Shipping} />		
 		</Switch>
 		<Footer />
 		{/* </> */}
