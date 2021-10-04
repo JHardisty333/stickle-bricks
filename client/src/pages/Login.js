@@ -18,16 +18,20 @@ const Login = () => {
         event.preventDefault();
         console.log(email, password)
         const response = await loginUserApi(email, password);
-        const data = await response.json()
-        if (data.message) {
-            alert(data.message)
+        if (!response.ok) {
+            if (response.status === 500) {
+                return alert('An unknown error has occurred!')
+            } else {
+                const data = await response.json();
+                return alert(data.message);
+            }
         } else {
+            const data = await response.json()
             setEmail('');
             setPassword('');
             localStorage.setItem('stickleBrick-jwt', data);
             history.push('/shop');
         }
-
     }
 
     return (
