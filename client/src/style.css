@@ -45,6 +45,7 @@
     --softpink: #d79ef8;
     --dark-blue: #00519d;
     --light-blue: #00abd9;
+    --police-blue: #1c3a87;
 
     --font-size-xxs: 1.8rem;
     --font-size-xs: 2.2rem;
@@ -639,13 +640,33 @@ footer {
     font-family: 'HelveticaNCB';
     font-size: var(--font-size-s);
     width: 700px;
-    margin: 12rem 8rem 40rem;
+    margin: 10rem 8rem 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}
+.contactspecial{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: var(--white);
+    padding: 40px 30px;
+    color: var(--black);
+    font-family: 'HelveticaNCB';
+    font-size: var(--font-size-s);
+    width: 700px;
+    margin: 2rem 8rem 20rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     border-radius: 15px;
 }
 
 .contactus-text{
     text-align: center;
+}
+.partslist{
+        font-size: large;
+        font-family: 'AdobeReg';
+        margin-top: 10px; 
+        text-align: left;
 }
 
 /* ----- End Contact Us ----- */
@@ -683,7 +704,7 @@ footer {
     font-family: 'HelveticaNCB';
     font-size: var(--font-size-s);
     width: 700px;
-    margin: 12rem 8rem 40rem;
+    margin: 10rem 8rem 30rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     border-radius: 15px;
 }
@@ -692,7 +713,98 @@ footer {
     text-align: center;
 }
 
+.termslist{
+    font-size: medium;
+    font-family: 'AdobeReg';
+    padding: 2%; 
+    text-align: left;
+}
+
 /* ----- End Terms and Conditions ----- */
+
+/* --------------------------------------- */
+/* -----  Shipping ----- */
+/* --------------------------------------- */
+
+.shipping-body {
+    background-color: var(--police-blue);
+}
+
+.shipping-body-pic {
+    background-image:url('./assets/img/legoCar.jpg');
+    max-height: fit-content;
+    background-position:left;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.shipping{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.shippingBox{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: var(--white);
+    padding: 40px 30px;
+    color: var(--black);
+    font-family: 'HelveticaNCB';
+    font-size: var(--font-size-s);
+    width: 700px;
+    margin: 8rem 8rem 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}
+
+.shipping-text{
+    text-align: center;
+}
+
+.shippinglist{
+    font-family: 'HelveticaNCB';
+    font-size: small;
+    text-align: left;
+}
+.shippingDom{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: var(--white);
+    padding: 40px 30px;
+    color: var(--black);
+    font-family: 'HelveticaNCB';
+    font-size: var(--font-size-s);
+    width: 700px;
+    margin: 2rem 8rem 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}
+.shippingInt{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: var(--white);
+    padding: 40px 30px;
+    color: var(--black);
+    font-family: 'HelveticaNCB';
+    font-size: var(--font-size-s);
+    width: 700px;
+    margin: 2rem 8rem 12rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}
+.shipping h3{
+    font-size: medium;
+    font-family: 'AdobeReg';
+    padding: 2%;
+}
+
+
+/* ----- End Shipping ----- */
 
 /* --------------------------------------- */
 /* ----- Media Queries ----- */

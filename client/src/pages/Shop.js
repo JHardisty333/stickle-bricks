@@ -220,18 +220,17 @@ const Shop = () => {
     useEffect(() => {
         fetchData();
         fetchCategories();
+        fetchAllTypes();
+        fetchAllColors();
     }, // eslint-disable-next-line react-hooks/exhaustive-deps
         [])
-    fetchAllTypes();
-    fetchAllColors();
-
 
     return ( //STYLE ME
         <Container fluid className="shop-body" style={{ "minHeight": "80vh" }}>
             <div style={{"minHeight": "5vh"}}></div>
             <Container className="shop-contain">
                 <Row id="top">
-                    <input className="form-control" type="text" id="searchbar" placeholder="Search by color, name, or lego part #" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
+                    <input className="form-control pb-3" type="text" id="searchbar" placeholder="Search by color, name, or lego part #" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}></input>
                     <button type='button' id="search" onClick={(e) => runSearch(e.target.id)}>Search</button>
                     {/* searchbar and sort options */}
                 </Row>
@@ -268,18 +267,6 @@ const Shop = () => {
                         </Row>
                     </Col>
                 </Row>
-
-                <Col sm={9}>
-                    <Row className="d-flex">
-                        {Items}
-                    </Row>
-                </Col>
-
-
-
-
-
-
 
                 <div>
                     <Modal isOpen={modal} toggle={toggle} className='modalStyle'>
