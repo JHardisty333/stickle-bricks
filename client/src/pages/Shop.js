@@ -66,7 +66,7 @@ const Shop = () => {
         }
         pageItems = totalItems.slice(0 + (60 * currentIndex), 60 + (60 * currentIndex));
         setItems(pageItems.map((item) => ( //STYLE ME
-            <Col md={4} key={item._id} className='itemStyle'>
+            <Col md={4} key={item._id} className=''>
                 <img src={item.image[0]} alt={item.productName} id={item._id} onClick={productClick} onError={(e) => { e.target.onerror = null; e.target.src = noImage }} style={{ "maxWidth": "100%", "height": "50%" }} />
                 <p>{item.productName}</p>
                 <p>{item.condition}</p>
@@ -154,12 +154,29 @@ const Shop = () => {
         setCurrentIndex(0);
         const pageItems = items.slice(0, items.length < 60 ? items.length : 60);
         setItems(pageItems.map((item) => (  //STYLE ME
-            <Col md={4} key={item._id} className='itemStyle'>
-                <div className='singleItem'>
-                    <img className="itemcardimg" src={item.image[0]} alt={item.productName} id={item._id} onClick={productClick} onError={(e) => { e.target.onerror = null; e.target.src = noImage }} style={{ "maxWidth": "100%", "height": "80%" }} />
-                    <p>{item.productName}</p>
-                    <p>{item.condition}</p>
-                    <p>{parseFloat(item.price.$numberDecimal)}</p>
+            <Col md={4} key={item._id} className=''>
+                <div className='singleItem' style={{ "minHeight": "55vh" }}>
+                    <img
+                        className="itemcardimg"
+                        src={item.image[0]} alt={item.productName}
+                        id={item._id}
+                        onClick={productClick}
+                        onError={(e) => { e.target.onerror = null; e.target.src = noImage }}
+                        style={{ "maxWidth": "90%", "height": "50%" }}
+                    />
+                    <p className="text-center">{item.productName}</p>
+                    <p>Price: {parseFloat(item.price.$numberDecimal)} </p>
+                    <p>Quantity Available: {item.quantity}</p>
+                    <div className="d-flex">
+                        <div className="pr-3"
+                            style={{
+                                "width": "10px", "height": "10px", "backgroundColor": "#"
+                                + item.colorCode, "border": "1px solid black", "borderRadius": "5px"
+                            }}>
+                        </div>
+                        <p>{item.colorName}</p>
+                    </div>
+
                 </div>
             </Col>
         )))
@@ -288,7 +305,7 @@ const Shop = () => {
 
                 <Row className="d-flex">
                     <a href="#top">
-                        <button id='start' onClick={(e) => setCurrentIndex(0)} className="" disabled={currentIndex === 0}>
+                        <button className="pagenavbtn" id='start' onClick={(e) => setCurrentIndex(0)} className="" disabled={currentIndex === 0}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3em" id='start' fill="currentColor" viewBox="0 0 16 16">
                                 <path fillRule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
                                 <path fillRule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
@@ -296,21 +313,21 @@ const Shop = () => {
                         </button>
                     </a>
                     <a href="#top">
-                        <button id='minus' onClick={(e) => setCurrentIndex(currentIndex - 1)} className="" disabled={currentIndex === 0}>
+                        <button className="pagenavbtn" id='minus' onClick={(e) => setCurrentIndex(currentIndex - 1)} className="" disabled={currentIndex === 0}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3em" fill="currentColor" id='minus' viewBox="0 0 16 16">
                                 <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
                             </svg>
                         </button>
                     </a>
                     <a href="#top">
-                        <button id='plus' onClick={(e) => setCurrentIndex(currentIndex + 1)} className="" disabled={currentIndex === maxIndex}>
+                        <button className="pagenavbtn" id='plus' onClick={(e) => setCurrentIndex(currentIndex + 1)} className="" disabled={currentIndex === maxIndex}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3em" fill="currentColor" id='plus' viewBox="0 0 16 16">
                                 <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
                             </svg>
                         </button>
                     </a>
                     <a href="#top">
-                        <button id='end' onClick={(e) => setCurrentIndex(maxIndex)} className="" disabled={currentIndex === maxIndex}>
+                        <button className="pagenavbtn" id='end' onClick={(e) => setCurrentIndex(maxIndex)} className="" disabled={currentIndex === maxIndex}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="3em" id='end' fill="currentColor" viewBox="0 0 16 16">
                                 <path fillRule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z" />
                                 <path fillRule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
