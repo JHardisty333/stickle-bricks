@@ -24,20 +24,21 @@ const userController = {
 
     // login with email and password
     userLogin(req, res) {
-        User.findOne({
+        const dbUserData = await User.findOne({
             email: req.body.email
         })
             .select('-__v')
             .then(async (dbUserData) => {
-                if (!dbUserData) {
+                if (!dbUserData || dbUserData === {} || dbUserData.length === 0) {
                     res.status(404).json({ message: 'No user found with this email!' });
                     return;
+                } else {
+                    const passwordValid = await dbUserData.isCorrectPassword(req.body.password, dbUserData.password);
+                    if (passwordValid) {
+                        const token = signToken(dbUserData);
+                        res.status(200).json(token);
+                    } else res.status(400).json({ message: 'Incorrect password' });
                 }
-                const passwordValid = await dbUserData.isCorrectPassword(req.body.password, dbUserData.password);
-                if (passwordValid) {
-                    const token = signToken(dbUserData);
-                    res.status(200).json(token);
-                } else res.status(400).json({ message: 'Incorrect password' });
             })
             .catch(err => res.status(500).json({error: err}))
     },

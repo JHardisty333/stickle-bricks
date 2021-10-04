@@ -16,9 +16,13 @@ function SignUp() {
     async function handleSubmit(event) {
         event.preventDefault();
         const response = await signUpUserApi(name, email, password);
-        const data = await response.json();
-        localStorage.setItem('stickleBrick-jwt', data);
-        history.push('/shop')
+        if (!response.ok) {
+            return alert('An unknown error has occurred!')
+        } else {
+            const data = await response.json();
+            localStorage.setItem('stickleBrick-jwt', data);
+            history.push('/shop')
+        }
     }
 
     return (
