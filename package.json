@@ -7,7 +7,7 @@
     "client": "cd client && npm start",
     "server": "cd server && npm run watch",
     "develop": "concurrently \"cd server && npm start\" \"cd client && npm start\"",
-    "install": "cd server && npm i && cd ../client && npm i",
+    "install": "npm install && cd server && npm install && cd ../client && npm install",
     "start": "cd server && npm start",
     "build": "cd client && npm run build",
     "seed": "cd server && npm run seed"
