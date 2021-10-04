@@ -94,7 +94,6 @@ export const checkCartApi = (jwt) => {
         headers: {
             'Authorization': 'Bearer ' + jwt ,
             'Content-Type': 'application/json'
-
         }
     })
    
