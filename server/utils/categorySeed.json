@@ -1,547 +1,438 @@
 [
     {
         "categoryId": 1,
-        "categoryName": "Antenna",
-        "itemType": "PART"
+        "categoryName": "Antenna"
     },
     {
         "categoryId": 3,
-        "categoryName": "Boat",
-        "itemType": "PART"
+        "categoryName": "Boat"
     },
     {
         "categoryId": 4,
-        "categoryName": "Bracket",
-        "itemType": "PART"
+        "categoryName": "Bracket"
     },
     {
         "categoryId": 5,
-        "categoryName": "Brick",
-        "itemType": "PART"
+        "categoryName": "Brick"
     },
     {
         "categoryId": 6,
-        "categoryName": "Arch",
-        "itemType": "PART"
+        "categoryName": "Arch"
     },
     {
         "categoryId": 7,
-        "categoryName": "Brick, Modified",
-        "itemType": "PART"
+        "categoryName": "Brick, Modified"
     },
     {
         "categoryId": 8,
-        "categoryName": "Brick, Round",
-        "itemType": "PART"
+        "categoryName": "Brick, Round"
     },
     {
         "categoryId": 9,
-        "categoryName": "Castle",
-        "itemType": "MINIFIG"
+        "categoryName": "Castle" 
     },
     {
         "categoryId": 10,
-        "categoryName": "Container",
-        "itemType": "PART"
+        "categoryName": "Container"
     },
     {
         "categoryId": 11,
-        "categoryName": "Cylinder",
-        "itemType": "PART"
+        "categoryName": "Cylinder"
     },
     {
         "categoryId": 12,
-        "categoryName": "Door",
-        "itemType": "PART"
+        "categoryName": "Door"
     },
     {
         "categoryId": 13,
-        "categoryName": "Fence",
-        "itemType": "PART"
+        "categoryName": "Fence"
     },
     {
         "categoryId": 14,
-        "categoryName": "Magnet",
-        "itemType": "PART"
+        "categoryName": "Magnet"
     },
     {
         "categoryId": 18,
-        "categoryName": "Minifigure, Utensil",
-        "itemType": "PART"
+        "categoryName": "Minifigure, Utensil"
     },
     {
         "categoryId": 19,
-        "categoryName": "Minifigure, Weapon",
-        "itemType": "PART"
+        "categoryName": "Minifigure, Weapon"
     },
     {
         "categoryId": 21,
-        "categoryName": "Cone",
-        "itemType": "PART"
+        "categoryName": "Cone"
     },
     {
         "categoryId": 22,
-        "categoryName": "Hinge",
-        "itemType": "PART"
+        "categoryName": "Hinge"
     },
     {
         "categoryId": 26,
-        "categoryName": "Plate",
-        "itemType": "PART"
+        "categoryName": "Plate"
     },
     {
         "categoryId": 27,
-        "categoryName": "Plate, Modified",
-        "itemType": "PART"
+        "categoryName": "Plate, Modified"
     },
     {
         "categoryId": 28,
-        "categoryName": "Plate, Round",
-        "itemType": "PART"
+        "categoryName": "Plate, Round"
     },
     {
         "categoryId": 30,
-        "categoryName": "Propeller",
-        "itemType": "PART"
+        "categoryName": "Propeller"
     },
     {
         "categoryId": 31,
-        "categoryName": "Slope",
-        "itemType": "PART"
+        "categoryName": "Slope"
     },
     {
         "categoryId": 32,
-        "categoryName": "Slope, Inverted",
-        "itemType": "PART"
+        "categoryName": "Slope, Inverted"
     },
     {
         "categoryId": 33,
-        "categoryName": "Slope, Decorated",
-        "itemType": "PART"
+        "categoryName": "Slope, Decorated"
     },
     {
         "categoryId": 36,
-        "categoryName": "Technic",
-        "itemType": "PART"
+        "categoryName": "Technic"
     },
     {
         "categoryId": 37,
-        "categoryName": "Tile",
-        "itemType": "PART"
+        "categoryName": "Tile"
     },
     {
         "categoryId": 38,
-        "categoryName": "Tile, Modified",
-        "itemType": "PART"
+        "categoryName": "Tile, Modified"
     },
     {
         "categoryId": 39,
-        "categoryName": "Tile, Decorated",
-        "itemType": "PART"
+        "categoryName": "Tile, Decorated"
     },
     {
         "categoryId": 40,
-        "categoryName": "Turntable",
-        "itemType": "PART"
+        "categoryName": "Turntable"
     },
     {
         "categoryId": 42,
-        "categoryName": "Wedge",
-        "itemType": "PART"
+        "categoryName": "Wedge"
     },
     {
         "categoryId": 43,
-        "categoryName": "Wheel",
-        "itemType": "PART"
+        "categoryName": "Wheel"
     },
     {
         "categoryId": 45,
-        "categoryName": "Arm",
-        "itemType": "PART"
+        "categoryName": "Arm"
     },
     {
         "categoryId": 46,
-        "categoryName": "Bar",
-        "itemType": "PART"
+        "categoryName": "Bar"
     },
     {
         "categoryId": 53,
-        "categoryName": "Adventurers",
-        "itemType": "MINIFIG"
+        "categoryName": "Adventurers" 
     },
     {
         "categoryId": 65,
-        "categoryName": "Star Wars",
-        "itemType": "SET"
+        "categoryName": "Star Wars"
     },
     {
         "categoryId": 67,
-        "categoryName": "Town",
-        "itemType": "MINIFIG"
+        "categoryName": "Town" 
     },
     {
         "categoryId": 72,
-        "categoryName": "Vehicle",
-        "itemType": "PART"
+        "categoryName": "Vehicle"
     },
     {
         "categoryId": 74,
-        "categoryName": "Crane",
-        "itemType": "PART"
+        "categoryName": "Crane"
     },
     {
         "categoryId": 76,
-        "categoryName": "Flag",
-        "itemType": "PART"
+        "categoryName": "Flag"
     },
     {
         "categoryId": 77,
-        "categoryName": "Vehicle, Mudguard",
-        "itemType": "PART"
+        "categoryName": "Vehicle, Mudguard"
     },
     {
         "categoryId": 81,
-        "categoryName": "Window, Glass & Shutter",
-        "itemType": "PART"
+        "categoryName": "Window, Glass & Shutter"
     },
     {
         "categoryId": 83,
-        "categoryName": "Hinge, Decorated",
-        "itemType": "PART"
+        "categoryName": "Hinge, Decorated"
     },
     {
         "categoryId": 88,
-        "categoryName": "String Reel / Winch",
-        "itemType": "PART"
+        "categoryName": "String Reel / Winch"
     },
     {
         "categoryId": 90,
-        "categoryName": "Ladder",
-        "itemType": "PART"
+        "categoryName": "Ladder"
     },
     {
         "categoryId": 91,
-        "categoryName": "Panel",
-        "itemType": "PART"
+        "categoryName": "Panel"
     },
     {
         "categoryId": 93,
-        "categoryName": "Aircraft",
-        "itemType": "PART"
+        "categoryName": "Aircraft"
     },
     {
         "categoryId": 98,
-        "categoryName": "Road Sign",
-        "itemType": "PART"
+        "categoryName": "Road Sign"
     },
     {
         "categoryId": 99,
-        "categoryName": "Rock",
-        "itemType": "PART"
+        "categoryName": "Rock"
     },
     {
         "categoryId": 105,
-        "categoryName": "Support",
-        "itemType": "PART"
+        "categoryName": "Support"
     },
     {
         "categoryId": 106,
-        "categoryName": "Tail",
-        "itemType": "PART"
+        "categoryName": "Tail"
     },
     {
         "categoryId": 111,
-        "categoryName": "Tire & Tread",
-        "itemType": "PART"
+        "categoryName": "Tire & Tread"
     },
     {
         "categoryId": 113,
-        "categoryName": "Window",
-        "itemType": "PART"
+        "categoryName": "Window"
     },
     {
         "categoryId": 114,
-        "categoryName": "Wing",
-        "itemType": "PART"
+        "categoryName": "Wing"
     },
     {
         "categoryId": 115,
-        "categoryName": "Windscreen",
-        "itemType": "PART"
+        "categoryName": "Windscreen"
     },
     {
         "categoryId": 116,
-        "categoryName": "Dish",
-        "itemType": "PART"
+        "categoryName": "Dish"
     },
     {
         "categoryId": 117,
-        "categoryName": "Tile, Round",
-        "itemType": "PART"
+        "categoryName": "Tile, Round"
     },
     {
         "categoryId": 118,
-        "categoryName": "Brick, Decorated",
-        "itemType": "PART"
+        "categoryName": "Brick, Decorated"
     },
     {
         "categoryId": 123,
-        "categoryName": "Electric, Light & Sound",
-        "itemType": "PART"
+        "categoryName": "Electric, Light & Sound"
     },
     {
         "categoryId": 131,
-        "categoryName": "Vehicle, Base",
-        "itemType": "PART"
+        "categoryName": "Vehicle, Base"
     },
     {
         "categoryId": 132,
-        "categoryName": "Window, Glass & Shutter, Decorated",
-        "itemType": "PART"
+        "categoryName": "Window, Glass & Shutter, Decorated"
     },
     {
         "categoryId": 133,
-        "categoryName": "Technic, Connector",
-        "itemType": "PART"
+        "categoryName": "Technic, Connector"
     },
     {
         "categoryId": 134,
-        "categoryName": "Technic, Axle",
-        "itemType": "PART"
+        "categoryName": "Technic, Axle"
     },
     {
         "categoryId": 135,
-        "categoryName": "Technic, Brick",
-        "itemType": "PART"
+        "categoryName": "Technic, Brick"
     },
     {
         "categoryId": 136,
-        "categoryName": "Technic, Gear",
-        "itemType": "PART"
+        "categoryName": "Technic, Gear"
     },
     {
         "categoryId": 137,
-        "categoryName": "Technic, Liftarm",
-        "itemType": "PART"
+        "categoryName": "Technic, Liftarm"
     },
     {
         "categoryId": 138,
-        "categoryName": "Technic, Link",
-        "itemType": "PART"
+        "categoryName": "Technic, Link"
     },
     {
         "categoryId": 139,
-        "categoryName": "Technic, Pin",
-        "itemType": "PART"
+        "categoryName": "Technic, Pin"
     },
     {
         "categoryId": 140,
-        "categoryName": "Technic, Plate",
-        "itemType": "PART"
+        "categoryName": "Technic, Plate"
     },
     {
         "categoryId": 141,
-        "categoryName": "Technic, Steering",
-        "itemType": "PART"
+        "categoryName": "Technic, Steering"
     },
     {
         "categoryId": 142,
-        "categoryName": "Minifigure, Body Wear",
-        "itemType": "PART"
+        "categoryName": "Minifigure, Body Wear"
     },
     {
         "categoryId": 147,
-        "categoryName": "Animal, Land",
-        "itemType": "PART"
+        "categoryName": "Animal, Land"
     },
     {
         "categoryId": 148,
-        "categoryName": "Animal, Body Part",
-        "itemType": "PART"
+        "categoryName": "Animal, Body Part"
     },
     {
         "categoryId": 152,
-        "categoryName": "Znap",
-        "itemType": "PART"
+        "categoryName": "Znap"
     },
     {
         "categoryId": 154,
-        "categoryName": "Technic, Panel",
-        "itemType": "PART"
+        "categoryName": "Technic, Panel"
     },
     {
         "categoryId": 161,
-        "categoryName": "Plastic",
-        "itemType": "PART"
+        "categoryName": "Plastic"
     },
     {
         "categoryId": 170,
-        "categoryName": "Alpha Team",
-        "itemType": "MINIFIG"
+        "categoryName": "Alpha Team" 
     },
     {
         "categoryId": 225,
-        "categoryName": "Riding Cycle",
-        "itemType": "PART"
+        "categoryName": "Riding Cycle"
     },
     {
         "categoryId": 229,
-        "categoryName": "Rubber Band & Belt",
-        "itemType": "PART"
+        "categoryName": "Rubber Band & Belt"
     },
     {
         "categoryId": 235,
-        "categoryName": "Bionicle, Kanohi Mask",
-        "itemType": "PART"
+        "categoryName": "Bionicle, Kanohi Mask"
     },
     {
         "categoryId": 242,
-        "categoryName": "Technic, Figure Accessory",
-        "itemType": "PART"
+        "categoryName": "Technic, Figure Accessory"
     },
     {
         "categoryId": 246,
-        "categoryName": "Paper",
-        "itemType": "PART"
+        "categoryName": "Paper"
     },
     {
         "categoryId": 273,
-        "categoryName": "Bionicle",
-        "itemType": "PART"
+        "categoryName": "Bionicle"
     },
     {
         "categoryId": 284,
-        "categoryName": "Ninja",
-        "itemType": "MINIFIG"
+        "categoryName": "Ninja" 
     },
     {
         "categoryId": 399,
-        "categoryName": "Storage",
-        "itemType": "GEAR"
+        "categoryName": "Storage"
     },
     {
         "categoryId": 438,
-        "categoryName": "Slope, Curved",
-        "itemType": "PART"
+        "categoryName": "Slope, Curved"
     },
     {
         "categoryId": 461,
-        "categoryName": "Panel, Decorated",
-        "itemType": "PART"
+        "categoryName": "Panel, Decorated"
     },
     {
         "categoryId": 473,
-        "categoryName": "Sports",
-        "itemType": "PART"
+        "categoryName": "Sports"
     },
     {
         "categoryId": 479,
-        "categoryName": "Cockpit",
-        "itemType": "PART"
+        "categoryName": "Cockpit"
     },
     {
         "categoryId": 483,
-        "categoryName": "Technic, Flex Cable",
-        "itemType": "PART"
+        "categoryName": "Technic, Flex Cable"
     },
     {
         "categoryId": 522,
-        "categoryName": "Hose, Ribbed 7mm D.",
-        "itemType": "PART"
+        "categoryName": "Hose, Ribbed 7mm D."
     },
     {
         "categoryId": 532,
-        "categoryName": "Wheel & Tire Assembly",
-        "itemType": "PART"
+        "categoryName": "Wheel & Tire Assembly"
     },
     {
         "categoryId": 540,
-        "categoryName": "Door, Frame",
-        "itemType": "PART"
+        "categoryName": "Door, Frame"
     },
     {
         "categoryId": 569,
-        "categoryName": "Large Figure Part",
-        "itemType": "PART"
+        "categoryName": "Large Figure Part"
     },
     {
         "categoryId": 578,
-        "categoryName": "Wedge, Decorated",
-        "itemType": "PART"
+        "categoryName": "Wedge, Decorated"
     },
     {
         "categoryId": 579,
-        "categoryName": "Windscreen, Decorated",
-        "itemType": "PART"
+        "categoryName": "Windscreen, Decorated"
     },
     {
         "categoryId": 583,
-        "categoryName": "Wedge, Plate",
-        "itemType": "PART"
+        "categoryName": "Wedge, Plate"
     },
     {
         "categoryId": 638,
-        "categoryName": "Technic, Disk",
-        "itemType": "PART"
+        "categoryName": "Technic, Disk"
     },
     {
         "categoryId": 642,
-        "categoryName": "Door, Decorated",
-        "itemType": "PART"
+        "categoryName": "Door, Decorated"
     },
     {
         "categoryId": 736,
-        "categoryName": "Brick, Round, Decorated",
-        "itemType": "PART"
+        "categoryName": "Brick, Round, Decorated"
     },
     {
         "categoryId": 738,
-        "categoryName": "Flag, Decorated",
-        "itemType": "PART"
+        "categoryName": "Flag, Decorated"
     },
     {
         "categoryId": 741,
-        "categoryName": "Tail, Decorated",
-        "itemType": "PART"
+        "categoryName": "Tail, Decorated"
     },
     {
         "categoryId": 775,
-        "categoryName": "Slope, Curved, Decorated",
-        "itemType": "PART"
+        "categoryName": "Slope, Curved, Decorated"
     },
     {
         "categoryId": 776,
-        "categoryName": "Slope, Inverted, Decorated",
-        "itemType": "PART"
+        "categoryName": "Slope, Inverted, Decorated"
     },
     {
         "categoryId": 777,
-        "categoryName": "Technic, Liftarm, Decorated",
-        "itemType": "PART"
+        "categoryName": "Technic, Liftarm, Decorated"
     },
     {
         "categoryId": 780,
-        "categoryName": "Vehicle, Mudguard, Decorated",
-        "itemType": "PART"
+        "categoryName": "Vehicle, Mudguard, Decorated"
     },
     {
         "categoryId": 812,
-        "categoryName": "Tile, Round, Decorated",
-        "itemType": "PART"
+        "categoryName": "Tile, Round, Decorated"
     },
     {
         "categoryId": 890,
-        "categoryName": "Plate, Modified, Decorated",
-        "itemType": "PART"
+        "categoryName": "Plate, Modified, Decorated"
     },
     {
         "categoryId": 966,
-        "categoryName": "Arch, Decorated",
-        "itemType": "PART"
+        "categoryName": "Arch, Decorated"
     },
     {
         "categoryId": 992,
-        "categoryName": "Projectile Launcher",
-        "itemType": "PART"
+        "categoryName": "Projectile Launcher"
     }
 ]

@@ -11,10 +11,6 @@ const categorySchema = new Schema(
         categoryName: {
             type: String,
             required: true
-        },
-        itemType: {
-            type: String,
-            required: true
         }
     }
 );

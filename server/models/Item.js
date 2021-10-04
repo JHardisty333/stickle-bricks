@@ -1,6 +1,4 @@
 const { Schema, model, Types } = require('mongoose');
-const Category = require('./Category');
-
 
 const itemSchema = new Schema(
     {
@@ -45,7 +43,7 @@ const itemSchema = new Schema(
         },
         condition: {
             type: String,
-            default: 'Used', //used, new if set though it can have used, new, with a sub category of complete / incomplete and or sealed
+            default: 'Used', //used, new, if its a set though it can have used, new, with a sub category of complete / incomplete and or sealed
             required: true
         },
         date_added: {
@@ -61,6 +59,10 @@ const itemSchema = new Schema(
             type: Boolean,
             default: false
         },
+        featured: {
+            type: Boolean,
+            default: false
+        },
         categoryId: {
             type: Number,
             required: true
@@ -73,7 +75,10 @@ const itemSchema = new Schema(
     }
 );
 
-itemSchema.index({productName: 'text' })
+itemSchema.index({productName: 'text', productId: "text", colorName: "text" })
 const Item = model('Item', itemSchema);
+
+//this is used to update the index's
+//Item.collection.dropIndexes((err, results) => console.log(err, results))
 
 module.exports = Item;
