@@ -99,7 +99,7 @@ With as many challenges as we had, we had that many victories AT LEAST.
 
 - Ryan Jepson
 
-<a href="">Deployed Heroku</a>
+<a href="https://sticklebricks.herokuapp.com/">Deployed Heroku</a>
 
 <a href="https://github.com/JHardisty333/stickle-bricks">GitHub Repo</a>
 
