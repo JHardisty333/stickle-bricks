@@ -37,10 +37,10 @@ const Login = () => {
                     <div className="login1">
                         <div className="formcontrol">
                             <label htmlFor="email" className="form-label"> Customer Login </label>
-                            <input type="email" placeHolder="Email Address" className="form-control" value={email} onChange={(e) => setEmail(e.target.value)} />
+                            <input type="email" placeholder="Email Address" className="form-control" value={email} onChange={(e) => setEmail(e.target.value)} />
                         </div>
                         <div className="formcontrol">
-                            <input type="password" placeHolder="Password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} />
+                            <input type="password" placeholder="Password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} />
                         </div>
 
                         <div className="login-buttons">

@@ -1,16 +1,39 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Alert, Spinner } from 'reactstrap';
-import { checkCartApi, deleteCartApi  } from '../utils/api'
-import noImage from '../utils/noImageFound.jpg';
+import { UncontrolledAlert, Spinner } from 'reactstrap';
+import { checkCartApi, deleteCartApi  } from '../utils/api';
+import { confirmAlert } from 'react-confirm-alert'; 
+import 'react-confirm-alert/src/react-confirm-alert.css'; 
 
 // import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 const Cart = () => {
 
-    function removeItem(itemId) {
-       if(confirm('Are you sure you want to remove this item?')) {
-        const jwt = localStorage.getItem('stickelbricks-jwt');
+    const [cart, setCart] = useState();
+    const [checkCart, setCheckCart] = useState((<Spinner color="dark" className="my-5 p-4 mx-auto" />))
+    const history = useHistory();
+
+    function removeItem(e) {
+        confirmAlert({
+            title: 'Are you sure to remove ' + e.target.value + ' from your cart?',
+            message: '',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: () => confirmRemove(e)
+                },
+                {
+                    label: 'No',
+                    onClick: () => {return} 
+                }
+            ]
+        });
+    }
+
+    async function confirmRemove(e) {
+        const itemId = e.target.id;
+        const productName = e.target.value;
+        const jwt = localStorage.getItem('stickleBrick-jwt');
         const response = await deleteCartApi(jwt, itemId);
         if (!response.ok) {
             if (response.status === 401) {
@@ -19,62 +42,61 @@ const Cart = () => {
                 return;
             } else return alert('an error has occurred');
         }
+        alert(productName + 'has been deleted from your cart!')
+        fetchData();
     }
-        
-    }
 
-
-
-    const [cart, setCart] = useState();
-    const [checkCart, setCheckCart] = useState((<Spinner color="dark" className="my-5 p-4 mx-auto" />))
-    const [visible, setVisible] = useState(true)
-    const history = useHistory();
-
-    const onDismiss = () => setVisible(false)
-
-    async function fetchData(props) {
-        const jwt = localStorage.getItem('stickelbricks-jwt');
+    async function fetchData() {
+        const jwt = localStorage.getItem('stickleBrick-jwt');
         const response = await checkCartApi(jwt);
-        const data = await response.json();
-        console.log(data);
         if (!response.ok) {
             if (response.status === 409) {
                 const cartData = await response.json();
                 setCheckCart(cartData.cartErrors.map((error) => (
                     <div>
-                        <Alert color="info" isOpen={visible} toggle={onDismiss}>
-                            <h1>{error.issue}</h1>
-                        </Alert>
+                        <UncontrolledAlert color="info">
+                            <p className="fs-1">{error.issue}</p>
+                        </UncontrolledAlert>
                     </div>
                 )))
-                setCart(cartData.cart.map((item) => (
-                    <div>
-                        <img src={item.image} alt={item.productName} id={item.itemId} onError={(e) => { e.target.onerror = null; e.target.src = noImage }} style={{ "maxWidth": "100%", "height": "50%" }} />
-                        <p>{item.productName}</p>
-                        <p>{item.quantity}</p>
-                        <p>{parseFloat(item.price.$numberDecimal)}</p>
-                    </div>
-                )))
+                if (cartData.cart.length === 0) {
+                    setCart((<div><h3>Your Cart is Empty!</h3></div>))
+                } else {
+                    setCart(cartData.cart.map((item) => (
+                        <div>
+                            <img src={item.image} alt={item.productName} id={item.itemId} style={{ "maxWidth": "100%", "height": "50%" }} />
+                            <p>{item.productName}</p>
+                            <p>Quantity: {item.quantity}</p>
+                            <p>Price: {parseFloat(item.priceTotal.$numberDecimal)}</p>
+                            <button type="button" id={item.itemId} value={item.productName} onClick={(e) => removeItem(e)}>Remove From Cart</button>
+                        </div>
+                    )));
+                }
+                
             } else if (response.status === 401) {
-                localStorage.removeItem('sticklebricks-jwt');
+                localStorage.removeItem('stickleBrick-jwt');
                 history.push('/login');
             } else return alert('An error has occurred');
+        } else {
+            const cartData = await response.json();
+            if (cartData.cart.length === 0) {
+                setCart((<div className="mt-5"><h2>Your Cart is Empty!</h2></div>))
+            } else {
+                setCart(cartData.cart.map((item) => (
+                    <div>
+                        <img src={item.image} alt={item.productName} id={item.itemId} style={{ "maxWidth": "100%", "height": "50%" }} />
+                        <p>{item.productName}</p>
+                        <p>Quantity: {item.quantity}</p>
+                        <p>Price: {parseFloat(item.priceTotal.$numberDecimal)}</p>
+                        <button type="button" id={item.itemId} value={item.productName} onClick={(e) => removeItem(e)}>Remove From Cart</button>
+                    </div>
+                )));
+            }
+            setCheckCart((<div></div>))
+
+
         }
-        const cartData = await response.json();
-        setCart(cartData.cart.map((item) => {
-            return (
-                <div>
-                    <img src={item.image} alt={item.productName} id={item.itemId} style={{ "maxWidth": "100%", "height": "50%" }} />
-                    <p>{item.productName}</p>
-                    <p>{item.quanity}</p>
-                    <p>{parseFloat(item.priceTotal.$numberDecimal)}</p>
-                    <button type="button" id={item.itemId} onClick={(e) => removeItem(e.target.id)}>Remove</button>
-                </div>
-            )
-
-        }))
-
-
+        
     }
 
     useEffect(() => {
@@ -89,16 +111,15 @@ const Cart = () => {
                 <div className="shop_cart">
                     <div className="cart">
                         <span className="cart">
-                            <h1>Shopping Cart</h1>
-
-
-                            {checkCart}
-
+                            <div>
+                                <h1>Shopping Cart</h1>
+                            </div>
+                            <div>
+                                {checkCart}
+                            </div>
                             <div>
                                 {cart}
                             </div>
-
-
                         </span>
                     </div>
                 </div>

@@ -28,13 +28,13 @@ function SignUp() {
                     <div className="signup1">
                         <div className="formcontrol">
                             <label htmlFor="name" className="form-label">Sign Up</label>
-                            <input type="name" placeHolder="Name" className="form-control" value={name} onChange={(e) => setName(e.target.value)} />
+                            <input type="name" placeholder="Name" className="form-control" value={name} onChange={(e) => setName(e.target.value)} />
                         </div>
                         <div className="formcontrol">
-                            <input type="email" placeHolder="Email" className="form-control" value={email} onChange={(e) => setEmail(e.target.value)} />
+                            <input type="email" placeholder="Email" className="form-control" value={email} onChange={(e) => setEmail(e.target.value)} />
                         </div>
                         <div className="formcontrol">
-                            <input type="password" placeHolder="Password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} />
+                            <input type="password" placeholder="Password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} />
                         </div>
                         <div className="signup-buttons">
                             <button type="submit" className="signupButton" onClick={handleSubmit} disabled={!validateForm()}>Submit</button>
