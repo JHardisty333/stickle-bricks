@@ -24,7 +24,7 @@ const userController = {
 
     // login with email and password
     userLogin(req, res) {
-        const dbUserData = await User.findOne({
+        User.findOne({
             email: req.body.email
         })
             .select('-__v')
