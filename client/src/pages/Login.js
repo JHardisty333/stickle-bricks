@@ -22,6 +22,7 @@ const Login = () => {
         if (data.message) {
             alert(data.message)
         } else {
+            console.log(data)
             setEmail('');
             setPassword('');
             localStorage.setItem('stickleBrick-jwt', data);
