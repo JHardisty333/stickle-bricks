@@ -155,7 +155,7 @@ const Shop = () => {
         const pageItems = items.slice(0, items.length < 60 ? items.length : 60);
         setItems(pageItems.map((item) => (  //STYLE ME
             <Col md={4} key={item._id} className=''>
-                <div className='singleItem' style={{ "minHeight": "55vh" }}>
+                <div className='singleItem' style={{ "minHeight": "95%" }}>
                     <img
                         className="itemcardimg"
                         src={item.image[0]} alt={item.productName}
@@ -211,7 +211,7 @@ const Shop = () => {
 
     async function fetchAllTypes() {
         const response = await allItemTypesApi();
-        if (!response.ok) alert('An error has occurred!')
+        if (!response.ok) alert('An error has occurred!');
         const types = await response.json();
         setType(types.map((type) => (
             <option key={type.itemType} value={type.itemType}>{type.itemType}</option>
